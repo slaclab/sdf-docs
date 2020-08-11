@@ -2,7 +2,7 @@
 
 Welcome to the SLAC Scientific Shared Data Facility (SDF). This site provides a web based frontend to all things related to high performance compuating (HPC) and storage at SLAC.
 
-!> We're still beta testing SDF; if you have any questions or suggestions, please feel free to [contact us](contact.md)!
+!> We're still beta testing SDF; if you have any questions or suggestions, please feel free to [contact us](contact-us.md)!
 
 ## What is the SDF?
 
