@@ -2,23 +2,27 @@
 
 # Batch Compute
 
+## Introduction
+
 Slurm is a batch scheduler that enables users (you!) to submit long (or even short) compute 'jobs' to our compute clusters. It will queue up jobs such that the (limited) resources compute resources available are fairly shared and distributed for all users. This page describes basic usage of slurm at SLAC. It will provide some simple examples of how to request common resources.
 
-## Why should I use Batch?
+### Why should I use Batch?
 
 Whilst your desktop computer and or laptop computer has a fast processor and quick local access to data stored on its hard disk/ssd; you may want to run either very big and/or very large compute tasks that may require a lot of CPUs, GPUs, memory, or a lot of data. Our compute servers that are part of the Batch system allows your to do this. Our servers typically also have very fast access to centralised storage, have (some) common software already preinstalled, and will enable you to run these long tasks without impacting your local desktop/laptop resources.
 
-## Why should I use Slurm?
+### Why should I use Slurm?
 
 Historically, we have always use IBM's LSF as our Batch scheduler software. However, with new hardware such as GPU's, we have found that the user experience and the administrative accounting features of LSF to be lacking. Slurm is also commonly used across academic and laboratory environments and we hope that this commonality will facilitate easy usage for you, and simpler administration for us.
 
 
-## What should I know about using Batch?
+## Slurm Basics
+
+### What should I know about using Batch?
 
 As the number of servers and GPUs in our environment is limited (but not small), we need to keep account of who uses what. In addition, as groups/teams can purchase their own servers to be added to the SDF we must provide a method of which allocated users can have priority access to the servers that were purchased for them. A slurm Account is basically something that you will charge your job against.
 
 
-## What is a Slurm Partition?
+### What is a Slurm Partition?
 
 A Partition is a logical grouping of compute servers. These may be servers of a similar technical specification (eg Cascade Lake CPUs, Telsa GPUs etc), or by ownership of the servers - eg SUNCAT group may have purchased so many servers, so we put them all into a Partition.
 
@@ -41,7 +45,7 @@ cryoem       up   infinite      4   idle cryoem-gpu[01,03,10,50]
 ```
 
 
-## What is a Slurm Allocation?
+### What is a Slurm Allocation?
 
 In order to provide appropriate access for users to the hardware, an Allocation is created that defines what User can run on what Partition and charge against what Account (there's a bit more in the backend to this).
 
@@ -59,8 +63,9 @@ sstat	show job usage details
 sacctmgr	manage Associations
  
 
+## Using Slurm
 
-## How can I get an Interactive Terminal?
+### How can I get an Interactive Terminal?
 
 
 use the srun command
@@ -76,7 +81,7 @@ Note that when you 'exit' the interactive session, it will relinquish the resour
 
 
 
-## How do I submit a Batch Job?
+### How do I submit a Batch Job?
 
 use the sbatch command, this primer needs to be elaborated:
 
@@ -129,7 +134,10 @@ And you can cancel the job with
 scancel <jobid>
 ```
 
-##  How can I request GPUs?
+## Using GPUs
+
+###  How can I request GPUs?
+
 You can use the --gpus to specify gpus for your jobs: Using a number will request the number of any gpu that is available (what you get depends upon what your Account/Association is and what is available when you request it). You can also specify the type of gpus by prefixing the number with the model name. eg
 
 ```
@@ -146,7 +154,7 @@ srun -A shared -p shared -n 1 --gpus geforce_rtx_2080_ti:1 --pty /bin/bash
 srun -A shared -p shared -n 1 --gpus v100:1 --pty /bin/bash
 ```
 
-## How can I see what GPUs are available?
+### How can I see what GPUs are available?
 
 ```
 # sinfo -o "%12P %5D %14F %7z %7m %10d %11l %42G %38N %f"
@@ -170,11 +178,14 @@ cryoem       1     0/1/0/1        2:8:2   191567  0          infinite    gpu:v10
 
 ```
 
-## How can I request a GPU with certain features and or memory?
+### How can I request a GPU with certain features and or memory?
 
 TBA... something about using Constraints. Maybe get the gres for gpu memory working.
 
-## What Accounts are there?
+
+## Resources and Allocations
+
+### What Accounts are there?
 
 Accounts are used to allow us to track, monitor and report on usage of SDF resources. As such, users who are members of stakeholders of SDF hardware, should use their relevant Account to charge their jobs against. We do not associate any monetary value to Accounts currently, but we do require all Jobs to be charged against an Account.
 
@@ -192,7 +203,8 @@ Accounts are used to allow us to track, monitor and report on usage of SDF resou
 
 
 
-## What Partitions are there?
+### What Partitions are there?
+
 Partitions define a grouping of machines. In our use case the grouping to refer to science and engineering groups who have purchased servers for the SDF. We do this such that members (or associates) of those groups can have priority access to their hardware. Whilst we give everyone access to all hardware, by default, users who belong to groups who do not own any stake in SDF will have lower priority access and use of stakeholder's resources.
 
 
@@ -209,7 +221,9 @@ Partitions define a grouping of machines. In our use case the grouping to refer 
 |lcls	 |LCLS AMD Rome Servers	| Wilko |
 
 
-## Help! My Job takes a long time before it starts!
+## Frequently Asked Questions
+
+### Help! My Job takes a long time before it starts!
 
 This is often due to limited resources. The simplest way is to request less CPU (-N) or less memory for your Job. However, this will also likely increase the amount of time that you need for the Job to complete. Note that perfect scaling is often very difficult (ie using 16 CPUs will run twice as fast as 8 CPUs), so it may be beneficial to submit many smaller Jobs where possible. You can also set the --time option to specify that your job will only run upto that amount of time so that the scheduler can better fit your job in.
 
@@ -219,7 +233,7 @@ You can also make use of the Scavenger QoS such that your job may run on any ava
 
 
 
-## What is QoS?
+### What is QoS?
 
 A Quality of Service for a job defines restrictions on how a job is ran. In relation to an Allocation, a user may preempt, or be preempted by other job with a 'higher' QoS. We define 2 levels of QoS:
 
@@ -245,7 +259,7 @@ is it possible to define multiple? ie cryoem with normal + shared with scavenger
 
 
 
-## How can I restrict/contraint which servers to run my Job on?
+### How can I restrict/contraint which servers to run my Job on?
 
 You can use slurm Constraints. We tag each and every server that help identify specific Features that each has: whether that is the kind of CPU, or the kind of GPU that run on them.
 
