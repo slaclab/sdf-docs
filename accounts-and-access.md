@@ -13,7 +13,7 @@ As we transition from our legacy authentication technologies, you will need a SL
 If you do not have a SLAC Windows account, you can...
 
 - If you already have a SLAC Unix account, you can request one automatically one through [Accounts Portal](https://oraweb.slac.stanford.edu/apex/slac/f?p=136). You may have to wait upto an hour for some of the backend systems to verify your account.
-- You SLAC sponsor can request a SLAC Windows account at: https://slacprod.servicenowservices.com/it_services?id=sc_cat_item&sys_id=17176b676ff12100aae0c6012e3ee4f7&sysparm_category=d65827c46fd921009c4235af1e3ee434 (SLAC login required)
+- Your SLAC sponsor can request a SLAC Windows account at: https://slacprod.servicenowservices.com/it_services?id=sc_cat_item&sys_id=17176b676ff12100aae0c6012e3ee4f7&sysparm_category=d65827c46fd921009c4235af1e3ee434 (SLAC login required)
 
 
 ## How do I log onto SDF?
