@@ -67,7 +67,7 @@ use the srun command
 
 
 ```
-srun -A shared -p shared -n 1 --pty /bin/bash
+srun -A shared -p shared -n 1 --pty /bin/bash 
 ```
 
 This will then execute /bin/bash on a (scheduled) server in the Partition shared and charge against Account shared. This will request a single CPU, launch a pseudo terminal (pty) where bash will run. You may be provided different Accounts and Partitions and should use them when possible.
