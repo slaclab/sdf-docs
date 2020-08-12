@@ -13,8 +13,7 @@ As we transition from our legacy authentication technologies, you will need a SL
 If you do not have a SLAC Windows account, you can...
 
 - If you already have a SLAC Unix account, you can request one automatically one through [Accounts Portal](https://oraweb.slac.stanford.edu/apex/slac/f?p=136). You may have to wait upto an hour for some of the backend systems to verify your account.
-- Request a SLAC Computer account at ...
-
+- Your SLAC sponsor can request a SLAC Windows account at this [Service Now Link](https://slacprod.servicenowservices.com/it_services?id=sc_cat_item&sys_id=17176b676ff12100aae0c6012e3ee4f7&sysparm_category=d65827c46fd921009c4235af1e3ee434) (SLAC login required)
 
 ## How do I log onto SDF?
 
@@ -23,12 +22,14 @@ You can access SDF via [SSH](#ssh) or via a [web portal](interactive-compute.md)
 
 ## How do I SSH  :id=ssh
 
-You can connect to our bastion SSH login servers at eitehr
+You can connect to our bastion SSH login servers at either
 
 - sdf-login01.slac.stanford.edu
 - sdf-login02.slac.stanford.edu
 
-!> _TODO_ use a load balanced name?
+Or, you can use the load balanced name:
+
+- sdf-login.slac.stanford.edu
 
 ### Using a Terminal
 
