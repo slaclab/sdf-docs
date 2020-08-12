@@ -12,7 +12,7 @@ As we transition from our legacy authentication technologies, you will need a SL
 
 If you do not have a SLAC Windows account, you can...
 
-- If you already have a SLAC Unix account, you can request one automatically one through [Accounts Portal](https://oraweb.slac.stanford.edu/apex/slac/f?p=136). You may have to wait upto an hour for some of the backend systems to verify your account.
+- If you already have a SLAC Unix account, you can request one automatically one through [Accounts Portal](https://oraweb.slac.stanford.edu/apex/slac/f?p=136). You may have to wait up to an hour for some of the backend systems to verify your account.
 - Request a SLAC Computer account at ...
 
 
