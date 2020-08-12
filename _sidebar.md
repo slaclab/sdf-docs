@@ -6,6 +6,7 @@
 * [Compute Environment](compute-environment.md)
 * [Batch Compute](batch-compute.md)
 * [Interactive Compute](interactive-compute.md)
+* [Software](software.md)
 * [Data and Storage](data-and-storage.md)
 * [Transferring Data](data-transfer.md)
 * [Contact Us](contact-us.md)
