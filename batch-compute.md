@@ -114,7 +114,7 @@ You will need an account (see below). All SLAC users have access to the "shared"
 Then, in order to submit the job: 
 
 ```
-sbatch script.sh
+sbatch script.sh 
 ```
 
 You can then use the command to monitor your job progress
