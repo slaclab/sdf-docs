@@ -1,6 +1,6 @@
 * [Home](/)
 * [Getting Started](getting-started.md)
-* [News & Updates](changelog.md)
+* [Status, News & Updates](changelog.md)
 * [Accounts & Access](accounts-and-access.md)
 * [Resources and Allocations](resources-and-allocations.md)
 * [Compute Environment](compute-environment.md)
