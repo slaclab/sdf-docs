@@ -100,6 +100,8 @@ From there, you will be presented a prompt for your password, just like as [abov
 
 ## Great! What now?
 
+!> __TODO__ add some links and describe
+
 - determine where your data is
 - see what compute resources are available to me
 - launch a batch job
