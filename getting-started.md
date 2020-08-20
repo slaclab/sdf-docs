@@ -9,6 +9,8 @@
 | Globus Endpoint 	| slac#sdf 	|  	
 | Documentation | [https://sdf.slac.stanford.edu] |
 | Scheduler | [slurm](https://slurm.schedmd.com/) |
+| Help | [slac.slack.com #comp-sdf](https://app.slack.com/client/T1X4J8FJ8/C01965DTG91) |
+
 
 ## Accounts
 
