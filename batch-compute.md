@@ -180,45 +180,8 @@ cryoem       1     0/1/0/1        2:8:2   191567  0          infinite    gpu:v10
 
 ### How can I request a GPU with certain features and or memory?
 
-TBA... something about using Constraints. Maybe get the gres for gpu memory working.
+?> TBA... something about using Constraints. Maybe get the gres for gpu memory working.
 
-
-## Resources and Allocations
-
-### What Accounts are there?
-
-Accounts are used to allow us to track, monitor and report on usage of SDF resources. As such, users who are members of stakeholders of SDF hardware, should use their relevant Account to charge their jobs against. We do not associate any monetary value to Accounts currently, but we do require all Jobs to be charged against an Account.
-
-
-| | | |
-|--- |--- |--- |
-|atlas	|ATLAS Group	|Yee/Wei |
-|cryoem	|CryoEM Group	|Yee     |
-|hps	  |HPS Group	  |Omar    |
-|LCLS	  |LCLS Group	  |Wilko   |
-|ml	    |Machine Learning Initiative |	Daniel/Yee |
-|neutrino	|Neutrino Group	| Kazu |
-|shared	|Everyone	    |Renata |
-|suncat	|SUNCAT Group	| Johanne| 
-
-
-
-### What Partitions are there?
-
-Partitions define a grouping of machines. In our use case the grouping to refer to science and engineering groups who have purchased servers for the SDF. We do this such that members (or associates) of those groups can have priority access to their hardware. Whilst we give everyone access to all hardware, by default, users who belong to groups who do not own any stake in SDF will have lower priority access and use of stakeholder's resources.
-
-
-| | | |
-|- |- |- |
-|shared	| General resources; this contains all shareable reasources, including GPUs	| Renata |
-|ml	     |Machine Learning Initiative GPU servers |	Daniel / Yee |
-|cryoem	|CryoEM GPU servers	| Yee |
-|neutrino	|Neutrino GPU servers	| Kazu |
-|suncat	|SUNCAT AMD Rome Servers	| Johannes |
-|hps	|HPS AMD Rome Servers	| Omar |
-|fermi	|Fermi (LAT) AMD Rome Servers	| Richard |
-|atlas |ATLAS GPU Servers	| Yee / Wei |
-|lcls	 |LCLS AMD Rome Servers	| Wilko |
 
 
 ## Frequently Asked Questions
