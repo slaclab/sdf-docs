@@ -37,7 +37,7 @@ sdf-login02.slac.stanford.edu
 
 ### Using a Terminal
 
-You can use any SSH client, such as [OpenSSH](www.openssh.com) or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) use use the Standard TCP port 22 to connect to the servers above.
+You can use any SSH client, such as [OpenSSH](www.openssh.com) or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) and use the Standard TCP port 22 to connect to the servers above.
 
 The following example shows us using the `ssh` command to login to one of the SDF SSH login servers. It asks for our password (which we enter, followed by `Enter`) and shows a successful login.
 
