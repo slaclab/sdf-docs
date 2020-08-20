@@ -45,3 +45,19 @@ Each server consists of
 
 
 ## Contributing to SDF :id=contributing-to-sdf
+
+All SLAC employees and experimental facility users and affiliate are automatically granted permissions to access and utilise SDF resources. By default, all users are granted use of the shared partition whereby their jobs may be pre-empted to higher priority users (ie users whom have purchased hardware resources to add onto SDF). Whilst we wish to meet the needs of everyone, it may not be always possible to do conduct your reseearch on the 'free' resources provided by this shared partition. Users and their affiliated group(s) are also provided free storage.
+
+We invite all groups, users, and internal and/or external experiments to purchase additional resources.
+
+### Compute
+
+Compute hardware is provided at cost and CPU and GPU compute servers can be selected from a standard list. There are no hosting fee's and we will provide administration, data center hosting and networking free of charge. Whilst we welcome users/groups to pool together to purchase a chassis (of one or more individual servers), we cannot offer unit increments of compute resource of less than one server due to the way we enforce scheduling in the SDF.
+
+!> Provide link to a protected google spreadsheet or something
+
+### Storage
+
+Storage can be purchased in our standard 'Building Blocks' which provide a unit increment that is tuned for our storage environment. We welcome groups/users to pool resources storage procuments together to meet our minimum building block size. The storage will be maintained for the life of the disks (currently five/six/seven??? years) and there shall be no fee's beyond the initial procuremnt (at cost) costs. The added storage wil show up as a bump up in your [quota](TODO.md)
+
+!> We are still finalising our storage quotas. If you have any suggestions please [contact us!](contact-us.md)
