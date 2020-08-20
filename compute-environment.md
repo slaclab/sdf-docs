@@ -107,6 +107,15 @@ When you [purchase extra storage](resources-and-allocations?id=storage-1) you wi
 
 - Avoid keeping many (hundreds) of files in a single directory if possible - file systems typically do a lot better when you use a small number of large files.
 
-- Do keep an eye on your file system [quotas]
+- Do keep an eye on your file system [quotas] - your jobs will likely fail if it cannot write to disk due to a full quota. You can either choose a different file system to write to, or request a [quota increase]
+
+- Limit I/O intensive sessions where your jobs reads or writes a lot of data, or performs intensive meta data operations such as stat'ing many files or directories and opening and closing files in quick succession.
+
+- Do launch test jobs requesting a smaller resource before launching many (potentially hundreds) of jobs.
+
+- Do request only the resources that you need. If you ask for more time or more CPU's or GPU's than you can actually use in your job, then not only will you be reducing your fairshare so that your later jobs may be de-prioritised, but it also prevents others from using potentially idle resources.
 
 
+
+- 
+- 
