@@ -89,6 +89,18 @@ When you [purchase extra storage](resources-and-allocations?id=storage-1) you wi
 
 ### Archive
 
+
+### Managing Your Files
+
+#### Navigating the Shared File Systems
+
+
+#### Moving data around
+
+
+#### Help! I've lost some files! What can I do?
+
+
 !> __TODO__
 
 ## Do's and Don'ts
