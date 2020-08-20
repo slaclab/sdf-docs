@@ -3,7 +3,6 @@
 * [Status, News & Updates](changelog.md)
 * [Accounts & Access](accounts-and-access.md)
 * [Resources and Allocations](resources-and-allocations.md)
-* [Compute Environment](compute-environment.md)
 * [Batch Compute](batch-compute.md)
 * [Interactive Compute](interactive-compute.md)
 * [Software](software.md)
