@@ -22,14 +22,18 @@ You can access SDF via [SSH](#ssh) or via a [web portal](interactive-compute.md)
 
 ## How do I SSH  :id=ssh
 
-You can connect to our bastion SSH login servers at either
+We recommend that connect to our load balanced SSH service at
 
-- sdf-login01.slac.stanford.edu
-- sdf-login02.slac.stanford.edu
+```
+sdf-login.slac.stanford.edu
+```
 
-Or, you can use the load balanced name:
+Otherwise, you can also log in individually to our current pool of servers at
 
-- sdf-login.slac.stanford.edu
+```
+sdf-login01.slac.stanford.edu
+sdf-login02.slac.stanford.edu
+```
 
 ### Using a Terminal
 
