@@ -18,12 +18,13 @@
       coverpage: true,
       auto2top: true,
       //maxLevel: 2,
-      subMaxLevel: 2,
+      subMaxLevel: 3,
       repo: "slaclab/sdf-docs",
+      logo: "sdf.svg",
       //formatUpdated: '{DD}/{MM}/{YYYY} @ {HH}:{mm}',
       toc: {
         tocMaxLevel: 5,
-          target: 'h2, h3, h4, h5, h6'
+          target: 'h1, h2, h3, h4, h5, h6'
       },
       plugins: [
         EditOnGithubPlugin.create( "https://github.com/slaclab/sdf-docs/blob/master/", null, function(file){ return "Edit page"})

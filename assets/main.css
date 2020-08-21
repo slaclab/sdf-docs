@@ -73,3 +73,9 @@ label[data-class-target="label + .docsify-tabs"] {
     line-height: 1;
     transform: translate(35%, -45%);
 }
+
+.sidebar>h1 img {
+    max-width: 50%;
+}
+
+
