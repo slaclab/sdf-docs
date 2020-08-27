@@ -5,9 +5,9 @@
 | Access 	| Address 	|  	
 |-	|-	|
 | SSH 	|  sdf-login01.slac.stanford.edu, sdf-login02.slac.stanford.edu |  	
-| Ondemand 	| https://sdf.slac.stanford.edu/pun/sys/dashboard 	|  	
+| Ondemand 	| [https://sdf.slac.stanford.edu/pun/sys/dashboard](/pun/sys/dashboard ':ignore') 	|  	
 | Globus Endpoint 	| slac#sdf 	|  	
-| Documentation | [https://sdf.slac.stanford.edu] |
+| Documentation | [this!](/ ':ignore') |
 | Scheduler | [slurm](https://slurm.schedmd.com/) |
 | Help | [slac.slack.com #comp-sdf](https://app.slack.com/client/T1X4J8FJ8/C01965DTG91) |
 
