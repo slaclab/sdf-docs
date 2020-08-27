@@ -47,7 +47,7 @@ The following example shows us using the `ssh` command to login to one of the SD
 $ ssh sdf-login01.slac.stanford.edu
 ytl@sdf-login02.slac.stanford.edu's password:
 <enter SLAC password>
-Last login: Mon Aug 10 18:48:49 2020 from ocio-pc94982.slac.stanford.edu
+Last login: Mon Aug 10 18:48:49 2020 from ocio-pcXXXXX.slac.stanford.edu
 ===============================================================================
                                 NOTICE TO USERS
 
