@@ -1,24 +1,29 @@
 # Accounts and Access
 
-## How do I get access to SDF?
+## How do I get access to SDF? :id=access
 
 If you are a SLAC employee, affiliated researcher, or user facility user, you are eligible for a SDF account.
 
 !> SDF uses Windows Active Directory for authentication. As such, your existing SLAC Unix account will not work with SDF.
 
-As we transition from our legacy authentication technologies, you will need a SLAC Windows account to utilise SDF:
+As we transition from our legacy authentication technologies, you will need a SLAC ID to utilise SDF:
 
-If you do not have a SLAC Windows account, you can...
+If you do not already have a SLAC Windows account, you can...
 
 - If you already have a SLAC Unix account, you can request one automatically one through [Accounts Portal](https://oraweb.slac.stanford.edu/apex/slac/f?p=136). You may have to wait upto an hour for some of the backend systems to verify your account.
+
+or...
+
 - Your SLAC sponsor can request a SLAC Windows account at this [Service Now Link](https://slacprod.servicenowservices.com/it_services?id=sc_cat_item&sys_id=17176b676ff12100aae0c6012e3ee4f7&sysparm_category=d65827c46fd921009c4235af1e3ee434) (SLAC login required)
+
+!> __Please Note:__ If this is the first time you are using SDF, after creating your [SLAC ID](#access) you will need to [ssh](#ssh) into our systems prior to anything else (including launching [jupyter](software.md#jupyter) etc.) so that our automated setup can finish configuring your home directories etc. for you.
 
 ## How do I log onto SDF?
 
 You can access SDF via [SSH](#ssh) or via a [web portal](interactive-compute.md) using your SLAC credentials.
 
 
-## How do I SSH  :id=ssh
+## How do I SSH?  :id=ssh
 
 We recommend that connect to our load balanced SSH service at
 
