@@ -1,7 +1,5 @@
 # Accounts and Access
 
-!> Please note that we are effectively treating the design and implementation of SDF as a green field deployment. As such certain technologies and tools may not be available. Please [contact us](contact-us.md) if you wish for anything to be added or removed.
-
 ## How do I get access to SDF?
 
 If you are a SLAC employee, affiliated researcher, or user facility user, you are eligible for a SDF account.
