@@ -6,11 +6,11 @@ If you are a SLAC employee, affiliated researcher, or user facility user, you ar
 
 !> SDF uses Windows Active Directory for authentication. As such, your existing SLAC Unix account will not work with SDF.
 
-As we transition from our legacy authentication technologies, you will need a SLAC ID to utilise SDF:
+As we transition from our legacy authentication technologies, you will need a SLAC ID to utilise SDF (The SLAC ID account is the same as our SLAC Windows account):
 
 If you do not already have a SLAC Windows account, you can...
 
-- If you already have a SLAC Unix account, you can request one automatically one through [Accounts Portal](https://oraweb.slac.stanford.edu/apex/slac/f?p=136). You may have to wait upto an hour for some of the backend systems to verify your account.
+- If you already have a SLAC Unix account, you can request one automatically one through our [Accounts Portal](https://oraweb.slac.stanford.edu/apex/slac/f?p=136). Once it has created a SLAC ID you may have to wait upto an hour for some of the backend systems to verify your account. When you can [ssh into SDF](#ssh) then your SDF account is ready!
 
 or...
 
