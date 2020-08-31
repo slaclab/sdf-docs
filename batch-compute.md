@@ -22,15 +22,14 @@ Historically, we have always use IBM's LSF as our Batch scheduler software. Howe
 As the number of servers and GPUs in our environment is limited (but not small), we need to keep account of who uses what. In addition, as groups/teams can purchase their own servers to be added to the SDF we must provide a method of which allocated users can have priority access to the servers that were purchased for them. A slurm Account is basically something that you will charge your job against.
 
 
-### What is a Slurm Partition?
+### What is a Slurm Partition? :id=partition
 
-A Partition is a logical grouping of compute servers. These may be servers of a similar technical specification (eg Cascade Lake CPUs, Telsa GPUs etc), or by ownership of the servers - eg SUNCAT group may have purchased so many servers, so we put them all into a Partition.
+A Partition is a logical grouping of compute servers. These may be servers of a similar technical specification (eg Cascade Lake CPUs, Telsa GPUs etc), or by ownership of the servers - eg SUNCAT group may have purchased so many servers, so we put them all into a Partition. For the SDF, we partition machines according to science and engineering groups who have [purchased servers](resources-and-allocations.md#contributing-to-sdf) for the SDF. We do this such that members (or associates) of those groups can have priority access to their hardware. Whilst we give everyone access to all hardware via the [shared partition](#shared-partition) users who belong to groups who do not own any hardware in SDF will have lower priority access to use stakeholder’s resources.
 
-Generally, all servers will be placed in the shared partition that everyone with a slac computer account will have access to (although at a low priority).
 
-Users should contact their Coordinators to be added to appropriate group Partitions to get priority access to resources.
+Users should contact their Coordinators to be [added to appropriate group Partitions](resources-and-allocations.md#allocations) to get priority access to resources.
 
-You can view the active Partitions on SDF with
+You can also view the active Partitions and associated hardware by using the `sinfo command:
 
 ```
 $ sinfo
@@ -44,20 +43,44 @@ cryoem       up   infinite     12   unk* cryoem-gpu[02,04-09,11-15]
 cryoem       up   infinite      4   idle cryoem-gpu[01,03,10,50]
 ```
 
+
 ### The Shared Parition :id=shared-partition
+
+All SLAC employees, user-facility users and researchers are entitled to compute and storage resources at SLAC. This is provided through SLAC's indirect. The shared partition is a method by which all users can use the compute resources of SDF without having to [buy hardware](resources-and-allocations#contributing-to-sdf).
+
+We enforce that all servers put into the SDF be added to [partitions](#partition) of the owner as well as into this global shared partition.
+
+However, as compute is a limited resource, all batch jobs submitted into the shared partition are subject to [pre-emption](#pre-emption).
 
 !> __TODO__: Add more information on the shared partition and its policies of use.
 
+### What is Pre-emption? :id=pre-emption
 
-### What is a Slurm Allocation?
+As typically we have less resources than the aggregate requirements of all user groups at SLAC, we cannot provide resources to everyone when they need it. We therefore have to have different classes of users on our systems: those who's groups have [purchased servers](resources-and-allocations.md#contributing-to-sdf) and those who are using the [shared partition](#shared-partition) to use resources provided by SLAC's indirect. In order to be "fair" to the owners of servers who have contributed their resources into the SDF, we provide immediate access to their servers - when they need it. At the same time, users on the shared partition are allowed to use the owner's servers - when the owners do not need it. As such, in order to provide this level of guarantee to the owners, we have to 'kick-off' any shared scavenger jobs that may be running on that server at the time the owners request access to their hardware. This is known as pre-emption.
 
-In order to provide appropriate access for users to the hardware, an Allocation is created that defines what User can run on what Partition and charge against what Account (there's a bit more in the backend to this).
+
+### What is a Slurm Account and Allocation?
+
+Accounts are used to allow us to track, monitor and report on usage of SDF resources. As such, users who are members of stakeholders of SDF hardware, should use their relevant Account to charge their jobs against. We do not associate any monetary value to Accounts currently, but we do require all Jobs to be charged against an Account.
+
+In order to map a User to the allow use of appropriate hardware (Partition) and charge against the relevant Account, an Allocation in slurm must be created. For all intents and purposes, we have a one-to-one mapping between the Partition and Account (ie the [shared](#shared-partition) Partition is charged against the shared Account). Therefore an Allocation acts as a authorisation definition for resource use in SDF.
+
+
+### How do I get access to a Slurm Partition? :id=allocation
+
+We delegate authority to Coordinators to allow them to define their own Allocations. As such, you should [contact your local Coordinator](resources-and-allocations.md#allocations) to obtain permissions to submit jobs into desired Partitions.
+
+
+
+
+
 
 
 ## How do I use Slurm?
 
 Common commands are:
 
+```
 srun	request a quick job to be ran - eg an interactive terminal
 sbatch	submit a batch job to run
 squeue	show jobs
@@ -65,7 +88,7 @@ scancel	cancel a job
 scontrol show job	show job details
 sstat	show job usage details
 sacctmgr	manage Associations
- 
+```
 
 ## Using Slurm
 

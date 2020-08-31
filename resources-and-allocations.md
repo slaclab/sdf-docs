@@ -46,7 +46,7 @@ Each server consists of
 
 ## Contributing to SDF :id=contributing-to-sdf
 
-All SLAC employees and experimental facility users and affiliate are automatically granted permissions to access and utilise SDF resources. By default, all users are granted use of the shared partition whereby their jobs may be pre-empted to higher priority users (ie users whom have purchased hardware resources to add onto SDF). Whilst we wish to meet the needs of everyone, it may not be always possible to do conduct your reseearch on the 'free' resources provided by this shared partition. Users and their affiliated group(s) are also provided free storage.
+All SLAC employees and experimental facility users and affiliate are automatically granted permissions to access and utilise SDF resources. By default, all users are granted use of the [shared partition](batch-compute.md#shared-partition] whereby your jobs may be pre-empted to higher priority users (ie users/groups whom have purchased hardware resources add onto SDF will get immediate access to their resources, thereby 'kicking-off' any users using the shared partition that may be using their servers at that time). Whilst we wish to meet the needs of everyone, it may not be always possible to do conduct your reseearch on the 'free' resources provided by this shared partition. Users and their affiliated group(s) are also provided free storage.
 
 We invite all groups, users, and internal and/or external experiments to purchase additional resources.
 
@@ -63,7 +63,7 @@ Storage can be purchased in our standard 'Building Blocks' which provide a unit 
 !> We are still finalising our storage quotas. If you have any suggestions please [contact us!](contact-us.md)
 
 
-## Who Do I Contact to Access More Resources?
+## Who Do I Contact to Access More Resources? :id=allocations
 
 If you are a SDF User, and find that the Shared partition is restrictive for your needs, then please reach out to your local coordinator to be added to different partitions if you need more compute, or to increase your $GROUP storage quota. We will not honour increases in $HOME quota. 
 
@@ -84,6 +84,7 @@ Accounts are used to allow us to track, monitor and report on usage of SDF resou
 |neutrino       |Neutrino Group | Kazu |
 |shared |Everyone           |Renata |
 |suncat |SUNCAT Group   | Johanne|
+|supercdms|SuperCDMS Group | Tina|
 
 
 
@@ -103,3 +104,5 @@ Partitions define a grouping of machines. In our use case the grouping to refer 
 |fermi  |Fermi (LAT) AMD Rome Servers   | Richard |
 |atlas |ATLAS GPU Servers       | Yee / Wei |
 |lcls    |LCLS AMD Rome Servers | Wilko |
+|supercdms|SuperCDMS Servers | Tina|
+
