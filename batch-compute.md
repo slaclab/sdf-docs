@@ -161,6 +161,10 @@ And you can cancel the job with
 scancel <jobid>
 ```
 
+### Job Arrays
+
+!> __TODO__
+
 ## Using GPUs
 
 ###  How can I request GPUs?
@@ -215,9 +219,9 @@ cryoem       1     0/1/0/1        2:8:2   191567  0          infinite    gpu:v10
 
 ### Help! My Job takes a long time before it starts!
 
-This is often due to limited resources. The simplest way is to request less CPU (-N) or less memory for your Job. However, this will also likely increase the amount of time that you need for the Job to complete. Note that perfect scaling is often very difficult (ie using 16 CPUs will run twice as fast as 8 CPUs), so it may be beneficial to submit many smaller Jobs where possible. You can also set the --time option to specify that your job will only run upto that amount of time so that the scheduler can better fit your job in.
+This is often due to limited resources. The simplest way is to request less CPU (`--cpus`) or less memory (`--mem`for your Job. However, this will also likely increase the amount of time that you need for the Job to complete. Note that perfect scaling is often very difficult (ie using 16 CPUs will not run twice as fast as 8 CPUs, as will using 4 nodes via MPI will not run twice as fast as 2 nodes), so it may be beneficial to submit many smaller Jobs if your code allows it. You can also set the `--time` option to specify that your job will only run upto that amount of time so that the scheduler can better fit your job in.
 
-The more expensive option is to buy more hardware to SDF and have it added to your group/teams Partition.
+The more expensive option is to [buy more hardware to SDF](resources-and-allocations.md#contributing-to-sdf) and have it added to your group/teams' [Partition](#partition). Please contact your [Coordinator](resources-and-allocations.md#allocations) or [contact to](contact-us.md) discuss.
 
 You can also make use of the Scavenger QoS such that your job may run on any available resources available at SLAC. This, however, has the disadvantage that should the owners of the hardware that your job runs on requires its resources, your may will be terminated (preempted) - possibly before it has completed.
 
