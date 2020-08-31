@@ -9,7 +9,7 @@ srun --pty
 
 ## Jupyter
 
-We provide automatic tunnels through our [ondemand](https://openondemand.org/) proxy of [Jupyter](https://jupyter.org/) instances. This means that in order to run Jupyter kernels on SDF, do not need to setup a chain of SSH tunnels in order to show the Jupyter web instance.
+We provide automatic tunnels through our [ondemand](https://openondemand.org/) proxy of [Jupyter](https://jupyter.org/) instances. This means that in order to run Jupyter kernels on SDF, you do not need to setup a chain of SSH tunnels in order to show the Jupyter web instance.
 
 We also provide the capability for you to 'bring-your-own-Jupyter' so that all your code dependencies are dictated by you, and not by us. We recommend you do this by either building a singularity image of your Jupyter environment or by building a conda environment on SDF storage.
 
