@@ -67,8 +67,6 @@ Storage can be purchased in our standard 'Building Blocks' which provide a unit 
 
 If you are a SDF User, and find that the Shared partition is restrictive for your needs, then please reach out to your local coordinator to be added to different partitions if you need more compute, or to increase your $GROUP storage quota. We will not honour increases in $HOME quota. 
 
-?> __TODO__ perhaps only define just Account or Partitions (are we just having a one-to-one mapping anyway?)
-
 | | | |
 |--- |--- |--- |
 |atlas  |ATLAS Group    |Yee/Wei |
