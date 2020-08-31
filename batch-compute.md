@@ -44,6 +44,10 @@ cryoem       up   infinite     12   unk* cryoem-gpu[02,04-09,11-15]
 cryoem       up   infinite      4   idle cryoem-gpu[01,03,10,50]
 ```
 
+### The Shared Parition :id=shared-partition
+
+!> __TODO__: Add more information on the shared partition and its policies of use.
+
 
 ### What is a Slurm Allocation?
 
