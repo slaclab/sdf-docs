@@ -25,11 +25,13 @@ You can access SDF via [SSH](#ssh) or via a [web portal](interactive-compute.md)
 
 ## How do I SSH?  :id=ssh
 
-We recommend that connect to our load balanced SSH service at
+We recommend that you connect to our load balanced SSH service at
 
 ```
 sdf-login.slac.stanford.edu
 ```
+
+?> __Note:__ Our load balanced endpoint at `sdf-login` does not currently forward kerberised keys, as such only password and ssh-key authentication is support at this time.
 
 Otherwise, you can also log in individually to our current pool of servers at
 
