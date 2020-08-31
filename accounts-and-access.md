@@ -88,6 +88,8 @@ If you do not have a terminal handy (or one of the applications mentioned above)
 
 After you click on the above link, you may be asked to log on our interactive environment - bouncing you to [CILogon](https://www.cilogon.org/) where you can select 'SLAC National Accelerator Laboratory' from the list. This will then redirect you to our Windows SAML ADFS authentication service where you can enter your username and password. You may be asked for a '2 factor' authentication using Duo.
 
+?> __Note:__ Only 'SLAC National Accelerator Laboratory' is supported as a login mechanism for SDF Ondemand currently. If you select any other provider in CILogon, you will recieve a user mapping error. If you selected to 'remember this selection' for the Identity Provider to be something else, you may have to clear your browser cookies to be able to select SLAC from the CILogon list again
+
 As long as you keep your web browser open, or are not using your browsers private browsing feature, you should only need to authenticate again about once a day.
 
 ?> We are currently working on providing delegated access to SDF such that you can use CILogon to authenticate with your home institution's computer account so that you need not have to log on with your SLAC account.
