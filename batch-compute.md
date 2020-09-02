@@ -59,7 +59,7 @@ However, as compute is a limited resource, all batch jobs submitted into the sha
 As typically we have less resources than the aggregate requirements of all user groups at SLAC, we cannot provide resources to everyone when they need it. We therefore have to have different classes of users on our systems: those who's groups have [purchased servers](resources-and-allocations.md#contributing-to-sdf) and those who are using the [shared partition](#shared-partition) to use resources provided by SLAC's indirect. In order to be "fair" to the owners of servers who have contributed their resources into the SDF, we provide immediate access to their servers - when they need it. At the same time, users on the shared partition are allowed to use the owner's servers - when the owners do not need it. As such, in order to provide this level of guarantee to the owners, we have to 'kick-off' any shared scavenger jobs that may be running on that server at the time the owners request access to their hardware. This is known as pre-emption.
 
 
-### What is a Slurm Account and Allocation?
+### What is a Slurm Account and Allocation? :id=account-and-allocation
 
 Accounts are used to allow us to track, monitor and report on usage of SDF resources. As such, users who are members of stakeholders of SDF hardware, should use their relevant Account to charge their jobs against. We do not associate any monetary value to Accounts currently, but we do require all Jobs to be charged against an Account.
 
@@ -72,37 +72,59 @@ We delegate authority to Coordinators to allow them to define their own Allocati
 
 
 
+### Fair-share and Job Priorities :id=fair-share
 
+!> __TODO:__
 
 
 
 ## How do I use Slurm?
 
-Common commands are:
+There are two ways to interact with slurm
 
-```
-srun	request a quick job to be ran - eg an interactive terminal
-sbatch	submit a batch job to run
-squeue	show jobs
-scancel	cancel a job
-scontrol show job	show job details
-sstat	show job usage details
-sacctmgr	manage Associations
-```
+- using command line tools on the SDF login hosts
+- using the ondemand web interface
+
+Common actions that you may want to perform are:
+
+| | | |
+|--- |--- |--- |
+| Submit a job | `srun` or `sbatch` | request a quick job to be ran - eg an interactive terminal for `srun` and a longer job(s) with `sbatch` |
+| Show information about a job | `scontrol show job <jobid>` | shows detailed information about the state, resources requested etc. for a job |
+| Cancel or terminate a job | `scancel <jobid>` | cancel a job; you can also use --signal=INT to send a unix signal to the job to cleanly terminate |
+| Show position in squeue | `sprio` | shows the fairshare calculations that determine your place in line for the job to start |
+| Show running statistics about a job | `sstat`	| show job usage details |
+| Modify accout/add users to partitions etc. | `sacctmgr` | manage Associations |
+
+### SLAC Slurm Specifics
+
+We run [partitions](#partitions) based upon groups that own the hardware associated with that queue. A list of partitions and coordinators can be found [here](resources-and-allocations.md#allocations). This allows you to quickly identify suitable resources that have been organised by your local Coordinator and ourselves to ensure that your jobs are running on suitable hardware.
+
+We assign [accounts](#account-and-allocation) such that they have the same name as the relevant partition. This is to simplify usage such that it becomes obvious whom to charge your resources against (don't worry, we do not bill for your usage). We collect such information to aid with planning and scheduler optimisations.
+
+Group Coordinators have the power to add and remove users from their partitions (actually it would be an Allocation).
+
+?> __TODO:__ add instructions for coordinators
+
+To also simplify usage for you, our users:
+
+- if you do not define an [account](#account-and-allocation) with `--account`, then we will assume you want to use the same account name as that of the partition name.
+- if you do not specify a [partition](#partition) with `--partition`, we will assume you want your job to run in the [shared](#shared-partition).
+
 
 ## Using Slurm
 
-### How can I get an Interactive Terminal?
 
+### How can I get an Interactive Terminal?
 
 use the srun command
 
 
 ```
-srun -A shared -p shared -n 1 --pty /bin/bash
+srun --partition shared -n 1 --pty /bin/bash
 ```
 
-This will then execute /bin/bash on a (scheduled) server in the Partition shared and charge against Account shared. This will request a single CPU, launch a pseudo terminal (pty) where bash will run. You may be provided different Accounts and Partitions and should use them when possible.
+This will then execute `/bin/bash` on a (scheduled) server in the Partition `shared` and charge against Account `shared`. This will request a single CPU, launch a pseudo terminal (pty) where bash will run. You may be provided different Accounts and Partitions by your Coordinator and should use them when possible.
 
 Note that when you 'exit' the interactive session, it will relinquish the resources for someone else to use. This also means that if your terminal is disconnected (you turn your laptop off, loose network etc), then the Job will also terminate (similar to ssh).
 
@@ -110,16 +132,20 @@ Note that when you 'exit' the interactive session, it will relinquish the resour
 
 ### How do I submit a Batch Job?
 
-use the sbatch command, this primer needs to be elaborated:
+In order to submit a batch job, you have to:
+
+- create a text file containing some slurm commands (lines starting with `#SBATCH`) and a list of commands/programs that you wish to run. This is called a batch script.
+- submit this batch script to the cluster using the `sbatch` command
+- monitor the job using `scontrol show job`
+
+#### Create a Batch Script
 
 Create a job submission script (text file) script.sh:
 
 ```
 #!/bin/bash
  
-#SBATCH --account=shared
 #SBATCH --partition=shared
-#SBATCH --qos=scavenger
 #
 #SBATCH --job-name=test
 #SBATCH --output=output-%j.txt
@@ -143,11 +169,21 @@ We also request a single GPU with the Job. This will be exposed via CUDA_VISIBLE
 
 You will need an account (see below). All SLAC users have access to the "shared" partition with a quality of service of "scavenger". This is so that stakeholders of machines in the SDF will get priority access to their resources, whilst any user can use all resources as long as the 'owners' of the hardware isn't wanting to use it. As such, owners (or stakeholders) will have qos "normal" access to their partitions (of which such hosts are also within the shared partition).
 
+?> __TIP:__ you can also submit the slurm directives directly on the command line rather than within the batch script. When submitted as arguments to `srun` or `sbatch`, they will take precedence over any same directives that may already be specified in the batch script. __TODO__ examples
+
+?> add something about submitting sbatch commands directy without using a batch script
+
+#### Submit the job
+
+?> note stuff about workign directories etc.
+
 Then, in order to submit the job: 
 
 ```
 sbatch script.sh
 ```
+
+#### Monitor job progress
 
 You can then use the command to monitor your job progress
 
