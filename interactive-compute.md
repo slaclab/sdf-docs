@@ -15,7 +15,7 @@ We also provide the capability for you to 'bring-your-own-Jupyter' so that all y
 
 !> __TODO:__ more information required.
 
-To launch an instance of Jupyter, you can use the [Jupyter portal](/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new).
+To launch an instance of Jupyter, you can use the [Jupyter portal](/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new ':ignore').
 
 ?> __Note:__ As the Jupyter instances run on top of our [slurm](batch-compute.md) environment, your instances will be subject to queuing and time limits. It is recommended that if Jupyter is vital to your analysis, that [hardware be added to SDF](resources-and-allocations.md#contributing-to-sdf) to ensure priority non-preemptive access.
 
