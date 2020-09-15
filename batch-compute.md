@@ -140,7 +140,7 @@ In order to submit a batch job, you have to:
 
 #### Create a Batch Script
 
-Create a job submission script (text file) script.sh:
+Create a job submission script (text file) `script.sh` (or whatever filename you wish):
 
 ```
 #!/bin/bash
@@ -164,6 +164,8 @@ Create a job submission script (text file) script.sh:
 ```
 
 In the above example, we submit a job named 'test' and output both stdout and stderr to the same file (%j will be replaced with the Job ID). We request a single Task (think of it as an MPI rank) and that single task will request 12 CPUs; each of which will be allocated 1GB of RAM - so a total of 12GB. By default, the --ntasks will be equivalent to the number of nodes (servers) asked for. In order to aid scheduling (and potentially prioritising the Job), we limit the [duration of the Job](#time) to 10 minutes.
+
+?> __TIP:__ only lines starting with `#SBATCH ` will be processed by the slurm interpretor. As the script itself is just a bash script, any line beginning with `#` will be ignored. As such you may also comment out slurm directives by using somethign like `##SBATCH`
 
 We also request a single GPU with the Job. This will be exposed via CUDA_VISIBLE_DEVICES. To specify specific GPU's, see below.
 
