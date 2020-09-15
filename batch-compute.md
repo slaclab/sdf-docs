@@ -109,7 +109,7 @@ Group Coordinators have the power to add and remove users from their partitions 
 To also simplify usage for you, our users:
 
 - if you do not define an [account](#account-and-allocation) with `--account`, then we will assume you want to use the same account name as that of the partition name.
-- if you do not specify a [partition](#partition) with `--partition`, we will assume you want your job to run in the [shared](#shared-partition).
+- if you do not specify a [partition](#partition) with `--partition`, we will assume you want your job to run in the [shared partition](#shared-partition).
 
 
 ## Using Slurm
@@ -163,17 +163,15 @@ Create a job submission script (text file) `script.sh` (or whatever filename you
 
 ```
 
-In the above example, we submit a job named 'test' and output both stdout and stderr to the same file (%j will be replaced with the Job ID). We request a single Task (think of it as an MPI rank) and that single task will request 12 CPUs; each of which will be allocated 1GB of RAM - so a total of 12GB. By default, the --ntasks will be equivalent to the number of nodes (servers) asked for. In order to aid scheduling (and potentially prioritising the Job), we limit the [duration of the Job](#time) to 10 minutes.
+In the above example, we submit a job named 'test' (using the `--job-name`). You can choose what ever name you wish to give the job so that you may be able to quickly identify it yourself. Both stdout and stderr will be outputted the same file `output-%j.txt` in the current working working - %j will be replaced with the slurm job id (using the `--output` and `--error` options). We request a single Task (think of it as an MPI rank) and that single task will request 12 CPUs; each of which will be allocated 1GB of RAM - so a total of 12GB. By default, the `--ntasks` will be equivalent to the number of nodes (servers) asked for. In order to aid scheduling (and potentially prioritising the Job), we limit the [duration of the Job](#time) to 10 minutes. We also request a single [GPU](#using-gpus) with the Job. This will be exposed via CUDA_VISIBLE_DEVICES.
 
 ?> __TIP:__ only lines starting with `#SBATCH ` will be processed by the slurm interpretor. As the script itself is just a bash script, any line beginning with `#` will be ignored. As such you may also comment out slurm directives by using somethign like `##SBATCH`
 
-We also request a single GPU with the Job. This will be exposed via CUDA_VISIBLE_DEVICES. To specify specific GPU's, see below.
-
-All SLAC users have access to the [shared partition](#shared-partition). Your group may also have [access to other partitions](resources-and-allocations#allocations) that will provide you priority immediate access to resources
+We can define [where the job will run](#partition) using the `--partition` option. All SLAC users have access to the [shared partition](#shared-partition). Your group may also have [access to other partitions](resources-and-allocations#allocations) that will provide you priority immediate access to resources
 
 ?> __TIP:__ you can also submit the slurm directives directly on the command line rather than within the batch script. When submitted as arguments to `srun` or `sbatch`, they will take precedence over any same directives that may already be specified in the batch script. __TODO__ examples
 
-?> add something about submitting sbatch commands directy without using a batch script
+?> add something about submitting sbatch commands directy without using a batch script - ie `--wrap`
 
 
 ##### Specifying how long the job should run for :id=time
