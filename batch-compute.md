@@ -134,11 +134,11 @@ Note that when you 'exit' the interactive session, it will relinquish the resour
 
 In order to submit a batch job, you have to:
 
-- create a text file containing some slurm commands (lines starting with `#SBATCH`) and a list of commands/programs that you wish to run. This is called a batch script.
-- submit this batch script to the cluster using the `sbatch` command
-- monitor the job using `scontrol show job`
+1. [create a text file containing some slurm commands](#create-batch-script) (lines starting with `#SBATCH`) and a list of commands/programs that you wish to run. This is called a batch script.
+2. [submit this batch script](#submit-batch-script)  to the cluster using the `sbatch` command
+3. [monitor the job](#monitor-job) using `scontrol show job`
 
-#### Create a Batch Script
+#### Create a Batch Script :id=create-batch-script
 
 Create a job submission script (text file) `script.sh` (or whatever filename you wish):
 
@@ -163,13 +163,13 @@ Create a job submission script (text file) `script.sh` (or whatever filename you
 
 ```
 
-In the above example, we submit a job named 'test' (using the `--job-name`). You can choose what ever name you wish to give the job so that you may be able to quickly identify it yourself. Both stdout and stderr will be outputted the same file `output-%j.txt` in the current working working - %j will be replaced with the slurm job id (using the `--output` and `--error` options). We request a single Task (think of it as an MPI rank) and that single task will request 12 CPUs; each of which will be allocated 1GB of RAM - so a total of 12GB. By default, the `--ntasks` will be equivalent to the number of nodes (servers) asked for. In order to aid scheduling (and potentially prioritising the Job), we limit the [duration of the Job](#time) to 10 minutes. We also request a single [GPU](#using-gpus) with the Job. This will be exposed via CUDA_VISIBLE_DEVICES.
+In the above example, we write a batch script for a job named 'test' (using the `--job-name`). You can choose what ever name you wish to give the job so that you may be able to quickly identify it yourself. Both stdout and stderr will be outputted the same file `output-%j.txt` in the current working working - %j will be replaced with the slurm job id (using the `--output` and `--error` options). We request a single Task (think of it as an MPI rank) and that single task will request 12 CPUs; each of which will be allocated 1GB of RAM - so a total of 12GB. By default, the `--ntasks` will be equivalent to the number of nodes (servers) asked for. In order to aid scheduling (and potentially prioritising the Job), we limit the [duration of the Job](#time) to 10 minutes. We also request a single [GPU](#using-gpus) with the Job. This will be exposed via CUDA_VISIBLE_DEVICES.
 
 ?> __TIP:__ only lines starting with `#SBATCH ` will be processed by the slurm interpretor. As the script itself is just a bash script, any line beginning with `#` will be ignored. As such you may also comment out slurm directives by using somethign like `##SBATCH`
 
 We can define [where the job will run](#partition) using the `--partition` option. All SLAC users have access to the [shared partition](#shared-partition). Your group may also have [access to other partitions](resources-and-allocations#allocations) that will provide you priority immediate access to resources
 
-?> __TIP:__ you can also submit the slurm directives directly on the command line rather than within the batch script. When submitted as arguments to `srun` or `sbatch`, they will take precedence over any same directives that may already be specified in the batch script. __TODO__ examples
+?> You can think of the batch script as a shell script but with some extra directives that only slurm understand. As such, you can also just run the same script in hte command line to ensure that your job will work; ie `sh script.sh` will run the same set of commands but on the local host. This therefore also means that if you already have a shell script that runs your code, you can 'slurmify' it by adding slurm directives with `#SBATCH`. Please note, however, that if you are using GPUs in your code etc. the login node may not have any GPUs and hence your local run will fail.
 
 ?> add something about submitting sbatch commands directy without using a batch script - ie `--wrap`
 
@@ -218,17 +218,24 @@ Once the job exceeds the specified job time, it will terminate. Unless you check
 
 
 
-#### Submit the job
+#### Submit the job :id=submit-batch-script
+
 
 ?> note stuff about workign directories etc.
 
-Then, in order to submit the job: 
+After you have [created a batch script](#create-batch-script), you then need to tell slurm to queue it so that it may run. The command to you is `sbatch` and is synonymous with the `bsub` command in LSF. Therfore to submit the script `script.sh` we simply run
 
 ```
 sbatch script.sh
 ```
 
-#### Monitor job progress
+If successful, it should provide you with the job id that the script will run as. You can use this job id to [monitor your job progress](#monitor-job).
+
+?> __TIP:__ you can also submit the slurm directives directly on the command line rather than within the batch script. When submitted as arguments to `srun` or `sbatch`, they will take precedence over any same directives that may already be specified in the batch script. e.g. if you run `sbatch --partition ml script.sh` and your script.sh contains a definiting to use the shared partition, your job will be submitted into the ml partition.
+
+
+#### Monitor job progress :id=monitor-job
+
 
 You can then use the command to monitor your job progress
 
