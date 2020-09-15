@@ -163,7 +163,7 @@ Create a job submission script (text file) script.sh:
 
 ```
 
-In the above example, we submit a job named 'test' and output both stdout and stderr to the same file (%j will be replaced with the Job ID). We request a single Task (think of it as an MPI rank) and that single task will request 12 CPUs; each of which will be allocated 1GB of RAM - so a total of 12GB. By default, the --ntasks will be equivalent to the number of nodes (servers) asked for. In order to aid scheduling (and potentially prioritising the Job), we limit the length of the Job to 10 minutes.
+In the above example, we submit a job named 'test' and output both stdout and stderr to the same file (%j will be replaced with the Job ID). We request a single Task (think of it as an MPI rank) and that single task will request 12 CPUs; each of which will be allocated 1GB of RAM - so a total of 12GB. By default, the --ntasks will be equivalent to the number of nodes (servers) asked for. In order to aid scheduling (and potentially prioritising the Job), we limit the [duration of the Job](#time) to 10 minutes.
 
 We also request a single GPU with the Job. This will be exposed via CUDA_VISIBLE_DEVICES. To specify specific GPU's, see below.
 
@@ -172,6 +172,24 @@ You will need an account (see below). All SLAC users have access to the "shared"
 ?> __TIP:__ you can also submit the slurm directives directly on the command line rather than within the batch script. When submitted as arguments to `srun` or `sbatch`, they will take precedence over any same directives that may already be specified in the batch script. __TODO__ examples
 
 ?> add something about submitting sbatch commands directy without using a batch script
+
+
+##### Specifying how long the job should run for :id=time
+
+It is important that you specify a meaningful duration for which your expect your job to run for. This allows the slurm scheduler to appropriately priortize your job against other jobs that are competing for the limited resources in the cluster. The duration of a job may depend upon many different factors such as the type of hardware that you may be constraining your job to run against, how well your code/application scales with multiple nodes, the speed of memory and disk access etc. etc.
+
+You can specify the expected duration with the `--time` option. Valid time formats are:
+
+```
+M (M minutes)
+M:S (M minutes, S seconds)
+H:M:S (H hours, M minutes, S seconds)
+D-H (D days, H hours)
+D-H:M (D days, H hours, M minutes)
+D-H:M:S (D days, H hours, M minutes, S seconds)
+```
+
+Once the job exceeds the specified job time, it will terminate. Unless you checkpoint your application as it progresses this may result in wasted cycles and the need to submit the job again with a longer duration.
 
 #### Submit the job
 
