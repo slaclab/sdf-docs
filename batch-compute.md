@@ -191,6 +191,33 @@ D-H:M:S (D days, H hours, M minutes, S seconds)
 
 Once the job exceeds the specified job time, it will terminate. Unless you checkpoint your application as it progresses this may result in wasted cycles and the need to submit the job again with a longer duration.
 
+
+##### Specifying CPU requirements :id=cpu
+
+!> __TODO__
+
+##### Specifying memory requirements :id=memory
+
+!> __TODO__
+
+##### Specifying nodes with specific resources (constraints) :id=constraints
+
+!> __TODO__
+
+##### Specifying local scratch space :id=scratch
+
+!> __TODO__
+
+##### Notification of job status :id=notification
+
+##### Changing the working directory :id=workingdir
+
+!> diff between cd'ing on the script and `--workingdir`
+
+##### Specifying a reservation :id=reservation
+
+
+
 #### Submit the job
 
 ?> note stuff about workign directories etc.
