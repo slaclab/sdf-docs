@@ -169,7 +169,7 @@ In the above example, we submit a job named 'test' and output both stdout and st
 
 We also request a single GPU with the Job. This will be exposed via CUDA_VISIBLE_DEVICES. To specify specific GPU's, see below.
 
-You will need an account (see below). All SLAC users have access to the "shared" partition with a quality of service of "scavenger". This is so that stakeholders of machines in the SDF will get priority access to their resources, whilst any user can use all resources as long as the 'owners' of the hardware isn't wanting to use it. As such, owners (or stakeholders) will have qos "normal" access to their partitions (of which such hosts are also within the shared partition).
+All SLAC users have access to the [shared partition](#shared-partition). Your group may also have [access to other partitions](resources-and-allocations#allocations) that will provide you priority immediate access to resources
 
 ?> __TIP:__ you can also submit the slurm directives directly on the command line rather than within the batch script. When submitted as arguments to `srun` or `sbatch`, they will take precedence over any same directives that may already be specified in the batch script. __TODO__ examples
 
