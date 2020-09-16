@@ -19,31 +19,49 @@ Historically, we have always use IBM's LSF as our Batch scheduler software. Howe
 
 ### What should I know about using Batch?
 
-The purpose of a batch system is to enable efficient sharing of the CPUs, GPUs, memory and ephemeral storage that exists in a Cluster. The cluster is comprised of many servers - often called Batch Nodes. As the number of these batch nodes and their resources (such as GPUs) in our environment is limited (but not small), we need to keep account of who uses what, so that we can fairly provide access to all users. At the same time, as groups/teams can purchase their own servers to be added to the SDF cluster we must provide a method by which authorised users can have priority access to their resources. Slurm users are associated with one or many slurm [Accounts](#account-and-allocation) which have the dual function of such access to possibly restricted resources and also as a means to keep a record of usage so that a single user cannot overrun the entire cluster. [Partitions](#partition) are used as a means to define the (potentially restricted) servers.
+The purpose of a batch system is to enable efficient sharing of the CPUs, GPUs, memory and ephemeral storage that exists in a Cluster. The cluster is comprised of many servers - often called Batch Nodes. As the number of these batch nodes and their resources (such as GPUs) in our environment is limited (but not small), we need to keep account of who uses what, so that we can fairly provide access to all users. At the same time, as groups/teams can purchase their own servers to be added to the SDF cluster we must provide a method by which authorised users can have priority access to their resources. Slurm users are associated with one or many slurm [Accounts](#account-and-allocation) which have the dual function of providing requested esources and also as a means to keep a record of such usage so that users cannot overrun the entire cluster (being unfair to other users). [Partitions](#partition) are used as a means to define the (potentially restricted) Batch Nodes in the cluster.
 
 In order to actually use the Batch cluster, one typically logs in to a Login Node. Such dedicated servers are often used for the sole purpose of interacting with the batch system only and should not be used to actually run any intensive work on (using consideratble CPU, memory, disk etc for a more than a few minutes) - this is because these machines are typically shared resources where many people will concurrently log into to use the batch system, and hence by running intensive jobs on such machines will often cause issues for others users on the Login Node. One would typically SSH into such a node and run batch commands (like `sbatch`, `squeue` etc) in order to queue work and monitor work onto the cluster. These work units are often called Jobs. The batch scheduler will then use the defined rules and algorithms to prioritise (or deprioritise) a user's Jobs on the system against everyone else who are effectively competing to use the cluster. The Jobs themselves, will then actually run on the Batch Nodes in the cluster. Depending on local policies, you may or may not be able to actually login these Batch Nodes directly. SLAC has typically forbid the ability to login to the Batch Nodes as multiple users Jobs are typically running on a single Batch Node.
 
-It is also possible to request an [interactive session](#interactive) on a Batch Node. This would be akin to SSH'ing into a Batch Node directly - however, as these interactive batch jobs themselves are run in cgroups, they are effectively ran in a sandbox, and hence more secure (from the other processes) than just SSH'ing in. One should typically not use interactive batch sessions for long periods of time as typically such usage is often idle time and not an efficient use of the cluster's resources. It is recommended however, to use such sessions to help debug issues with your usual batch Jobs.
+It is also possible to request an [interactive session](#interactive) on a Batch Node. This would be akin to SSH'ing into a Batch Node directly - however, as these interactive batch jobs themselves are run in cgroups, they are effectively ran in a sandbox, and hence more secure (from the other processes) than just SSH'ing in. As all nodes in the cluster should be relatively homogenous, one should not need to request a specific Batch Node by name (although it is possible). One should typically not use interactive batch sessions for long periods of time as typically such usage is often idle time and not an efficient use of the cluster's resources. It is recommended however, to use such sessions to help debug issues with your usual batch Jobs.
 
 ### What is a Slurm Partition? :id=partition
 
-A Partition is a logical grouping of compute servers. These may be servers of a similar technical specification (eg Cascade Lake CPUs, Telsa GPUs etc), or by ownership of the servers - eg SUNCAT group may have purchased so many servers, so we put them all into a Partition. For the SDF, we partition machines according to science and engineering groups who have [purchased servers](resources-and-allocations.md#contributing-to-sdf) for the SDF. We do this such that members (or associates) of those groups can have priority access to their hardware. Whilst we give everyone access to all hardware via the [shared partition](#shared-partition) users who belong to groups who do not own any hardware in SDF will have lower priority access to use stakeholder’s resources.
+A Partition is a logical grouping of Batch Nodes. These may be servers of a similar technical specification (eg Cascade Lake CPUs, Telsa GPUs etc), or by ownership of the servers - eg SUNCAT group may have purchased so many servers, so we put them all into a Partition. For the SDF, we partition machines according to science and engineering groups who have [purchased servers](resources-and-allocations.md#contributing-to-sdf) for the SDF. We do this such that members (or associates) of those groups can have priority access to their hardware. Whilst we give everyone access to all hardware via the [shared partition](#shared-partition) users who belong to groups who do not own any hardware in SDF will have lower priority access to use stakeholder’s resources.
 
 
 Users should contact their Coordinators to be [added to appropriate group Partitions](resources-and-allocations.md#allocations) to get priority access to resources.
 
-You can also view the active Partitions and associated hardware by using the `sinfo command:
+You can also view the active Partitions and associated hardware by using the `sinfo` command - each line shows the list and number of nodes (nodelist) that are in a specific state for that partition. As this command provides a point in time snapshot of the status of the SDF cluster, your output may vary.
 
 ```
 $ sinfo
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
-shared*      up 7-00:00:00     21   unk* cryoem-gpu[02,04-09,11-15],ml-gpu[02-10]
-shared*      up 7-00:00:00     10   idle cryoem-gpu[01,03,10,50],hep-gpu01,ml-gpu[01,11],nu-gpu[01-03]
-ml           up   infinite      9   unk* ml-gpu[02-10]
-ml           up   infinite      2   idle ml-gpu[01,11]
-neutrino     up   infinite      3   idle nu-gpu[01-03]
-cryoem       up   infinite     12   unk* cryoem-gpu[02,04-09,11-15]
-cryoem       up   infinite      4   idle cryoem-gpu[01,03,10,50]
+shared*      up 5-00:00:00     26 drain* rome[0011-0012,0081-0084,0101-0104,0181-0184,0191-0194,0201-0204,0211-0214]
+shared*      up 5-00:00:00      5  down* rome[0041-0044,0052]
+shared*      up 5-00:00:00      4  drain rome[0132-0133,0151],tur000
+shared*      up 5-00:00:00     24    mix rome[0001,0013],tur[001-017],volt[000-004]
+shared*      up 5-00:00:00     52  alloc rome[0002-0004,0014,0021-0024,0031-0034,0051,0053-0054,0061-0064,0071-0074,0091-0094,0111-0114,0121-0124,0131,0134,0141-0144,0152-0154,0161-0164,0171-0174]
+supercdms    up 5-00:00:00      1    mix rome0001
+supercdms    up 5-00:00:00      1  alloc rome0002
+cryoem       up 10-00:00:0      1 drain* rome0011
+cryoem       up 10-00:00:0      1  drain tur000
+cryoem       up 10-00:00:0      5    mix tur[004-005,009-011]
+cryoem       up 10-00:00:0      2  alloc rome[0003-0004]
+suncat       up 5-00:00:00      9 drain* rome[0012,0081-0084,0101-0104]
+suncat       up 5-00:00:00      5  down* rome[0041-0044,0052]
+suncat       up 5-00:00:00      1    mix rome0013
+suncat       up 5-00:00:00     27  alloc rome[0014,0021-0024,0031-0034,0051,0053-0054,0061-0064,0071-0074,0091-0094,0111-0113]
+fermi        up 5-00:00:00      3  drain rome[0132-0133,0151]
+fermi        up 5-00:00:00     13  alloc rome[0114,0121-0124,0131,0134,0141-0144,0152-0153]
+hps          up 5-00:00:00      3  alloc rome[0154,0161-0162]
+lcls         up 5-00:00:00     16 drain* rome[0181-0184,0191-0194,0201-0204,0211-0214]
+lcls         up 5-00:00:00      1    mix tur003
+lcls         up 5-00:00:00      6  alloc rome[0163-0164,0171-0174]
+neutrino     up 5-00:00:00      4    mix tur001,volt[002-004]
+ml           up 5-00:00:00      8    mix tur[002,006-008,014-017]
+atlas        up 5-00:00:00      2    mix tur[012-013]
+usatlas      up 5-00:00:00      2    mix tur[012-013]
 ```
 
 
@@ -118,7 +136,7 @@ To also simplify usage for you, our users:
 ## Using Slurm
 
 
-### How can I get an Interactive Terminal? :id=interactive
+### How can I get an Interactive Terminal/Session? :id=interactive
 
 use the srun command
 
