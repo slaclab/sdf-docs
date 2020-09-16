@@ -19,8 +19,11 @@ Historically, we have always use IBM's LSF as our Batch scheduler software. Howe
 
 ### What should I know about using Batch?
 
-As the number of servers and GPUs in our environment is limited (but not small), we need to keep account of who uses what. In addition, as groups/teams can purchase their own servers to be added to the SDF we must provide a method of which allocated users can have priority access to the servers that were purchased for them. A slurm Account is basically something that you will charge your job against.
+The purpose of a batch system is to enable efficient sharing of the CPUs, GPUs, memory and ephemeral storage that exists in a Cluster. The cluster is comprised of many servers - often called Batch Nodes. As the number of these batch nodes and their resources (such as GPUs) in our environment is limited (but not small), we need to keep account of who uses what, so that we can fairly provide access to all users. At the same time, as groups/teams can purchase their own servers to be added to the SDF cluster we must provide a method by which authorised users can have priority access to their resources. Slurm users are associated with one or many slurm [Accounts](#account-and-allocation) which have the dual function of such access to possibly restricted resources and also as a means to keep a record of usage so that a single user cannot overrun the entire cluster. [Partitions](#partition) are used as a means to define the (potentially restricted) servers.
 
+In order to actually use the Batch cluster, one typically logs in to a Login Node. Such dedicated servers are often used for the sole purpose of interacting with the batch system only and should not be used to actually run any intensive work on (using consideratble CPU, memory, disk etc for a more than a few minutes) - this is because these machines are typically shared resources where many people will concurrently log into to use the batch system, and hence by running intensive jobs on such machines will often cause issues for others users on the Login Node. One would typically SSH into such a node and run batch commands (like `sbatch`, `squeue` etc) in order to queue work and monitor work onto the cluster. These work units are often called Jobs. The batch scheduler will then use the defined rules and algorithms to prioritise (or deprioritise) a user's Jobs on the system against everyone else who are effectively competing to use the cluster. The Jobs themselves, will then actually run on the Batch Nodes in the cluster. Depending on local policies, you may or may not be able to actually login these Batch Nodes directly. SLAC has typically forbid the ability to login to the Batch Nodes as multiple users Jobs are typically running on a single Batch Node.
+
+It is also possible to request an [interactive session](#interactive) on a Batch Node. This would be akin to SSH'ing into a Batch Node directly - however, as these interactive batch jobs themselves are run in cgroups, they are effectively ran in a sandbox, and hence more secure (from the other processes) than just SSH'ing in. One should typically not use interactive batch sessions for long periods of time as typically such usage is often idle time and not an efficient use of the cluster's resources. It is recommended however, to use such sessions to help debug issues with your usual batch Jobs.
 
 ### What is a Slurm Partition? :id=partition
 
@@ -115,7 +118,7 @@ To also simplify usage for you, our users:
 ## Using Slurm
 
 
-### How can I get an Interactive Terminal?
+### How can I get an Interactive Terminal? :id=interactive
 
 use the srun command
 
@@ -257,7 +260,7 @@ scancel <jobid>
 
 ###  How can I request GPUs?
 
-You can use the --gpus to specify gpus for your jobs: Using a number will request the number of any gpu that is available (what you get depends upon what your Account/Association is and what is available when you request it). You can also specify the type of gpus by prefixing the number with the model name. eg
+You can use the `--gpus` to specify gpus for your jobs: Using a number will request the number of any gpu that is available (what you get depends upon what your Account/Association is and what is available when you request it). You can also specify the type of gpus by prefixing the number with the model name. eg
 
 ```
 # request single gpu
