@@ -3,7 +3,7 @@
 ## Shell Access
 
 ```
-srun --pty
+srun --pty bash
 ```
 
 
