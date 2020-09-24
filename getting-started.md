@@ -154,7 +154,7 @@ When you [purchase extra storage](resources-and-allocations?id=storage-1) you wi
 
 - Do be respectful of other's jobs - you shall be sharing a limited set of nodes with many many other users. Please consider the type, size and quantity of jobs that you submit so that you do not starve others of compute resources. We do implement [fair sharing] to limit the impact upon others, however there are ways to game the system ;)
 
-- Don't run interactive sessiosn for a long time - do not treat the Compute Nodes as your private remote terminal. Opening an interactive session (using `srun --tty`) and not actuallyl running any heavy processes is very wasteful of resources and could potentially be preventing others from dong their work. Consider using [Jupyter] of just using the Login Nodes for light tasks.
+- Don't run interactive sessiosn for a long time - do not treat the Compute Nodes as your private remote terminal. Opening an interactive session (using `srun --pty bash`) and not actually running any heavy processes is very wasteful of resources and could potentially be preventing others from dong their work. Consider using [Jupyter] of just using the Login Nodes for light tasks.
 
 ?> where should we compile code?
 
