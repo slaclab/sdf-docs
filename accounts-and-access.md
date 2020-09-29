@@ -10,13 +10,26 @@ As we transition from our legacy authentication technologies, you will need a SL
 
 If you do not already have a SLAC Windows account, you can...
 
-- If you already have a SLAC Unix account, you can request one automatically one through our [Accounts Portal](https://ad-account.slac.stanford.edu). Once it has created a SLAC ID you may have to wait upto an hour for some of the backend systems to verify your account. When you can [ssh into SDF](#ssh) then your SDF account is ready!
+- If you already have a SLAC Unix account, you can request one automatically one through our [Accounts Portal](https://ad-account.slac.stanford.edu). Once it has created a SLAC ID you may have to wait up to 30 minutes for some of the backend systems to verify your account. When you can [ssh into SDF](#ssh) then your SDF account is ready!
 
 or...
 
 - Your SLAC sponsor can request a SLAC Windows account at this [Service Now Link](https://slacprod.servicenowservices.com/it_services?id=sc_cat_item&sys_id=17176b676ff12100aae0c6012e3ee4f7&sysparm_category=d65827c46fd921009c4235af1e3ee434) (SLAC login required)
 
 !> __Please Note:__ If this is the first time you are using SDF, after creating your [SLAC ID](#access) you will need to [ssh](#ssh) into our systems prior to anything else (including launching [jupyter](software.md#jupyter) etc.) so that our automated setup can finish configuring your home directories etc. for you.
+
+Your SLAC sponsor or SLAC colleague who already has access to SDF is able to discover when an account is ready in SDF with this command on sdf-login.slac.stanford.edu: getent passwd [username]
+```
+[user@sdf-login01 ~]$ getent passwd ksa
+ksa:*:6862:1051:Amrhein, Karl:/sdf/home/k/ksa:/bin/bash
+``` 
+if there is no response from that command, then the username is not ready. When you see a response, the user should be able to log in.
+ 
+we also have a script:
+```
+/usr/bin/listusers
+```
+to list all known users in AD (although it won’t tell you if the account is disabled or not, we can still use ‘res’ command on rhel6-64.slac.stanford.edu for that)
 
 ## How do I log onto SDF?
 
