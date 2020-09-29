@@ -113,7 +113,7 @@ To view all groups that someone else is a member of, you can use this command:
 ```
 id [username]
 ```
-(replace [username] with the username you wish to look up. The output includes the GID (Group ID) and group name.  The GID is what controls access; the group name is just a convenient way to refer to the GID (you may notice slight differences with the group name for the same GID on different systems; e.g., 
+(replace [username] with the username you wish to look up. The output includes the GID (Group ID) and group name.  The GID is the significant part and it's what controls access; the group name is just a convenient way for humans to refer to the GID without remembering numbers.
 
 ## Great! What now?
 
