@@ -100,10 +100,20 @@ From there, you will be presented a prompt for your password, just like as [abov
 
 ## How to I access my group/collaboration's data?
 
+SDF uses Unix POSIX groups for access. All existing Unix groups from centos7.slac.stanford.edu or rhel6-64.slac.stanford.edu are available in SDF. To view all groups known to SDF, you can use this script:
+```
+[user@sdf-login01 ~]$ /usr/bin/listgroups 
+```
 
-?> _TODO_ unix groups etc.
-
-
+To view all groups you are a member of, you can use this command:
+```
+id
+```
+To view all groups that someone else is a member of, you can use this command:
+```
+id [username]
+```
+(replace [username] with the username you wish to look up. The output includes the GID (Group ID) and group name.  The GID is what controls access; the group name is just a convenient way to refer to the GID (you may notice slight differences with the group name for the same GID on different systems; e.g., 
 
 ## Great! What now?
 
