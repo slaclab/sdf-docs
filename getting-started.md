@@ -4,7 +4,7 @@
 
 | Access 	| Address 	|  	
 |-	|-	|
-| SSH 	|  sdf-login01.slac.stanford.edu, sdf-login02.slac.stanford.edu |  	
+| SSH 	|  sdf-login.slac.stanford.edu |  	
 | Ondemand 	| [https://sdf.slac.stanford.edu/pun/sys/dashboard](/pun/sys/dashboard ':ignore') 	|  	
 | Globus Endpoint 	| slac#sdf 	|  	
 | Documentation | [this!](/ ':ignore') |
