@@ -8,6 +8,8 @@ If you are a SLAC employee, affiliated researcher, or user facility user, you ar
 
 As we transition from our legacy authentication technologies, you will need a SLAC ID to utilise SDF (The SLAC ID account is the same as our SLAC Windows account):
 
+You can use our [Accounts Portal](https://ad-account.slac.stanford.edu) to view your SLAC accounts and their status (eg, you can verify if you have a SLAC Windows account and if its status is Enabled or Disabled).
+
 If you do not already have a SLAC Windows account, you can...
 
 - If you already have a SLAC Unix account, you can request one automatically one through our [Accounts Portal](https://ad-account.slac.stanford.edu). Once it has created a SLAC ID you may have to wait up to 30 minutes for some of the backend systems to verify your account. When you can [ssh into SDF](#ssh) then your SDF account is ready!
