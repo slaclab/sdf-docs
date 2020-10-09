@@ -3,5 +3,5 @@
 | | |
 |--- |--- |
 | Email | unix-admin@slac.stanford.edu |
-| Slack | [slac.slack.com #comp-sdf](https://app.slack.com/client/T1X4J8FJ8/C01965DTG91) |
+| Slack | [slac.slack.com #comp-sdf](https://slac.slack.com/app_redirect?channel=comp-sdf) |
 
