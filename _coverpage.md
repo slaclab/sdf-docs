@@ -10,6 +10,6 @@
 - **Archive**
 
 [GitHub](https://github.com/slaclab/sdf-docs/)
-[Shell](/pun/sys/shell/ssh/sdf-login.slac.stanford.edu ':ignore')
+[Shell](/pun/sys/shell/ssh/sdf.slac.stanford.edu ':ignore')
 [Login](/pun/sys/dashboard ':ignore')
 
