@@ -113,7 +113,7 @@ From there, you will be presented a prompt for your password, just like as [abov
 
 
 
-## How to I access my group/collaboration's data?
+## How do I access my group/collaboration's data?
 
 SDF uses Unix POSIX groups for access. All existing Unix groups from centos7.slac.stanford.edu or rhel6-64.slac.stanford.edu are available in SDF. To view all groups known to SDF, you can use this script:
 ```
@@ -129,6 +129,17 @@ To view all groups that someone else is a member of, you can use this command:
 id [username]
 ```
 (replace [username] with the username you wish to look up. The output includes the GID (Group ID) and group name.  The GID is the significant part and it's what controls access; the group name is just a convenient way for humans to refer to the GID without remembering numbers.
+
+
+
+## How do I check current status of storage quotas?
+
+You might want to know how much of your quota is used; reaching the limit might be the cause of some weird error messages for example. To do so, simply type the following command in a Terminal window:
+```
+/sdf/sw/sdf-quotas.sh
+```
+
+
 
 ## Great! What now?
 
