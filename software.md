@@ -50,12 +50,13 @@ auto_activate_base: false
 
 #### Create a conda environment
 
-There is no unique way to create a conda environment, we illustrate it how to do so from a .yaml file (see the conda [documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) for more details).
+There is no unique way to create a conda environment, we illustrate here how to do so from a .yaml file (see the conda [documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) for more details).
 
 In order to create an environment called `test` with `python=3.6` and `numpy` and `pandas` in it, create `example.yaml`:
 ```bash
 name: test
 dependencies:
+  - python=3.6
   - numpy
   - pandas
 ```
