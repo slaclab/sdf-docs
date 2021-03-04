@@ -99,7 +99,7 @@ We delegate authority to Coordinators to allow them to define their own Allocati
 
 
 
-## How do I use Slurm?
+## How do I use Slurm? :id=slurmexample
 
 There are two ways to interact with slurm
 
