@@ -133,13 +133,14 @@ More information on Slurm, submission scripts, and commands can be found on the 
 
 ### Example
 A basic Slurm example [can be found here](batch-compute.md#slurmexample) on the Batch Compute page.  
-Note, this is a script that can be submitted using the sbatch command on the command line: `sbatch filename.sh` 
+Submission scripts can be submitted using the sbatch command on the command line: `sbatch filename.sh` 
 
 ### Running Jupyter
 
 
 ### Software
-SDF uses the module system, as describe above. Currently installed modules can be viewed with this command: `module avail`
+SDF uses the module system. Currently installed modules can be viewed with this command: `module avail`
+To load a specific module (and use the software), use the `module load module-name-you-want' command.
 
 ```
 
