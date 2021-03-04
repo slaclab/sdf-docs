@@ -141,6 +141,8 @@ Submission scripts can be submitted using the sbatch command on the command line
 
 ### Software
 SDF uses the module system. Currently installed modules can be viewed with this command: `module avail`
+
+
 To load a specific module (and use the software), use the `module load module-name-you-want` command.
 
 ```
@@ -172,10 +174,10 @@ cryosparc/2.12.4        eman2/20200925          imod/4.9.10             motionco
 Anything not installed via the module system will need to be installed locally by you (in $HOME or project directories) or globally by sytem admins. [Contact us](contact-us.md) if you would like something installed system wide. Note, $HOME storage is limited, so we do not recommend installing large software packages there. 
 
 ## Compiling Software
-
+When compiling, avoid placing large amounts of software in your $HOME area, as space is limited there.
 
 ## Requesting Software
-
+[Contact us!](contact-us.md)
 
 ## Monitoring
 
