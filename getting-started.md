@@ -120,7 +120,7 @@ When you [purchase extra storage](resources-and-allocations?id=storage-1) you wi
 Traditional secure copies (scp) will work and SDF is a secure [Globus](https://www.globus.org/how-it-works) endpoint. 
 
 #### Help! I've lost some files! What can I do?
-All directories are periodically backed up. [Contact us](contact-us.md) to retrieve the last back up. 
+Some directories are periodically backed up. [Contact us](contact-us.md) to retrieve the last back up. 
 
 ## Running Jobs
 Depending on your application, you can run jobs in a variety ways:   
