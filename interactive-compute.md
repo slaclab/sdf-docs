@@ -28,7 +28,7 @@ Once you have created your Conda environment on SDF (see [Software/Conda](softwa
 conda install -c conda-forge jupyterlab
 ```
 
-Then you can go to [Jupyter portal](/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new ':ignore'), and select "Custom Conda Environment..." from the "Jupyter Instance" dropdown. You will need to customize the text that appears under "Commands to initiate Jupyter" to point to your custom conda environment:
+Then go to [Jupyter portal](/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new ':ignore'), and select "Custom Conda Environment..." from the "Jupyter Instance" dropdown. You will need to customize the text that appears under "Commands to initiate Jupyter" to point to your custom conda environment:
 
 ```bash
 export CONDA_PREFIX=<path-to-miniconda3>
@@ -45,7 +45,7 @@ Fill the rest of the form as you would for any provided Jupyter Instance and cli
 
 #### in a Singularity container
 
-Once you have built or pulled a Singularity image on SDF (see [Software/Singularity](software.md#singularity) page for more information on how to do that), ensuring that you have the `jupyter[lab]` binary in the image's `PATH` , go to the [Jupyter portal](/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new ':ignore'), select "Custon Singularity Image" from the "Jupyter Instance" dropown menu. Then modify the text in the "Commands to initiate Jupyter":
+Once you have built or pulled a Singularity image on SDF (see [Software/Singularity](software.md#singularity) page for more information on how to do that), ensuring that you have the `jupyter[lab]` binary in the image's `PATH`, go to the [Jupyter portal](/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new ':ignore'), select "Custom Singularity Image" from the "Jupyter Instance" dropown menu. Then modify the text in the "Commands to initiate Jupyter":
 ```bash
 export SINGULARITY_IMAGE_PATH=<path-to-the.sif>
 function jupyter() { singularity exec --nv -B /sdf,/gpfs,/scratch,/lscratch ${SINGULARITY_IMAGE_PATH} jupyter $@; }
