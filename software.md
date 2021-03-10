@@ -111,6 +111,8 @@ We also provide symlinks to the appropriate GCC version to the above `devtoolset
 
 ### Jupyter
 
+We provide tunnel-less access to jupyter instances running on SDF via an easy to use web portal where you can 'bring-your-own' jupyter environments. See [Interactive Jupyter](interactive-compute.md#jupyter) for more information.
+
 ### PyTorch
 
 ### Tensorflow
