@@ -136,7 +136,7 @@ A basic Slurm example [can be found here](batch-compute.md#slurmexample) on the 
 Submission scripts can be submitted using the sbatch command on the command line: `sbatch filename.sh` 
 
 ### Running Jupyter
-!> __TODO__
+Please see [Jupyter](software.md#jupyter)
 
 
 ### Software
