@@ -17,24 +17,21 @@
 
 ### Conda
 
-It is not recommended to store your conda environments in your $HOME due to quota limits that might be quickly met. Instead you can use $SCRATCH. We suggest to do the following:
+It is not recommended to store your conda environments in your $HOME due to 1) quota limits, and 2) an inability to share conda environments across groups. We generally recommend that you install software into your $GROUP space (eg `/sdf/group/<group_name>/sw` - please see [Group storage](getting-started.md#group)).
 
-#### Install Miniconda3
+#### Install Miniconda
 
-Add the following lines to your `~/.bashrc`
+Download the latest version of Miniconda from the [conda](https://docs.conda.io/en/latest/miniconda.html) website and follow the [Instructions](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html#installing-on-linux). Change the `prefix` to 
+
 ```bash
-export DIR=/scratch/${USER}/.conda
-mkdir $DIR -p
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/Miniconda3-latest-Linux-x86_64.sh
+bash /tmp/Miniconda3-latest-Linux-x86_64.sh -p /sdf/group/<group_name>/sw/conda/
 ```
 
-Download the latest version of Miniconda from the [conda](https://docs.conda.io/en/latest/miniconda.html) website and follow the [Instructions](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html#installing-on-linux); the following should work:
-```bash
-cd $HOME
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
-bash Miniconda3-latest-Linux-x86_64.sh
-```
+Replacing `<group_name>` appropriately.
 
-Edit your `~/.condarc` as follows:
+We can also modify our [~/.condarc](https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html) file as follows;
+
 ```bash
 channels:
   - defaults
@@ -42,28 +39,31 @@ channels:
   - conda-forge
   - pytorch
 envs_dirs:
-  - /scratch/${USER}/.conda/envs
+  - /sdf/group/<group_name/sw/conda/envs
 pkgs_dirs:
-  - /scratch/${USER}/.conda/pkgs
+  - /sdf/group/<group_name/sw/conda/pkgs
 auto_activate_base: false
 ```
 
 #### Create a conda environment
 
+Conda environments are a nice way of switching between different software versions/packages without multiple conda installs.
+
 There is no unique way to create a conda environment, we illustrate here how to do so from a .yaml file (see the conda [documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) for more details).
 
-In order to create an environment called `test` with `python=3.6` and `numpy` and `pandas` in it, create `example.yaml`:
+In order to create an environment called `mytest` with `python=3.6` and `numpy` and `pandas` in it, create `mytest-environment.yaml`:
 ```bash
-name: test
+name: mytest
 dependencies:
   - python=3.6
   - numpy
   - pandas
 ```
 
-Then run the following command: `conda env create -f example.yaml`.
+Then run the following command: `conda env create -f mytest-environment.yaml`.
 
-If successful, you should see `test` when listing your environments: `conda env list`. 
+If successful, you should see `mytest` when listing your environments: `conda env list`. 
+
 You can now activate your environment and use it: `conda activate test`. To double-check that you have the right packages, you can type `conda list` once in the environment and check that you see `numpy` and `pandas`.
 
 
@@ -73,7 +73,8 @@ For a detailed explanation of how to use Singularity on SDF, you can go through 
 
 #### Prerequisite
 
-Before pulling or building an image, define the following environment variables:
+As pulling and building a new image can use quite a lot of disk space, we recommend that you set the appropriate cache paths for singularity to not use your $HOME directory. Therefore, before pulling or building an image, define the following environment variables:
+
 ```bash
 export DIR=/scratch/${USER}/.singularity
 mkdir $DIR -p
