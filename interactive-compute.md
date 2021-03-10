@@ -8,7 +8,7 @@ srun --pty bash
 
 For more information, see the *Interactive* paragraph in the [Batch Compute](batch-compute.md#interactive) page. 
 
-## Jupyter
+## Jupyter :id=jupyter
 
 We provide automatic tunnels through our [ondemand](https://openondemand.org/) proxy of [Jupyter](https://jupyter.org/) instances. This means that in order to run Jupyter kernels on SDF, you do not need to setup a chain of SSH tunnels in order to show the Jupyter web instance.
 
