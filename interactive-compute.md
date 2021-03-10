@@ -20,6 +20,8 @@ To launch an instance of Jupyter, you can use the [Jupyter portal](/pun/sys/dash
 
 We also provide the capability for you to 'bring-your-own-Jupyter' so that all your code dependencies are dictated by you, and not by us. We recommend you do this by either building a singularity image of your Jupyter environment or by building a conda environment on SDF storage.
 
+If you wish for your jupyter environment to be more widely used (e.g. for others in your group), you can submit a pull-request to our [slac-ood-jupyter repo](https://github.com/slaclab/slac-ood-jupyter) to append your specific "Commands to initiate Jupyter" onto the list of preselectable Jupyter Images. Specifically, you will want to change [form.yml.erb](https://github.com/slaclab/slac-ood-jupyter/blob/master/form.yml.erb).
+
 #### in a Conda environment
 
 Once you have created your Conda environment on SDF (see [Software/Conda](software.md#conda)), ensure that you have jupyter installed in your conda environment:
