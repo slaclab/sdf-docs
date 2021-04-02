@@ -79,7 +79,7 @@ We have 4 kinds of on disk immediate access storage available; each have their l
 | File System  | Description | Snapshots  | Backup  | Purging  | Access | Retention | Speed |
 |---|---|---|---|---|---|---|---|
 | [$HOME](#home) | General user level configuration files | no | yes * | no | user | Forever | Fast |
-| [$LSCRATCH](#lscratch | Local (to compute node) temporary storage | no | no | yes | user | Per Job | Fastest |
+| [$LSCRATCH](#lscratch) | Local (to compute node) temporary storage | no | no | yes | user | Per Job | Fastest |
 | [$SCRATCH](#scratch) | Global (to cluster) temporary storage | no | no | yes | group | 1 month* | Fast |
 | [$GROUP](#scratch) | Group space for shared data and programs | no | no | no | group | Forever | Fast |
 
