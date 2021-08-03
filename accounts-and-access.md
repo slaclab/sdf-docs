@@ -53,6 +53,10 @@ Otherwise, you can also log in individually to our current pool of servers at
 ```
 sdf-login01.slac.stanford.edu
 sdf-login02.slac.stanford.edu
+sdf-login03.slac.stanford.edu
+sdf-login04.slac.stanford.edu
+
+** Please note that these hosts are rebooted the first Sunday of every month at 4am Pacific Time.
 ```
 
 ### Using a Terminal
