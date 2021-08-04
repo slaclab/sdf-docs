@@ -15,29 +15,27 @@ bbcp me@remote.univ.edu:/tmp/myfile ./myfile
 You may need to type your password for `me@remote.univ.edu`, unless you setup password less login to 
 `remote.univ.edu` (e.g. ssh key).
 
-To archive high performance, bbcp uses (multple) dedicate TCP connections. This sometime won't work if there is
-a firewall. For example, when the `remote.univ.edu` is outside of the SLAC network, one will need to use the 
-`-Z 5031:5051` options to workaround this restriction (This is the bbcp default). Another commonly used option
-to work with firewall is the `-z` 
-option. Type `bbcp --help` or go to the bbcp web page for more info.
+To archive high performance, bbcp opens a additional TCP port. This sometime won't work if there is a firewall. 
+The `-Z` option allows you to specify a range of TCP ports that are not blocked by firewall.  
+The `-z` is another commonly used option to work with firewall. 
+Type `bbcp --help` or go to the bbcp web page for more info.
 
-To use bbcp, both source and destination must have the bbcp executable in path. If one or both of them do 
-not have bbcp, you can download the executable binary by following the link in the bbcp web page.
+Both source and destination must have the bbcp executable in $PATH. bbcp executable can be downloaded
+by following the link in the bbcp web page. If bbcp is not in `$PATH`, use the `-S` or `-T` option to 
+specify the none standard location. Please carefully read the bbcp web page with regards to these options as they 
+are not as intuitive as you may think. Also, sometimes a cut-n-paste of dash (`-`) from the web page end up with
+something that looks like a dash but not a dash. In that case, just replace it by a real dash. 
 
-If you can not copy bbcp to a location in `$PATH`, you can use the -S or -T option of bbcp to specify the 
-none standard location. Please carefully read the bbcp web page with regards to these options as they are not
-as intuitive as you may think. Also, sometimes a cut-n-paste of dash from the web page end up with
-something that looks like a dash but not a dash (`-`). In that case, just replace it by a real dash. 
-
-Using the above command line example, if you copy bbcp to your home director at `remote.univ.edu`, do this
+Using the above command line example, if you copy bbcp to your home director at `remote.univ.edu`, do this:
 ```
 bbcp -S 'ssh -l %U %H ~/bbcp' me@remote.univ.edu:/tmp/myfile ./myfile
 ```
-Here `%U` is "`me`". `%H` is "`remote.univ.edu`". We use option `-S` because `remote.univ.edu` is the data source. 
+Here we use option `-S` because `remote.univ.edu` is the data source. bbcp will substitute `%U` and `%H` by 
+`me` and `remote.univ.edu` respectively.
 
 More [examples from NERSC](https://docs.nersc.gov/services/bbcp/).
 
 ## [Globus](https://www.globus.org)
 
-SDF has a Globus endpoint slac#sdf. This service is available to everyone with a SDF account.
+SDF has a Globus endpoint `slac#sdf`. This service is available to everyone with a SDF account.
 
