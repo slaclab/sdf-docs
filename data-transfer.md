@@ -21,7 +21,7 @@ a firewall. For example, when the `remote.univ.edu` is outside of the SLAC netwo
 to work with firewall is the `-z` 
 option. Type `bbcp --help` or go to the bbcp web page for more info.
 
-To use bbcp, both source and destination much have the bbcp executable in path. If one or both of them do 
+To use bbcp, both source and destination must have the bbcp executable in path. If one or both of them do 
 not have bbcp, you can download the executable binary by following the link in the bbcp web page.
 
 If you can not copy bbcp to a location in `$PATH`, you can use the -S or -T option of bbcp to specify the 
