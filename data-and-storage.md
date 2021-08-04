@@ -14,15 +14,6 @@ SLAC provides a means to storage, manage and share their data. The SDF is specif
 ## Data Retention Policies
 
 
-## Data Transfer Capabilities
-
-
-
-### DTNs
-
-### Globus
-
-
 ## Data Confidentiality and Access Control
 
 
