@@ -80,7 +80,7 @@ We have 4 kinds of on disk immediate access storage available; each have their l
 |---|---|---|---|---|---|---|---|
 | [$HOME](#home) | General user level configuration files | no | yes * | no | user | Forever | Fast |
 | [$LSCRATCH](#lscratch) | Local (to compute node) temporary storage | no | no | yes | user | Per Job | Fastest |
-| [$SCRATCH](#scratch) | Global (to cluster) temporary storage | no | no | yes | group | 1 month* | Fast |
+| [$SCRATCH](#scratch) | Global (to cluster) temporary storage | no | no | yes | group | 31 days* | Fast |
 | [$GROUP](#scratch) | Group space for shared data and programs | no | no | no | group | Forever | Fast |
 
 #### $HOME Storage :id=home
@@ -93,7 +93,7 @@ It may be beneficial to bulk move data from somewhere else onto the local comput
 
 #### $SCRATCH Storage :id=scratch
 
-We provide a small shared $SCRATCH space that is globally shared on all Compute Nodes. This is similar to $LSCRATCH but is not just locally bound to a single node. It is also not purged after each job, but upon a schedule whereby any data which has not been read/modified over 1 month??? will be automatically deleted. If you wish to keep the data for longer, then we recommend moving the data into [$GROUP storage](#group). Due to the nature of the performance edge of this storage, we also enforce a quota. $SCRATCH is especially useful for temporary data such as checkpoints and application input and output.
+We provide a small shared $SCRATCH space that is globally shared on all Compute Nodes. This is similar to $LSCRATCH but is not just locally bound to a single node. It is also not purged after each job, but upon a schedule whereby any data which has not been read/modified over 31 days will be automatically deleted. If you wish to keep the data for longer, then we recommend moving the data into [$GROUP storage](#group). Due to the nature of the performance edge of this storage, we also enforce a quota. $SCRATCH is especially useful for temporary data such as checkpoints and application input and output.
 
 ?> __TODO__ what is quota? what conditions is it enforced?
 
