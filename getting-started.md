@@ -94,6 +94,7 @@ It may be beneficial to bulk move data from somewhere else onto the local comput
 #### $SCRATCH Storage :id=scratch
 
 We provide a small shared $SCRATCH space that is globally shared on all Compute Nodes. This is similar to $LSCRATCH but is not just locally bound to a single node. It is also not purged after each job, but upon a schedule whereby any data which has not been read/modified over 31 days will be automatically deleted. If you wish to keep the data for longer, then we recommend moving the data into [$GROUP storage](#group). Due to the nature of the performance edge of this storage, we also enforce a quota. $SCRATCH is especially useful for temporary data such as checkpoints and application input and output.
+Dedicated storage for each SDF user had been created at /scratch/<first_username_letter>/<username>/ (so user "radmer" would use "/scratch/r/radmer/", for example).  For each user we plan to set $SCRATCH to point to this area, but the schedule for this change is not yet determined.
 
 ?> __TODO__ what is quota? what conditions is it enforced?
 
