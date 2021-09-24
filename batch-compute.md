@@ -150,6 +150,13 @@ This will then execute `/bin/bash` on a (scheduled) server in the Partition `sha
 Note that when you 'exit' the interactive session, it will relinquish the resources for someone else to use. This also means that if your terminal is disconnected (you turn your laptop off, loose network etc), then the Job will also terminate (similar to ssh).
 
 
+### How can I get an Interactive Terminal/Session that supports X11?
+
+Same as for a normal Interactive Session (above) but add the "--x11" option
+
+```
+srun --x11 --partition shared -n 1 --pty /bin/bash
+```
 
 ### How do I submit a Batch Job?
 
