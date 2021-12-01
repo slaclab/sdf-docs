@@ -142,10 +142,10 @@ use the srun command
 
 
 ```
-srun --partition shared -n 1 --pty /bin/bash
+srun --partition shared -n 1 --time=01:00:00 --pty /bin/bash
 ```
 
-This will then execute `/bin/bash` on a (scheduled) server in the Partition `shared` and charge against Account `shared`. This will request a single CPU, launch a pseudo terminal (pty) where bash will run. You may be provided different Accounts and Partitions by your Coordinator and should use them when possible.
+This will then execute `/bin/bash` on a (scheduled) server in the Partition `shared` and charge against Account `shared`. This will request a single CPU for one hour, launch a pseudo terminal (pty) where bash will run. You may be provided different Accounts and Partitions by your Coordinator and should use them when possible.
 
 Note that when you 'exit' the interactive session, it will relinquish the resources for someone else to use. This also means that if your terminal is disconnected (you turn your laptop off, loose network etc), then the Job will also terminate (similar to ssh).
 
@@ -155,7 +155,7 @@ Note that when you 'exit' the interactive session, it will relinquish the resour
 Same as for a normal Interactive Session (above) but add the "--x11" option
 
 ```
-srun --x11 --partition shared -n 1 --pty /bin/bash
+srun --x11 --partition shared -n 1 --time=01:00:00 --pty /bin/bash
 ```
 
 ### How do I submit a Batch Job?
