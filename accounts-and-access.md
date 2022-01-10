@@ -136,7 +136,7 @@ id [username]
 
 You might want to know how much of your quota is used; reaching the limit might be the cause of some weird error messages for example. To do so, simply type the following command in a Terminal window:
 ```
-/sdf/sw/sdf-quotas.sh
+/sdf/sw/sdf-quota.sh
 ```
 
 
