@@ -62,6 +62,21 @@ Storage can be purchased in our standard 'Building Blocks' which provide a unit 
 
 !> We are still finalising our storage quotas. If you have any suggestions please [contact us!](contact-us.md)
 
+### Viewing Resource Status
+
+To view the status of the nodes on SDF from the command line use [sinfo](https://slurm.schedmd.com/sinfo.html).  The following produces a reasonably informative summary of all the nodes on SDF:
+
+```
+sinfo --Node --format="%10N %.6D %10P %10T %20E %.4c %.8z %8O %.6m %10e %.6w %.60f"
+```
+
+To get more information on a specfic node, use the following [scontrol](https://slurm.schedmd.com/scontrol.html) command:
+
+```
+scontrol show node <node name>
+```
+
+The names of the nodes can be found in the left-most column of the above sinfo command (called NODELIST) for some reason.
 
 ## Who Do I Contact to Access More Resources? :id=allocations
 
