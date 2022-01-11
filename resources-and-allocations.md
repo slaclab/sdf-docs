@@ -52,6 +52,7 @@ To view the status of the nodes on SDF from the command line use [sinfo](https:/
 sinfo --Node --format="%10N %.6D %10P %10T %20E %.4c %.8z %8O %.6m %10e %.6w %.60f"
 ```
 
+To get only information on a specific partition use ```--partition=<partition>```, with the partition names coming from the table below (ex: ml, atlas).
 To get more information on a specfic node, use the following [scontrol](https://slurm.schedmd.com/scontrol.html) command:
 
 ```
