@@ -1,6 +1,6 @@
 # Data transfer
 
-`sdf-dtn01.slac.stanford.edu` is a dedicate data trasnfer node. It is open to everyone with a SDF account. 
+`sdf-dtn.slac.stanford.edu` is a load-balanced DNS name which points to a pool of dedicated data trasnfer nodes. It is open to everyone with a SDF account. 
 Common tools/service like scp/sftp/rsync are
 available for casual data transfer. For serious large volume data transfer, two common services are available:
 `bbcp` and `Globus`.
