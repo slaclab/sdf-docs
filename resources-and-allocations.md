@@ -46,9 +46,9 @@ Each server consists of
 
 ## Contributing to SDF :id=contributing-to-sdf
 
-All SLAC employees and experimental facility users and affiliate are automatically granted permissions to access and utilise SDF resources. By default, all users are granted use of the [shared partition](batch-compute.md#shared-partition] whereby your jobs may be pre-empted to higher priority users (ie users/groups whom have purchased hardware resources add onto SDF will get immediate access to their resources, thereby 'kicking-off' any users using the shared partition that may be using their servers at that time). Whilst we wish to meet the needs of everyone, it may not be always possible to do conduct your reseearch on the 'free' resources provided by this shared partition. Users and their affiliated group(s) are also provided free storage.
+All SLAC employees, experimental facility users, and their affiliates are automatically granted permissions to access and utilise SDF resources. By default, all users are granted use of the [shared partition](batch-compute.md#shared-partition] whereby your jobs may be pre-empted for those from higher-priority users (i.e., users/groups who have purchased hardware in SDF will get immediate access to their resources, thereby 'kicking-off' any users using the shared partition that may be using those same servers at the time). Whilst we wish to meet the needs of everyone, it may not be always possible to do conduct your reseearch on the 'free' resources provided by this shared partition. Users and their affiliated group(s) are also provided free storage.
 
-We invite all groups, users, and internal and/or external experiments to purchase additional resources.
+We invite all groups, users, and internal and/or external experiments to purchase resources in SDF to guarantee access.
 
 ### Compute
 
@@ -58,14 +58,14 @@ Compute hardware is provided at cost and CPU and GPU compute servers can be sele
 
 ### Storage
 
-Storage can be purchased in our standard 'Building Blocks' which provide a unit increment that is tuned for our storage environment. We welcome groups/users to pool resources storage procuments together to meet our minimum building block size. The storage will be maintained for the life of the disks (currently five/six/seven??? years) and there shall be no fee's beyond the initial procuremnt (at cost) costs. The added storage wil show up as a bump up in your [quota](TODO.md)
+Storage can be purchased in our standard 'Building Blocks' which provide a unit increment that is tuned for our storage environment. We welcome groups/users to pool resources storage procuments together to meet our minimum building block size. The storage will be maintained for the life of the disks (currently five/six/seven??? years) and there shall be no fee's beyond the initial procurement (at cost) costs. The added storage wil show up as a bump up in your [quota](TODO.md)
 
 !> We are still finalising our storage quotas. If you have any suggestions please [contact us!](contact-us.md)
 
 
 ## Who Do I Contact to Access More Resources? :id=allocations
 
-If you are a SDF User, and find that the Shared partition is restrictive for your needs, then please reach out to your local coordinator to be added to different partitions if you need more compute, or to increase your $GROUP storage quota. We will not honour increases in $HOME quota. 
+If you are a SDF User, and find that the Shared partition is restrictive for your needs, then please reach out to your local coordinator to be added to different partitions if you need more compute resources, or to increase your $GROUP storage quota. We will not honour increases in $HOME quota. 
 
 | | | |
 |--- |--- |--- |
