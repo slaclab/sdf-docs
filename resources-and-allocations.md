@@ -7,9 +7,10 @@
 #### 88 x Dual 64-core Rome Server (11,264 cores)
 
 Each server consists of
-- Dual socket [AMD Rome 7702P](https://www.amd.com/en/products/cpu/amd-epyc-7702) CPU with 64 cores per socket (128 threads) @ 2.0Ghz base close, with boost to 3.35GHz
+- Dual socket [AMD Rome 7702](https://www.amd.com/en/products/cpu/amd-epyc-7702) CPU with 64 cores per socket (128 threads) @ 2.0Ghz base close, with boost to 3.35GHz
 - 512GB RAM across 32 x 16GB
 - Single 960GB shared boot, local scratch (`/lscratch`)
+- 100Gbps HDR Infiniband
 
 #### 10 x 10-way Nividia Geforce 1080Ti GPU Servers (100 GPUs)
 
@@ -19,6 +20,7 @@ Each server consists of
 - 256 GB RAM
 - Single 480GB SSD boot drive
 - 3 x 1.92TB SSD local scratch
+- 10Gbps Ethernet
 
 #### 26 x 10-way Nvidia Geforce 2080Ti GPU Servers (260 GPUs)
 
@@ -28,6 +30,7 @@ Each server consists of
 - 192GB RAM
 - Single 480GB SSD boot drive
 - 3 x 1.92TB SSD local scratch
+- 10Gbps Ethernet
 
 #### 7 x 4-way Nvidia Tesla V100 GPU Servers (28 GPUs)
 
@@ -37,6 +40,17 @@ Each server consists of
 - 192GB RAM
 - Single 480GB SSD boot drive
 - 2 x 1.92TB SSD local scratch
+- 10Gbps Ethernet
+
+#### 20 x 4-way Nvidia Tesla A100 GPU Servers (160 GPUs)
+
+Each server consists of
+- 4 x Nvidia Tesla A100 NVLink with 40GB each
+- Dual socket [AMD Rome 7542](https://www.amd.com/en/products/cpu/amd-epyc-7542) CPU with 32 cores per socket (64 threads) @ 2.9Ghz base close, with boost to 3.4GHz
+- 1024GB RAM
+- Single 960GB SSD boot drive
+- 3 x 3.84TB NVMe local scratch
+- 200Gbps HDR Infiniband
 
 
 ### Storage
