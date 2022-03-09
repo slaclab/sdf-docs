@@ -44,6 +44,24 @@ Each server consists of
 #### 2 x DDN ES18K
 
 
+### Viewing Resource Status
+
+To view the status of the nodes on SDF from the command line use [sinfo](https://slurm.schedmd.com/sinfo.html).  The following produces a reasonably informative summary of all the nodes on SDF:
+
+```
+sinfo --Node --format="%10N %.6D %10P %10T %20E %.4c %.8z %8O %.6m %10e %.6w %.60f"
+```
+
+To get only information on a specific partition use ```--partition=<partition>```, with the partition names coming from the table below (ex: ml, atlas).
+To get more information on a specfic node, use the following [scontrol](https://slurm.schedmd.com/scontrol.html) command:
+
+```
+scontrol show node <node name>
+```
+
+The names of the nodes can be found in the left-most column of the above sinfo command (called NODELIST) for some reason.
+
+
 ## Contributing to SDF :id=contributing-to-sdf
 
 All SLAC employees and experimental facility users and affiliate are automatically granted permissions to access and utilise SDF resources. By default, all users are granted use of the [shared partition](batch-compute.md#shared-partition] whereby your jobs may be pre-empted to higher priority users (ie users/groups whom have purchased hardware resources add onto SDF will get immediate access to their resources, thereby 'kicking-off' any users using the shared partition that may be using their servers at that time). Whilst we wish to meet the needs of everyone, it may not be always possible to do conduct your reseearch on the 'free' resources provided by this shared partition. Users and their affiliated group(s) are also provided free storage.
