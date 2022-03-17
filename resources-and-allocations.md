@@ -7,9 +7,10 @@
 #### 88 x Dual 64-core Rome Server (11,264 cores)
 
 Each server consists of
-- Dual socket [AMD Rome 7702P](https://www.amd.com/en/products/cpu/amd-epyc-7702) CPU with 64 cores per socket (128 threads) @ 2.0Ghz base close, with boost to 3.35GHz
+- Dual socket [AMD Rome 7702](https://www.amd.com/en/products/cpu/amd-epyc-7702) CPU with 64 cores per socket (128 threads) @ 2.0Ghz base close, with boost to 3.35GHz
 - 512GB RAM across 32 x 16GB
 - Single 960GB shared boot, local scratch (`/lscratch`)
+- 100Gbps HDR Infiniband
 
 #### 10 x 10-way Nividia Geforce 1080Ti GPU Servers (100 GPUs)
 
@@ -19,6 +20,7 @@ Each server consists of
 - 256 GB RAM
 - Single 480GB SSD boot drive
 - 3 x 1.92TB SSD local scratch
+- 10Gbps Ethernet
 
 #### 26 x 10-way Nvidia Geforce 2080Ti GPU Servers (260 GPUs)
 
@@ -28,6 +30,7 @@ Each server consists of
 - 192GB RAM
 - Single 480GB SSD boot drive
 - 3 x 1.92TB SSD local scratch
+- 10Gbps Ethernet
 
 #### 7 x 4-way Nvidia Tesla V100 GPU Servers (28 GPUs)
 
@@ -37,11 +40,40 @@ Each server consists of
 - 192GB RAM
 - Single 480GB SSD boot drive
 - 2 x 1.92TB SSD local scratch
+- 10Gbps Ethernet
+
+#### 20 x 4-way Nvidia Tesla A100 GPU Servers (160 GPUs)
+
+Each server consists of
+- 4 x Nvidia Tesla A100 NVLink with 40GB each
+- Dual socket [AMD Rome 7542](https://www.amd.com/en/products/cpu/amd-epyc-7542) CPU with 32 cores per socket (64 threads) @ 2.9Ghz base close, with boost to 3.4GHz
+- 1024GB RAM
+- Single 960GB SSD boot drive
+- 3 x 3.84TB NVMe local scratch
+- 200Gbps HDR Infiniband
 
 
 ### Storage
 
 #### 2 x DDN ES18K
+
+
+### Viewing Resource Status
+
+To view the status of the nodes on SDF from the command line use [sinfo](https://slurm.schedmd.com/sinfo.html).  The following produces a reasonably informative summary of all the nodes on SDF:
+
+```
+sinfo --Node --format="%10N %.6D %10P %10T %20E %.4c %.8z %8O %.6m %10e %.6w %.60f"
+```
+
+To get only information on a specific partition use ```--partition=<partition>```, with the partition names coming from the table below (ex: ml, atlas).
+To get more information on a specfic node, use the following [scontrol](https://slurm.schedmd.com/scontrol.html) command:
+
+```
+scontrol show node <node name>
+```
+
+The names of the nodes can be found in the left-most column of the above sinfo command (called NODELIST) for some reason.
 
 
 ## Contributing to SDF :id=contributing-to-sdf
