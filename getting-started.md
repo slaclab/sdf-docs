@@ -182,8 +182,8 @@ When compiling, avoid placing large amounts of software in your $HOME area, as s
 
 ## Monitoring
 
-[Slurm Dashboard](changelog.md#slurm-dashboard)
-[DDN Storage](changelog.md#ddn-dashboard)
+- [Slurm Dashboard](changelog.md#slurm-dashboard)
+- [DDN Storage](changelog.md#ddn-dashboard)
 
 ## Do's and Don'ts
 
