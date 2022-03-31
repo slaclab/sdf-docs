@@ -42,7 +42,7 @@ Each server consists of
 - 2 x 1.92TB SSD local scratch
 - 10Gbps Ethernet
 
-#### "ampt" Cluster: 21 x 4-way Nvidia Tesla A100 GPU Servers (160 GPUs)
+#### "ampt" Cluster: 21 x 4-way Nvidia Tesla A100 GPU Servers (84 GPUs)
 
 Each server consists of
 - 4 x Nvidia Tesla A100 NVLink with 40GB each
