@@ -4,7 +4,7 @@
 
 ### Compute
 
-#### 88 x Dual 64-core Rome Server (11,264 cores)
+#### "rome" Cluster: 88 x Dual 64-core Rome Server (11,264 cores)
 
 Each server consists of
 - Dual socket [AMD Rome 7702](https://www.amd.com/en/products/cpu/amd-epyc-7702) CPU with 64 cores per socket (128 threads) @ 2.0Ghz base close, with boost to 3.35GHz
@@ -12,7 +12,7 @@ Each server consists of
 - Single 960GB shared boot, local scratch (`/lscratch`)
 - 100Gbps HDR Infiniband
 
-#### 10 x 10-way Nividia Geforce 1080Ti GPU Servers (100 GPUs)
+#### "psc" Cluster: 10 x 10-way Nividia Geforce 1080Ti GPU Servers (100 GPUs)
 
 Each server consists of
 - 10 x Nvidia Geforce 1080Ti with 11GB each, on a single root pci-e complex
@@ -22,7 +22,7 @@ Each server consists of
 - 3 x 1.92TB SSD local scratch
 - 10Gbps Ethernet
 
-#### 26 x 10-way Nvidia Geforce 2080Ti GPU Servers (260 GPUs)
+#### "tur" Cluster: 26 x 10-way Nvidia Geforce 2080Ti GPU Servers (260 GPUs)
 
 Each server consists of
 - 10 x Nvidia Geforce 2080Ti with 11GB each, on a single root pci-e complex
@@ -32,7 +32,7 @@ Each server consists of
 - 3 x 1.92TB SSD local scratch
 - 10Gbps Ethernet
 
-#### 7 x 4-way Nvidia Tesla V100 GPU Servers (28 GPUs)
+#### "volt" Cluster: 7 x 4-way Nvidia Tesla V100 GPU Servers (28 GPUs)
 
 Each server consists of
 - 4 x Nvidia Tesla V100 NVLink with 32GB each
@@ -42,7 +42,7 @@ Each server consists of
 - 2 x 1.92TB SSD local scratch
 - 10Gbps Ethernet
 
-#### 20 x 4-way Nvidia Tesla A100 GPU Servers (160 GPUs)
+#### "ampt" Cluster: 21 x 4-way Nvidia Tesla A100 GPU Servers (160 GPUs)
 
 Each server consists of
 - 4 x Nvidia Tesla A100 NVLink with 40GB each
