@@ -127,7 +127,6 @@ create a .matlab directory under your account with our site's configuration.  Yo
 ssh sdf-login
 module load matlab
 matlab
-cd /sdf/sw/matlab/R2020b/toolbox/local 
 configCluster
 exit
 ```
