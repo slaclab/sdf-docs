@@ -4,7 +4,7 @@
 
 If you are a SLAC employee, affiliated researcher, or user facility user, you are eligible for a SDF account.
 
-!> SDF uses Windows Active Directory for authentication. As such, your existing SLAC Unix account will not work with SDF.
+!> SDF uses Windows Active Directory for authentication.  Both a SLAC unix and windows account are needed, although you will be logging in to SDF with your windows password.
 
 As we transition from our legacy authentication technologies, you will need a SLAC ID to utilise SDF (The SLAC ID account is the same as our SLAC Windows account):
 
