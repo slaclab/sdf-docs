@@ -104,6 +104,7 @@ If you are a SDF User, and find that the Shared partition is restrictive for you
 |atlas  |ATLAS Group    |Yee/Wei |
 |cryoem |CryoEM Group   |Yee     |
 |hps      |HPS Group      |Omar    |
+|kipac    |Kipac Group    |Stuart Marshall |
 |LCLS     |LCLS Group     |Wilko   |
 |ml         |Machine Learning Initiative |      Daniel/Yee |
 |neutrino       |Neutrino Group | Kazu |
