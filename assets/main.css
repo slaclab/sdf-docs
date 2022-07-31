@@ -1,3 +1,77 @@
+:root {
+    --cardinal: rgb(140,21,21);
+    --digitalred: rgb(177,4,14);
+    --digitalredlight: rgb(229,8,8);
+  
+    --white: rgb(255,255,255);
+    --stanfordblack: rgb(46,45,41);
+    --coolgrey: rgb(83,86,90);
+    --black10: rgb(234,234,234);
+    --black70: rgb(109,108,105);
+    --black80: rgb(88,87,84);
+    --black90: rgb(67,66,62);
+    --trueblack: rgb(0,0,0);
+  
+    --lagunita: rgb(0,124,146);
+    --paloverde: rgb(39,153,137);
+    --bay: rgb(111,162,135);
+    --lime: rgb(139,199,81);
+    --purple: rgb(83,40,79);
+    --clay: rgb(95,87,79);
+    --sky: rgb(103,175,210);
+    --paloalto: rgb(23,94,84);
+    --lightsage: rgb(199,209,197);
+    --illuminating: rgb(254,221,92);
+    --lavender: rgb(118,94,153);
+    --stone: rgb(146,139,129);
+    --teal: rgb(0,80,92);
+    --poppy: rgb(233,131,0);
+    --spirited: rgb(224,79,57);
+    --fog: rgb(218,215,203);
+  
+    /* Now come the docsify theme settings */
+    --base-font-family: Lato, Merriweather, sans-serif;
+    --base-background-color: var(--white);
+    --heading-h2-border-color: var(--cardinal);
+    --sidebar-background: var(--digitalred);
+    --sidebar-border-color: var(--cardinal);
+    --sidebar-nav-link-color: var(--white);
+    --sidebar-nav-link-font-weight: bold;
+    --sidebar-nav-link-background--active: var(--poppy);
+    --sidebar-nav-link-background--hover: var(--spirited);
+    --sidebar-nav-link-color--active: var(--trueblack);
+    --sidebar-nav-link-border-color--active: var(--digitalred);
+    --sidebar-nav-link-text-decoration-color: var(--cardinal);
+    --sidebar-nav-link-before-color--active: var(--cardinal);
+    --sidebar-nav-pagelink-background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='7' height='11.2' viewBox='0 0 7 11.2'><path d='M1.5 1.5l4 4.1 -4 4.1' stroke-width='1.5' stroke='rgb(255,255,255)' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/></svg>");
+    --sidebar-nav-pagelink-background-image--active: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='11.2' height='7' viewBox='0 0 11.2 7'><path d='M1.5 1.5l4.1 4 4.1-4' stroke-width='1.5' stroke='rgb(255,255,255)' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/></svg>");
+    --sidebar-nav-pagelink-background-image--loaded: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='11.2' height='7' viewBox='0 0 11.2 7'><path d='M1.5 1.5l4.1 4 4.1-4' stroke-width='1.5' stroke='rgb(255,255,255)' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/></svg>");
+    --sidebar-nav-pagelink-background-image--collapse: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='7' height='11.2' viewBox='0 0 7 11.2'><path d='M1.5 1.5l4 4.1 -4 4.1' stroke-width='1.5' stroke='rgb(255,255,255)' fill='none' stroke-linecap='square' stroke-linejoin='miter' vector-effect='non-scaling-stroke'/></svg>");
+    --sidebar-toggle-background: var(--digitalred);
+    --sidebar-toggle-icon-color: var(--poppy);
+    --search-result-heading-color: var(--poppy);
+    --search-result-item-color: var(--white);
+    --search-result-keyword-background: var(--poppy);
+    --search-result-keyword-color: var(--trueblack);
+    --code-theme-background: var(--stanfordblack);
+    --code-inline-background: var(--stanfordblack);
+    --code-theme-comment: var(--white);
+    --code-theme-function: var(--digitalredlight);
+    --code-theme-keyword: var(--lightsage);
+    --code-theme-operator: var(--white);
+    --code-theme-punctuation: var(--black10);
+    --code-theme-selection: var(--sky);
+    --code-theme-selector: var(--illuminating);
+    --code-theme-tag: var(--illuminating);
+    --code-theme-text: var(--fog);
+    --code-theme-variable: var(--poppy);
+  }
+  
+  footer .partner {
+    float: right;
+  }
+  
+
 /* Required for browsers w/o shadow DOM support */
 iframe[src*="buttons.github.io"] {
     margin: 0;
@@ -76,4 +150,18 @@ label[data-class-target="label + .docsify-tabs"] {
 
 .sidebar>h1 img {
     max-width: 50%;
+}
+
+aside.toc-nav {
+    background-color: var(--sidebar-background);
+    color: var(--white);
+    font-weight: bold;
+}
+
+aside.toc-nav a:hover {
+    background-color: var(--sidebar-nav-link-background--hover);
+}
+
+aside.toc-nav > div.page_toc > div.active {
+    background-color: var(--sidebar-nav-link-background--active);
 }

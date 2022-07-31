@@ -2,7 +2,7 @@
 ![logo](sdf.svg ':size=200')
 
 <h1 style="font-weight: bold;">SLAC Shared Scientific</h1>
-<h1 style="font-weight: bold;">Data Facility <small>beta</small></h1>
+<h1 style="font-weight: bold;">Data Facility Test<small>beta</small></h1>
 
 - **CPU**
 - **GPU**

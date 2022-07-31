@@ -1,6 +1,6 @@
 # Batch Compute
 
-## Introduction
+## Slurm
 
 Slurm is a batch scheduler that enables users to submit compute 'jobs' of varying scope to our compute clusters. It will queue up jobs such that the compute resources available in SDF are fairly shared and distributed for all users. This page describes basic usage of the Slurm batch scheduler at SLAC. It will provide some simple examples of how to request common resources.
 
@@ -11,9 +11,6 @@ Whilst your desktop or laptop computer has a fast processor and quick access to 
 ### Why should I use Slurm?
 
 Historically, SLAC has used IBM's LSF as our Batch scheduler software. However, with the addition of new hardware such as our NVIDIA GPUs, we have decided to switch to Slurm to schedule compute jobs as it is also commonly used across other academic and laboratory environments. We hope that this commonality and consistency with other facilities will enable easier usage for users, as well as simpler administration for the Science Computing team here at SLAC.
-
-
-## Slurm Basics
 
 ### What should I know about using Batch?
 
@@ -27,6 +24,13 @@ It is also possible to request an [interactive session](#interactive) on a Batch
 
 A Partition is a logical grouping of Batch Nodes. These may be servers of a similar technical specification (eg Cascade Lake CPUs, Telsa GPUs etc), or by ownership of the servers - eg SUNCAT group may have purchased so many servers, so we put them all into a Partition. For the SDF, we partition machines according to science and engineering groups who have [purchased servers](resources-and-allocations.md#contributing-to-sdf) for the SDF. We do this such that members (or associates) of those groups can have priority access to their hardware. Whilst we give everyone access to all hardware via the [shared partition](#shared-partition) users who belong to groups who do not own any hardware in SDF will have lower priority access to use stakeholder’s resources.
 
+
+### S3DF Partitions
+
+| Partion name | CPU model | Cores per node | Memory per node | GPU model | GPUs per node | Scratch | Number of nodes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| roma | AMD Rome 7702 | 128 | 512 GB | - | - | 960 GB | 12 |
+| ferrari | AMD Rome 7542 | 64 | 1024 GB | Nvidia Tesla A100 | 4 | 12 TB | 2 |
 
 Users should contact their Coordinators to be [added to appropriate group Partitions](resources-and-allocations.md#allocations) to get priority access to resources.
 
@@ -73,36 +77,18 @@ However, as compute is a limited resource, all batch jobs submitted into the sha
 
 !> __TODO__: Add more information on the shared partition and its policies of use.
 
-### What is Pre-emption? :id=pre-emption
-
-As typically we have fewer resources than the aggregate requirements of all user groups at SLAC, we cannot provide resources to everyone when they need it. We therefore have to have different classes of users on our systems: those whose groups have [purchased servers](resources-and-allocations.md#contributing-to-sdf) and those who are using the [shared partition](#shared-partition) to use resources provided by SLAC's indirect. In order to be "fair" to the owners of servers who have contributed their resources into the SDF, we provide immediate access to their servers - when they need it. At the same time, users on the shared partition are allowed to use the owner's servers - when the owners do not need it. As such, in order to provide this level of guarantee to the owners, we have to 'kick-off' any shared scavenger jobs that may be running on that server at the time the owners request access to their hardware. This is known as pre-emption.
-
-
-### What is a Slurm Account and Allocation? :id=account-and-allocation
-
-Accounts are used to allow us to track, monitor and report on usage of SDF resources. As such, users who are members of stakeholders of SDF hardware, should use their relevant Account to charge their jobs against. We do not associate any monetary value to Accounts currently, but we do require all Jobs to be charged against an Account.
-
-In order to map a User to the allow use of appropriate hardware (Partition) and charge against the relevant Account, an Allocation in slurm must be created. For all intents and purposes, we have a one-to-one mapping between the Partition and Account (ie the [shared](#shared-partition) Partition is charged against the shared Account). Therefore an Allocation acts as a authorisation definition for resource use in SDF.
-
-
-### How do I get access to a Slurm Partition? :id=allocation
-
-We delegate authority to Coordinators to allow them to define their own Allocations. As such, you should [contact your local Coordinator](resources-and-allocations.md#allocations) to obtain permissions to submit jobs into desired Partitions.
-
-
 
 ### Fair-share and Job Priorities :id=fair-share
 
 !> __TODO:__
 
 
-
-## How do I use Slurm? :id=slurmexample
+### How do I use Slurm? :id=slurmexample
 
 There are two ways to interact with slurm
 
-- using command line tools on the SDF login hosts
-- using the ondemand web interface
+- Using command line tools on the SDF login hosts.
+- Using the ondemand web interface.
 
 Common actions that you may want to perform are:
 
@@ -130,31 +116,6 @@ To also simplify usage for you, our users:
 - if you do not define an [account](#account-and-allocation) with `--account`, then we will assume you want to use the same account name as that of the partition name.
 - if you do not specify a [partition](#partition) with `--partition`, we will assume you want your job to run in the [shared partition](#shared-partition).
 
-
-## Using Slurm
-
-
-### How can I get an Interactive Terminal/Session? :id=interactive
-
-use the srun command
-
-
-```
-srun --partition shared -n 1 --time=01:00:00 --pty /bin/bash
-```
-
-This will then execute `/bin/bash` on a (scheduled) server in the Partition `shared` and charge against Account `shared`. This will request a single CPU for one hour, launch a pseudo terminal (pty) where bash will run. You may be provided different Accounts and Partitions by your Coordinator and should use them when possible.
-
-Note that when you 'exit' the interactive session, it will relinquish the resources for someone else to use. This also means that if your terminal is disconnected (you turn your laptop off, loose network etc), then the Job will also terminate (similar to ssh).
-
-
-### How can I get an Interactive Terminal/Session that supports X11?
-
-Same as for a normal Interactive Session (above) but add the "--x11" option
-
-```
-srun --x11 --partition shared -n 1 --time=01:00:00 --pty /bin/bash
-```
 
 ### How do I submit a Batch Job?
 
@@ -246,7 +207,6 @@ Once the job exceeds the specified job time, it will terminate. Unless you check
 
 #### Submit the job :id=submit-batch-script
 
-
 ?> note stuff about workign directories etc.
 
 After you have [created a batch script](#create-batch-script), you then need to tell slurm to queue it so that it may run. The command to you is `sbatch` and is synonymous with the `bsub` command in LSF. Therfore to submit the script `script.sh` we simply run
@@ -279,7 +239,26 @@ scancel <jobid>
 
 !> __TODO__
 
-## Using GPUs
+### What is Pre-emption? :id=pre-emption
+
+As typically we have fewer resources than the aggregate requirements of all user groups at SLAC, we cannot provide resources to everyone when they need it. We therefore have to have different classes of users on our systems: those whose groups have [purchased servers](resources-and-allocations.md#contributing-to-sdf) and those who are using the [shared partition](#shared-partition) to use resources provided by SLAC's indirect. In order to be "fair" to the owners of servers who have contributed their resources into the SDF, we provide immediate access to their servers - when they need it. At the same time, users on the shared partition are allowed to use the owner's servers - when the owners do not need it. As such, in order to provide this level of guarantee to the owners, we have to 'kick-off' any shared scavenger jobs that may be running on that server at the time the owners request access to their hardware. This is known as pre-emption.
+
+
+## Banking
+
+### What is a Slurm Account and Allocation? :id=account-and-allocation
+
+Accounts are used to allow us to track, monitor and report on usage of SDF resources. As such, users who are members of stakeholders of SDF hardware, should use their relevant Account to charge their jobs against. We do not associate any monetary value to Accounts currently, but we do require all Jobs to be charged against an Account.
+
+In order to map a User to the allow use of appropriate hardware (Partition) and charge against the relevant Account, an Allocation in slurm must be created. For all intents and purposes, we have a one-to-one mapping between the Partition and Account (ie the [shared](#shared-partition) Partition is charged against the shared Account). Therefore an Allocation acts as a authorisation definition for resource use in SDF.
+
+
+### How do I get access to a Slurm Partition? :id=allocation
+
+We delegate authority to Coordinators to allow them to define their own Allocations. As such, you should [contact your local Coordinator](resources-and-allocations.md#allocations) to obtain permissions to submit jobs into desired Partitions.
+
+
+## FAQ
 
 ###  How can I request GPUs?
 
@@ -328,8 +307,6 @@ cryoem       1     0/1/0/1        2:8:2   191567  0          infinite    gpu:v10
 ?> TBA... something about using Constraints. Maybe get the gres for gpu memory working.
 
 
-
-## Frequently Asked Questions
 
 ### Help! My Job takes a long time before it starts!
 
@@ -394,10 +371,19 @@ NodeName=ml-gpu01 Arch=x86_64 CoresPerSocket=12
    ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
 ```
 
-We are openly investigating additional Features to add. Comments and suggestions welcome.
+### How do I See the Status of the available resources?
 
-Documentation PENDING.
+To view the status of the nodes on SDF from the command line use [sinfo](https://slurm.schedmd.com/sinfo.html).  The following produces a reasonably informative summary of all the nodes on SDF:
 
-Possibly add: GPU_DRV, OS_VER, OS_TYPE
+```
+sinfo --Node --format="%10N %.6D %10P %10T %20E %.4c %.8z %8O %.6m %10e %.6w %.60f"
+```
 
+To get only information on a specific partition use ```--partition=<partition>```, with the partition names coming from the table below (ex: ml, atlas).
+To get more information on a specfic node, use the following [scontrol](https://slurm.schedmd.com/scontrol.html) command:
 
+```
+scontrol show node <node name>
+```
+
+The names of the nodes can be found in the left-most column of the above sinfo command (called NODELIST) for some reason.
