@@ -1,21 +1,6 @@
 # Getting Started
 
-## Access & Help
-
-| Access 	| Address | 
-| :--- | :--- |
-| SSH 	|  sdf3login.slac.stanford.edu |
-| NoMachine |  s3dflogin.slac.stanford.edu |
-| OnDemand 	| [https://s3df.slac.stanford.edu/ondemand](https://s3df.slac.stanford.edu/ondemand) 	|  	
-| Globus Endpoint 	| slac#s3df 	|  	
-| Documentation | [This!](/ ':ignore') |
-| Help (slack channel) | [slac.slack.com#comp-sdf](https://app.slack.com/client/T1X4J8FJ8/C01965DTG91) |
-| Help (email) | s3df-help@slac.stanford.edu |
-
-
-## Compute Environment
-
-### Modes of Operation
+## Modes of Operation
 
 There are three different ways of utilizing S3DF:
 
