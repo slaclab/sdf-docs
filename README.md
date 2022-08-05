@@ -4,7 +4,7 @@ Welcome to the SLAC Shared Scientific Data Facility (S3DF). The S3DF is a comput
 
 | Access 	| Address | 
 | :--- | :--- |
-| SSH 	|  sdf3login.slac.stanford.edu |
+| SSH 	|  s3dflogin.slac.stanford.edu |
 | NoMachine |  s3dflogin.slac.stanford.edu |
 | OnDemand 	| [https://s3df.slac.stanford.edu/ondemand](https://s3df.slac.stanford.edu/ondemand) 	|  	
 | Globus Endpoint 	| slac#s3df 	|  	
