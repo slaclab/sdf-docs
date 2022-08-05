@@ -2,7 +2,7 @@
     --cardinal: rgb(140,21,21);
     --digitalred: rgb(177,4,14);
     --digitalredlight: rgb(229,8,8);
-  
+
     --white: rgb(255,255,255);
     --stanfordblack: rgb(46,45,41);
     --coolgrey: rgb(83,86,90);
@@ -11,7 +11,7 @@
     --black80: rgb(88,87,84);
     --black90: rgb(67,66,62);
     --trueblack: rgb(0,0,0);
-  
+
     --lagunita: rgb(0,124,146);
     --paloverde: rgb(39,153,137);
     --bay: rgb(111,162,135);
@@ -28,7 +28,7 @@
     --poppy: rgb(233,131,0);
     --spirited: rgb(224,79,57);
     --fog: rgb(218,215,203);
-  
+
     /* Now come the docsify theme settings */
     --base-font-family: Lato, Merriweather, sans-serif;
     --base-background-color: var(--white);
@@ -39,7 +39,7 @@
     --sidebar-nav-link-font-weight: bold;
     --sidebar-nav-link-background--active: var(--poppy);
     --sidebar-nav-link-background--hover: var(--spirited);
-    --sidebar-nav-link-color--active: var(--trueblack);
+    --sidebar-nav-link-color--active: var(--white);
     --sidebar-nav-link-border-color--active: var(--digitalred);
     --sidebar-nav-link-text-decoration-color: var(--cardinal);
     --sidebar-nav-link-before-color--active: var(--cardinal);
@@ -66,11 +66,11 @@
     --code-theme-text: var(--fog);
     --code-theme-variable: var(--poppy);
   }
-  
+
   footer .partner {
     float: right;
   }
-  
+
 
 /* Required for browsers w/o shadow DOM support */
 iframe[src*="buttons.github.io"] {
