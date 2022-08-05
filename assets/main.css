@@ -169,3 +169,11 @@ aside.toc-nav a:hover {
 aside.toc-nav > div.page_toc > div.active {
     background-color: var(--sidebar-nav-link-background--active);
 }
+
+@media only screen and (max-width: 1299px) {
+  aside.toc-nav {
+    background-color: var(--sidebar-background) !important;
+    color: var(--white);
+    opacity: 0.6;
+  }
+}
