@@ -33,7 +33,7 @@
       plugins: [
         EditOnGithubPlugin.create( "https://github.com/slaclab/sdf-docs/blob/s3df/", null, function(file){ return "Edit page"}),
         function(hook) {
-          var header = [ '<header>', '<span><img src="assets/slac_s3df_acronym_long_screen_small.png" height="50vh"/></span>', '</header>' ].join('');
+          var header = [ '<header>', '<span><img src="assets/slac_s3df_acronym_long_screen_small.png" height="30vh" style="margin-top: 10px"/></span>', '</header>' ].join('');
           hook.afterEach(function(html) {
           return header + html;
           });
