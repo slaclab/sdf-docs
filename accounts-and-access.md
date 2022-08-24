@@ -16,7 +16,7 @@ There are three mechanisms to access S3DF:
 
 1. **SSH**: You can connect using any SSH client, such as [OpenSSH](www.openssh.com) or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/), on the standard TCP port 22, to connect to the S3DF load balanced login pool `s3dflogin.slac.stanford.edu`.
 
-2. **NoMachine**: NoMachine provides a special remote desktop that is specifically designed to improve, compared to ssh, the performance of X11 graphics over slow connection speeds. Another important feature is that it preserves the state of your desktop across multiple sessions. The login pool for NoMachine is the same as for ssh, `s3dflogin.slac.stanford.edu`. You can find more information about this access mode in the [NoMachine reference](reference.md#nomachine).
+2. **NoMachine**: NoMachine provides a special remote desktop that is specifically designed to improve, compared to ssh, the performance of X11 graphics over slow connection speeds. Another important feature is that it preserves the state of your desktop across multiple sessions. The login pool for NoMachine is `s3dfnx.slac.stanford.edu`. You can find more information about this access mode in the [NoMachine reference](reference.md#nomachine).
 
 3. **OnDemand**: If you do not have a terminal handy or you want to use applications like Jupyter, you can also launch a web-based terminal using OnDemand: [`https://s3df.slac.stanford.edu/ondemand`](https://s3df.slac.stanford.edu/ondemand). You can find more information about using OnDemand in the [OnDemand reference](reference.md#ondemand). 
 
