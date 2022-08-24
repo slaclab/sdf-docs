@@ -33,13 +33,13 @@
       plugins: [
         EditOnGithubPlugin.create( "https://github.com/slaclab/sdf-docs/blob/s3df/", null, function(file){ return "Edit page"}),
         function(hook) {
-          var header = [ '<header>', '<span><img src="assets/slac_s3df_acronym_long_screen_small.png" height="50vh"/></span>', '</header>' ].join('');
+          var header = [ '<header>', '<span><img src="assets/slac_s3df_acronym_long_screen_small.png" height="50vh" /></span>', '</header>' ].join('');
           hook.afterEach(function(html) {
           return header + html;
           });
         },
         function(hook) {
-          var footer = [ '<hr/>', '<footer>', '<span><img src="assets/SLAC_primary_red.png" height="50vh"/></span>', '<span class="partner"><img src="assets/Stanford_DOE_black.png" height="50vh"/></span></span>', '</footer>' ].join('');
+          var footer = [ '<hr/>', '<footer>', '<span><img src="assets/SLAC_primary_red_small.png" height="30vh" style="margin-top: 10px"/></span>', '<span class="partner"><img src="assets/Stanford_DOE_black.png" height="50vh"/></span></span>', '</footer>' ].join('');
           hook.afterEach(function(html) {
           return html + footer;
           });
