@@ -6,7 +6,7 @@ Welcome to the SLAC Shared Scientific Data Facility (S3DF). The S3DF is a comput
 | :--- | :--- |
 | SSH 	|  s3dflogin.slac.stanford.edu |
 | NoMachine |  s3dfnx.slac.stanford.edu |
-| OnDemand 	| [https://s3df.slac.stanford.edu/ondemand](https://s3df.slac.stanford.edu/ondemand) 	|  	
+| OnDemand 	| [https://s3df.slac.stanford.edu/ondemand](/ondemand) 	|  	
 | Globus Endpoint 	| slac#s3df 	|  	
 | Documentation | [This!](/ ':ignore') |
 | Help (slack channel) | [slac.slack.com#comp-sdf](https://app.slack.com/client/T1X4J8FJ8/C01965DTG91) |
