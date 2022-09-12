@@ -33,6 +33,8 @@ Users can also access S3DF through Open OnDemand via any (modern) browser at [ht
 
 ### Shell
 
+(Yee - todo)
+
 ### Jupyter :id=jupyter
 
 We provide automatic tunnels through our [ondemand](https://openondemand.org/) proxy of [Jupyter](https://jupyter.org/) instances. This means that in order to run Jupyter kernels on SDF, you do not need to setup a chain of SSH tunnels in order to show the Jupyter web instance.
@@ -83,10 +85,7 @@ Replace `<path-to-the.sif>` with the full path to your local singularity image f
 Fill the rest of the form as you would for any provided Jupyter Instance and click "Launch". If you run into any issues, please see [Debugging your interactive session](#debugging).
 
 
-### Debugging your interactive session :id=debugging
+#### Debugging your interactive session :id=debugging
 
-If you get an error while using your Jupyter instance, go to the [My Interactive sessions page](https://sdf.slac.stanford.edu/pun/sys/dashboard/batch_connect/sessions), identify the session you want to debu and click on the **Session ID** link. You can then *View* the `output.log` file to troubleshoot.
+If you get an error while using your Jupyter instance, go to the (Yee - TBF) [My Interactive sessions page](https://sdf.slac.stanford.edu/pun/sys/dashboard/batch_connect/sessions), identify the session you want to debu and click on the **Session ID** link. You can then *View* the `output.log` file to troubleshoot.
 
-#### Matlab
-
-Launch [web based access](/pun/sys/dashboard/batch_connect/sys/slac-ood-matlab/session_contexts/new)

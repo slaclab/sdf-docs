@@ -1,12 +1,12 @@
 # Software
 
 
+## System Software
 
-!> Please note that we are effectively treating the design and implementation of SDF as a green field deployment. As such certain technologies and tools may not be available. Please [contact us](contact-us.md) if you wish for anything to be added or removed.
+### Modules
 
-
-### Software
-SDF uses the module system. Currently installed modules can be viewed with this command: `module avail`
+SDF uses the module system. Currently installed modules can be viewed
+with this command: `module avail`
 
 
 To load a specific module (and use the software), use the `module load module-name-you-want` command.
@@ -37,77 +37,8 @@ cryosparc/2.12.4        eman2/20200925          imod/4.9.10             motionco
 
 ```
 
-Anything not installed via the module system will need to be installed locally by you (in $HOME or project directories) or globally by sytem admins. [Contact us](contact-us.md) if you would like something installed system wide. Note, $HOME storage is limited, so we do not recommend installing large software packages there. 
-
-## Compiling Software
-When compiling, avoid placing large amounts of software in your $HOME area, as space is limited there.
-
-## Requesting Software
-[Contact us!](contact-us.md)
-
-
-## I Need Software X...
-
-### Environment Modules :id=modulefiles
-
-#### SDF Provided Modules
-
-#### Adding Your Own Modules
-
-
-## Where Do I Install Software?
-
-### Conda
-
-It is not recommended to store your conda environments in your $HOME due to 1) quota limits, and 2) an inability to share conda environments across groups. We generally recommend that you install software into your $GROUP space (eg `/sdf/group/<group_name>/sw` - please see [$GROUP storage](getting-started.md#group)).
-
-#### Install Miniconda
-
-Download the latest version of Miniconda from the [conda](https://docs.conda.io/en/latest/miniconda.html) website and follow the [Instructions](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html#installing-on-linux). Change the installion `prefix` to point to an appropriate [$GROUP directory](getting-started.md#group):
-
-```bash
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/Miniconda3-latest-Linux-x86_64.sh
-bash /tmp/Miniconda3-latest-Linux-x86_64.sh -p /sdf/group/<group_name>/sw/conda/
-```
-
-Replacing `<group_name>` appropriately.
-
-We can also modify our [~/.condarc](https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html) file as follows;
-
-```bash
-channels:
-  - defaults
-  - anaconda
-  - conda-forge
-  - pytorch
-envs_dirs:
-  - /sdf/group/<group_name/sw/conda/envs
-pkgs_dirs:
-  - /sdf/group/<group_name/sw/conda/pkgs
-auto_activate_base: false
-```
-
-#### Create a conda environment
-
-Conda environments are a nice way of switching between different software versions/packages without multiple conda installs.
-
-There is no unique way to create a conda environment, we illustrate here how to do so from a .yaml file (see the conda [documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) for more details).
-
-In order to create an environment called `mytest` with `python=3.6` and `numpy` and `pandas` in it, create `mytest-environment.yaml`:
-```bash
-name: mytest
-dependencies:
-  - python=3.6
-  - numpy
-  - pandas
-```
-
-Then run the following command: `conda env create -f mytest-environment.yaml`.
-
-If successful, you should see `mytest` when listing your environments: `conda env list`. 
-
-You can now activate your environment and use it: `conda activate test`. To double-check that you have the right packages, you can type `conda list` once in the environment and check that you see `numpy` and `pandas`.
-
+[Contact us](contact-us.md) if you would like something installed
+system wide.
 
 ### Singularity
 
@@ -132,34 +63,22 @@ To pull an image from DockerHub, do:
 singularity pull docker://<user or organization>/<repository>:<tag>
 ```
 
-## Compiling Software
 
-### GCC
+### GCC Compiler
 
 We offer various of GCC through (Redhat Software Collections](https://developers.redhat.com/products/softwarecollections/overview). These are wrapped up in [Environment Modules](#modulefiles) and are available with a `module load devtoolset/<version>`.
 
 We also provide symlinks to the appropriate GCC version to the above `devtoolset` packages with `module load gcc/<version>`.
 
 
-### Intel Compilers
-
-
-### OpenMPI
-
-### OpenMP
-
-
-## Pre-packaged Sofware
-
 ### Jupyter
 
 We provide tunnel-less access to jupyter instances running on SDF via an easy to use web portal where you can 'bring-your-own' jupyter environments. See [Interactive Jupyter](interactive-compute.md#jupyter) for more information.
 
-### PyTorch
+### MatLab
 
-### Tensorflow
-
-### MatLab - Parallel Computing Using MATLAB with Slurm at SLAC
+This ection describes how to run Matab in the S3DF Parallel Computing
+environment.
 
 #### Set up your matlab configuration
 
@@ -345,10 +264,60 @@ Parallel computing webinars:
 https://www.mathworks.com/videos/search.html?q=&fq[]=product:DM&fq[]=video-external-category:recwebinar&page=1
 
 
+## User Software
 
-### Ansys
+Non-general purpose software should be installed locally by you under
+$HOME or project directories. The latter is preferred as your home
+space is limited and the project space offers better visibility to a
+larger audience.
 
+### Conda
 
-## Revision Control and Git
+It is not recommended to store your conda environments in your $HOME due to 1) quota limits, and 2) an inability to share conda environments across groups. We generally recommend that you install software into your $GROUP space (eg `/sdf/group/<group_name>/sw` - please see [$GROUP storage](getting-started.md#group)).
 
+#### Install Miniconda
 
+Download the latest version of Miniconda from the [conda](https://docs.conda.io/en/latest/miniconda.html) website and follow the [Instructions](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html#installing-on-linux). Change the installion `prefix` to point to an appropriate [$GROUP directory](getting-started.md#group):
+
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/Miniconda3-latest-Linux-x86_64.sh
+bash /tmp/Miniconda3-latest-Linux-x86_64.sh -p /sdf/group/<group_name>/sw/conda/
+```
+
+Replacing `<group_name>` appropriately.
+
+We can also modify our [~/.condarc](https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html) file as follows;
+
+```bash
+channels:
+  - defaults
+  - anaconda
+  - conda-forge
+  - pytorch
+envs_dirs:
+  - /sdf/group/<group_name/sw/conda/envs
+pkgs_dirs:
+  - /sdf/group/<group_name/sw/conda/pkgs
+auto_activate_base: false
+```
+
+#### Create a conda environment
+
+Conda environments are a nice way of switching between different software versions/packages without multiple conda installs.
+
+There is no unique way to create a conda environment, we illustrate here how to do so from a .yaml file (see the conda [documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) for more details).
+
+In order to create an environment called `mytest` with `python=3.6` and `numpy` and `pandas` in it, create `mytest-environment.yaml`:
+```bash
+name: mytest
+dependencies:
+  - python=3.6
+  - numpy
+  - pandas
+```
+
+Then run the following command: `conda env create -f mytest-environment.yaml`.
+
+If successful, you should see `mytest` when listing your environments: `conda env list`. 
+
+You can now activate your environment and use it: `conda activate test`. To double-check that you have the right packages, you can type `conda list` once in the environment and check that you see `numpy` and `pandas`.

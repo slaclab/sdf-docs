@@ -1,60 +1,45 @@
 # S3DF Business Model
 
-!> We're still beta-testing SDF; if you have any questions or suggestions, please feel free to [contact us](contact-us.md)!
-
-## What is the SDF?
-
-Science at SLAC is often powered by intensive numerical analysis of large datasets: the computation and storage needs for large scale science projects such as [x-ray crystallography](https://lcls.slac.stanford.edu) and [CryoEM](https://cryoem.slac.stanford.edu) often requires petaflops of compute and petabytes of storage. The SDF serves to provide the hardware and software infrastructure in order to keep science ticking.
-
-The SDF is comprised of many high powered compute servers interconnected with high speed networking fabrics. This in turn is connected to high performance storage. This, as well as the ecosystem that utilises all this power, is what we call the SDF. 
-
-SDF is owned and operated by SLAC's Scientific Computing Services in partnership with, and in support of, the SLAC research community.
-
-## Why use SDF?
-
-The SDF is tuned specifically to allow large and small compute and storage tasks. By storing your scientific datasets on the SDF, you will benefit from the economies of scale to help drive down the cost of data management. Through community sharing of compute resources you will be able to obtain compute cycles funded through indirects, whilst at the same time having immediate access to resources that [you own](resources-and-allocations.md#contributing-to-sdf)
-
-## How much does it cost?
-
-All SLAC employees, researchers and facility users have free access to the SDF. Now, free does not necessarily mean capable: every user, by default, is added to a [shared partition](batch-compute.md#shared-partition) that allows you to immediately submit jobs onto the clusters, but which has low priority on the queue. Each user is also entitled to long and short term storage for both themselves and their "groups" free of charge. Please see [Resources](resources-and-allocations.md) for up-to-date information.
-
-If you find that you need more compute and or storage for your scientific needs, please see [contributing to SDF](resources-and-allocations.md#contributing-to-sdf).
- 
-
-## Contributing to SDF :id=contributing-to-sdf
-
-All SLAC employees, experimental facility users, and their affiliates are automatically granted permissions to access and utilise SDF resources. By default, all users are granted use of the [shared partition](batch-compute.md#shared-partition] whereby your jobs may be pre-empted for those from higher-priority users (i.e., users/groups who have purchased hardware in SDF will get immediate access to their resources, thereby 'kicking-off' any users using the shared partition that may be using those same servers at the time). Whilst we wish to meet the needs of everyone, it may not be always possible to do conduct your reseearch on the 'free' resources provided by this shared partition. Users and their affiliated group(s) are also provided free storage.
-
-We invite all groups, users, and internal and/or external experiments to purchase resources in SDF to guarantee access.
-
-### Compute
-
-Compute hardware is provided at cost and CPU and GPU compute servers can be selected from a standard list. There are no hosting fee's and we will provide administration, data center hosting and networking free of charge. Whilst we welcome users/groups to pool together to purchase a chassis (of one or more individual servers), we cannot offer unit increments of compute resource of less than one server due to the way we enforce scheduling in the SDF.
-
-!> Provide link to a protected google spreadsheet or something
+## Rules of Engagement
 
 ### Storage
 
-Storage can be purchased in our standard 'Building Blocks' which provide a unit increment that is tuned for our storage environment. We welcome groups/users to pool resources storage procuments together to meet our minimum building block size. The storage will be maintained for the life of the disks (currently five/six/seven??? years) and there shall be no fee's beyond the initial procurement (at cost) costs. The added storage wil show up as a bump up in your [quota](TODO.md)
+Each group can contribute to /sdf/data and /sdf/scratch by funding the
+acquisition of flash-based and spindle-based storage. We will procure,
+install, and configure your newly acquired hardware and we will
+integrate it with the existing infrastructure. We will maintain the
+hardware for at least 5 years from the acquisition and we will cover
+the file system licensing costs.
 
-!> We are still finalising our storage quotas. If you have any suggestions please [contact us!](contact-us.md)
+In addition, S3DF will provide high speed, flash-based systems for
+/sdf/{home, sw, group} and provide the relative backups. See the
+[storage section](data-and-storage.md) for a description of the
+different S3DF file systems.
+
+### Compute
+
+Each group can contribute hardware to the interactive pools and to
+SLURM. The hardware for the interactive pools is dedicated to the
+group.  Contributions to the SLURM batch system will grant the funding
+group a number of computing hours corresponding to the hardware they
+buy for up to 5 years. For this approach to work, we will deploy a
+banking mechanism that keeps track of the number of hours each group
+spends on each SLURM partition.
+
+In addition, S3DF will provide some number of hours on several of the
+SLURM partitions to all groups, independently of their contributions.
+Talk with us if you need SLAC-funded hours for your group.
+
+As for the interactive pools, contributing groups can purchase
+dedicated resources for long running services and for the real-time
+and fast-feedback stages.
 
 
-## Who Do I Contact to Access More Resources? :id=allocations
+## Overhead
 
-If you are a SDF User, and find that the Shared partition is restrictive for your needs, then please reach out to your local coordinator to be added to different partitions if you need more compute resources, or to increase your $GROUP storage quota. We will not honour increases in $HOME quota. 
-
-| | | |
-|--- |--- |--- |
-|atlas  |ATLAS Group    |Yee/Wei |
-|cryoem |CryoEM Group   |Yee     |
-|hps      |HPS Group      |Omar    |
-|kipac    |Kipac Group    |Stuart Marshall |
-|LCLS     |LCLS Group     |Wilko   |
-|ml         |Machine Learning Initiative |      Daniel/Yee |
-|neutrino       |Neutrino Group | Kazu |
-|shared |Everyone           |Renata/Yee |
-|suncat |SUNCAT Group   | Johanne|
-|supercdms|SuperCDMS Group | Tina|
-
+All contributions will fund the actual hardware plus 15% overhead for
+spares, installation and infrastructure costs. The S3DF team decides
+how to spend the overhead. The overhead is not due for large
+deployments which include the entire infrastructure, including spares,
+installation labor, racks, cables, and network devices.
 
