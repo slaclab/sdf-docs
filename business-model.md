@@ -26,20 +26,29 @@ buy for up to 5 years. For this approach to work, we will deploy a
 banking mechanism that keeps track of the number of hours each group
 spends on each SLURM partition.
 
-In addition, S3DF will provide some number of hours on several of the
+In addition, S3DF will be able to provide some number of hours on several of the
 SLURM partitions to all groups, independently of their contributions.
 Talk with us if you need SLAC-funded hours for your group.
 
-As for the interactive pools, contributing groups can purchase
-dedicated resources for long running services and for the real-time
-and fast-feedback stages.
+Contributing groups can also purchase dedicated resources for long
+running services and for the real-time and fast-feedback stages in the
+data flow.
+
+### Hardware
+
+In order to mininimize the variety of hardware we need to support,
+contrubuting groups will be able to only select models from a fixed
+menu. This menu will include one or two models of CPU servers, a
+low-end GPU, one high-end GPU, one flash-based server, and one
+spindle-based JBOD model. This menu will be updated ~annually to
+reflect changes in technology.
 
 
 ## Overhead
 
 All contributions will fund the actual hardware plus 15% overhead for
 spares, installation and infrastructure costs. The S3DF team decides
-how to spend the overhead. The overhead is not due for large
-deployments which include the entire infrastructure, including spares,
-installation labor, racks, cables, and network devices.
+how to spend the overhead. The overhead is not due for deployments
+that fund the entire infrastructure - that entails spares, installation
+labor, racks, cables, and network devices.
 

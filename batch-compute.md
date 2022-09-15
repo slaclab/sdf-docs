@@ -2,7 +2,7 @@
 
 ## Slurm
 
-Slurm is a batch scheduler that enables users to submit compute 'jobs'
+Slurm is a batch scheduler that enables users to submit compute jobs
 of varying scope to our compute clusters. It will queue up jobs such
 that the compute resources available in S3DF are fairly and
 efficiently shared and distributed for all users. This page describes
@@ -14,14 +14,12 @@ can find general information on using this workflow manager in our
 
 A cluster is a homogeneous set of computing nodes with the same
 hardware specifications and the same access to the storage. A facility
-is a program/project which can buy resources (e.g., LCLS, Rubin, SUNCAT,
-SuperCDMS, etc). A repo is a set of resources associated with a group
-of people within a facility (e.g., an LCLS experiment or a cryo-EM
-experiment).
-
-Not all repos will have access to all clusters. Some repos will have
-dedicated resources within a cluster, while some will use shared
-resources.
+is a program/project which can buy resources (e.g., LCLS, Rubin,
+SUNCAT, SuperCDMS, etc). A repo is a set of resources associated with
+a group of people within a facility (e.g., an LCLS experiment or a
+cryo-EM experiment). Not all repos will have access to all
+clusters. Some repos will have dedicated resources within a cluster,
+while some will use shared resources.
 
 ### Partitions & Accounts
 

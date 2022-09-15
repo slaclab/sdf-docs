@@ -1,7 +1,7 @@
 # Service Compute
 
 [Contact us](contact-us.md) if you need resources for running
-long-lived jobs, includin dynamic websites, real-time and fast
+long-lived jobs, including dynamic websites, real-time and fast
 feedback systems.
 
 ## S3DF Supported Sites
