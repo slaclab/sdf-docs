@@ -73,5 +73,6 @@ further submissions to that cluster will have lower priority. Note:
 depending on the initial experience, we may also limit the resources
 available to over-quota repos (i.e., by enforcing a cap on the amount
 of cores, or memory, a job may take), and allow higher priority jobs
-to preempt lower priority ones.
+to preempt lower priority ones. Allocations will reset on a calendar
+year boundary, i.e., on December 31st
 
