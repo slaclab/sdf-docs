@@ -29,7 +29,7 @@ Users can use SSH, NoMachine or a browser to log into the system. The login node
 
 - Avoid keeping many (thousands to millions) of files in a single directory if possible - file systems typically do a lot better when you use a small number of large files.
 
-- Do keep an eye on your file system (quotas) - your jobs will likely fail if it cannot write to disk due to a full quota. You can either choose a different file system to write to, or request a quota increase, or remove files you don't need anymore.
+- Do keep an eye on your file system [quotas](reference.md#storagequota) - your jobs will likely fail if it cannot write to disk due to a full quota. You can either choose a different file system to write to, or request a quota increase, or remove files you don't need anymore.
 
 - Limit I/O intensive sessions where your jobs reads or writes a lot of data, or performs intensive meta data operations such as stat'ing many files or directories and opening and closing files in quick succession.
 

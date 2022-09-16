@@ -44,9 +44,13 @@ id [username]
 
 
 
-### How do I check current status of storage quotas?
+### How do I check current status of storage quotas? :id=storagequota
 
-You might want to know how much of your quota is used; reaching the limit might be the cause of error messages whose reason is not obvious. To do so, simply type `df -h ~/` in a terminal window.
+You might want to know how much of your quota is used; reaching the
+limit might be the cause of error messages whose reason is not
+obvious. To do so for your home, simply type `df -h ~/` in a terminal
+window. More in general type `df -h <folder>` to determine the quota
+for any folder.
 
 
 ### May I Contribute to the S3DF Documentation? :id=docsify
