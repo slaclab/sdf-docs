@@ -8,6 +8,7 @@ Once you land on the login nodes, either via a terminal or via a NoMachine deskt
 
 |Pool name | Organization(s) | Resources |
 | --- | --- | --- |
+|psana | LCLS | 2 servers, 256 cores |
 |rubin-devl | Rubin | 2 servers, 256 cores |
 |cdms | CDMS, SuperCDMS | 2 servers, 256 cores |
 
