@@ -22,20 +22,16 @@ table below.
 
 ## S3DF Public Access to User and Group Space 
 
-S3DF can make specific folders publicly available through HTTP. If
-you need this service, create a folder called public_html under your
-home and send a request to s3df-help.
+S3DF can make specific folders publicly available through HTTP. If you
+need this service, send a request to s3df-help. If you are the PoC of
+an S3DF facility, you may request this service for your organization
+as a whole. See the table below for the naming convention of how these
+user and group spaces will appear on the S3DF file system and on the
+web. Note: eventually, requests for these links will be managed via
+[coact](https://s3df.slac.stanford.edu/coact).
 
-If you are the PoC of an S3DF facility, you may request this service
-for your organization as a whole by creating a public_html folder
-under /sdf/group or /sdf/data and sending a request to s3df-help.
-
-See the table below for the naming convention of how these spaces will
-appear on the web. Note: eventually, requests for these links will be
-managed via [coact](https://s3df.slac.stanford.edu/coact).
-
-| Access 	| Address | 
+| S3DF Folder | Public HTTP Address | 
 | :--- | :--- |
-| Public group data | https://s3df.slac.stanford.edu/data/&lt;groupname&gt;|
-| Public user data | https://s3df.slac.stanford.edu/~&lt;username&gt;|
+| `/sdf/home/<u>/<username>/public_html` | https://s3df.slac.stanford.edu/people/&lt;username&gt;|
+| `/sdf/data/<groupname>/public_html` | https://s3df.slac.stanford.edu/data/&lt;groupname&gt; |
 
