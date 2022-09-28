@@ -3,7 +3,7 @@
 For requests made during office hours you can expect a response from
 us within 2 hours and a resolution within 24 hours. Outside of office
 hours, please contact your facility PoC(s) if an S3DF problem is
-preventing one of the SLAC experimental facility from taking data or
+preventing one of the SLAC experimental facilities from taking data or
 the accelerator from operating and the PoC will contact us directly on
 the phone.
 
