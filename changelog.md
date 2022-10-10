@@ -38,7 +38,7 @@ No outages planned at this time.
 |Jul 23	|Backup power available in SRCF-II	||
 |	|Migrate PCDS services to S3DF	||
 |	|Retire psana	||
-|	|Retire all scientific computing clusters in B50	|SDF, Bullet, and all LSF clusters|
+|Aug 23	|Retire all scientific computing clusters in B50	|SDF, Bullet, and all LSF clusters|
 |Oct 23	|Deploy federated identities	|Dependency on IAM ssh progress|
 |Nov 23	|Retire AFS	||
 |	|Retire GPFS	||
