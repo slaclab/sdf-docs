@@ -5,40 +5,29 @@
 
 ### Modules
 
-SDF uses the module system. Currently installed modules can be viewed
+S3DF uses the module system (Lmod). Currently installed modules can be viewed
 with this command: `module avail`
 
 
 To load a specific module (and use the software), use the `module load module-name-you-want` command.
 
 ```
+--------------------------------------------------- /etc/modulefiles ---------------------------------------------------
+   slurm (L)
 
------------------------------------------------------------------------------------------ /usr/share/Modules/modulefiles -----------------------------------------------------------------------------------------
-dot         module-git  module-info modules     null        use.own
+------------------------------------------------ /usr/share/modulefiles ------------------------------------------------
+   mpi/mpich-x86_64
 
------------------------------------------------------------------------------------------------- /etc/modulefiles ------------------------------------------------------------------------------------------------
-slurm
+------------------------------------------------- /sdf/sw/modulefiles --------------------------------------------------
+   hdf5/mpich-EPEL    intel/2020.4.304    intel/mpi/2020.4.304    openmpi/4.1.4rc1-gcc-8.5.0-Mellanox
 
----------------------------------------------------------------------------------------------- /sdf/sw/modulefiles -----------------------------------------------------------------------------------------------
-atlas-jupyter/20200502               exo200_offline/v01_g4                google-sdk/292.0.0-alpine            matlab/R2020b                        rh-python36
-cuda/10.2.89                         fftw2/2.1.5-openmpi-4.0.4-gcc-4.8.5  hdf5/1.12.0-openmpi-4.0.4-gcc-4.8.5  openmpi/4.0.4-gcc-4.8.5              slac-ml/20190712.2
-cudnn/cudnn-10.2-linux-x64-v7.6.5.32 fftw3/3.3.8-openmpi-4.0.4-gcc-4.8.5  imagemagick/6.8.9                    pytorch/1.4                          slac-ml/20200211.0
-devtoolset/7                         gcc/4.8.5                            lsst/r18_1_0                         rclone/1.44                          slac-ml/20200227.0
-devtoolset/8                         gcc/9.3.1                            lsst/r19_0_0                         rclone/1.51                          slurm
-devtoolset/9                         git/2.13.0                           matlab/R2020a                        rclone/1.52.2                        xfce/ubuntu18.04
-
---------------------------------------------------------------------------------------- /sdf/group/cryoem/sw/modulefiles/ ----------------------------------------------------------------------------------------
-amira/6.7.0             cryosparc/2.13.2        emClarity/1.0.0         imod/4.9.11             motioncor2/1.2.3-intpix protomo/2.4.2           relion/ver3.1           topaz/0.2.2
-chimera/1.13.1          cryosparc/2.14.2        fah/7.5.1               imod/4.9.12             motioncor2/1.2.6        pymol/2.1.1             resmap/1.95             topaz/0.2.4
-cryodrgn/0.2.1          ctffind/4.1.10          icon-gpu/1.2.9          jax/0.1.64              motioncor2/1.3.0        pymol/2.2               rosetta/2018.48         xds/20190315
-cryodrgn/0.3.1          ctffind/4.1.13          imod/4.10.38            motioncor2/1.2.1        motioncor2/1.3.2        relion/3.0.2            rosetta/3.10
-cryolo/1.5.4            eman2/20200922          imod/4.10.42            motioncor2/1.2.2        openmbir/2.3.5          relion/3.0.8            scipion/1.2.1
-cryosparc/2.12.4        eman2/20200925          imod/4.9.10             motioncor2/1.2.3        phenix/1.14-3260        relion/3.1.0            tem-simulator/1.3
-
+  Where:
+   L:  Module is loaded
 ```
 
-[Contact us](contact-us.md) if you would like something installed
-system wide.
+[Contact us](contact-us.md) if you would like something installed system wide. Users groups are encouraged to share their software via module / Lmod. We can include modulefiles/directory from user groups to the `module avail` list.
+
+A note the OpenMPI: sdfrome nodes have InfiniBand hardware from Mellanox installed (Mellanox Technologies MT28908 Family [ConnectX-6]). On these nodes, openmpi/4.1.4rc1... (as listed above) from the vendor (Mellanox Inc.) is installed instead of the stock OpenMPI from RedHat. We assume this version of OpenMPI will give better performance since it is from the vendor. But this also means we can not install some of the other RedHat/EPEL rpms that were compiled with the stock OpenMPI (e.g. hdf5-openmpi). 
 
 ### Singularity
 
