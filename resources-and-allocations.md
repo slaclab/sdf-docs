@@ -4,7 +4,7 @@
 
 ### Compute
 
-#### "rome" Cluster: 88 x Dual 64-core Rome Server (11,264 cores)
+#### "rome" Cluster: 102 x Dual 64-core Rome Server (13,056 cores)
 
 Each server consists of
 - Dual socket [AMD Rome 7702](https://www.amd.com/en/products/cpu/amd-epyc-7702) CPU with 64 cores per socket (128 threads) @ 2.0Ghz base close, with boost to 3.35GHz
