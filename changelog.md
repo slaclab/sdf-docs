@@ -30,7 +30,7 @@ No outages planned at this time.
 |		|Mount LCLS fast-feedback on S3DF	||
 |		|Open S3DF to LCLS users	||
 |Jan 2023	|Open S3DF to all SLAC users	||
-|		|Deploy Rubin OGA rack	||
+|		|Deploy Rubin Embargo rack	||
 |Feb 2023	|Deploy pre-ops Rubin acquisitions in SRCF-II	|No backup power in SRCF-II until after shutdown|
 |Mar 2023	|Export sdfhome and sdfdata to SLAC	|Via NFS v4 to provide AFS-like features|
 |Jun 2023	|SRCF-I and II power outage	|5-day shutdown starting on Jun 26th|
