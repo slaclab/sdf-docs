@@ -57,11 +57,11 @@ running experiment.
 See the table below to determine the specifications for each
 cluster/partition.
 
-| Partition name | CPU model | Cores per node | Memory per node | GPU model | GPUs per node | Scratch | Number of nodes |
+| Partition name | CPU model | Cores per node | Memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| roma | AMD Rome 7702 | 128 | 512 GB | - | - | 960 GB | 12 |
-| ferrari | AMD Rome 7542 | 64 | 1024 GB | Nvidia Tesla A100 | 4 | 12 TB | 2 |
-| rapido | AMD Rome 7542 | 64 | 256 GB | - | - | - | 56 |
+| roma | Rome 7702 | 128 | 512 GB | - | - | 960 GB | 26 |
+| ampere | Rome 7542 | 64 | 1024 GB | Tesla A100 | 4 | 12 TB | 6 |
+| turing | Intel 12 Gold | 48 | 192 GB | 2080 Ti | 10 | 960 GB | 2 |
 
 
 
