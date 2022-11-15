@@ -8,9 +8,12 @@ Once you land on the login nodes, either via a terminal or via a NoMachine deskt
 
 |Pool name | Organization(s) | Resources |
 | --- | --- | --- |
-|psana | LCLS | 2 servers, 256 cores |
-|rubin-devl | Rubin | 2 servers, 256 cores |
-|cdms | CDMS, SuperCDMS | 2 servers, 256 cores |
+|rubin-devl | Rubin | 2 servers, 128 cores and 512 GB per server |
+|psana | LCLS | 2 servers, 40 HT cores and 384 GB per server |
+|cdms | CDMS, SuperCDMS | 2 servers, 40 HT cores and 384 GB per server |
+|suncat | Suncat | 2 servers, 40 HT cores and 384 GB per server |
+|neutrino | Neutrino Group | 2 servers, 40 HT cores and 384 GB per server |
+|mli | ML Initiative (shared with neutrino) | 2 servers, 40 HT cores and 384 GB per server |
 
 ### Interactive session using Slurm
 
