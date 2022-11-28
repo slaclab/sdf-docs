@@ -1,11 +1,11 @@
 # Software
 
 Available software is an important part of the S3DF. It is also an area which has a very broad scope. Whenever
-possible, S3DF will opt for pre-build, packages software, e.g. RPMs from various well known repos. S3DF also uses
+possible, S3DF will opt for pre-built, packaged software, e.g. RPMs from various well known repos. S3DF also uses
 Lmod to support software that are installed in other methods. 
 
 With Lmod, S3DF will centrally support a limited number of software that are both widely used by the SLAC 
-communities, and are understandable/maintainable by the SCS administrators. S3DF also encourage experts from 
+communities, and are understandable/maintainable by the SCS administrators. S3DF encourages experts from 
 non-SCS to use Lmod to provide, support, maintain and share software tools they build.   
 
 ## S3DF Centrally Installed Software
@@ -42,4 +42,4 @@ have no knowledge of those software tools, and will not be able to support and m
 
 ## Other Software Info
 
-Remember to check out the "Reference" section for more info about software
+Remember to check out the "Reference" section for more info about software.
