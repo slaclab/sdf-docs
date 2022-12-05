@@ -897,7 +897,7 @@ If successful, you should see `mytest` when listing your environments: `conda en
 
 You can now activate your environment and use it: `conda activate test`. To double-check that you have the right packages, you can type `conda list` once in the environment and check that you see `numpy` and `pandas`.
 
-## Presentations
+## Presentations :Presentations
 
 ### Town Hall Meetings
 
