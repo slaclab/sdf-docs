@@ -86,7 +86,7 @@ It is also possible to request an [interactive session](#interactive) on a Batch
 
 ### What is a Slurm Partition? :id=partition
 
-A Partition is a logical grouping of Batch Nodes. These may be servers of a similar technical specification (eg Cascade Lake CPUs, Telsa GPUs etc), or by ownership of the servers - eg SUNCAT group may have purchased so many servers, so we put them all into a Partition. For the SDF, we partition machines according to science and engineering groups who have [purchased servers](resources-and-allocations.md#contributing-to-sdf) for the SDF. We do this such that members (or associates) of those groups can have priority access to their hardware. Whilst we give everyone access to all hardware via the [shared partition](#shared-partition) users who belong to groups who do not own any hardware in SDF will have lower priority access to use stakeholder’s resources.
+A Partition is a logical grouping of Batch Nodes. These may be servers of a similar technical specification (eg Cascade Lake CPUs, Telsa GPUs etc), or by ownership of the servers - eg SUNCAT group may have purchased so many servers, so we put them all into a Partition. For the SDF, we partition machines according to science and engineering groups who have [purchased servers](resources-and-allocations.md#contributing-to-sdf) for the SDF. We do this such that members (or associates) of those groups can have priority access to their hardware. Whilst we give everyone access to all hardware via the [shared partition](#shared-partition) users who belong to groups who do not own any hardware in SDF will have lower priority access to use stakeholderÂ’s resources.
 
 
 ### How do I See the Status of the available resources?
@@ -449,7 +449,7 @@ c.AdditionalProperties.QueueName = '<name of partition>'
 c.saveProfile
 ```
 These steps will create a .matlab/3p_cluster_jobs directory under your account with
-our site¿s configuration and you can submit jobs which will run on the
+our siteÂ¿s configuration and you can submit jobs which will run on the
 partition and account specified.
 
 
@@ -896,3 +896,14 @@ Then run the following command: `conda env create -f mytest-environment.yaml`.
 If successful, you should see `mytest` when listing your environments: `conda env list`. 
 
 You can now activate your environment and use it: `conda activate test`. To double-check that you have the right packages, you can type `conda list` once in the environment and check that you see `numpy` and `pandas`.
+
+## Presentations
+
+### Town Hall Meetings
+
+#### Scientific Computing Town Hall 11/30/22
+
+[Slide Deck](https://docs.google.com/presentation/d/1255ekxq8dscz7vvOAbgQ_tI4o13lOO-IMPMLm2A7gtg/edit?usp=sharing)
+
+[Zoom meeting recording](https://stanford.zoom.us/rec/share/jLaKasYYRubW4qt9KOcOL0_-qLqwc7CpRUwVniYe2VCUsmkpL9lsagU1ILSg9Xtz.Bgy1KyefVpqW2zvg)
+
