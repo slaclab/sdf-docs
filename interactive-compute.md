@@ -4,16 +4,17 @@
 
 ### Interactive Pools
 
-Once you land on the login nodes, either via a terminal or via a NoMachine desktop, you will need to ssh to one of the interactive pools to access the data, build/debug your code, run simple analyses, or submit jobs to the [batch system](batch-compute.md). If your organization has acquired dedicated resources for the interactive pools, use them; otherwise, connect to the S3DF shared interactive pool. Currently, the available pools are:
+Once you land on the login nodes, either via a terminal or via a NoMachine desktop, you will need to ssh to one of the interactive pools to access the data, build/debug your code, run simple analyses, or submit jobs to the [batch system](batch-compute.md). If your organization has acquired dedicated resources for the interactive pools, use them; otherwise, connect to the S3DF shared interactive pool. The currently available pools are shown in the table below. (The facility can be any organization, program, project, or group that interfaces with S3DF to acquire resources.)
 
-|Pool name | Organization(s) | Resources |
+|Pool name | Facility | Resources |
 | --- | --- | --- |
+|iana | All | 2 servers, 40 HT cores and 384 GB per server |
 |rubin-devl | Rubin | 2 servers, 128 cores and 512 GB per server |
 |psana | LCLS | 2 servers, 40 HT cores and 384 GB per server |
 |cdms | CDMS, SuperCDMS | 2 servers, 40 HT cores and 384 GB per server |
 |suncat | Suncat | 2 servers, 40 HT cores and 384 GB per server |
-|neutrino | Neutrino Group | 2 servers, 40 HT cores and 384 GB per server |
-|mli | ML Initiative (shared with neutrino) | 2 servers, 40 HT cores and 384 GB per server |
+|neutrino | Neutrino Group |  (points to iana) |
+|mli | ML Initiative |  (points to iana) |
 
 ### Interactive session using Slurm
 

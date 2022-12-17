@@ -23,7 +23,22 @@ We also provide common compilation tools...
 
 
 
-## FAQ
+## FAQ :faq
+
+### Who is my POC for S3DF?
+
+In the table below, the facility can be any organization, program, project, or group that interfaces with S3DF to acquire resources. 
+
+|Facility | POC | Primary POSIX group|
+|--- |--- |--- |
+|Rubin | Richard Dubois | rubin_users |
+|SuperCDMS | Concetta Cartaro | cdms |
+|LCLS | Silke Nelson | ps-users |
+|MLI| Daniel Ratner | ? |
+|Neutrino| Kazuhiro Terao | ? |
+|AD | Greg White | ? |
+|Suncat | Johannes Voss| ? |
+
 
 ### How do I access my group/collaboration's data?
 
