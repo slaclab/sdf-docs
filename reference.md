@@ -25,7 +25,7 @@ We also provide common compilation tools...
 
 ## FAQ :faq
 
-### Who is my POC for S3DF?
+### Who is my POC for S3DF? :id=faqpoc
 
 In the table below, the facility can be any organization, program, project, or group that interfaces with S3DF to acquire resources. 
 
@@ -93,15 +93,11 @@ Historically, SLAC has used IBM's LSF as our Batch scheduler software. However, 
 
 ### What should I know about using Batch?
 
-The purpose of a batch system is to enable efficient sharing of the CPUs, GPUs, memory, and ephemeral storage that exists in a compute Cluster. The cluster is comprised of many servers - often called Batch Nodes. As the number of these batch nodes and their resources (such as GPUs) in our environment is finite, we need to keep account of which users consume which resources so that we can provide access to all users in a fair manner. At the same time, as groups/teams can purchase their own hardware resources to be added to the SDF cluster, we must provide a method by which authorised users in those groups/teams can have priority access to their purchased resources. Slurm users are associated with one or many slurm [Accounts](#account-and-allocation), which have the dual function of providing requested resources and also as a means of tracking usage so that individual users cannot consume all resources in the entire cluster in fairness to other users. [Partitions](#partition) are used as a means to define the restrictions on Batch Nodes in the cluster.
-
-In order to use the Batch cluster, a user logs in to a Login Node. These dedicated servers are used for the sole purpose of interacting with the batch system and should not be used as compute resources to actually run any intensive work (using considerable CPU, memory, disk etc for a more than a few minutes). These login nodes are shared resources where many people will concurrently log in to use the batch system, and running intensive jobs on such machines will often cause issues for others users on those nodes and prevent them from submitting jobs. One would typically SSH into such a node and run batch commands (like `sbatch`, `squeue` etc) in order to queue work and monitor work onto the cluster. These work units are often called Jobs. The batch scheduler will then use the defined rules and algorithms to prioritise (or deprioritise) a user's Jobs on the system against everyone else who are effectively competing to use the cluster. The Jobs themselves, will then actually run on the Batch Nodes in the cluster. Depending on local policies, you may or may not be able to actually login these Batch Nodes directly. SLAC has typically forbid the ability to login to the Batch Nodes as multiple users Jobs are typically running on a single Batch Node.
-
-It is also possible to request an [interactive session](#interactive) on a Batch Node. This would be akin to SSH'ing into a Batch Node directly - however, because these interactive batch jobs are run in Linux cgroups to , they are effectively run in a sandbox, and hence more isolated from other processes than just remotely using SSH to log in. As all nodes in the cluster should be relatively homogenous, one should not need to request a specific Batch Node by name (although it is possible). One should typically not use interactive batch sessions for long periods of time as typically such usage is often idle time and not an efficient use of the cluster's resources. It is recommended however, to use such sessions to help debug issues with your usual batch Jobs.
+The purpose of a batch system is to enable efficient sharing of the CPUs, GPUs, memory, and ephemeral storage that exists in a compute Cluster. The cluster is comprised of many servers - often called batch nodes. As the number of these batch nodes and their resources (such as GPUs) in our environment is finite, we need to keep account of which users consume which resources so that we can provide access to all users in a fair manner. 
 
 ### What is a Slurm Partition? :id=partition
 
-A Partition is a logical grouping of Batch Nodes. These may be servers of a similar technical specification (eg Cascade Lake CPUs, Telsa GPUs etc), or by ownership of the servers - eg SUNCAT group may have purchased so many servers, so we put them all into a Partition. For the SDF, we partition machines according to science and engineering groups who have [purchased servers](resources-and-allocations.md#contributing-to-sdf) for the SDF. We do this such that members (or associates) of those groups can have priority access to their hardware. Whilst we give everyone access to all hardware via the [shared partition](#shared-partition) users who belong to groups who do not own any hardware in SDF will have lower priority access to use stakeholders resources.
+A partition is a logical grouping of batch nodes. These are servers of a similar technical specification (eg Cascade Lake CPUs, Telsa GPUs etc). Examples of partition names are roma and milano.
 
 
 ### How do I See the Status of the available resources?
@@ -112,8 +108,7 @@ To view the status of the nodes on SDF from the command line use [sinfo](https:/
 sinfo --Node --format="%10N %.6D %10P %10T %20E %.4c %.8z %8O %.6m %10e %.6w %.60f"
 ```
 
-To get only information on a specific partition use ```--partition=<partition>```, with the partition names coming from the table below (ex: ml, atlas).
-To get more information on a specfic node, use the following [scontrol](https://slurm.schedmd.com/scontrol.html) command:
+To get only information on a specific partition use ```--partition=<partition>```. To get more information on a specfic node, use the following [scontrol](https://slurm.schedmd.com/scontrol.html) command:
 
 ```
 scontrol show node <node name>
@@ -126,7 +121,7 @@ The names of the nodes can be found in the left-most column of the above sinfo c
 
 There are two ways to interact with slurm
 
-- Using command line tools on the SDF login hosts.
+- Using command line tools on the interactive pools.
 - Using the ondemand web interface.
 
 Common actions that you may want to perform are:
@@ -178,7 +173,7 @@ In the above example, we write a batch script for a job named 'test' (using the 
 
 ?> __TIP:__ only lines starting with `#SBATCH ` will be processed by the slurm interpretor. As the script itself is just a bash script, any line beginning with `#` will be ignored. As such you may also comment out slurm directives by using somethign like `##SBATCH`
 
-We can define [where the job will run](#partition) using the `--partition` option. All SLAC users have access to the [shared partition](#shared-partition). Your group may also have [access to other partitions](resources-and-allocations#allocations) that will provide you priority immediate access to resources
+We can define [where the job will run](#partition) using the `--partition` option. 
 
 ?> You can think of the batch script as a shell script but with some extra directives that only slurm understand. As such, you can also just run the same script in hte command line to ensure that your job will work; ie `sh script.sh` will run the same set of commands but on the local host. This therefore also means that if you already have a shell script that runs your code, you can 'slurmify' it by adding slurm directives with `#SBATCH`. Please note, however, that if you are using GPUs in your code etc. the login node may not have any GPUs and hence your local run will fail.
 
@@ -259,12 +254,6 @@ And you can cancel the job with
 scancel <jobid>
 ```
 
-### What is Pre-emption? :id=pre-emption
-
-As typically we have fewer resources than the aggregate requirements of all user groups at SLAC, we cannot provide resources to everyone when they need it. We therefore have to have different classes of users on our systems: those whose groups have [purchased servers](resources-and-allocations.md#contributing-to-sdf) and those who are using the [shared partition](#shared-partition) to use resources provided by SLAC's indirect. In order to be "fair" to the owners of servers who have contributed their resources into the SDF, we provide immediate access to their servers - when they need it. At the same time, users on the shared partition are allowed to use the owner's servers - when the owners do not need it. As such, in order to provide this level of guarantee to the owners, we have to 'kick-off' any shared scavenger jobs that may be running on that server at the time the owners request access to their hardware. This is known as pre-emption.
-
-
-
 ###  How can I request GPUs?
 
 You can use the `--gpus` to specify gpus for your jobs: Using a number will request the number of any gpu that is available (what you get depends upon what your Account/Association is and what is available when you request it). You can also specify the type of gpus by prefixing the number with the model name. eg
@@ -307,74 +296,14 @@ cryoem       1     0/1/0/1        2:8:2   191567  0          infinite    gpu:v10
 
 ```
 
-### How can I request a GPU with certain features and or memory?
-
-?> TBA... something about using Constraints. Maybe get the gres for gpu memory working.
-
-
 
 ### Why is My Job taking a long time to start?
 
 This is often due to limited resources. The simplest way is to request less CPU (`--cpus`) or less memory (`--mem`for your Job. However, this will also likely increase the amount of time that you need for the Job to complete. Note that perfect scaling is often very difficult (ie using 16 CPUs will not run twice as fast as 8 CPUs, as will using 4 nodes via MPI will not run twice as fast as 2 nodes), so it may be beneficial to submit many smaller Jobs if your code allows it. You can also set the `--time` option to specify that your job will only run upto that amount of time so that the scheduler can better fit your job in.
 
-The more expensive option is to [buy more hardware to SDF](resources-and-allocations.md#contributing-to-sdf) and have it added to your group/teams' [Partition](#partition). Please contact your [Coordinator](resources-and-allocations.md#allocations) or [contact to](contact-us.md) discuss.
-
-You can also make use of the Scavenger QoS such that your job may run on any available resources available at SLAC. This, however, has the disadvantage that should the owners of the hardware that your job runs on requires its resources, your may will be terminated (preempted) - possibly before it has completed.
+You can also make use of the Scavenger QoS such that your job may run on any available resources available at SLAC. This, however, has the disadvantage that should higher priority jobs run on the same resources, your jobs may be terminated (preempted) - possibly before it has completed.
 
 
-
-### What is QoS?
-
-A Quality of Service for a job defines restrictions on how a job is ran. In relation to an Allocation, a user may preempt, or be preempted by other job with a 'higher' QoS. We define 2 levels of QoS:
-
-scavenger: Everyone has access to all resources, however it is ran with the lowest priority and will be terminated if another job with a higher priority needs it
-
-normal: Standard QoS for owners of hardware; jobs will (attempt) to run til completion and will not be preempted. normal jobs therefore will preempt scavenger jobs.
-
-Scavenger QoS is useful if you have jobs that may be resumed (checkpointed) and if there are available resources available (ie owners are not using all of their resources).
-
-You may submit to multiple Partition with the same QoS level:
-
-
-```
-#!/bin/bash
-#SBATCH --account=cryoem
-#SBATCH --partition=cryoem,shared
-#SBATCH --qos=scavenger
-```
-
-In the above example, a cryoem user is charging against their Account cryoem; she is willing to run the job whereever available (the use of the cryoem Partition is kinda moot as the cryoem nodes are a subset of the Shared Partition anyway).
-
-is it possible to define multiple? ie cryoem with normal + shared with scavenger?
-
-
-
-### How can I restrict/contraint which servers to run my Job on?
-
-You can use slurm Constraints. We tag each and every server that help identify specific Features that each has: whether that is the kind of CPU, or the kind of GPU that run on them.
-
-You can view a servers specific Feature's using
-
-
-```
-$ scontrol show node ml-gpu01
-NodeName=ml-gpu01 Arch=x86_64 CoresPerSocket=12
-   CPUAlloc=0 CPUTot=48 CPULoad=1.41
-   AvailableFeatures=CPU_GEN:SKX,CPU_SKU:5118,CPU_FRQ:2.30GHz,GPU_GEN:TUR,GPU_SKU:RTX2080TI,GPU_MEM:11GB,GPU_CC:7.5
-   ActiveFeatures=CPU_GEN:SKX,CPU_SKU:5118,CPU_FRQ:2.30GHz,GPU_GEN:TUR,GPU_SKU:RTX2080TI,GPU_MEM:11GB,GPU_CC:7.5
-   Gres=gpu:geforce_rtx_2080_ti:10(S:0)
-   NodeAddr=ml-gpu01 NodeHostName=ml-gpu01 Version=19.05.2
-   OS=Linux 3.10.0-1062.4.1.el7.x86_64 #1 SMP Fri Oct 18 17:15:30 UTC 2019
-   RealMemory=191552 AllocMem=0 FreeMem=182473 Sockets=2 Boards=1
-   State=IDLE ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
-   Partitions=gpu
-   BootTime=2019-11-12T11:18:04 SlurmdStartTime=2019-12-06T16:42:16
-   CfgTRES=cpu=48,mem=191552M,billing=48,gres/gpu=10
-   AllocTRES=
-   CapWatts=n/a
-   CurrentWatts=0 AveWatts=0
-   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
-```
 
 ## Common Software
 
