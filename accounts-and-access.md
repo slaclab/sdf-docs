@@ -13,7 +13,7 @@ Form](https://oraweb4.slac.stanford.edu/apex/epnprod/f?p=134:1)
   * Ask your [SLAC POC](reference.md#faq) to submit a ticket to SLAC IT requesting a UNIX account. In your request indicate your SLAC ID, and your preferred account name (and second choice).
 2. Enable the SLAC UNIX account into S3DF:
   * Once you have a UNIX account, ask your SLAC POC to add it to the [POSIX group](reference.md#faq) that manages access to your facility's group space.
-  * Log into [coact](https://s3df.slac.stanford.edu/coact) using your SLAC UNIX account and follow the instructions to enable your account into S3DF. If the onboarding fails for any reason (e.g., your account was not added to your facility's primary POSIX group, see bullet above), we'll email you, otherwise you can assume your account will be enabled within 1 hour.
+  * Log into [coact](https://s3df.slac.stanford.edu/coact) using your SLAC UNIX account and follow the instructions to enable your account into S3DF. If the onboarding fails for any reason (e.g., your account was not added to your facility's primary POSIX group, see bullet above), we'll let you know, otherwise you can assume your account will be enabled within 1 hour.
 
 ?> SLAC is currently working on providing federated access to SLAC
 resources so that you will be able to authenticate with your home
