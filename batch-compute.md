@@ -13,13 +13,19 @@ can find general information on using this workflow manager in our
 ## Clusters & Repos
 
 A cluster is a homogeneous set of computing nodes with the same
-hardware specifications and the same access to the storage. A facility
-is a program/project which can buy resources (e.g., LCLS, Rubin,
-SUNCAT, SuperCDMS, etc). A repo is a set of resources associated with
-a group of people within a facility (e.g., an LCLS experiment or a
-cryo-EM experiment). Not all repos will have access to all
+hardware specifications and the same access to the storage. A
+[facility](contact-us.md#facpoc) is an entity (organization, project,
+group, program, etc) which owns resources within S3DF. A repo is a set
+of resources associated with a group of people within a facility
+(e.g., an LCLS experiment, a cryo-EM experiment, an effort within the
+accelerator directorate, etc). Not all repos will have access to all
 clusters. Some repos will have dedicated resources within a cluster,
 while some will use shared resources.
+
+Typically, a facility will acquire hardware in order to own resources
+within S3DF, but resources can also be assigned by SLAC. [Talk with
+us](contact-us.md) if you don't have funds to buy hardware but you
+would like to use dedicated resources within the S3DF.
 
 ### Partitions & Accounts
 
@@ -35,14 +41,30 @@ Each repo can have one of three stances in relation to a specific
 cluster:
 
 1. Dedicated resources: for repos with real time requirements or with
-  uniform usage over time (for that cluster).
+  uniform usage over time (for that cluster). A subset of super-users
+  from each facility will be allowed to create reservations. Users
+  will submit jobs for this stance using the repo name and reservation
+  name. Example:
+  `--partition milano --account lcls-xpp1234 --reservation lcls-xpp1234-230101-230105`
 
 2. Shared resources with priority: for repos within their quota (for
-  that cluster).
+  that cluster). This is the default stance and users will submit jobs
+  for this stance using the repo name. Example:
+  `--partition milano --account lcls-xpp1234`
 
 3. Shared resources without priority: for repos above their quota (for
   that cluster). Jobs in this category may be preempted by higher
-  priority jobs.
+  priority jobs. This is the opportunistic cycles stance, aka
+  scavenger cycles, and jobs are submitted under the facility account
+  and quality of service preemptable. Example:
+  `--partition milano --account lcls --qos preemptable`
+
+As a matter of convention:
+
+- Default Slurm account = `<facility>`
+- Repo Slurm account = `<facility>-<repo>`
+- Slurm reservation = `<facility>-<repo>-<starttime>-<endtime>`
+
 
 The mapping of repos to dedicated resource is dynamic. This is
 required, for example, to assign different nodes to a repo so that a
@@ -52,6 +74,7 @@ activities within a cluster to match the actual requirements of a
 running experiment.
 
 ![repostance](assets/s3df-slurm-repostance.png)
+
 
 
 See the table below to determine the specifications for each

@@ -10,10 +10,18 @@ steps to get into S3DF:
   * Obtain a SLAC ID via the [SLUO User
 Form](https://oraweb4.slac.stanford.edu/apex/epnprod/f?p=134:1)
   * Take Cyber 100 training via the [SLAC training portal](http://training.slac.stanford.edu/web-training.asp)
-  * Ask your [SLAC POC](reference.md#faqpoc) to submit a ticket to SLAC IT requesting a UNIX account. In your request indicate your SLAC ID, and your preferred account name (and second choice).
+  * Ask your [SLAC POC](contact-us.md#facpoc) to submit a ticket to SLAC IT requesting a UNIX account. In your request indicate your SLAC ID, and your preferred account name (and second choice).
 2. Enable the SLAC UNIX account into S3DF:
-  * Once you have a UNIX account, ask your SLAC POC to add it to the [POSIX group](reference.md#faqpoc) that manages access to your facility's group space.
-  * Log into [coact](https://s3df.slac.stanford.edu/coact) using your SLAC UNIX account and follow the instructions to enable your account into S3DF. If the onboarding fails for any reason (e.g., your account was not added to your facility's primary POSIX group, see bullet above), we'll let you know, otherwise you can assume your account will be enabled within 1 hour.
+  * Log into [coact](https://s3df.slac.stanford.edu/coact) using your SLAC UNIX account and follow the instructions to enable your account into S3DF. If the onboarding fails for any reason, we'll let you know, otherwise you can assume your account will be enabled within 1 hour.
+
+?> In some cases, e.g. for Rubin and LCLS, you may want to ask your
+SLAC POC to add your username to the [POSIX
+group](contact-us.md#facpoc) that manages access to your facility's
+storage space. This is needed because S3DF is not the source of truth
+for SLAC POSIX groups. S3DF is working with SLAC IT to deploy a
+centralized database that will grant S3DF the ability to modify group
+membership.
+
 
 ?> SLAC is currently working on providing federated access to SLAC
 resources so that you will be able to authenticate with your home

@@ -25,21 +25,6 @@ We also provide common compilation tools...
 
 ## FAQ :faq
 
-### Who is my POC for S3DF? :id=faqpoc
-
-In the table below, the facility can be any organization, program, project, or group that interfaces with S3DF to acquire resources. 
-
-|Facility | POC | Primary POSIX group|
-|--- |--- |--- |
-|Rubin | Richard Dubois | rubin_users |
-|SuperCDMS | Concetta Cartaro | cdms |
-|LCLS | Silke Nelson | ps-users |
-|MLI| Daniel Ratner | ? |
-|Neutrino| Kazuhiro Terao | ? |
-|AD | Greg White | ? |
-|Suncat | Johannes Voss| ? |
-
-
 ### How do I check current status of storage quotas? :id=storagequota
 
 You might want to know how much of your quota is used; reaching the
