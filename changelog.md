@@ -2,7 +2,12 @@
 
 ## Outages
 
-No outages planned at this time.
+
+|When	|Duration | What	|
+| --- | --- | --- |
+|Jan 15 2023 | Unknown | sdfdata hangs on several nodes (unplanned)|
+|Jun 26 2023	|5 days	| Everything down due to power outage (planned)|
+
 
 ## Monitoring
 
@@ -20,7 +25,7 @@ No outages planned at this time.
 ## Roadmap :id=roadmap
 
 |When	|What	|Notes|
-| --- | --- | --- |	
+| --- | --- | --- |
 |Oct 2022	|Allow LCLS super users	||
 |		|Deploy milano cluster	|11264 Milan cores|
 |		|Deploy sdfdata	|POSIX (2.2 PB) and S3 (10 PB)|
