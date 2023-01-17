@@ -2,11 +2,21 @@
 
 ## Outages
 
+### Current
+
+None
+
+### Upcoming
 
 |When	|Duration | What	|
 | --- | --- | --- |
-|Jan 15 2023 | Unknown | sdfdata hangs on several nodes (unplanned)|
-|Jun 26 2023	|5 days	| Everything down due to power outage (planned)|
+|Jun 26 2023	|5 days (planned)| Everything down due to power outage|
+
+### Past
+
+|When	|Duration | What	|
+| --- | --- | --- |
+|Jan 15 2023 | 2 days (unplanned) | Fix: one weka server rebooted. Underlying issue under investigation. Symptom: sdfdata hanging on several nodes.|
 
 
 ## Monitoring
