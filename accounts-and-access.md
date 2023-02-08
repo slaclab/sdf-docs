@@ -12,7 +12,7 @@ Form](https://oraweb4.slac.stanford.edu/apex/epnprod/f?p=134:1)
   * Take Cyber 100 training via the [SLAC training portal](http://training.slac.stanford.edu/web-training.asp)
   * Ask your [SLAC POC](contact-us.md#facpoc) to submit a ticket to SLAC IT requesting a UNIX account. In your request indicate your SLAC ID, and your preferred account name (and second choice).
 2. Enable the SLAC UNIX account into S3DF:
-  * Log into [coact](https://s3df.slac.stanford.edu/coact) using your SLAC UNIX account and follow the instructions to enable your account into S3DF. If the onboarding fails for any reason, we'll let you know, otherwise you can assume your account will be enabled within 1 hour.
+  * Log into [coact](https://coact.slac.stanford.edu/) using your SLAC UNIX account and follow the instructions to enable your account into S3DF. If the onboarding fails for any reason, we'll let you know, otherwise you can assume your account will be enabled within 1 hour.
 
 ?> In some cases, e.g. for Rubin and LCLS, you may want to ask your
 SLAC POC to add your username to the [POSIX
