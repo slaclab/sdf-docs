@@ -21,6 +21,17 @@ To promote long term consistency, the S3DF directory structure provides immutabl
 
 * `/sdf/scratch/<facility>/…`: 3 months retention on a best effort basis (actual retention can be shorter or longer depending on actual usage)
 
+## Directory Quotas
+
+- User home directories are set with a 30 GB quota.  Quota and usage can be checked with
+   - `df -h $HOME` or `df -h ~`
+
+- Quota and usage of other directories can be checked with df -h as well.
+   - Example:  `df -h /sdf/group/fermi`
+
+- For quota questions and requests, please [Contact us](contact-us.md)
+
+
 ## Policies
 
 - Home directories permissions will be delegated to each user. By default, home folders will be readable by everyone (you can change that by changing UNIX permissions on one or more of your folders) and everyone will be able to list `/sdf/home/<u>`.
