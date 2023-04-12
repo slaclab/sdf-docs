@@ -45,10 +45,10 @@ None
 |		|Mount LCLS fast-feedback on S3DF	||
 |		|Open S3DF to LCLS users	||
 |Jan 2023	|Open S3DF to all SLAC users	||
-|Feb 2023	|Deploy pre-ops Rubin acquisitions in SRCF-II	|No backup power in SRCF-II until after shutdown|
-|Mar 2023	|Export sdfhome and sdfdata to SLAC	|Via NFS v4 to provide AFS-like features|
+|May 2023	|Deploy pre-ops Rubin acquisitions in SRCF-II	|No backup power in SRCF-II until after shutdown|
 |Jun 2023	|SRCF-I and II power outage	|5-day shutdown starting on Jun 26th|
 |Jul 2023	|Backup power available in SRCF-II	||
+|   |Export sdfhome and sdfdata to SLAC	|Via NFS v4 to provide AFS-like features|
 |		|Migrate PCDS services to S3DF	||
 |		|Retire psana	||
 |Aug 2023	|Retire all scientific computing clusters in B50	|SDF, Bullet, and all LSF clusters|
