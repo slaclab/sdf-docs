@@ -45,12 +45,12 @@ cluster:
   from each facility will be allowed to create reservations. Users
   will submit jobs for this stance using the repo name and reservation
   name. Example:
-  `--partition milano --account lcls-xpp1234 --reservation lcls-xpp1234-230101-230105`
+  `--partition milano --account lcls:xpp1234 --reservation lcls:xpp1234-230101-230105`
 
 2. Shared resources with priority: for repos within their quota (for
   that cluster). This is the default stance and users will submit jobs
   for this stance using the repo name. Example:
-  `--partition milano --account lcls-xpp1234`
+  `--partition milano --account lcls:xpp1234`
 
 3. Shared resources without priority: for repos above their quota (for
   that cluster). Jobs in this category may be preempted by higher
@@ -62,8 +62,8 @@ cluster:
 As a matter of convention:
 
 - Default Slurm account = `<facility>`
-- Repo Slurm account = `<facility>-<repo>`
-- Slurm reservation = `<facility>-<repo>-<starttime>-<endtime>`
+- Repo Slurm account = `<facility>:<repo>`
+- Slurm reservation = `<facility>:<repo>-<starttime>-<endtime>`
 
 
 The mapping of repos to dedicated resource is dynamic. This is
