@@ -1,40 +1,43 @@
 # Service Compute
 
 [Contact us](contact-us.md) if you need resources for running
-long-lived jobs, including dynamic websites, real-time and fast
-feedback systems.
+long-lived jobs such as websites, web applications, or real-time/fast-feedback systems.
 
-## S3DF Supported Sites
+## S3DF Supported Sites and Web Applications
 
-S3DF is currently supporting dynamic sites for several groups,
-programs, and experiments. See the currently supported sites in the
-table below.
+S3DF is currently supporting websites and web applications for several groups,
+programs, and experiments:
 
-| Access 	| Address | 
+| Site/Application	| URL |
 | :--- | :--- |
-| Rubin RSP | https://usdf-rsp.slac.stanford.edu|
+| USDF Rubin Science Platform (RSP) | https://usdf-rsp.slac.stanford.edu|
 | LCLS | https://pswww.slac.stanford.edu|
 | SuperCDMS | https://supercdms-dev.slac.stanford.edu|
-| cryo-EM DAQ | https://cryoem-daq.slac.stanford.edu|
-| cryo-EM Elog | https://cryoem-logbook.slac.stanford.edu|
-| ARD Lume Project | https://ard-modeling-service.slac.stanford.edu|
+| Cryo-EM E-Logbook | https://cryoem-logbook.slac.stanford.edu|
 
 
-## S3DF Public Access to User and Group Space 
+## S3DF Publicly Accessible Content
 
-S3DF can make static content from specific folders publicly available
-through HTTP. If you need this service, send a request to
-s3df-help. If you are the PoC of an S3DF facility, you may request
-this service for your organization as a whole. See the table below for
-the naming convention of how these user and group spaces will appear
-on the S3DF file system and on the web. Any file or directory that you
-want to make accessible via HTTP, need to be copied to the public_html
-folder, links to other file system will not resolve. Note: eventually,
-requests for these links will be managed via
-[coact](https://s3df.slac.stanford.edu/coact).
+S3DF can make static content from specific directories publicly available
+via HTTP. If you need this service, pleasesubmit a SLAC ServiceNow request to
+s3df-help, or email `s3df-help@slac.stanford.edu`. If you are the Point of Contact (PoC) for an S3DF facility, you may request this service on behalf of your organization or group.
 
-| S3DF Folder | Public HTTP Address | 
+Note: In the future, requests for static web content hosting will be managed via the S3DF [Coact](https://s3df.slac.stanford.edu/coact) portal.
+
+#### Types of Content
+- Static content refers to static HTML pages or files that are served directly to the users as-is. This may include (but is not limited to) image files, HTML/JavaScript files, CSS files, etc. that a user can view or download directly by going to the site via a browser.
+- Dynamic content refers to a website or web application that is typically generated on a per-client basis, with information on how to render the site fetched from a database or other server-side resource. A dynamic site or application may also provide some method of authentication for user logins, saved preferences, and other functionality.
+
+#### Policies
+Publicly accessible content hosted in S3DF is subject to the following policies:
+
+- The [SLAC Acceptable Use of Information Technology Resources Policy](https://slac.sharepoint.com/sites/SLACPolicies/Shared%20Documents/SLAC-only%20Policies/IT-057-Acceptable%20Use%20of%20Information%20Technology%20Resources.pdf).
+- Hosted files or directories must be located under the appropriate user or group `public_html` directory (see below).
+- Symlinks to other locations, either on the S3DF filesystem or other network filesystems (e.g., SLAC AFS, SLAC GPFS, SDF Lustre, etc.), are not allowed in `public_html`. Such links will not resolve when accessed via HTTP.
+
+This table shows the respective hosted S3DF filesystem locations and public URLs to access their contents:
+
+| S3DF Host Path | URL |
 | :--- | :--- |
 | `/sdf/home/<u>/<username>/public_html` | https://s3df.slac.stanford.edu/people/&lt;username&gt;|
 | `/sdf/data/<groupname>/public_html` | https://s3df.slac.stanford.edu/data/&lt;groupname&gt; |
-
