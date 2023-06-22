@@ -27,6 +27,8 @@ S3DF and you don't see your facility in this table.
 |MLI| Daniel Ratner | - |
 |Neutrino| Kazuhiro Terao | - |
 |AD | Greg White | - |
-|Suncat | Johannes Voss| - |
-
-
+|Suncat | Johannes Voss| suncat-norm |
+|Fermi | Richard Dubois| glast-pipeline |
+|EPPTheory | Tom Rizzo | theorygrp |
+|FACET | Nathan Majernik | - |
+|DESC | Tom Glanzman | desc |
