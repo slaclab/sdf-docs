@@ -82,9 +82,9 @@ cluster/partition.
 
 | Partition name | CPU model | Cores per node | Memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| roma | Rome 7702 | 128 | 512 GB | - | - | 960 GB | 26 |
-| milano | Milan 7713 | 128 | 512 GB | - | - | 960 GB | 32 |
-| ampere | Rome 7542 | 64 | 1024 GB | Tesla A100 | 4 | 7 TB | 6 |
+| roma | Rome 7702 | 128 | 512 GB | - | - | 960 GB | 39 |
+| milano | Milan 7713 | 128 | 512 GB | - | - | 960 GB | 120 |
+| ampere | Rome 7542 | 64 | 1024 GB | Tesla A100 | 4 | 7 TB | 23 |
 
 
 
