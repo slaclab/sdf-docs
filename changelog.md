@@ -4,13 +4,13 @@
 
 ### Current
 
-None
-
-### Upcoming
-
 |When	|Duration | What	|
 | --- | --- | --- |
 |Jun 26 2023	|5 days (planned)| Everything down due to power outage|
+
+### Upcoming
+
+None
 
 ### Past
 
@@ -45,16 +45,17 @@ None
 |		|Mount LCLS fast-feedback on S3DF	||
 |		|Open S3DF to LCLS users	||
 |Jan 2023	|Open S3DF to all SLAC users	||
-|May 2023	|Deploy pre-ops Rubin acquisitions in SRCF-II	|No backup power in SRCF-II until after shutdown|
 |Jun 2023	|SRCF-I and II power outage	|5-day shutdown starting on Jun 26th|
 |Jul 2023	|Backup power available in SRCF-II	||
-|   |Export sdfhome and sdfdata to SLAC	|Via NFS v4 to provide AFS-like features|
+|		|Deploy pre-ops Rubin acquisitions in SRCF-II	||
+|		|Export sdfhome and sdfdata to SLAC	|Via NFS v4 to provide AFS-like features|
 |		|Migrate PCDS services to S3DF	||
 |		|Retire psana	||
-|Aug 2023	|Retire all scientific computing clusters in B50	|SDF, Bullet, and all LSF clusters|
-|Oct 2023	|Deploy federated identities	|Dependency on IAM ssh progress|
-|Nov 2023	|Retire AFS	||
-|		|Retire GPFS	||
+|Aug 2023	|Retire all legacy scientific computing clusters in B50 | Bullet, and all LSF clusters|
+|		|Migrate SDF resources to S3DF ||
+|Oct 2023	|Deploy federated identities	|Dependency on IAM ssh progress, may be delayed|
+|Nov 2023	|Retire AFS	|Dependency on weka NFS v4, may be delayed|
+|		|Retire GPFS	|Dependency on weka NFS v4, may be delayed|
 
 ## Slurm Dashboard
 
