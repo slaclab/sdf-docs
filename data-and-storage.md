@@ -21,6 +21,9 @@ To promote long term consistency, the S3DF directory structure provides immutabl
 
 * `/sdf/scratch/<facility>/…`: 3 months retention on a best effort basis (actual retention can be shorter or longer depending on actual usage)
 
+?> Access to AFS, GPFS, and SDF Lustre from S3DF is described in this
+[reference section on legacy file systems](reference.md#legacyfs).
+
 ## Policies
 
 - Home directories permissions will be delegated to each user. By default, home folders will be readable by everyone (you can change that by changing UNIX permissions on one or more of your folders) and everyone will be able to list `/sdf/home/<u>`.
@@ -28,6 +31,10 @@ To promote long term consistency, the S3DF directory structure provides immutabl
 - General purpose software will go under sw. Group specific software will go under `/sdf/group` and will be maintained by each group.
 
 - Some groups may decide to logically hold all their information under `/sdf/group/<groupname>`. Such a structure may be implemented by each group via symlinks. The actual mount points and relative backup and archive policies will be based on the structure shown above. 
+
+?> __TODO__ Desktop/endpoint access to S3DF file systems will likely
+be via authenticated NFS v4.  This is currently a topic of
+investigation as we wait for an updated WekaFS release.
 
 
 ## Backup and Archiving
@@ -44,5 +51,6 @@ can be found at\
 - A subset of users in each group will be able to access the command line interface to HPSS for the purpose of archiving/restoring to/from tape. Differently from backup, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (POC within SCS is OK).
 
 
-
+?> The current and target backup and archiving policies are summarized in
+this [reference section on data backup](reference.md#backup).
 

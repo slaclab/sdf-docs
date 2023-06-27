@@ -34,6 +34,58 @@ window. More in general type `df -h <folder>` to determine the quota
 for any folder.
 
 
+### How do I access AFS/GPFS/Lustre? :id=legacyfs
+
+The SLAC-wide legacy file systems AFS, GPFS, and SDF Lustre will be
+mounted read-only, and only on the interactive pools, to enable the
+migration of legacy data to S3DF storage:
+
+- AFS: `/fs/afs` The current plan is to use the afsnfs translator
+  since AFS ACLs do not map to POSIX anyway.  Some experimentation is
+  underway to see what issues might exist in any potential transfer to
+  S3DF.
+
+- GPFS: `/fs/gpfs` The current plan is to use NFS as the access
+  method.  Affected systems: ACD, ATLAS, CryoEM, DES + DarkSky, Fermi,
+  KIPAC, LSSTcam, MCC/EED, StaaS.
+
+- Lustre: `/fs/ddn`  Although Lustre is currently operating in
+  read-write mode, groups will likely benefit from moving data to S3DF
+  storage as it becomes available to them.
+
+
+### How are my files backed up? :id=backup
+
+Current backup/archive situation
+
+| File system | Snapshot | Tape backup (TSM) | Tape archive (HPSS) | Done by | Paid by |
+| --- | --- | --- | --- | --- | --- |
+| sdfhome | To flash | Yes | No | S3DF | SLAC |
+| sdfscratch | No | No | No | - | - |
+| sdfk8s | To flash | No | No | S3DF | SLAC |
+| sdfdata | No | On demand | Active, from files | S3DF | SLAC |
+| sdfdata:/u | No | On demand | No | S3DF | Group |
+| S3 direct | No | No | No | No | No | 
+
+
+Target backup/archive strategy
+
+| File system | Snapshot | Tape backup (TSM-like) | Tape archive (HPSS-like) | Done by | Paid by |
+| --- | --- | --- | --- | --- | --- |
+| sdfhome | To S3 bucket | No | From S3 snapshots | S3DF | SLAC | 
+| sdfscratch | No | No | No | - | - |
+| sdfk8s | To S3 bucket | No | From S3 snapshots | S3DF | SLAC |
+| sdfdata | No | No | Active, from files | Group | Group |
+| sdfdata:/u | To S3 bucket | No | From S3 snapshots | S3DF | Group |
+| S3 direct | No | No | From S3 | Group | Group | 
+
+?> sdfdata:/u indicates folders that logically belong to sdfgroup but
+are too large to be paid for by SLAC.
+
+?> The target backup strategy is aspirational, we need to find the
+right tools to copy from S3 to tape.
+
+
 ### May I Contribute to the S3DF Documentation? :id=docsify
 
 Please feel free to send us suggestions and modifications to this documentation! The content is hosted on [github](https://github.com/slaclab/sdf-docs) and as long as you have a github account, you can send us [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) where we can review your changes and merge them into this site.
