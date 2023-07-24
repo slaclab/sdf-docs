@@ -1,6 +1,7 @@
 * [Welcome](/)
 * [Access](accounts-and-access.md)
 * [Usage](getting-started.md)
+* [Common How-to's](common-how-tos.md)
 * [Interactive Compute](interactive-compute.md)
 * [Batch Compute](batch-compute.md)
 * [Service Compute](service-compute.md)
