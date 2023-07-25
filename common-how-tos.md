@@ -1,6 +1,8 @@
 # Common How-to's
 ## Build and run MPI jobs
-1. **Choose an interactive node that supports your MPI environment.** We recommmend (re)compiling your programs using the same MPI library versions that exist on the S3DF clusters. The RHEL-supplied OpenMPI 4.x distro is installed on all Milan cluster nodes (milano partition) and the "iana" interactive pool. Once you are logged into an iana node, you load the RHEL OpenMPI shell environment via the `mpi/openmpi-x86_64` module. 
+**Choose an interactive node that supports your MPI environment**
+
+We recommmend (re)compiling your programs using the same MPI library versions that exist on the S3DF clusters. The RHEL-supplied OpenMPI 4.x distro is installed on all Milan cluster nodes (milano partition) and the "iana" interactive pool. Once you are logged into an iana node, you load the RHEL OpenMPI shell environment via the `mpi/openmpi-x86_64` module. 
 ```
 [yemi@sdfiana006 ~]$ module load mpi/openmpi-x86_64
 [yemi@sdfiana006 ~]$ which mpirun
@@ -8,7 +10,9 @@
 [yemi@sdfiana006 ~]$ mpirun -V
 mpirun (Open MPI) 4.1.1
 ```
-2. **Compile on the interactive node** Here's a simple reduction program "my_mpi_reduce.c" that sums the values across all the MPI ranks:
+**Compile on the interactive node**
+
+Here's a simple reduction program "my_mpi_reduce.c" that sums the values across all the MPI ranks:
 
 ```
 #include <stdio.h>
@@ -40,4 +44,22 @@ Using the supplied MPI compiler from `mpi/openmpi-x86_64` :
 [yemi@sdfiana006 openmpi_4.1.1]$ which mpicc
 /usr/lib64/openmpi/bin/mpicc
 [yemi@sdfiana006 openmpi_4.1.1]$ mpicc -o my_mpi_reduce my_mpi_reduce.c
+```
+**Create the SLURM job submission script**
+
+SLURM will schedule our MPI program to run on the milano partition using the same MPI environment we compiled with:
+
+```
+#!/bin/sh
+#SBATCH --partition=milano
+#SBATCH --ntasks-per-node=4
+#SBATCH --nodes=4
+module load mpi/openmpi-x86_64
+mpirun /sdf/home/y/yemi/slurmtests/openmpi_4.1.1/my_mpi_reduce
+```
+**Launch the script**
+
+```
+[yemi@sdfiana006 openmpi_4.1.1]$ sbatch ./mpi_milano_test.sh
+Submitted batch job 20061888
 ```
