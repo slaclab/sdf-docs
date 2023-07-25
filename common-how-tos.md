@@ -1,1 +1,2 @@
-Common How-to's......
+# Common How-to's
+## Compile and run MPI batch jobs
