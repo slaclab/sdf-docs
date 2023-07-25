@@ -9,6 +9,7 @@
 mpirun (Open MPI) 4.1.1
 ```
 2. **Compile on the interactive node** Here's a simple reduction program "my_mpi_reduce.c" that sums the values across all the MPI ranks:
+
 ```
 #include <stdio.h>
 #include <mpi.h>
@@ -24,8 +25,7 @@ int main(int argc, char *argv[]) {
   value = (rank +1) * 10;
   printf("rank %d on %s has value %d\n",rank,processor_name,value);
 
-  MPI_Reduce(&value, &global_sum, 1, MPI_INT, MPI_SUM, 0,
-           MPI_COMM_WORLD);
+  MPI_Reduce(&value, &global_sum, 1, MPI_INT, MPI_SUM, 0,MPI_COMM_WORLD);
   if(rank == 0){
     printf("Rank 0 worked out the total %d\n",global_sum);
   } 
@@ -33,7 +33,9 @@ int main(int argc, char *argv[]) {
   MPI_Finalize();
 }
 ```
+
 Using the supplied MPI compiler from `mpi/openmpi-x86_64` :
+
 ```
 [yemi@sdfiana006 openmpi_4.1.1]$ which mpicc
 /usr/lib64/openmpi/bin/mpicc
