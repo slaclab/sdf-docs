@@ -63,3 +63,17 @@ mpirun /sdf/home/y/yemi/slurmtests/openmpi_4.1.1/my_mpi_reduce
 [yemi@sdfiana006 openmpi_4.1.1]$ sbatch ./mpi_milano_test.sh
 Submitted batch job 20061888
 ```
+**Python MPI code**
+
+Python MPI programs typically use the mpi4py module. At this time, S3DF is not supporting python centrally. This is because each project has their own python distribution with scripts for configuring their environment. Here's an example of a python MPI job submission script
+
+```
+#!/bin/sh
+#SBATCH --partition=milano
+#SBATCH --ntasks-per-node=2
+#SBATCH --nodes=2
+# "-u" flushes print statements which can otherwise be hidden if mpi hangs
+# "-m mpi4py.run" allows mpi to exit if one rank has an exception
+source /sdf/group/<facility>/..../bin/psconda.sh
+mpirun python -u -m mpi4py.run ~/slurmtests/my_mpiReduce.py
+``` 
