@@ -4,9 +4,7 @@
 
 ### Current
 
-|When	|Duration | What	|
-| --- | --- | --- |
-|Jun 26 2023	|5 days (planned)| Everything down due to power outage|
+None
 
 ### Upcoming
 
@@ -16,6 +14,7 @@ None
 
 |When	|Duration | What	|
 | --- | --- | --- |
+|Jun 26 2023	|5 days (planned)| Everything down due to power outage|
 |Jan 15 2023 | 2 days (unplanned) | Fix: one weka server rebooted. Underlying issue under investigation. Symptom: sdfdata hanging on several nodes.|
 
 
