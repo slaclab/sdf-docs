@@ -39,7 +39,7 @@ investigation as we wait for an updated WekaFS release.
 
 ## Backup and Archiving
 
-- Everything under `/sdf/{home, sw, group}` will be backed-up. The backup mechanism will be the same for all folders: snapshots will be taken at regular intervals (e.g., a few times a day) and will be accessible by the users through the file system itself, with no intervention from the system administrators. A subset of the snapshots will be copied to tape at a lower rate (e.g., once a day). Snaphosts for\
+- Everything under `/sdf/{home, sw, group}` will be backed-up. The backup mechanism will be the same for all folders: snapshots will be taken at regular intervals (e.g., a few times a day) and will be accessible by the users through the file system itself, with no intervention from the system administrators. A subset of the snapshots will be copied to tape at a lower rate (e.g., once a day). Snapshots for\
 `/sdf/{home, sw, group}/<folder>`\
 can be found at\
 `/sdf/{home, sw, group}/.snapshots/<gmttime>/<folder>`
@@ -48,7 +48,7 @@ can be found at\
 
 - The scratch spaces under `/sdf/scratch`  will not be backed up or archived. 
 
-- A subset of users in each group will be able to access the command line interface to HPSS for the purpose of archiving/restoring to/from tape. Differently from backup, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (POC within SCS is OK).
+- A subset of users in each group will be able to access the command line interface to HPSS for the purpose of archiving/restoring to/from tape. Unlike backup, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (POC within SCS is OK).
 
 
 ?> The current and target backup and archiving policies are summarized in
