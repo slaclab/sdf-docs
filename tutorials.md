@@ -1,4 +1,4 @@
-# Common How-to's
+# Tutorials
 ## Build and run MPI jobs
 **Choose an interactive node that supports your MPI environment**
 
