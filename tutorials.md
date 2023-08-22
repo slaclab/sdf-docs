@@ -77,3 +77,8 @@ Python MPI programs typically use the mpi4py module. At this time, S3DF is not s
 source /sdf/group/<facility>/..../bin/psconda.sh
 mpirun python -u -m mpi4py.run ~/slurmtests/my_mpiReduce.py
 ``` 
+
+## Graphics and remote visualization
+**Introduction to NoMachine**
+
+NoMachine is the recommended (supported) interface for displaying and interacting with graphics-based programs running on S3DF. The NoMachine "NX" protocol offers improved performance compared to X11 over SSH encryption.
