@@ -13,7 +13,7 @@ contact us directly on the phone.
 | Slack channel for general discussion | [slac.slack.com #comp-sdf](https://slac.slack.com/app_redirect?channel=comp-sdf) |
 
 
-### Facilities and Point of Contacts :id=facpoc
+### Facilities and Point of Contacts
 
 The table below shows the organizations, programs, projects, or groups
 that own resources within the S3DF. Contact us if you want to use the
@@ -27,8 +27,15 @@ S3DF and you don't see your facility in this table.
 |MLI| Daniel Ratner | - |
 |Neutrino| Kazuhiro Terao | - |
 |AD | Greg White | - |
-|Suncat | Johannes Voss| suncat-norm |
+|SUNCAT | Johannes Voss| suncat-norm |
 |Fermi | Richard Dubois| glast-pipeline |
 |EPPTheory | Tom Rizzo | theorygrp |
 |FACET | Nathan Majernik | - |
 |DESC | Tom Glanzman | desc |
+|KIPAC | Stuart Marshall | ki |
+|RFAR | David Bizzozero | rfar |
+|SIMES | Tom Devereaux | - |
+|CryoEM | Yee Ting Li | - |
+|SSRL | Riti Sarangi | - |
+|LDMX | Omar Moreno | - |
+|HPS | Omar Moreno | - |
