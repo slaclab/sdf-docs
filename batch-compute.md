@@ -40,19 +40,19 @@ how many computing hours your repo has on a specific cluster.
 Each repo can have one of three stances in relation to a specific
 cluster:
 
-1. Dedicated resources: for repos with real time requirements or with
+1. Reservation: for repos with real time requirements or with
   uniform usage over time (for that cluster). A subset of super-users
   from each facility will be allowed to create reservations. Users
   will submit jobs for this stance using the repo name and reservation
   name. Example:
   `--partition milano --account lcls:xpp1234 --reservation lcls:xpp1234-230101-230105`
 
-2. Shared resources with priority: for repos within their quota (for
+2. Allocation: for repos within their allocation quota (for
   that cluster). This is the default stance and users will submit jobs
   for this stance using the repo name. Example:
   `--partition milano --account lcls:xpp1234`
 
-3. Shared resources without priority: for repos above their quota (for
+3. Preemptable: for repos above their quota (for
   that cluster). Jobs in this category may be preempted by higher
   priority jobs. This is the opportunistic cycles stance, aka
   scavenger cycles, and jobs are submitted under the facility account
