@@ -16,11 +16,9 @@ A cluster is a homogeneous set of computing nodes with the same
 hardware specifications and the same access to the storage. A
 [facility](contact-us.md#facpoc) is an entity (organization, project,
 group, program, etc) which owns resources within S3DF. A repo is a set
-of resources associated with a group of people within a facility
-(e.g., an LCLS experiment, a cryo-EM experiment, an effort within the
-accelerator directorate, etc). Not all repos will have access to all
-clusters. Some repos will have dedicated resources within a cluster,
-while some will use shared resources.
+of resources associated with a group of people within a facility -
+e.g., an LCLS experiment, a cryo-EM experiment, an effort within the
+accelerator directorate, etc.
 
 Typically, a facility will acquire hardware in order to own resources
 within S3DF, but resources can also be assigned by SLAC. [Talk with
@@ -44,19 +42,19 @@ cluster:
   uniform usage over time (for that cluster). A subset of super-users
   from each facility will be allowed to create reservations. Users
   will submit jobs for this stance using the repo name and reservation
-  name. Example:
+  name. For example:
   `--partition milano --account lcls:xpp1234 --reservation lcls:xpp1234-230101-230105`
 
 2. Allocation: for repos within their allocation quota (for
   that cluster). This is the default stance and users will submit jobs
-  for this stance using the repo name. Example:
+  for this stance using the repo name. For example:
   `--partition milano --account lcls:xpp1234`
 
-3. Preemptable: for repos above their quota (for
+3. Preemptable: for repos above their quota or with no quota (for
   that cluster). Jobs in this category may be preempted by higher
   priority jobs. This is the opportunistic cycles stance, aka
   scavenger cycles, and jobs are submitted under the facility account
-  and quality of service preemptable. Example:
+  and quality of service preemptable. For example:
   `--partition milano --account lcls --qos preemptable`
 
 As a matter of convention:
@@ -91,7 +89,7 @@ cluster/partition.
 ### Banking
 
 The coact system will keep track of the hours spent by each repo on
-each clusters. Once a repo reaches its computing quota on a cluster,
+each cluster. Once a repo reaches its computing quota on a cluster,
 further submissions to that cluster will have lower priority. Note:
 depending on the initial experience, we may also limit the resources
 available to over-quota repos (i.e., by enforcing a cap on the amount
