@@ -75,7 +75,7 @@ Target backup/archive strategy
 | sdfhome | To S3 bucket | No | From S3 snapshots | S3DF | SLAC | 
 | sdfscratch | No | No | No | - | - |
 | sdfk8s | To S3 bucket | No | From S3 snapshots | S3DF | SLAC |
-| sdfdata | No | No | Active, from files | Group | Group |
+| sdfdata | To S3 bucket | No | Active, from files | Group | Group |
 | sdfdata:/u | To S3 bucket | No | From S3 snapshots | S3DF | Group |
 | S3 direct | No | No | From S3 | Group | Group | 
 
