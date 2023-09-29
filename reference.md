@@ -63,8 +63,8 @@ Current backup/archive situation
 | sdfhome | To flash | Yes | No | S3DF | SLAC |
 | sdfscratch | No | No | No | - | - |
 | sdfk8s | To flash | No | No | S3DF | SLAC |
-| sdfdata | No | On demand | Active, from files | S3DF | SLAC |
-| sdfdata:/u | No | On demand | No | S3DF | Group |
+| sdfdata | To tiering layer | On demand | Active, from files | S3DF | SLAC |
+| sdfdata:/u | To tiering layer | On demand | No | S3DF | Group |
 | S3 direct | No | No | No | No | No | 
 
 
