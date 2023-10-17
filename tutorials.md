@@ -77,6 +77,23 @@ Python MPI programs typically use the mpi4py module. At this time, S3DF is not s
 source /sdf/group/<facility>/..../bin/psconda.sh
 mpirun python -u -m mpi4py.run ~/slurmtests/my_mpiReduce.py
 ``` 
+## S3DF Migration Guide
+**Am I entitled to use the S3DF?**
+If your computing is associated with SLAC science/engineering, you should use S3DF.
+
+**Accounts and Authentication**
+
+**Interactive pools**
+
+**Native vs Legacy Filesystems** 
+
+**Transferring files and data**
+
+**Compiling code for S3DF**
+
+**Where to find libraries and packages**
+
+**Distributing your software environment**
 
 ## Graphics and remote visualization
 **Introduction to NoMachine**
