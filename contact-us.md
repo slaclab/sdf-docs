@@ -23,7 +23,7 @@ S3DF and you don't see your facility in this table.
 |--- |--- |--- |
 |Rubin | Richard Dubois | rubin_users |
 |SuperCDMS | Concetta Cartaro | cdms |
-|LCLS | Silke Nelson | ps-users |
+|LCLS | pcds-datamgt-l@slac.stanford.edu | ps-users |
 |MLI| Daniel Ratner | - |
 |Neutrino| Kazuhiro Terao | - |
 |AD | Greg White | - |
