@@ -21,17 +21,17 @@ Once you land on the login nodes, either via a terminal or via a NoMachine deskt
 Under some circumstances, for example if you need more, or different, resources than available in the interactive pools, you may want to run an interactive session using resources from the batch system. This can be achieved through the Slurm command srun:
 
 ```
-srun --partition <partitionname> -n 1 --time=01:00:00 --pty /bin/bash
+srun --partition <partitionname> --account <accountname> -n 1 --time=01:00:00 --pty /bin/bash
 ```
 
-This will execute `/bin/bash` on a (scheduled) server in the Slurm partition `<partitionname>`, allocating a single CPU for one hour, and launching a pseudo terminal (pty) where bash will run. See [batch banking](batch-compute.md#banking) to understand how your organization is charged (computing time, not money) when you use the batch system.
+This will execute `/bin/bash` on a (scheduled) server in the Slurm partition `<partitionname>` (partitions are named [here](https://s3df.slac.stanford.edu/public/doc/#/batch-compute?id=partitions-amp-accounts)), allocating a single CPU for one hour, charging the time to account `<accountname>` (you'll have to get this from whoever gave you access to S3DF), and launching a pseudo terminal (pty) where bash will run. See [batch banking](batch-compute.md#banking) to understand how your organization is charged (computing time, not money) when you use the batch system.
 
 Note that when you 'exit' the interactive session, it will relinquish the resources for someone else to use. This also means that if your terminal is disconnected (you turn your laptop off, loose network etc), then the job will also terminate (similar to ssh).
 
 To support X11, add the "--x11" option:
 
 ```
-srun --x11 --partition shared -n 1 --time=01:00:00 --pty /bin/bash
+srun --x11 --partition <partitionname> --account <accountname> -n 1 --time=01:00:00 --pty /bin/bash
 ```
 
 ## Browser
