@@ -78,22 +78,54 @@ source /sdf/group/<facility>/..../bin/psconda.sh
 mpirun python -u -m mpi4py.run ~/slurmtests/my_mpiReduce.py
 ``` 
 ## S3DF Migration Guide
+
 **Am I entitled to use the S3DF?**
-If your computing is associated with SLAC science/engineering, you should use S3DF.
+
+ If your computing tasks are associated with SLAC research or engineering, you should use the S3DF. It is fully supported by the lab. The first step is to identify the context of your work by selecting an S3DF ‘Facility’ - we use this term to describe an experiment, project or facility that has a user group and resource requirements. Every S3DF user is a member of a facility. Every facility has czars that act as gatekeepers and are authorized to manage any resources belonging to a facility.
 
 **Accounts and Authentication**
 
-**Interactive pools**
+S3DF uses central SLAC Unix accounts and UIDs. Password authentication is via central SLAC Kerberos. If you don’t have a SLAC Unix account, you can request one from the SLAC IT Helpdesk. Our long term goal is to eventually use Federated Identity login. This will allow users to authenticate to their SLAC Unix account using a password service from an external provider such as Stanford Campus or another institution.
 
-**Native vs Legacy Filesystems** 
+**What is Coact?**
+
+[Coact](http://coact.slac.stanford.edu) is our portal for managing authorizations and tracking resource utilization. The czars control who gets access and how facility resources are distributed. Every new S3DF user must first login to coact (using their Unix account) and request S3DF access by specifying a facility. The facility czar must then approve the request before the user can login.
+
+**Login vs Interactive pools**
+
+SSH login access to S3DF is via the ```s3dflogin.slac.stanford.edu``` pool. These systems are designed as externally-facing “bastion” login nodes. They only mount user home directories and they run a limited number of commands. Once users have gained access via the login pool, they should then SSH into an [interactive pool](https://s3df.slac.stanford.edu/public/doc/#/interactive-compute). Several facilities have their own dedicated interactive hosts but all users can access the ‘iana’ pool. Use the interactive systems for interactive applications, compilation, slurm cluster commands, etc.
+
+**Primary vs Legacy Filesystems** 
+
+S3DF primary filesystems are mounted ( under ```/sdf``` ) on all S3DF interactive and compute hosts. This includes S3DF home directories, per-facility “group” space and multi-petabyte storage for the bulk of science data. These primary filesystems will eventually replace all legacy SLAC storage. The DDN Lustre storage from SDF “1.0” is also mounted across all S3DF interactive and compute, under ```/fs/ddn/sdf``` . Several facilities invested in 5 years of DDN storage - we will honor this investment. Legacy filesystems (GPFS, NFS) have already surpassed the 5 year lifecycle. To help migrate data off legacy storage, we have mounted a select number of GPFS filesystems on the interactive nodes. AFS is also mounted read-only on interactive nodes. See [https://s3df.slac.stanford.edu/public/doc/#/data-and-storage]
+
+**What is the future of AFS?**
+
+AFS will eventually be retired, along with other RHEL6 infrastructure and platforms. Our goal is for S3DF native storage to be securely exported to test stands, control rooms, lab workstations, etc via authenticated NFS v4. Before we shutdown AFS, we will take a final copy of the entire “/afs/slac” directory tree and make it available read-only. 
+
+**Is there any ‘free’ S3DF Storage?**
+
+All S3DF users get a home directory with a 25GB quota. There is also S3DF group space with per-facility quotas. The group space is intended for project-specific software, configuration files, etc. Typically each facility as a group quota in the 10-20TB range. Home directories and group space are stored on flash (NVMe) and are backed up to tape. We also provided shared scratch space for free (not backed up). The bulk of science data (PB scale) is funded directly by the facilities. We have a business model and the facility czars purchase their storage hardware for science data.
 
 **Transferring files and data**
 
+S3DF has inherited the POSIX groups that are used for legacy storage permissions. This means S3DF users should have consistent file ownership and permissions, allowing them to copy over existing files from legacy to S3DF primary filesystems. If you are unable to copy your groups’ data because you lack the permissions, please contact s3df-help@slac.stanford.edu. We have administrator-level access to all central legacy storage. [For external transfers over WANs, we provide a pool of Data Transfer Nodes](https://s3df.slac.stanford.edu/public/doc/#/data-transfer?id=data-transfer) . 
+
 **Compiling code for S3DF**
+
+The standard Linux distro for all S3DF machines is RHEL 8.6. We recommend you port your codes and applications to RHEL 8. You can compile on our interactive nodes or submit build jobs to our clusters. 
 
 **Where to find libraries and packages**
 
-**Distributing your software environment**
+We are keeping the quantity of locally installed packages (on a host’s local disk filesystem) to a minimum. Contact us If you are missing “core” HPC packages and We’ll consider installing RPMs from the default yum repos (Examples: BLAS, LAPACK, etc). A more flexible method of distributing software is to install it on our S3DF filesystems that are mounting on all hosts. We can install general packages under ```/sdf/sw``` . Facilities can keep their specific packages under ```/sdf/group/<facility>/```
+
+**Exporting your software environment**
+
+S3DF uses the popular Lmod module system for configuring shell environments. We can update modulefile search paths to include subdirectories under ```/sdf/sw/``` or ```/sdf/group/<facility>/``` . 
+
+**Web applications and HTML content**
+
+We are hosting dynamic web applications and static content. Please see [https://s3df.slac.stanford.edu/public/doc/#/service-compute?id=s3df-dynamic-sites-and-web-applications] . We are also discussing how to preserve existing AFS public_html directories that are accessed world-wide via ```https://www.slac.stanford.edu/~<username>``` . 
 
 ## Graphics and remote visualization
 **Introduction to NoMachine**
