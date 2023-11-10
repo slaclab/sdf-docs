@@ -24,7 +24,7 @@ Under some circumstances, for example if you need more, or different, resources 
 srun --partition <partitionname> --account <accountname> -n 1 --time=01:00:00 --pty /bin/bash
 ```
 
-This will execute `/bin/bash` on a (scheduled) server in the Slurm partition `<partitionname>` (partitions are named [here](https://s3df.slac.stanford.edu/public/doc/#/batch-compute?id=partitions-amp-accounts)), allocating a single CPU for one hour, charging the time to account `<accountname>` (you'll have to get this from whoever gave you access to S3DF), and launching a pseudo terminal (pty) where bash will run. See [batch banking](batch-compute.md#banking) to understand how your organization is charged (computing time, not money) when you use the batch system.
+This will execute `/bin/bash` on a (scheduled) server in the Slurm partition `<partitionname>` (see [partition names](batch-compute.md#partitions-amp-accounts)), allocating a single CPU for one hour, charging the time to account `<accountname>` (you'll have to get this from whoever gave you access to S3DF), and launching a pseudo terminal (pty) where bash will run. See [batch banking](batch-compute.md#banking) to understand how your organization is charged (computing time, not money) when you use the batch system.
 
 Note that when you 'exit' the interactive session, it will relinquish the resources for someone else to use. This also means that if your terminal is disconnected (you turn your laptop off, loose network etc), then the job will also terminate (similar to ssh).
 
@@ -93,5 +93,5 @@ Fill the rest of the form as you would for any provided Jupyter Instance and cli
 
 #### Debugging your interactive session :id=debugging
 
-If you get an error while using your Jupyter instance, go to the (Yee - TBF) [My Interactive sessions page](https://sdf.slac.stanford.edu/pun/sys/dashboard/batch_connect/sessions), identify the session you want to debu and click on the **Session ID** link. You can then *View* the `output.log` file to troubleshoot.
+If you get an error while using your Jupyter instance, go to the [My Interactive sessions page](https://s3df.slac.stanford.edu/pun/sys/dashboard/batch_connect/sessions), identify the session you want to debu and click on the **Session ID** link. You can then *View* the `output.log` file to troubleshoot.
 
