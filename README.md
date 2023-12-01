@@ -18,7 +18,7 @@ concurrency storage systems.
 | Help (slack channel) | [slac.slack.com#comp-sdf](https://app.slack.com/client/T1X4J8FJ8/C01965DTG91)|
 | Help (email) | s3df-help@slac.stanford.edu|
 | Banking & Accounting | https://s3df.slac.stanford.edu/coact|
-| S3DF Dashboard & Monitoring | https://s3df.slac.stanford.edu/monitoring|
+| S3DF Dashboard & Monitoring | https://grafana.slac.stanford.edu|
 
 
 ![SRCF-II](assets/srcf-ii.png)
