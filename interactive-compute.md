@@ -106,7 +106,15 @@ Replace `<path-to-the.sif>` with the full path to your local singularity image f
 For example, `<path-to-the.sif>` could be
 - The full path to a image you've already built on SDF: `/sdf/home/u/username/my-special-jupyter.sif`
 - A tag available publicly on a remote registry (for example, `docker://jupyter/datascience-notebook:lab-4.0.7` would download and use [a specific version of Jupyter Lab](https://hub.docker.com/layers/jupyter/datascience-notebook/lab-4.0.7/images/sha256-9504f4f4ab7e89b49d61d7be2e9ff8c57870de2050aa4360f55b2e59193f7486?context=explore) already packaged into a container by Project Jupyter
-  - Note: If you use this method, the image will still need to be downloaded onto SDF and (by default) take up disk space in your home directory storing the resulting image. 
+  - Note: If you use this method, the image will still need to be downloaded onto SDF and (by default) take up disk space in your home directory storing the resulting image.
+
+By default `apptainer` overrides your terminal prompt with `Apptainer> ` in order to emphasize that you are opening a terminal within a container.
+I prefer a less stark reminder and instead include the following lines in my `~/.bashrc` to have my normal prompt (but with a `(apptainer)` prefix if I'm in a container).
+```bash
+# add a prefix if this shell is in a container
+export PROMPT_COMMAND='[ -f /singularity ] && PS1="(apptainer) ${PS1}"; unset PROMPT_COMMAND'
+```
+This will make the terminals that you open in Jupyter Lab appear normal (expect the `(apptainer) ` prefix).
 
 Fill the rest of the form as you would for any provided Jupyter Instance and click "Launch". If you run into any issues, please see [Debugging your interactive session](#debugging).
 
