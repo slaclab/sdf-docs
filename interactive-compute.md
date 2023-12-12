@@ -78,15 +78,26 @@ Replace `<path-to-miniconda3>` and `<your-environment-name>` appropriately.
 Fill the rest of the form as you would for any provided Jupyter Instance and click "Launch". If you run into any issues, please see [Debugging your interactive session](#debugging).
 
 
-#### In a Singularity container
+#### in a container
 
-Once you have built or pulled a Singularity image on SDF (see [Software/Singularity](software.md#singularity) page for more information on how to do that), ensuring that you have the `jupyter[lab]` binary in the image's `PATH`, go to the [Jupyter portal](/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new ':ignore'), select "Custom Singularity Image" from the "Jupyter Instance" dropown menu. Then modify the text in the "Commands to initiate Jupyter":
+Once you have built or pulled a container image on SDF (see [Software/Singularity](software.md#singularity) page for more information on how to do that), ensuring that you have the `jupyter[lab]` binary in the image's `PATH`, go to the [Jupyter portal](/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new ':ignore'), select "Custom Singularity Image" from the "Jupyter Instance" dropown menu. Then modify the text in the "Commands to initiate Jupyter":
 ```bash
-export SINGULARITY_IMAGE_PATH=<path-to-the.sif>
-function jupyter() { singularity exec --nv -B /sdf,/lscratch ${SINGULARITY_IMAGE_PATH} jupyter $@; }
+export APPTAINER_IMAGE_PATH=<path to apptainer image>
+function jupyter() {
+  apptainer \
+    exec \
+    --nv \
+    -B /sdf,/fs,/sdf/scratch,/lscratch \
+    ${APPTAINER_IMAGE_PATH} \
+    jupyter $@;
+}
 ```
 
-Replace `<path-to-the.sif>` with the full path to your local singularity image file.
+Replace `<path-to-the.sif>` with the full path to your local singularity image file or with an image tag available on a remote registry.
+For example, `<path-to-the.sif>` could be
+- The full path to a image you've already built on SDF: `/sdf/home/u/username/my-special-jupyter.sif`
+- A tag available publicly on a remote registry (for example, `docker://jupyter/datascience-notebook:lab-4.0.7` would download and use [a specific version of Jupyter Lab](https://hub.docker.com/layers/jupyter/datascience-notebook/lab-4.0.7/images/sha256-9504f4f4ab7e89b49d61d7be2e9ff8c57870de2050aa4360f55b2e59193f7486?context=explore) already packaged into a container by Project Jupyter
+  - Note: If you use this method, the image will still need to be downloaded onto SDF and (by default) take up disk space in your home directory storing the resulting image. 
 
 Fill the rest of the form as you would for any provided Jupyter Instance and click "Launch". If you run into any issues, please see [Debugging your interactive session](#debugging).
 
