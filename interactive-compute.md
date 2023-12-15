@@ -93,11 +93,10 @@ function jupyter() {
 }
 ```
 
-Replace `<path-to-the.sif>` with the full path to your local singularity image file or with an image tag available on a remote registry.
-For example, `<path-to-the.sif>` could be
-- The full path to a image you've already built on SDF: `/sdf/home/u/username/my-special-jupyter.sif`
+Replace `<path-to-the.sif>` with the image you want to use for jupyter. `<path-to-the.sif>` could be
+- The full path to a image you've already built on SDF: For example, if you ran `apptainer build` in your home directory, the image path may be `/sdf/home/u/username/my-special-jupyter.sif`
 - A tag available publicly on a remote registry (for example, `docker://jupyter/datascience-notebook:lab-4.0.7` would download and use [a specific version of Jupyter Lab](https://hub.docker.com/layers/jupyter/datascience-notebook/lab-4.0.7/images/sha256-9504f4f4ab7e89b49d61d7be2e9ff8c57870de2050aa4360f55b2e59193f7486?context=explore) already packaged into a container by Project Jupyter
-  - Note: If you use this method, the image will still need to be downloaded onto SDF and (by default) take up disk space in your home directory storing the resulting image.
+  - Note: If you use this method, the image will still need to be downloaded onto SDF and (by default) take up disk space in your home directory (in `~/.apptainer`) storing the resulting image.
 
 By default `apptainer` overrides your terminal prompt with `Apptainer> ` in order to emphasize that you are opening a terminal within a container.
 I prefer a less stark reminder and instead include the following lines in my `~/.bashrc` to have my normal prompt (but with a `(apptainer)` prefix if I'm in a container).
