@@ -83,7 +83,7 @@ Fill the rest of the form as you would for any provided Jupyter Instance and cli
 Once you have built or pulled a Singularity image on SDF (see [Software/Singularity](software.md#singularity) page for more information on how to do that), ensuring that you have the `jupyter[lab]` binary in the image's `PATH`, go to the [Jupyter portal](/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new ':ignore'), select "Custom Singularity Image" from the "Jupyter Instance" dropown menu. Then modify the text in the "Commands to initiate Jupyter":
 ```bash
 export SINGULARITY_IMAGE_PATH=<path-to-the.sif>
-function jupyter() { singularity exec --nv -B /sdf,/gpfs,/scratch,/lscratch ${SINGULARITY_IMAGE_PATH} jupyter $@; }
+function jupyter() { singularity exec --nv -B /sdf,/lscratch ${SINGULARITY_IMAGE_PATH} jupyter $@; }
 ```
 
 Replace `<path-to-the.sif>` with the full path to your local singularity image file.
