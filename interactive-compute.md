@@ -24,7 +24,7 @@ If you wish for your jupyter environment to be more widely used (e.g. for others
 
 #### in a Conda environment
 
-Once you have created your Conda environment on SDF (see [Software/Conda](software.md#conda)), ensure that you have jupyter installed in your conda environment:
+Once you have created your Conda environment on SDF (see [Software/Conda](reference.md#conda)), ensure that you have jupyter installed in your conda environment:
 
 ```
 conda install -c conda-forge jupyterlab
