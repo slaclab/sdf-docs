@@ -3,8 +3,8 @@
 ## How to get an account :id=access
 
 If you are a SLAC employee, affiliated researcher, or experimental
-facility user, you are eligible for an S3DF account. These are the
-steps to get into S3DF:
+facility user, you are eligible for an S3DF account. ***S3DF authentication requires a SLAC Unix account. The legacy SDF 1.0 environment requires a SLAC Active Directory account. They are not the same password system.***
+
 
 1. If you don't already have a SLAC UNIX account, you'll need to get one:
   * Obtain a SLAC ID via the [SLUO User
