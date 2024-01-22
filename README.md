@@ -13,7 +13,7 @@ concurrency storage systems.
 | SSH 	|  s3dflogin.slac.stanford.edu|
 | NoMachine |  s3dfnx.slac.stanford.edu|
 | OnDemand 	| [https://s3df.slac.stanford.edu/ondemand](/ondemand ':ignore') |	
-| Globus Endpoint 	| slac#s3df|
+| Globus Endpoint 	| slac_globus5_test|
 | Documentation | [This!](/ ':ignore')|
 | Help (slack channel) | [slac.slack.com#comp-sdf](https://app.slack.com/client/T1X4J8FJ8/C01965DTG91)|
 | Help (email) | s3df-help@slac.stanford.edu|
