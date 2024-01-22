@@ -81,3 +81,14 @@ filesystem or other network filesystems (e.g., SLAC AFS, SLAC GPFS,
 SDF Lustre, etc.), are not allowed and such links will not resolve
 when accessed via HTTP.
 
+## S3DF Cron Tasks
+A dedicated cron node is provided for managing scheduled cron tasks.
+
+To access the cron node:
+1. Log in to S3DF as normal.
+2. From the S3DF node, connect via SSH to `sdfcron001`.
+3. Use the `crontab` command as normal to manage cronjobs.
+
+?> User cronjobs will be enabled only for this cron node.
+
+Since interactive user connections are distributed between nodes in the S3DF environment and cron configurations are not shared between nodes, using the dedicated cron server will simplify the maangement of user cronjobs.
