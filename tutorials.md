@@ -127,6 +127,10 @@ S3DF uses the popular Lmod module system for configuring shell environments. We 
 
 We are hosting dynamic web applications and static content. Please see [https://s3df.slac.stanford.edu/public/doc/#/service-compute?id=s3df-dynamic-sites-and-web-applications] . We are also discussing how to preserve existing AFS public_html directories that are accessed world-wide via ```https://www.slac.stanford.edu/~<username>``` . 
 
+**Cron Jobs**
+
+We now have an [S3DF Cron Service](https://s3df.slac.stanford.edu/public/doc/#/service-compute?id=s3df-cron-tasks)
+
 ## Graphics and remote visualization
 **Introduction to NoMachine**
 
