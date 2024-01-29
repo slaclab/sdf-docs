@@ -91,4 +91,4 @@ To access the cron node:
 
 ?> User cronjobs will be enabled only for this cron node.
 
-Since interactive user connections are distributed between nodes in the S3DF environment and cron configurations are not shared between nodes, using the dedicated cron server will simplify the maangement of user cronjobs.
+Since interactive user connections are distributed between nodes in the S3DF environment and cron configurations are not shared between nodes, using the dedicated cron server will simplify the management of user cronjobs.
