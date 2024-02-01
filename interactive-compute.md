@@ -4,7 +4,11 @@
 
 ### Interactive Pools
 
-Once you land on the login nodes, either via a terminal or via a NoMachine desktop, you will need to ssh to one of the interactive pools to access the data, build/debug your code, run simple analyses, or submit jobs to the [batch system](batch-compute.md). If your organization has acquired dedicated resources for the interactive pools, use them; otherwise, connect to the S3DF shared interactive pool. The currently available pools are shown in the table below. (The facility can be any organization, program, project, or group that interfaces with S3DF to acquire resources.)
+Once you land on the login nodes, either via a terminal or via a NoMachine desktop, you will need to ssh to one of the interactive pools to access the data, build/debug your code, run simple analyses, or submit jobs to the [batch system](batch-compute.md). If your organization has acquired dedicated resources for the interactive pools, use them; otherwise, connect to the S3DF shared interactive pool.
+
+?> Note: After log in into our bastion hosts with `ssh s3dflogin.slac.stanford.edu`, you will need to then also log into our interactive nodes to access batch compute and data. You can do this via `ssh <pool name>` within your ssh session (same terminal) to get into the bastion hosts.
+
+The currently available pools are shown in the table below. (The facility can be any organization, program, project, or group that interfaces with S3DF to acquire resources.)
 
 |Pool name | Facility | Resources |
 | --- | --- | --- |
