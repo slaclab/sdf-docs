@@ -97,7 +97,7 @@ SSH login access to S3DF is via the ```s3dflogin.slac.stanford.edu``` pool. Thes
 
 **Primary vs Legacy Filesystems** 
 
-S3DF primary filesystems are mounted ( under ```/sdf``` ) on all S3DF interactive and compute hosts. This includes S3DF home directories, per-facility “group” space and multi-petabyte storage for the bulk of science data. These primary filesystems will eventually replace all legacy SLAC storage. The DDN Lustre storage from SDF “1.0” is also mounted across all S3DF interactive and compute, under ```/fs/ddn/sdf``` . Several facilities invested in 5 years of DDN storage - we will honor this investment. Legacy filesystems (GPFS, NFS) have already surpassed the 5 year lifecycle. To help migrate data off legacy storage, we have mounted a select number of GPFS filesystems on the interactive nodes. AFS is also mounted read-only on interactive nodes. See [data and storafe](data-and-storage.md).
+S3DF primary filesystems are mounted ( under ```/sdf``` ) on all S3DF interactive and compute hosts. This includes S3DF home directories, per-facility “group” space and multi-petabyte storage for the bulk of science data. These primary filesystems will eventually replace all legacy SLAC storage. The DDN Lustre storage from SDF “1.0” is also mounted across all S3DF interactive and compute, under ```/fs/ddn/sdf``` . Several facilities invested in 5 years of DDN storage - we will honor this investment. Legacy filesystems (GPFS, NFS) have already surpassed the 5 year lifecycle. To help migrate data off legacy storage, we have mounted a select number of GPFS filesystems on the interactive nodes. AFS is also mounted read-only on interactive nodes. See [data and storage](data-and-storage.md).
 
 **What is the future of AFS?**
 
