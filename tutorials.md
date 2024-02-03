@@ -93,11 +93,11 @@ S3DF uses central SLAC Unix accounts and UIDs. Password authentication is via ce
 
 **Login vs Interactive pools**
 
-SSH login access to S3DF is via the ```s3dflogin.slac.stanford.edu``` pool. These systems are designed as externally-facing “bastion” login nodes. They only mount user home directories and they run a limited number of commands. Once users have gained access via the login pool, they should then SSH into an [interactive pool](https://s3df.slac.stanford.edu/public/doc/#/interactive-compute). Several facilities have their own dedicated interactive hosts but all users can access the ‘iana’ pool. Use the interactive systems for interactive applications, compilation, slurm cluster commands, etc.
+SSH login access to S3DF is via the ```s3dflogin.slac.stanford.edu``` pool. These systems are designed as externally-facing “bastion” login nodes. They only mount user home directories and they run a limited number of commands. Once users have gained access via the login pool, they should then SSH into an [interactive pool](interactive-compute). Several facilities have their own dedicated interactive hosts but all users can access the ‘iana’ pool. Use the interactive systems for interactive applications, compilation, slurm cluster commands, etc.
 
 **Primary vs Legacy Filesystems** 
 
-S3DF primary filesystems are mounted ( under ```/sdf``` ) on all S3DF interactive and compute hosts. This includes S3DF home directories, per-facility “group” space and multi-petabyte storage for the bulk of science data. These primary filesystems will eventually replace all legacy SLAC storage. The DDN Lustre storage from SDF “1.0” is also mounted across all S3DF interactive and compute, under ```/fs/ddn/sdf``` . Several facilities invested in 5 years of DDN storage - we will honor this investment. Legacy filesystems (GPFS, NFS) have already surpassed the 5 year lifecycle. To help migrate data off legacy storage, we have mounted a select number of GPFS filesystems on the interactive nodes. AFS is also mounted read-only on interactive nodes. See [https://s3df.slac.stanford.edu/public/doc/#/data-and-storage]
+S3DF primary filesystems are mounted ( under ```/sdf``` ) on all S3DF interactive and compute hosts. This includes S3DF home directories, per-facility “group” space and multi-petabyte storage for the bulk of science data. These primary filesystems will eventually replace all legacy SLAC storage. The DDN Lustre storage from SDF “1.0” is also mounted across all S3DF interactive and compute, under ```/fs/ddn/sdf``` . Several facilities invested in 5 years of DDN storage - we will honor this investment. Legacy filesystems (GPFS, NFS) have already surpassed the 5 year lifecycle. To help migrate data off legacy storage, we have mounted a select number of GPFS filesystems on the interactive nodes. AFS is also mounted read-only on interactive nodes. See [data and storafe](data-and-storage.md).
 
 **What is the future of AFS?**
 
@@ -109,7 +109,7 @@ All S3DF users get a home directory with a 25GB quota. There is also S3DF group 
 
 **Transferring files and data**
 
-S3DF has inherited the POSIX groups that are used for legacy storage permissions. This means S3DF users should have consistent file ownership and permissions, allowing them to copy over existing files from legacy to S3DF primary filesystems. If you are unable to copy your groups’ data because you lack the permissions, please contact s3df-help@slac.stanford.edu. We have administrator-level access to all central legacy storage. [For external transfers over WANs, we provide a pool of Data Transfer Nodes](https://s3df.slac.stanford.edu/public/doc/#/data-transfer?id=data-transfer) . 
+S3DF has inherited the POSIX groups that are used for legacy storage permissions. This means S3DF users should have consistent file ownership and permissions, allowing them to copy over existing files from legacy to S3DF primary filesystems. If you are unable to copy your groups’ data because you lack the permissions, please contact s3df-help@slac.stanford.edu. We have administrator-level access to all central legacy storage. [For external transfers over WANs, we provide a pool of Data Transfer Nodes](data-transfer.md#data-transfer) . 
 
 **Compiling code for S3DF**
 
@@ -125,11 +125,11 @@ S3DF uses the popular Lmod module system for configuring shell environments. We 
 
 **Web applications and HTML content**
 
-We are hosting dynamic web applications and static content. Please see [https://s3df.slac.stanford.edu/public/doc/#/service-compute?id=s3df-dynamic-sites-and-web-applications] . We are also discussing how to preserve existing AFS public_html directories that are accessed world-wide via ```https://www.slac.stanford.edu/~<username>``` . 
+We are hosting dynamic web applications and static content. Please see [service-compute.md#s3df-dynamic-sites-and-web-applications] . We are also discussing how to preserve existing AFS public_html directories that are accessed world-wide via ```https://www.slac.stanford.edu/~<username>``` . 
 
 **Cron Jobs**
 
-We now have an [S3DF Cron Service](https://s3df.slac.stanford.edu/public/doc/#/service-compute?id=s3df-cron-tasks)
+We now have an [S3DF Cron Service](service-compute.md#?s3df-cron-tasks)
 
 ## Graphics and remote visualization
 **Introduction to NoMachine**
