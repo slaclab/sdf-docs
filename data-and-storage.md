@@ -6,9 +6,9 @@ To promote long term consistency, the S3DF directory structure provides immutabl
 
 * `/sdf`: Root mount point.
 
-* `/sdf/home/<u>/<username>`: Home directories.  Space & inode quotas imposed for all users.
+* `/sdf/home/<u>/<username>`: Home directories.  Space quotas imposed for all users.
 
-* `/sdf/sw/<package>/<version>`: For general purpose software not installed on each node, e.g., EPICS, Matlab, matplotlib, GEANT4, etc.  Not meant for SW that is used by only one group.
+* `/sdf/sw/<package>/<version>`: For general purpose software not installed on each node, e.g., EPICS, Matlab, matplotlib, GEANT4, etc.  Not meant for software that is used by only one group.
 
 * `/sdf/group/<organization>/<groupname>` or `/sdf/group/<groupname>`: For group/project specific software (e.g., lcls/psdm, ad/hla, etc.)
 
@@ -26,31 +26,28 @@ To promote long term consistency, the S3DF directory structure provides immutabl
 
 ## Policies
 
-- Home directories permissions will be delegated to each user. By default, home folders will be readable by everyone (you can change that by changing UNIX permissions on one or more of your folders) and everyone will be able to list `/sdf/home/<u>`.
+- Home directory permissions will be delegated to each user. By default, home folders will be readable by everyone, though you can change that by changing UNIX permissions on one or more of your folders. Everyone will be able to list `/sdf/home/<u>`.
 
 - General purpose software will go under sw. Group specific software will go under `/sdf/group` and will be maintained by each group.
 
 - Some groups may decide to logically hold all their information under `/sdf/group/<groupname>`. Such a structure may be implemented by each group via symlinks. The actual mount points and relative backup and archive policies will be based on the structure shown above. 
 
-?> __TODO__ Desktop/endpoint access to S3DF file systems will likely
-be via authenticated NFS v4.  This is currently a topic of
-investigation as we wait for an updated WekaFS release.
+?> __TODO__ Desktop/endpoint access to S3DF file systems will likely be via authenticated NFS v4.  This is currently a topic of investigation as we wait for an updated WekaFS release.
 
 
 ## Backup and Archiving
 
-- Everything under `/sdf/{home, sw, group}` will be backed-up. The backup mechanism will be the same for all folders: snapshots will be taken at regular intervals (e.g., a few times a day) and will be accessible by the users through the file system itself, with no intervention from the system administrators. A subset of the snapshots will be copied to tape at a lower rate (e.g., once a day). Snapshots for\
+- Everything under `/sdf/{home, sw, group}` will be backed up. We currently use snapshots taken at regular intervals (e.g., a few times a day) that are accessible with no intervention from the system administrators. A subset of the snapshots will be copied to tape at a lower rate (e.g., once a day). Snapshots for\
 `/sdf/{home, sw, group}/<folder>`\
 can be found at\
 `/sdf/{home, sw, group}/.snapshots/<gmttime>/<folder>`
 
 - Files/objects under `/sdf/data` will be archived according to a data retention policy defined by the facility. Facilities will be responsible for covering the media costs and overhead required by their policy. Derived data (results) may be backed up, or archived, or somewhere in between - TBD.
 
-- The scratch spaces under `/sdf/scratch`  will not be backed up or archived. 
+- The scratch spaces under `/sdf/scratch` will not be backed up or archived. 
 
-- A subset of users in each group will be able to access the command line interface to HPSS for the purpose of archiving/restoring to/from tape. Unlike backup, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (POC within SCS is OK).
+- A subset of users in each group will be able to access the command line interface to HPSS for the purpose of archiving/retrieving data to/from tape. Unlike backups, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (contact SCS for assistance).
 
 
-?> The current and target backup and archiving policies are summarized in
-this [reference section on data backup](reference.md#backup).
+?> The current and target backup and archiving policies are summarized in this [reference section on data backup](reference.md#backup).
 
