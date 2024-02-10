@@ -1,8 +1,4 @@
-*** AS OF FRIDAY FEBRUARY 9TH 4:26PM PST ***
-
-**Filesystems in S3DF mounted under `/sdf/data` are currently unavailable. We are troubleshooting a communication issue between the underlying NVMe and spinning disk subsystems. Please do not access pathnames under `/sdf/data`. Any type of job or task that attempts to access `/sdf/data` will fail. Existing data is safe and has not been lost. We will be posting periodic updates. Will post the next update tomorrow at 12:00PM PST. We are working hard to diagnose and fix the problem. Thanks for your patience.**
-
-
+!> **AS OF FRIDAY FEBRUARY 9TH 4:26PM PST:** Filesystems in S3DF mounted under `/sdf/data` are currently unavailable. We are troubleshooting a communication issue between the underlying NVMe and spinning disk subsystems. Please do not access pathnames under `/sdf/data`. Any type of job or task that attempts to access `/sdf/data` will fail. Existing data is safe and has not been lost. We will be posting periodic updates. Will post the next update tomorrow at 12:00PM PST. We are working hard to diagnose and fix the problem. Thanks for your patience.
 
 Welcome to the SLAC Shared Scientific Data Facility (S3DF). The S3DF
 is a compute, storage and network architecture designed to support
