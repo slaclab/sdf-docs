@@ -4,9 +4,9 @@
 
 ### Current
 
-*** AS OF FRIDAY FEBRUARY 9TH 4:26PM PST ***
+*** AS OF SATURDAY FEBRUARY 10TH 12:00PM PST ***
 
-**Filesystems in S3DF mounted under `/sdf/data` are currently unavailable. We are troubleshooting a communication issue between the underlying NVMe and spinning disk subsystems. Please do not access pathnames under `/sdf/data`. Any type of job or task that attempts to access `/sdf/data` will fail. Existing data is safe and has not been lost. We will be posting periodic updates. Will post the next update tomorrow at 12:00PM PST. Thanks for your patience.**
+**The S3DF team worked all night and is closer to getting the storage system back to production status.  There were multiple items to be addressed, and the task list is nearing completion.  We will post another update at 3:00PM PST.  Thank you for your patience.**
 
 ### Upcoming
 
