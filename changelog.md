@@ -4,9 +4,9 @@
 
 ### Current
 
-*** AS OF SATURDAY FEBRUARY 10TH 12:00PM PST ***
+*** UPDATE: SATURDAY FEBRUARY 10TH 3:00PM PST ***
 
-**The S3DF team worked all night and is closer to getting the storage system back to production status.  There were multiple items to be addressed, and the task list is nearing completion.  We will post another update at 3:00PM PST.  Thank you for your patience.**
+**The S3DF team has the `/sdf/data` file system back in production.  Please let us know via the comp-sdf slack channel or email to s3df-help@slac.stanford.edu if you see any issues with file access.  Thank you so much for your patience.**
 
 ### Upcoming
 
