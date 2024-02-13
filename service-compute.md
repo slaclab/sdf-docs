@@ -84,11 +84,13 @@ when accessed via HTTP.
 ## S3DF Cron Tasks
 A dedicated cron node is provided for managing scheduled cron tasks.
 
+?> User cron jobs are enabled only for this cron node.
+
 To access the cron node:
 1. Log in to S3DF as normal.
 2. From the S3DF node, connect via SSH to `sdfcron001`.
 3. Use the `crontab` command as normal to manage cronjobs.
 
-?> User cronjobs will be enabled only for this cron node.
+?> Cron jobs configured in the legacy crontab systems on the interactive S3DF nodes have been migrated to `sdfcron001`. If a task is missing, please open a support ticket.
 
-Since interactive user connections are distributed between nodes in the S3DF environment and cron configurations are not shared between nodes, using the dedicated cron server will simplify the management of user cronjobs.
+Since interactive user connections are distributed between nodes in the S3DF environment and cron configurations are not shared between nodes, using the dedicated cron server simplifies the management of user cron jobs.
