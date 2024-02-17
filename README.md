@@ -1,5 +1,3 @@
-!> **AS OF SATURDAY FEBRUARY 10TH 3:00PM PST:** The S3DF team has the /sdf/data file system back in production.  Please let us know via the comp-sdf slack channel or email to s3df-help@slac.stanford.edu if you see any issues with file access.  Thank you so much for your patience.
-
 Welcome to the SLAC Shared Scientific Data Facility (S3DF). The S3DF
 is a compute, storage and network architecture designed to support
 massive scale analytics required by all SLAC experimental facilities
