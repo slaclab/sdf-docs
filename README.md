@@ -1,6 +1,6 @@
 **Lustre Filesystem Storage Issue**
 
-**UPDATE Friday February 16th 4:00PM PST: The Lustre filesystem `/fs/ddn` is in a sub-optimal state. The filesystem is attempting to repair itself and appears to be up for reading and writing.  However, there is a possibility that reads from one of the bad disks may trigger the file system to go offline again.  We will let the automated repairs proceed.** 
+**UPDATE Tuesday February 20th 9:00PM PST: DDN support recommended a filesystem check which has completed. 81 disks have now completed 90% of their rebuilds. A smaller group of 9 disks are also awaiting rebuilds but we expect they will progress faster. All OSTs have remained online since early Friday morning.** 
 
 
 
