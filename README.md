@@ -1,6 +1,6 @@
 **Lustre Filesystem Storage Issue**
 
-**UPDATE Tuesday February 20th 9:00PM PST: DDN support recommended a filesystem check which has completed. 81 disks have now completed 90% of their rebuilds. A smaller group of 9 disks are also awaiting rebuilds but we expect they will progress faster. All OSTs have remained online since early Friday morning.** 
+**UPDATE Saturday February 24th 7:30PM PST: The Lustre filesystem is still online with 8 remaining drive rebuilds. DDN advised us to rebuild one drive at a time. Each rebuild takes around 40 hours.** 
 
 
 
