@@ -44,6 +44,6 @@ page](https://www.slac.stanford.edu/~abh/bbcp/).
 
 ## globus
 
-S3DF has a Globus 5 testing endpoint `slac_globus5_test`. This service is available to
+S3DF has a Globus 5 testing endpoint `slac#s3df_globus5`. This service is available to
 everyone with an S3DF account. You can find more information at the
 [Globus page](https://www.globus.org).
