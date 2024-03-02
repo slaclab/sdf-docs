@@ -1,7 +1,3 @@
-**Lustre Filesystem Storage Issue**
-
-!> **UPDATE Saturday March 2nd 09:00 PST:** SLAC Power Outage: All building B050 compute (SDF 1.0, sdfrome, sdfturing) are currently down. Lustre filesystem (/fs/ddn) is up but still rebuilding. All other S3DF systems are unaffected.
-
 Welcome to the SLAC Shared Scientific Data Facility (S3DF). The S3DF
 is a compute, storage and network architecture designed to support
 massive scale analytics required by all SLAC experimental facilities
