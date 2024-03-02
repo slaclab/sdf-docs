@@ -1,8 +1,6 @@
 **Lustre Filesystem Storage Issue**
 
-**UPDATE Saturday February 24th 7:30PM PST: The Lustre filesystem is still online with 8 remaining drive rebuilds. DDN advised us to rebuild one drive at a time. Each rebuild takes around 40 hours.** 
-
-
+!> **UPDATE Saturday March 2nd 09:00 PST:** SLAC Power Outage: All building B050 compute (SDF 1.0, sdfrome, sdfturing) are currently down. Lustre filesystem (/fs/ddn) is up but still rebuilding. All other S3DF systems are unaffected.
 
 Welcome to the SLAC Shared Scientific Data Facility (S3DF). The S3DF
 is a compute, storage and network architecture designed to support
