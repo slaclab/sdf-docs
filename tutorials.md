@@ -109,7 +109,7 @@ All S3DF users get a home directory with a 25GB quota. There is also S3DF group 
 
 **Transferring files and data**
 
-S3DF has inherited the POSIX groups that are used for legacy storage permissions. This means S3DF users should have consistent file ownership and permissions, allowing them to copy over existing files from legacy to S3DF primary filesystems. If you are unable to copy your groups’ data because you lack the permissions, please contact s3df-help@slac.stanford.edu. We have administrator-level access to all central legacy storage. [For external transfers over WANs, we provide a pool of Data Transfer Nodes](data-transfer.md#data-transfer) . 
+S3DF has inherited the POSIX groups that are used for legacy storage permissions. This means S3DF users should have consistent file ownership and permissions, allowing them to copy over existing files from legacy to S3DF primary filesystems. If you are unable to copy your groups’ data because you lack the permissions, please contact s3df-help@slac.stanford.edu. We have administrator-level access to all central legacy storage. [For external transfers over the internet, we provide a pool of Data Transfer Nodes](data-transfer.md#data-transfer) . 
 
 **Compiling code for S3DF**
 
