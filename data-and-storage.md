@@ -44,7 +44,7 @@ can be found at\
 
 - Files/objects under `/sdf/data` will be archived according to a data retention policy defined by the facility. Facilities will be responsible for covering the media costs and overhead required by their policy. Derived data (results) may be backed up, or archived, or somewhere in between - TBD.
 
-- The scratch spaces under `/sdf/scratch` will not be backed up or archived. 
+- The scratch spaces under `/sdf/scratch` and any directory named "nobackup" will not be backed up or archived. Please use as many "nobackup" subdirectory locations as required for any files that do not need backup.  That can save significant tape and processing resources.
 
 - A subset of users in each group will be able to access the command line interface to HPSS for the purpose of archiving/retrieving data to/from tape. Unlike backups, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (contact SCS for assistance).
 
