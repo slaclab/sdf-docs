@@ -4,6 +4,8 @@
 <h1 style="font-weight: bold;">SLAC Shared Scientific</h1>
 <h1 style="font-weight: bold;">Data Facility <small>beta</small></h1>
 
+Note that SDF is now deprecated. Please use [S3DF](https://s3df.slac.stanford.edu).
+
 - **CPU**
 - **GPU**
 - **Storage**
