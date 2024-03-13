@@ -101,11 +101,11 @@ S3DF primary filesystems are mounted ( under ```/sdf``` ) on all S3DF interactiv
 
 **What is the future of AFS?**
 
-AFS will eventually be retired, along with other RHEL6 infrastructure and platforms. Our goal is for S3DF native storage to be securely exported to test stands, control rooms, lab workstations, etc via authenticated NFS v4. Before we shutdown AFS, we will take a final copy of the entire “/afs/slac” directory tree and make it available read-only. 
+AFS will be retired in June 2024, along with other RHEL6 infrastructure and platforms. Our goal is for S3DF native storage to be securely exported to test stands, control rooms, lab workstations, etc via authenticated NFS v4. Before we shutdown AFS, we will take a final copy of the entire “/afs/slac” directory tree and make select portions of it available read-only for a limited period of time. This will allow groups to copy data they may have forgotten to migrate earlier.
 
 **Is there any ‘free’ S3DF Storage?**
 
-All S3DF users get a home directory with a 25GB quota. There is also S3DF group space with per-facility quotas. The group space is intended for project-specific software, configuration files, etc. Typically each facility as a group quota in the 10-20TB range. Home directories and group space are stored on flash (NVMe) and are backed up to tape. We also provided shared scratch space for free (not backed up). The bulk of science data (PB scale) is funded directly by the facilities. We have a business model and the facility czars purchase their storage hardware for science data.
+All S3DF users get a home directory with a 25GB quota. There is also S3DF /sdf/group space with per-facility quotas. The group space is intended for project-specific software, configuration files, etc. Typically, each facility has an /sdf/group quota of 10TB. Home directories and group space are stored on flash (NVMe SSDs) and are backed up to tape. We also provided shared scratch space for free (limited lifetime and not backed up) with a quota of 100GB. The bulk of science data (PB scale) is funded directly by the facilities and located in /sdf/data. We have a business model and the facility czars purchase their storage hardware for science data.
 
 **Transferring files and data**
 
@@ -113,15 +113,15 @@ S3DF has inherited the POSIX groups that are used for legacy storage permissions
 
 **Compiling code for S3DF**
 
-The standard Linux distro for all S3DF machines is RHEL 8.6. We recommend you port your codes and applications to RHEL 8. You can compile on our interactive nodes or submit build jobs to our clusters. 
+The standard Linux distro for all S3DF machines is RHEL 8.6. We recommend you port your codes and applications to RHEL 8. You can compile on our interactive nodes or submit build jobs to our clusters. We are also looking at incorporating Rocky Linux 9 (a RHEL clone) into our environment.
 
 **Where to find libraries and packages**
 
-We are keeping the quantity of locally installed packages (on a host’s local disk filesystem) to a minimum. Contact us If you are missing “core” HPC packages and We’ll consider installing RPMs from the default yum repos (Examples: BLAS, LAPACK, etc). A more flexible method of distributing software is to install it on our S3DF filesystems that are mounting on all hosts. We can install general packages under ```/sdf/sw``` . Facilities can keep their specific packages under ```/sdf/group/<facility>/```
+We are keeping the quantity of locally installed packages (on a host’s local disk filesystem) to a minimum. Contact us if you are missing “core” HPC packages and we’ll consider installing RPMs from the default yum repos (Examples: BLAS, LAPACK, etc). A more flexible method of distributing software is to install it on our S3DF filesystems that are mounted on all hosts. We can install general packages under ```/sdf/sw``` . Facilities can keep their specific packages under ```/sdf/group/<facility>/```
 
 **Exporting your software environment**
 
-S3DF uses the popular Lmod module system for configuring shell environments. We can update modulefile search paths to include subdirectories under ```/sdf/sw/``` or ```/sdf/group/<facility>/``` . 
+S3DF uses the popular lmod module system for configuring shell environments. We can update modulefile search paths to include subdirectories under ```/sdf/sw/``` or ```/sdf/group/<facility>/``` . 
 
 **Web applications and HTML content**
 
@@ -134,4 +134,4 @@ We now have an [S3DF Cron Service](service-compute.md#?s3df-cron-tasks)
 ## Graphics and remote visualization
 **Introduction to NoMachine**
 
-NoMachine is the recommended (supported) interface for displaying and interacting with graphics-based programs running on S3DF. The NoMachine "NX" protocol offers improved performance compared to X11 over SSH encryption.
+NoMachine is the recommended (supported) interface for displaying and interacting with graphics-based programs running on S3DF. The NoMachine "NX" protocol offers improved performance compared to X11 over SSH encryption.  It is located at s3dfnx.slac.stanford.edu.
