@@ -78,12 +78,12 @@ running experiment.
 See the table below to determine the specifications for each
 cluster/partition.
 
-| Partition name | CPU model | Cores per node | Memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
+| Partition name | CPU model | Useable cores per node | Useable memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| roma | Rome 7702 | 128 | 480 GB | - | - | 300 GB | 101 |
-| milano | Milan 7713 | 128 | 480 GB | - | - | 300 GB | 135 |
-| ampere | Rome 7542 | 64 | 1024 GB | Tesla A100 | 4 | 14 TB | 23 |
-| turing | Intel Xeon Gold 5118 | 24 | 190 GB | NVIDIA GeForce 2080 | 10 | 300 GB | 4 |
+| roma | Rome 7702 | 120 | 480 GB | - | - | 300 GB | 101 |
+| milano | Milan 7713 | 120 | 480 GB | - | - | 300 GB | 135 |
+| ampere | Rome 7542 | 112 (hyperthreaded) | 960 GB | Tesla A100 (40GB) | 4 | 14 TB | 23 |
+| turing | Intel Xeon Gold 5118 | 40 (hyperthreaded) | 190 GB | NVIDIA GeForce 2080 | 10 | 300 GB | 4 |
 
 
 ### Banking
