@@ -80,10 +80,10 @@ cluster/partition.
 
 | Partition name | CPU model | Useable cores per node | Useable memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| roma | Rome 7702 | 120 | 480 GB | - | - | 300 GB | 101 |
-| milano | Milan 7713 | 120 | 480 GB | - | - | 300 GB | 135 |
-| ampere | Rome 7542 | 112 (hyperthreaded) | 960 GB | Tesla A100 (40GB) | 4 | 14 TB | 23 |
-| turing | Intel Xeon Gold 5118 | 40 (hyperthreaded) | 190 GB | NVIDIA GeForce 2080Ti | 10 | 300 GB | 4 |
+| roma | Rome 7702 | 120 | 480 GB | - | - | 300 GB | 124 |
+| milano | Milan 7713 | 120 | 480 GB | - | - | 300 GB | 136 |
+| ampere | Rome 7542 | 112 (hyperthreaded) | 960 GB | Tesla A100 (40GB) | 4 | 14 TB | 38 |
+| turing | Intel Xeon Gold 5118 | 40 (hyperthreaded) | 190 GB | NVIDIA GeForce 2080Ti | 10 | 300 GB | 27 |
 
 
 ### Banking
