@@ -42,8 +42,33 @@ source. bbcp will substitute `%U` and `%H` with `me` and
 can find more information at the [bbcp
 page](https://www.slac.stanford.edu/~abh/bbcp/).
 
-## globus
+## Globus
 
-S3DF has a Globus 5 testing endpoint `slac#s3df_globus5`. This service is available to
-everyone with an S3DF account. You can find more information at the
-[Globus page](https://www.globus.org).
+S3DF has a Globus 5 testing endpoint `slac#s3df_globus5`. This service is 
+available to everyone with an S3DF account. You can find more information
+at the [Globus page](https://www.globus.org).
+
+## Trouble shooting
+
+A common issue with data transfer is that "it is slow". The performance 
+of the wide area network data tranfers involves the SLAC storage, the 
+storage at the other side, and the network in between. 
+
+### Checking the storage
+
+The following example assumes a posix storage. The storage at both ends
+should be checked:
+
+    - run `dd if=/dev/zero of=$HOME/zeros bs=2k count=65536 oflag=direct`.
+    - run `dd if=$HOME/zeros of=/dev/null bs=2k iflag=direct`.
+
+At SLAC, this can be done on a data transfer node (s3dfdtn.slac.stanford.edu).
+The speed of the write/read from the above commands aren't the very important
+(as long as they are not below single MB/s range). The change overtime is
+important (indicating potential problems).
+
+### Checking the WAN (wide area network)
+
+SLAC DTNs have `iperf3` installed. One can run an `iperf3` server/client at 
+the SLAC DTN and run `iperf3` client/server at the other end. This will give
+an estimation of expected network performance.
