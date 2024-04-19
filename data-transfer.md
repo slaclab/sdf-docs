@@ -59,8 +59,8 @@ storage at the other side, and the network in between.
 The following example assumes a posix storage. The storage at both ends
 should be checked:
 
-    - run `dd if=/dev/zero of=$HOME/zeros bs=2k count=65536 oflag=direct`.
-    - run `dd if=$HOME/zeros of=/dev/null bs=2k iflag=direct`.
+    - dd if=/dev/zero of=$HOME/zeros bs=2k count=65536 oflag=direct
+    - dd if=$HOME/zeros of=/dev/null bs=2k iflag=direct
 
 At SLAC, this can be done on a data transfer node (s3dfdtn.slac.stanford.edu).
 The speed of the write/read from the above commands aren't the very important
