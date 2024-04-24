@@ -51,11 +51,11 @@ Conda environments are a nice way of switching between different software versio
 
 There is no unique way to create a conda environment, we illustrate here how to do so from a .yaml file (see the conda [documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) for more details).
 
-In order to create an environment called `mytest` with `python=3.6` and `numpy` and `pandas` in it, create `mytest-environment.yaml`:
+In order to create an environment called `mytest` with `python=3.9` and `numpy` and `pandas` in it, create `mytest-environment.yaml`:
 ```bash
 name: mytest
 dependencies:
-  - python=3.6
+  - python=3.9
   - numpy
   - pandas
 ```
