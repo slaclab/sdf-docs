@@ -28,6 +28,15 @@ resources so that you will be able to authenticate with your home
 institution's account as opposed to your SLAC account. We expect
 federated authentication to be available in 2023.
 
+## Managing your UNIX account password
+
+You can change your password yourself via [this password update site](https://unix-password.slac.stanford.edu/)
+
+If you've forgotten your password and you want to reset it, [please contact the SLAC IT Heldesk](https://it.slac.stanford.edu/support)
+
+Make sure you comply with SLAC training and cyber requirements to avoid getting your account disabled. You will be notified of these requirements via email.
+
+
 ## How to connect
 
 There are three mechanisms to access S3DF:
