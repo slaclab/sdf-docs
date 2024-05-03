@@ -53,9 +53,9 @@ cluster:
 3. Preemptable: for repos above their quota or with no quota (for
   that cluster). Jobs in this category may be preempted by higher
   priority jobs. This is the opportunistic cycles stance, aka
-  scavenger cycles, and jobs are submitted under the facility account
+  scavenger cycles, and jobs are submitted under the repo name
   and quality of service preemptable. For example:
-  `--partition milano --account lcls --qos preemptable`
+  `--partition milano --account lcls:xpp1234 --qos preemptable`
 
 As a matter of convention:
 
