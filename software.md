@@ -76,7 +76,7 @@ For a detailed explanation of how to use Singularity on SDF, you can go through 
 As pulling and building a new image can use quite a lot of disk space, we recommend that you set the appropriate cache paths for singularity to not use your $HOME directory. Therefore, before pulling or building an image, define the following environment variables:
 
 ```bash
-export DIR=/scratch/${USER}/.singularity
+export DIR=${SCRATCH}/.singularity
 mkdir $DIR -p
 export SINGULARITY_LOCALCACHEDIR=$DIR
 export SINGULARITY_CACHEDIR=$DIR
