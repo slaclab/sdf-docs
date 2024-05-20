@@ -59,10 +59,13 @@ cluster:
 
 As a matter of convention:
 
-- Default Slurm account = `<facility>`
+- Default Slurm account = `<facility>` [^defaultrepo]
 - Repo Slurm account = `<facility>:<repo>`
 - Slurm reservation = `<facility>:<repo>-<starttime>-<endtime>`
 
+[^defaultrepo]: Appropriate repos should be used for all jobs to allow for
+  accurate resource management and accounting. Not all facilities may have a
+  default repo.
 
 The mapping of repos to dedicated resource is dynamic. This is
 required, for example, to assign different nodes to a repo so that a
