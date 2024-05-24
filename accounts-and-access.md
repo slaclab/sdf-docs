@@ -26,7 +26,7 @@ membership.
 ?> SLAC is currently working on providing federated access to SLAC
 resources so that you will be able to authenticate with your home
 institution's account as opposed to your SLAC account. We expect
-federated authentication to be available in 2023.
+federated authentication to be available in late 2024.
 
 ## Managing your UNIX account password
 
