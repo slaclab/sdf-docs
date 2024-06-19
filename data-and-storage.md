@@ -6,7 +6,7 @@ To promote long term consistency, the S3DF directory structure provides immutabl
 
 * `/sdf`: Root mount point.
 
-* `/sdf/home/<u>/<username>`: Home directories.  Space quotas imposed for all users.
+* `/sdf/home/<u>/<username>`: Home directories.  Disk quotas imposed for all users.
 
 * `/sdf/sw/<package>/<version>`: For general purpose software not installed on each node, e.g., EPICS, Matlab, matplotlib, GEANT4, etc.  Not meant for software that is used by only one group.
 
@@ -55,7 +55,7 @@ Default Quotas
 
 - All scratch areas under `/sdf/scratch` will not be backed up nor archived.
 
-- Any directories named "nobackup" (located *anywhere* in _any_ /sdf path) will not be backed up nor archived. Please use as many "nobackup" subdirectory locations as required for any files that do not need backup.  That can save significant tape and processing resources.
+- Any directories named "nobackup" (located *anywhere* in *any* /sdf path) will not be backed up nor archived. Please use as many "nobackup" subdirectory locations as required for any files that do not need backup.  That can save significant tape and processing resources.
 
 - A subset of users in each group will be able to access the command line interface to HPSS for the purpose of archiving/retrieving data to/from tape. Unlike backups, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (contact SCS for assistance).
 
