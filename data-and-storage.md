@@ -44,7 +44,7 @@ Use df -h for basic quota information. Examples:
 Default Quotas
 -  /sdf/home = 25 GB per user (NOTE: as of 6/17/2024, df still reports 30GB instead of 25GB for the default quota. We are working on a fix for this.)
 -  /sdf/scratch/users = 100 GB per user
--  /sdf/group = 10TB per group. It is possible to set subdirectory quotas within a group's directory. Please contact s3df-help@slac.stanford.edu since it current requires root privileges to implement. 
+-  /sdf/group = 10TB per group. It is possible to set subdirectory quotas within a group's directory. Please contact s3df-help@slac.stanford.edu since it currently requires root privileges to implement. 
 
 ## Backup and Archiving
 
