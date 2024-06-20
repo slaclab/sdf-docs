@@ -6,13 +6,13 @@ If you are a SLAC employee, affiliated researcher, or experimental
 facility user, you are eligible for an S3DF account. ***S3DF authentication requires a SLAC Unix account. The legacy SDF 1.0 environment requires a SLAC Active Directory account. They are not the same password system.***
 
 
-1. If you don't already have a SLAC UNIX account, you'll need to get one by following these instructions. If you already have one, skip to step 2:
+1. If you don't already have a SLAC UNIX account (that allowed logins to the rhel6-64 and centos7 clusters), you'll need to get one by following these instructions. **If you already have one, skip to step 2**:
   * Obtain a SLAC ID via the [SLUO User
 Form](https://oraweb4.slac.stanford.edu/apex/epnprod/f?p=134:1)
   * Take Cyber 100 training via the [SLAC training portal](http://training.slac.stanford.edu/web-training.asp)
   * Ask your [SLAC POC](contact-us.md#facpoc) to submit a ticket to SLAC IT requesting a UNIX account. In your request indicate your SLAC ID, and your preferred account name (and second choice).
 2. Enable the SLAC UNIX account into S3DF:
-  * Log into [coact](https://s3df.slac.stanford.edu/coact) using your SLAC UNIX account and follow the instructions to enable your account into S3DF. If the onboarding fails for any reason, we'll let you know. Otherwise, you can assume your account will be enabled within 1 hour.
+  * Log into [coact](https://s3df.slac.stanford.edu/coact) using your SLAC UNIX account and follow the instructions to enable your account in S3DF. If the account creation process fails for any reason, we'll let you know. Otherwise, you can assume your account will be enabled within 1 hour.
 
 ?> In some cases, e.g. for Rubin and LCLS, you may want to ask your
 SLAC POC to add your username to the [POSIX
@@ -51,7 +51,7 @@ standard TCP port 22, to connect to the S3DF load balanced bastion pool
 specifically designed to improve, compared to ssh, the performance of
 X11 graphics over slow connection speeds. Another important feature is
 that it preserves the state of your desktop across multiple
-sessions. The login pool for NoMachine is
+sessions, including when your internet session unexpectedly gets dropped. The login pool for NoMachine is
 `s3dfnx.slac.stanford.edu`. You can find more information about this
 access mode in the [NoMachine reference](reference.md#nomachine).
 
