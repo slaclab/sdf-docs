@@ -10,7 +10,7 @@ facility user, you are eligible for an S3DF account. ***S3DF authentication requ
   * Obtain a SLAC ID via the [SLUO User
 Form](https://oraweb4.slac.stanford.edu/apex/epnprod/f?p=134:1)
   * Take Cyber 100 training via the [SLAC training portal](http://training.slac.stanford.edu/web-training.asp)
-  * Ask your [SLAC POC](contact-us.md#facpoc) to submit a ticket to SLAC IT requesting a UNIX account. In your request indicate your SLAC ID, and your preferred account name (and second choice).
+  * Ask your [SLAC Point of Contact](contact-us.md#facpoc) to submit a ticket to SLAC IT requesting a UNIX account. In your request indicate your SLAC ID, and your preferred account name (and second choice).
 2. Enable the SLAC UNIX account into S3DF:
   * Log into [coact](https://s3df.slac.stanford.edu/coact) using your SLAC UNIX account and follow the instructions to enable your account in S3DF. If the account creation process fails for any reason, we'll let you know. Otherwise, you can assume your account will be enabled within 1 hour.
 
