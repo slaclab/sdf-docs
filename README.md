@@ -6,6 +6,17 @@ and the Rubin observatory. The S3DF infrastructure is optimized for
 data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
+## Upcoming Outage
+**Start:  2024-07-10 06:00 PDT  (2024-07-10 13:00 UTC)**
+
+**End:    2024-07-12 20:00 PDT  (2024-07-13 03:00 UTC)**
+
+**Urgent electrical maintenance is required in SRCF, the datacenter hosting S3DF.**
+
+**All S3DF services, including login nodes, batch systems, Kubernetes nodes,
+storage, and networking, will be unavailable during the maintenance window.**
+
+
 ## Quick Reference
 
 | Access 	| Address | 
