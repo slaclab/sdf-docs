@@ -4,13 +4,17 @@
 
 ### Current
 
-*** UPDATE: SATURDAY FEBRUARY 10TH 3:00PM PST ***
-
-**The S3DF team has the `/sdf/data` file system back in production.  Please let us know via the comp-sdf slack channel or email to s3df-help@slac.stanford.edu if you see any issues with file access.  Thank you so much for your patience.**
-
 ### Upcoming
 
-None
+Start:  2024-07-10 06:00 PDT  (2024-07-10 13:00 UTC)
+
+End:    2024-07-12 20:00 PDT  (2024-07-13 03:00 UTC)
+
+Urgent electrical maintenance is required in SRCF, the datacenter hosting S3DF.
+
+All S3DF services, including login nodes, batch systems, Kubernetes nodes,
+storage, and networking, will be unavailable during the maintenance window.
+
 
 ### Past
 
