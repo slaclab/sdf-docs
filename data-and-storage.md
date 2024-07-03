@@ -6,11 +6,11 @@ To promote long term consistency, the S3DF directory structure provides immutabl
 
 * `/sdf`: Root mount point.
 
-* `/sdf/home/<u>/<username>`: Home directories.  Space quotas imposed for all users.
+* `/sdf/home/<u>/<username>`: Home directories. Space quotas imposed for all users.
 
-* `/sdf/sw/<package>/<version>`: For general purpose software not installed on each node, e.g., EPICS, Matlab, matplotlib, GEANT4, etc.  Not meant for software that is used by only one group.
+* `/sdf/sw/<package>/<version>`: For general purpose software not installed on each node, e.g., EPICS, Matlab, matplotlib, GEANT4, etc. Not meant for software that is used by only one group.
 
-* `/sdf/group/<organization>/<groupname>` or `/sdf/group/<groupname>`: For group/project specific software (e.g., lcls/psdm, ad/hla, etc.)
+* `/sdf/group/<organization>/<groupname>` or `/sdf/group/<groupname>`: For group/project specific software (e.g., lcls/psdm, ad/hla, etc.) Space quotas imposed for all groups.
 
 * `/sdf/data/<facility>/…`: For science data (as opposed to code, documents, etc), including raw, calibrated data, and results. Some examples:
   - LCLS experimental: `/sdf/data/lcls/<instrument>/<experiment>`
@@ -19,7 +19,9 @@ To promote long term consistency, the S3DF directory structure provides immutabl
   - FACET accelerator: `/sdf/data/facet/accel/`
   - CryoEM: `/sdf/data/cryoem/<YYYYMM>/<experiment>`
 
-* `/sdf/scratch/<facility>/…`: 3 months retention on a best effort basis (actual retention can be shorter or longer depending on actual usage)
+* `/sdf/scratch/<facility>/…`: 3 months retention on a best effort basis (actual retention can be shorter or longer depending on actual usage). Space quotas imposed for all facilities.
+
+* `/sdf/scratch/users/...`: 1 month retention on a best effort basis (actual retention can be shorter or longer depending on actual usage). Space quotas imposed for all users.
 
 ?> Access to AFS, GPFS, and SDF Lustre from S3DF is described in this
 [reference section on legacy file systems](reference.md#legacyfs).
