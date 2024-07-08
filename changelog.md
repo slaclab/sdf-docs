@@ -15,6 +15,8 @@ Urgent electrical maintenance is required in SRCF, the datacenter hosting S3DF.
 All S3DF services, including login nodes, batch systems, Kubernetes nodes,
 storage, and networking, will be unavailable during the maintenance window.
 
+**DDN Lustre storage will also be unavailable for 24hrs  (2024-07-10 09:00 PDT to 2024-07-11 09:00 PDT)**
+
 
 ### Past
 
