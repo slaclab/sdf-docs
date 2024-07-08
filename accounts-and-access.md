@@ -32,7 +32,7 @@ federated authentication to be available in late 2024.
 
 You can change your password yourself via [this password update site](https://unix-password.slac.stanford.edu/)
 
-If you've forgotten your password and you want to reset it, [please contact the SLAC IT Heldesk](https://it.slac.stanford.edu/support)
+If you've forgotten your password and you want to reset it, [please contact the IT Service Desk](https://it.slac.stanford.edu/support)
 
 Make sure you comply with SLAC training and cyber requirements to avoid getting your account disabled. You will be notified of these requirements via email.
 
