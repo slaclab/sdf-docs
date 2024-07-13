@@ -7,16 +7,10 @@ data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
 ## Upcoming Outage
-**Start:  2024-07-10 06:00 PDT  (2024-07-10 13:00 UTC)**
+**Current Status as of July 13th 3:00 PM PDT:**
 
-**End:    2024-07-12 20:00 PDT  (2024-07-13 03:00 UTC)**
-
-**Urgent electrical maintenance is required in SRCF, the datacenter hosting S3DF.**
-
-**All S3DF services, including login nodes, batch systems, Kubernetes nodes,
-storage, and networking, will be unavailable during the maintenance window.**
-
-**DDN Lustre storage will also be unavailable for 24hrs  (2024-07-10 09:00 PDT to 2024-07-11 09:00 PDT)**
+**S3DF is operational but in a degraded mode. The power work in SRCF is complete and S3DF services are all largely available with a few exceptions.**
+**[Please check the status of S3DF services on our outage site](https://confluence.slac.stanford.edu/display/S3DFSTATUS/S3DF-Status+Home)**
 
 
 ## Quick Reference
