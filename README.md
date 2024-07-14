@@ -7,10 +7,9 @@ data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
 ## Upcoming Outage
-**Current Status as of July 13th 3:00 PM PDT:**
+**Current Status as of July 13th 8:15 PM PDT:**
 
-**S3DF is operational but in a degraded mode. The power work in SRCF is complete and S3DF services are all largely available with a few exceptions.**
-**[Please check the status of S3DF services on our outage site](https://confluence.slac.stanford.edu/display/S3DFSTATUS/S3DF-Status+Home)**
+**S3DF is now fully operational**
 
 
 ## Quick Reference
