@@ -19,7 +19,7 @@ To promote long term consistency, the S3DF directory structure provides immutabl
   - FACET accelerator: `/sdf/data/facet/accel/`
   - CryoEM: `/sdf/data/cryoem/<YYYYMM>/<experiment>`
 
-* `/sdf/scratch/<facility>/…`: 3 months retention on a best effort basis (actual retention can be shorter or longer depending on actual usage)
+* `/sdf/scratch/<facility>/…`: 3 months retention on a best effort basis (actual retention can be shorter or longer depending on actual usage. NOTE: as of July 2024, the auto-purge policy is not in effect.)
 
 ?> Access to AFS, GPFS, and SDF Lustre from S3DF is described in this
 [reference section on legacy file systems](reference.md#legacyfs).
