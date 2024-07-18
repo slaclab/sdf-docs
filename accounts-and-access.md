@@ -7,8 +7,7 @@ facility user, you are eligible for an S3DF account. ***S3DF authentication requ
 
 
 1. If you don't already have a SLAC UNIX account (that allowed logins to the rhel6-64 and centos7 clusters), you'll need to get one by following these instructions. **If you already have one, skip to step 2**:
-  * Obtain a SLAC ID via the [SLUO User
-Form](https://oraweb4.slac.stanford.edu/apex/epnprod/f?p=134:1)
+  * Obtain a SLAC ID via the [Scientific Collaborative Researcher Registration process](https://it.slac.stanford.edu/identity/scientific-collaborative-researcher-registration)
   * Take Cyber 100 training via the [SLAC training portal](http://training.slac.stanford.edu/web-training.asp)
   * Ask your [SLAC POC](contact-us.md#facpoc) to submit a ticket to SLAC IT requesting a UNIX account. In your request indicate your SLAC ID, and your preferred account name (and second choice).
 2. Enable the SLAC UNIX account into S3DF:
