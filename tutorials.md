@@ -99,13 +99,13 @@ SSH login access to S3DF is via the ```s3dflogin.slac.stanford.edu``` pool. Thes
 
 S3DF primary filesystems are mounted under ```/sdf``` on all S3DF interactive and compute hosts. This includes S3DF home directories, per-facility “group” space and multi-petabyte storage for the bulk of science data. These primary filesystems will eventually replace all legacy SLAC storage. The DDN Lustre storage from SDF “1.0” is also mounted across all S3DF interactive and compute hosts under ```/fs/ddn/sdf```. Several facilities invested in 5 years of DDN storage, and we will honor this investment. Legacy filesystems (GPFS, NFS) have already surpassed the 5 year lifecycle. To help migrate data off legacy storage, we have mounted a select number of GPFS filesystems on the interactive nodes. AFS is also mounted read-only on interactive nodes. See [data and storage](data-and-storage.md).
 
-**What is the future of AFS?**
+**What is the future of AFS and other Legacy Filesystems?**
 
-AFS will be retired in June 2024, along with other RHEL6 infrastructure and platforms. Our goal is for S3DF native storage to be securely exported to test stands, control rooms, lab workstations, etc via authenticated NFS v4 where required. Before we shutdown AFS, we will create a final copy of the entire “/afs/slac” directory tree and make select portions of it available read-only for a limited period of time. This will allow groups to copy data they may have forgotten to migrate earlier.
+AFS (/afs/slac) and legacy GPFS/NFS (/gpfs/slac and /nfs/slac) filesystems will be retired in Fiscal Year 2025, along with other RHEL6 infrastructure and platforms. We are working to contact all groups about migrating their data to S3DF. Although our goal is to allow secure S3DF storage access to test stands, control rooms, lab workstations, etc via authenticated NFS v4 where required, the preferred access method is via faster S3DF cluster nodes. Before we shutdown AFS, we will create a final copy of the entire /afs/slac directory tree and make select portions of it available read-only for a limited period of time. This will allow groups to copy data they may have forgotten to migrate earlier. We will attempt to do something similar with portions of the legacy GPFS/NFS areas if we are unable to contact the data owners beforehand. Any backup copies of legacy data (if they exist, and as they appeared at the time of retirement) will be kept until at least December 31, 2026.
 
 **Is there any ‘free’ S3DF Storage?**
 
-All S3DF users get a home directory with a 25GB quota. There is also S3DF /sdf/group space with per-facility quotas. The group space is intended for that group's project-specific software, configuration files, etc. Typically, each facility has an /sdf/group quota of 10TB. Home directories and group space are stored on flash (NVMe SSDs) and are automatically backed up to tape daily. We also provided shared scratch space for free (limited lifetime and not backed up) with a quota of 100GB. The bulk of science data (petabyte scale) is funded directly by the facilities and located in /sdf/data. We have a business model and the facility czars purchase their storage hardware and backups for science data.
+All S3DF users get a home directory with a 30GB quota. There is also S3DF /sdf/group space with per-facility quotas. The group space is intended for that group's project-specific software, configuration files, etc. Typically, each facility has an /sdf/group quota of 10TB. Home directories and group space are stored on flash (NVMe SSDs) and are automatically backed up to tape daily. We also provided shared scratch space for free (limited lifetime and not backed up) with a quota of 100GB. The bulk of science data (petabyte scale) is funded directly by the facilities and located in /sdf/data. We have a business model and the facility czars purchase their storage hardware and backups for science data.
 
 **Transferring files and data**
 
@@ -115,7 +115,7 @@ S3DF has inherited the POSIX groups that are used for legacy storage permissions
 
 **Compiling code for S3DF**
 
-The standard Linux distro for all S3DF machines is RHEL 8.6. We recommend you port your codes and applications to RHEL 8. You can compile on our interactive nodes or submit build jobs to our clusters. We are also looking at incorporating Rocky Linux 9 (a RHEL clone) into our environment.
+The standard Linux distro for all S3DF machines is RHEL 8. We recommend you port your codes and applications to RHEL 8. You can compile on our interactive nodes or submit build jobs to our clusters. We are also looking at incorporating Rocky Linux 9 (a RHEL clone) into our environment.
 
 **Where to find libraries and packages**
 
