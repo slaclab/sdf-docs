@@ -55,7 +55,7 @@ We provide automatic tunnels through our [ondemand](https://openondemand.org/) p
 
 ### 'bring-your-own-Jupyter'
 
-We also provide the capability for you to 'bring-your-own-Jupyter' so that all your code dependencies are dictated by you, and not by us. We recommend you do this by either building a singularity image of your Jupyter environment or by building a conda environment on SDF storage.
+We also provide the capability for you to 'bring-your-own-Jupyter' so that all your code dependencies are dictated by you, and not by us. We recommend you do this by either building an apptainer image of your Jupyter environment or by building a conda environment on SDF storage.
 
 If you wish for your jupyter environment to be more widely used (e.g. for others in your group), you can submit a pull-request to our [slac-ood-jupyter repo](https://github.com/slaclab/slac-ood-jupyter) to append your specific "Commands to initiate Jupyter" onto the list of preselectable Jupyter Images. Specifically, you will want to change [form.yml.erb](https://github.com/slaclab/slac-ood-jupyter/blob/master/form.yml.erb).
 
@@ -82,15 +82,15 @@ Replace `<path-to-miniconda3>` and `<your-environment-name>` appropriately.
 Fill the rest of the form as you would for any provided Jupyter Instance and click "Launch". If you run into any issues, please see [Debugging your interactive session](#debugging).
 
 
-#### In a Singularity container
+#### In an Apptainer container
 
-Once you have built or pulled a Singularity image on SDF (see [Software/Singularity](software.md#singularity) page for more information on how to do that), ensuring that you have the `jupyter[lab]` binary in the image's `PATH`, go to the [Jupyter portal](/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new ':ignore'), select "Custom Singularity Image" from the "Jupyter Instance" dropown menu. Then modify the text in the "Commands to initiate Jupyter":
+Once you have built or pulled an Apptainer image on SDF (see [Software/Apptainer](software.md#apptainer) page for more information on how to do that), ensuring that you have the `jupyter[lab]` binary in the image's `PATH`, go to the [Jupyter portal](/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new ':ignore'), select "Custom Apptainer Image" from the "Jupyter Instance" dropown menu. Then modify the text in the "Commands to initiate Jupyter":
 ```bash
-export SINGULARITY_IMAGE_PATH=<path-to-the.sif>
-function jupyter() { singularity exec --nv -B /sdf,/lscratch ${SINGULARITY_IMAGE_PATH} jupyter $@; }
+export APPTAINER_IMAGE_PATH=<path-to-the.sif>
+function jupyter() { apptainer exec --nv -B /sdf,/lscratch ${APPTAINER_IMAGE_PATH} jupyter $@; }
 ```
 
-Replace `<path-to-the.sif>` with the full path to your local singularity image file.
+Replace `<path-to-the.sif>` with the full path to your local apptainer image file.
 
 Fill the rest of the form as you would for any provided Jupyter Instance and click "Launch". If you run into any issues, please see [Debugging your interactive session](#debugging).
 
