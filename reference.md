@@ -302,27 +302,27 @@ You can also make use of the Scavenger QoS such that your job may run on any ava
 
 ## Common Software
 
-### Singularity
+### Apptainer
 
-For a detailed explanation of how to use Singularity on SDF, you can go through Yee-Ting Li's presentation [here](https://confluence.slac.stanford.edu/display/AI/AI+Seminar#AISeminar-Containers!Containers!Containers!) where you can find both the slides and the zoom recording.
+For a detailed explanation of how to use Apptainer on SDF, you can go through Yee-Ting Li's presentation [here](https://confluence.slac.stanford.edu/display/AI/AI+Seminar#AISeminar-Containers!Containers!Containers!) where you can find both the slides and the zoom recording.
 
 #### Prerequisite
 
-As pulling and building a new image can use quite a lot of disk space, we recommend that you set the appropriate cache paths for singularity to not use your $HOME directory. Therefore, before pulling or building an image, define the following environment variables:
+As pulling and building a new image can use quite a lot of disk space, we recommend that you set the appropriate cache paths for apptainer to not use your $HOME directory. Therefore, before pulling or building an image, define the following environment variables:
 
 ```bash
-export DIR=${SCRATCH}/.singularity
+export DIR=${SCRATCH}/.apptainer
 mkdir $DIR -p
-export SINGULARITY_LOCALCACHEDIR=$DIR
-export SINGULARITY_CACHEDIR=$DIR
-export SINGULARITY_TMPDIR=$DIR
+export APPTAINER_LOCALCACHEDIR=$DIR
+export APPTAINER_CACHEDIR=$DIR
+export APPTAINER_TMPDIR=$DIR
 ```
 
 #### Pulling images
 
 To pull an image from DockerHub, do:
 ```bash
-singularity pull docker://<user or organization>/<repository>:<tag>
+apptainer pull docker://<user or organization>/<repository>:<tag>
 ```
 
 
