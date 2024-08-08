@@ -7,6 +7,8 @@ S3DF problem is preventing one of the SLAC experimental facilities
 from taking data or the accelerator from operating and the PoC will
 contact us directly on the phone.
 
+## S3DF-Help
+
 | | |
 |--- |--- |
 | Email for reporting problems and getting help | s3df-help@slac.stanford.edu |
