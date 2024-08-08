@@ -6,10 +6,6 @@ and the Rubin observatory. The S3DF infrastructure is optimized for
 data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
-## Upcoming Outage
-**Current Status as of July 13th 8:15 PM PDT:**
-
-**S3DF is now fully operational**
 
 
 ## Quick Reference
