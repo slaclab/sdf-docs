@@ -312,7 +312,7 @@ As pulling and building a new image can use quite a lot of disk space, we recomm
 
 ```bash
 export DIR=${SCRATCH}/.apptainer
-mkdir $DIR -p
+mkdir -p $DIR
 export APPTAINER_LOCALCACHEDIR=$DIR
 export APPTAINER_CACHEDIR=$DIR
 export APPTAINER_TMPDIR=$DIR
