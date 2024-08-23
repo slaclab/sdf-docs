@@ -1,0 +1,5 @@
+namespace: sdf-docs
+resources:
+- ingress.yaml
+- service.yaml
+- deployment.yaml
