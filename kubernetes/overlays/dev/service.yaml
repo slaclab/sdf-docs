@@ -8,10 +8,9 @@ metadata:
     space: sdf
 spec:
   selector:
-    matchLabels:
-      app: nginx-sdf-docs
-      facility: scs
-      space: sdf
+    app: nginx-sdf-docs
+    facility: scs
+    space: sdf
   ports:
     - name: http
       protocol: TCP
