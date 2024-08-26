@@ -50,19 +50,11 @@ spec:
           volumeMounts:
             - name: content
               mountPath: /git
-        # This container is a trivial HTTP server for the content.
-        # If this were a "real" app it would not be so trivial.  For example,
-        # nginx or apache are much more robust web servers!  It's missing a
-        # livenessProbe, resources, and many other things you would want for
-        # running in production.  Also, you would probably have a git repo
-        # dedicated to holding your content.
-        - name: http
-          image: python:alpine
-          args:
-            - python3
-            - -m
-            - http.server
-            - -d=/git/head/index.html
+        - name: nginx
+          image: nginx:1.14.2
+#            - -d=/git/head/index.html
+          ports:
+          - containerPort: 80
           volumeMounts:
             - name: content
               mountPath: /git
