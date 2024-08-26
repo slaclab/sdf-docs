@@ -6,8 +6,6 @@ metadata:
     app: nginx-sdf-docs
     facility: scs
     space: sdf
-# --- from kubernetes/git-sync demo
-# --- https://github.com/kubernetes/git-sync/blob/master/demo/deployment.yaml#L18
 spec:
   replicas: 2
   selector:
@@ -35,6 +33,7 @@ spec:
         - name: content
           emptyDir: {}
       containers:
+        # --- Note: see git-sync demo at https://github.com/kubernetes/git-sync/blob/master/demo/deployment.yaml#L18
         # This container pulls a git repo into the "content" volume.  If this
         # were a "real" app it would probably have livenessProbe and resources,
         # and maybe a secret to get credentials for your git server.
@@ -50,19 +49,14 @@ spec:
           volumeMounts:
             - name: content
               mountPath: /git
-        # This container is a trivial HTTP server for the content.
-        # If this were a "real" app it would not be so trivial.  For example,
-        # nginx or apache are much more robust web servers!  It's missing a
-        # livenessProbe, resources, and many other things you would want for
-        # running in production.  Also, you would probably have a git repo
-        # dedicated to holding your content.
-        - name: http
-          image: python:alpine
-          args:
-            - python3
-            - -m
-            - http.server
-            - -d=/git/head/index.html
+        - name: nginx
+          image: nginx:1.14.2
+#            - -d=/git/head/index.html
+          env:
+          - name: NGINX_PORT
+            value: "8080"           
+          ports:
+          - containerPort: 8080
           volumeMounts:
             - name: content
               mountPath: /git
