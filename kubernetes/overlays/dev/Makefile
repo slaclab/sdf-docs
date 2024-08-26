@@ -1,9 +1,8 @@
 # TODO make a new secret for sdf-docs
 SECRET_PATH=secret/tid/ondemand-dev/certs
 KUBECTL_DEPLOY_CONTEXT ?= 'sdf-docs'
-
 ensure-context:
-	if [ '$(shell kubectl config current-context)' != $(KUBECTL_DEPLOY_CONTEXT) ]; then echo "Configured deployment context incorrect; expecting $(KUBECTL_DEPLOY$
+	if [ '$(shell kubectl config current-context)' != $(KUBECTL_DEPLOY_CONTEXT) ]; then echo "Configured deployment context incorrect; expecting $(KUBECTL_DEPLOY_CONTEXT)."; exit 1; fi
 
 secrets: 
 	mkdir -p etc/.secrets
