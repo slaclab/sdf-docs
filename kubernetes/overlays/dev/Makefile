@@ -3,11 +3,11 @@ SECRET_PATH=secret/tid/ondemand-dev/certs
 KUBECTL_DEPLOY_CONTEXT ?= 'sdf-docs'
 
 ensure-context:
-        if [ '$(shell kubectl config current-context)' != $(KUBECTL_DEPLOY_CONTEXT) ]; then echo "Configured deployment context incorrect; expecting $(KUBECTL_DEPLOY$
+	if [ '$(shell kubectl config current-context)' != $(KUBECTL_DEPLOY_CONTEXT) ]; then echo "Configured deployment context incorrect; expecting $(KUBECTL_DEPLOY$
 
 secrets: 
 	mkdir -p etc/.secrets
-        set -e; for i in ondemand-dev.key ondemand-dev.crt ondemand-dev.intermediates; do vault kv get --field=$$i $(SECRET_PATH) > etc/.secrets/$$i ; done
+	set -e; for i in ondemand-dev.key ondemand-dev.crt ondemand-dev.intermediates; do vault kv get --field=$$i $(SECRET_PATH) > etc/.secrets/$$i ; done
 
 clean-secrets:
 	rm -rf etc/.secrets
@@ -22,6 +22,5 @@ dump: secrets run-kustomize clean-secrets
 
 apply: ensure-context secrets run-apply clean-secrets
 
-
-
-
+diff: 
+	kubectl diff -k .
