@@ -22,6 +22,15 @@ spec:
         facility: scs
         space: sdf
     spec:
+#        env:
+#        - name: http_proxy
+#          value: http://squid.slac.stanford.edu:3128
+#        - name: https_proxy
+#          value: http://squid.slac.stanford.edu:3128
+#        - name: no_proxy
+#          value: .slac.stanford.edu
+#        - name: SLAC_SDF_DOCS_UPDATE_INTERVAL
+#          value: "300"
       volumes:
         - name: content
           emptyDir: {}
