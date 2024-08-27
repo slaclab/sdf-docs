@@ -4,3 +4,16 @@ resources:
 - ingress.yaml
 - service.yaml
 - deployment.yaml
+
+configMapGenerator:
+- name: nginx-configmap
+  files:
+  - etc/nginx/nginx.conf
+  - etc/nginx/mime.types
+  - etc/nginx/conf.d/default.conf
+
+images:
+- name: nginx
+  newTag: 1.14.2
+- name: git-sync
+  newTag: v4.2.3
