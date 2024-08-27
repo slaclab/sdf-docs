@@ -118,29 +118,32 @@ Login to S3DF and then login to the iana interactive pool:
 ssh s3dflogin.slac.stanford.edu
 ssh iana
 ```
-Obtain an AFS Token:
+Obtain an AFS Token. The kinit command will prompt you for your Unix password:
 ```
-/usr/bin/kinit ; /usr/bin/aklog
+/usr/bin/kinit
+/usr/bin/aklog
 ```
 Verify the AFS Token:
 ```
 /usr/bin/tokens
 ```
-Create a destination subdirectory. Do not copy contents of your AFS home dir straight into your S3DF home dir!
+Create a destination subdirectory; we're using "afs" for this example and removing access permissions for everyone except the directory owner. We do not recommand that you copy the contents of your AFS home directory straight into your S3DF home directory since 1) some file names will conflict and 2) it will clutter your S3DF home directory with your old AFS files.
 ```
 mkdir $HOME/afs
 chmod og-rwx $HOME/afs
 ```
-Use rsync or cp commands to transfer files. The -v option is for verbose output, which you can optionally omit.
+Use the rsync or cp command to transfer files; cp might be a little faster, but rsync is known to be quite robust. The examples below will copy your "workdir" subdirectory into the newly created afs subdirectory.  The -v option is for verbose output, which you can omit if you prefer. NOTE: if you do not know your /afs/slac home directory path, you can try the following command to find it: ls -ld /afs/slac/u/??/${USER}
 
 rsync option: 
 ```
-rsync -HaxSuv /afs/slac/u/sf/userid/workdir $HOME/afs
+rsync -HaxSuv /afs/slac/u/<XX>/<userid>/workdir $HOME/afs
 ```
 cp option:
 ```
-cp -auv /afs/slac/u/sf/userid/workdir $HOME/afs
+cp -auv /afs/slac/u/<XX>/<userid>/workdir $HOME/afs
 ```
+If the command gets interrupted part way through, you can run it again. The files that were already transferred shouldn't get copied again.
+
 *Important: AFS ACLs (Access Control Lists) are not copied during this process! Be sure to protect the copied data with proper Unix permissions after the transfer!*
 
 **Transferring files and data**
