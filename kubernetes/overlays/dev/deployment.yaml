@@ -32,6 +32,29 @@ spec:
       volumes:
         - name: content
           emptyDir: {}
+        - name: config-nginx-default
+          configMap:
+            name: etc-nginx-confd-default-conf
+            items:
+            - key: etc/nginx/conf.d/default.conf
+              path: etc/nginx/conf.d/default.conf
+        - name: config-nginx-mime
+          configMap:
+            name: etc-nginx-mime-types
+            items:
+            - key: etc/nginx/mime.types
+              path: etc/nginx/mime.types
+        - name: config-nginx-nginx
+          configMap:
+            name: etc-nginx-nginx-conf
+            items:
+            - key: etc/nginx/nginx.conf
+              path: etc/nginx/nginx.conf
+        - name: cache
+          emptyDir: {}
+        - name: run
+          emptyDir: {}
+
       containers:
         # --- Note: see git-sync demo at https://github.com/kubernetes/git-sync/blob/master/demo/deployment.yaml#L18
         # This container pulls a git repo into the "content" volume.  If this
@@ -61,3 +84,9 @@ spec:
             - name: content
               mountPath: /git
               readOnly: true
+            - name: config-nginx-default
+              mountPath: /etc/nginx/conf.d/default.conf
+            - name: config-nginx-mime
+              mountPath: /etc/nginx/mime.types
+            - name: config-nginx-nginx
+              mountPath: /etc/nginx/nginx.conf
