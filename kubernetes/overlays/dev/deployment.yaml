@@ -32,12 +32,12 @@ spec:
       volumes:
         - name: content
           emptyDir: {}
-#        - name: nginx-configmap-volume
-#          configMap:
-#            name: nginx-configmap
-#            items:
-#            - key: etc/nginx/conf.d/default.conf
-#              path: etc/nginx/conf.d/default.conf
+        - name: nginx-configmap-volume
+          configMap:
+            name: nginx-configmap
+            items:
+            - key: default.conf
+              path: default.conf
 #        - name: config-nginx-mime
 #          configMap:
 #            name: etc-nginx-mime-types
@@ -83,9 +83,9 @@ spec:
             - name: content
               mountPath: /git
               readOnly: true
-#            - name: nginx-configmap-volume
-#              mountPath: /etc/nginx/conf.d/default.conf
-#              subPath: default.conf
+            - name: nginx-configmap-volume
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
 #            - name: config-nginx-mime
 #              mountPath: /etc/nginx/mime.types
 #            - name: config-nginx-nginx
