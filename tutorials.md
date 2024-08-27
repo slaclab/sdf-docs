@@ -101,16 +101,51 @@ S3DF primary filesystems are mounted under ```/sdf``` on all S3DF interactive an
 
 **What is the future of AFS?**
 
-AFS will be retired in June 2024, along with other RHEL6 infrastructure and platforms. Our goal is for S3DF native storage to be securely exported to test stands, control rooms, lab workstations, etc via authenticated NFS v4 where required. Before we shutdown AFS, we will create a final copy of the entire “/afs/slac” directory tree and make select portions of it available read-only for a limited period of time. This will allow groups to copy data they may have forgotten to migrate earlier.
+AFS will be retired along with other RHEL6 infrastructure and other legacy platforms. Our goal is for S3DF native storage to be securely exported to test stands, control rooms, lab workstations, etc via authenticated NFS v4 where required. We want to migrate all user and group files off AFS by September 30th 2024. If you cannot meet this migration target, please contact s3df-help@slac.stanford.edu so we can discuss your requirement and seek an extension. Before we shutdown AFS, we will create a final copy of the entire ```/afs/slac``` directory tree and make select portions of it available read-only for a limited period of time. This will allow groups to copy data they may have forgotten to migrate earlier.
 
-**Is there any ‘free’ S3DF Storage?**
+**Q: Who pays for S3DF Storage?**
 
-All S3DF users get a home directory with a 25GB quota. There is also S3DF /sdf/group space with per-facility quotas. The group space is intended for that group's project-specific software, configuration files, etc. Typically, each facility has an /sdf/group quota of 10TB. Home directories and group space are stored on flash (NVMe SSDs) and are automatically backed up to tape daily. We also provided shared scratch space for free (limited lifetime and not backed up) with a quota of 100GB. The bulk of science data (petabyte scale) is funded directly by the facilities and located in /sdf/data. We have a business model and the facility czars purchase their storage hardware and backups for science data.
+**A: There is plenty of 'free' (lab-funded) S3DF space to cover AFS migration.**
+
+All S3DF users get a home directory with a 30GB quota. There is also S3DF group space ```/sdf/group``` with per-facility quotas. The group space is intended for that group's project-specific software, configuration files, etc. Typically, each facility has an ```/sdf/group``` quota of 10TB. Home directories and group space are stored on flash (NVMe SSDs) and are automatically backed up to tape daily. We also provided shared scratch space for free (limited lifetime and not backed up) with a quota of 100GB. The bulk of science data (petabyte scale) is funded directly by the facilities and located in ```/sdf/data```. We have a business model and the facility czars purchase their storage hardware and backups for science data.
+
+**How to copy from AFS to S3DF**
+
+AFS is mounted read-only ```/afs/slac``` on the 'iana' interactive nodes. Command-line utilities like rsync and cp can be used to copy files and directories from AFS to S3DF. 
+
+Login to S3DF and then login to the iana interactive pool:
+```
+ssh s3dflogin.slac.stanford.edu
+ssh iana
+```
+Obtain an AFS Token:
+```
+/usr/bin/kinit ; /usr/bin/aklog
+```
+Verify the AFS Token:
+```
+/usr/bin/tokens
+```
+Create a destination subdirectory. Do not copy contents of your AFS home dir straight into your S3DF home dir!
+```
+mkdir $HOME/afs
+chmod og-rwx $HOME/afs
+```
+Use rsync or cp commands to transfer files. The -v option is for verbose output, which you can optionally omit.
+
+rsync option: 
+```
+rsync -HaxSuv /afs/slac/u/sf/userid/workdir $HOME/afs
+```
+cp option:
+```
+cp -auv /afs/slac/u/sf/userid/workdir $HOME/afs
+```
+*Important: AFS ACLs (Access Control Lists) are not copied during this process! Be sure to protect the copied data with proper Unix permissions after the transfer!*
 
 **Transferring files and data**
 
 S3DF has inherited the POSIX groups that are used for legacy storage permissions. This means S3DF users should have consistent file ownership and permissions, allowing them to copy over existing files from AFS, legacy Unix, and DDN Lustre storage to S3DF primary filesystems. If you are unable to copy your groups’ data because you lack the permissions, please contact s3df-help@slac.stanford.edu for assistance. [For external transfers over the internet, we provide a pool of Data Transfer Nodes](data-transfer.md#data-transfer).
-
 
 
 **Compiling code for S3DF**
