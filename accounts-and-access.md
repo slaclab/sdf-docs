@@ -52,7 +52,7 @@ and storage.
 
 ?> Windows users may see an error message about a "*Corrupted MAC on
 input*" or "*message authentication code incorrect.*"
-The workaround is to add "*-m hmac-sha2-512* "to the ssh command, i.e.
+The workaround is to add "*-m hmac-sha2-512*" to the ssh command, i.e.
 `ssh -m hmac-sha2-512 <username>@s3dflogin.slac.stanford.edu`
 
 2. **NoMachine**: NoMachine provides a special remote desktop that is
