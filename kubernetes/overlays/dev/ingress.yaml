@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sdf-docs-dev-unauth
+#  annotations:
+#    nginx.ingress.kubernetes.io/proxy-connect-timeout: "30s"
+#    nginx.ingress.kubernetes.io/proxy-read-timeout: "20s"
+#    nginx.ingress.kubernetes.io/client-max-body-size: "50m"
+#    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+spec:
+  rules:
+  - host: s3df-dev.slac.stanford.edu
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sdf-docs-svc
+            port:
+              number: 80
