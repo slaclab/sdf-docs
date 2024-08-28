@@ -20,15 +20,6 @@ spec:
         facility: scs
         space: sdf
     spec:
-#        env:
-#        - name: http_proxy
-#          value: http://squid.slac.stanford.edu:3128
-#        - name: https_proxy
-#          value: http://squid.slac.stanford.edu:3128
-#        - name: no_proxy
-#          value: .slac.stanford.edu
-#        - name: SLAC_SDF_DOCS_UPDATE_INTERVAL
-#          value: "300"
       volumes:
         - name: content
           emptyDir: {}
@@ -42,11 +33,6 @@ spec:
               path: mime.types
             - key: nginx.conf
               path: nginx.conf
-#        - name: cache
-#          emptyDir: {}
-#        - name: run
-#          emptyDir: {}
-
       containers:
         # --- Note: see git-sync demo at https://github.com/kubernetes/git-sync/blob/master/demo/deployment.yaml#L18
         # This container pulls a git repo into the "content" volume.  If this
