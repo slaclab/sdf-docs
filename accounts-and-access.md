@@ -44,7 +44,16 @@ There are three mechanisms to access S3DF:
 [OpenSSH](www.openssh.com) or
 [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/), on the
 standard TCP port 22, to connect to the S3DF load balanced bastion pool
-`s3dflogin.slac.stanford.edu`. Note that these nodes do not have access to storage (except for your home directory). From these bastion hosts, you should hop onto an [Interactive Node](interactive-compute.md#interactive-pools) to access S3DF batch compute and storage.
+`s3dflogin.slac.stanford.edu`. Note that these nodes do not have access to
+storage (except for your home directory). From these bastion hosts, you
+should hop onto an [Interactive
+Node](interactive-compute.md#interactive-pools) to access S3DF batch compute
+and storage.
+
+?> Windows users may see an error message about a "*Corrupted MAC on
+input*" or "*message authentication code incorrect.*"
+The workaround is to add "*-m hmac-sha2-512*" to the ssh command, i.e.
+`ssh -m hmac-sha2-512 <username>@s3dflogin.slac.stanford.edu`
 
 2. **NoMachine**: NoMachine provides a special remote desktop that is
 specifically designed to improve, compared to ssh, the performance of
