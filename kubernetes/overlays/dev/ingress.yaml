@@ -5,3 +5,12 @@ metadata:
 spec:
   rules:
   - host: s3df-dev.slac.stanford.edu
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sdf-docs-svc
+            port:
+              number: 80
