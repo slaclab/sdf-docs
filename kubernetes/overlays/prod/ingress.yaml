@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sdf-docs-unauth
+spec:
+  rules:
+  - host: s3df.slac.stanford.edu
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sdf-docs-svc
+            port:
+              number: 80
