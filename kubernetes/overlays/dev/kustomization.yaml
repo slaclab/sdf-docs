@@ -1,5 +1,3 @@
-#namePrefix: dev-
-#labels:
-#  variant: dev
+namePrefix: dev-
 resources:
 - ../../base
