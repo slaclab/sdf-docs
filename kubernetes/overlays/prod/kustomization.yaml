@@ -1,5 +1,4 @@
-#namePrefix: prod-
-#labels:
-#  variant: prod
+namespace: prod-sdf-docs
+namePrefix: prod-
 resources:
 - ../../base

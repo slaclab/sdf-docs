@@ -1,3 +1,4 @@
+namespace: dev-sdf-docs
 namePrefix: dev-
 resources:
 - ../../base
