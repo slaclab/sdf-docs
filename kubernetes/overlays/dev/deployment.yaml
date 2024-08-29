@@ -4,3 +4,15 @@ metadata:
   name: sdf-docs-deployment
 spec:
   replicas: 1
+  template:
+    spec:
+      containers:
+        - name: git-sync
+          args:
+            - --repo=https://github.com/slaclab/sdf-docs
+            - --ref=s3df-dev
+            - --root=/git
+            - --period=60s
+            - --link=head
+            - --max-failures=1000000000
+            - -v=2
