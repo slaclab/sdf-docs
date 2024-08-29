@@ -1,5 +1,5 @@
-namePrefix: dev-
-commonLabels:
-  variant: dev
+#namePrefix: prod-
+#labels:
+#  variant: prod
 resources:
 - ../../base
