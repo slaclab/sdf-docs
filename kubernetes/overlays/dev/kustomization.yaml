@@ -2,3 +2,6 @@ namespace: dev-sdf-docs
 namePrefix: dev-
 resources:
 - ../../base
+patches:
+- path: deployment.yaml
+#- path: ingress.yaml

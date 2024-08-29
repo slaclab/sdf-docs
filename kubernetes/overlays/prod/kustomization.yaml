@@ -2,3 +2,7 @@ namespace: prod-sdf-docs
 namePrefix: prod-
 resources:
 - ../../base
+patches:
+- path: deployment.yaml
+- path: ingress.yaml
+

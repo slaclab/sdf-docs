@@ -1,0 +1,7 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sdf-docs-unauth
+spec:
+  rules:
+  - host: s3df-dev.slac.stanford.edu

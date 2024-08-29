@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: sdf-docs-dev-unauth
+  name: sdf-docs-unauth
 #  annotations:
 #    nginx.ingress.kubernetes.io/proxy-connect-timeout: "30s"
 #    nginx.ingress.kubernetes.io/proxy-read-timeout: "20s"
