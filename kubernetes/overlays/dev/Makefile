@@ -21,3 +21,6 @@ apply: ensure-context secrets run-apply clean-secrets
 
 diff: 
 	kubectl diff -k .
+
+destroy:
+	kubectl delete -k .
