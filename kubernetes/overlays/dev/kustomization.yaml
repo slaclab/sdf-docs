@@ -1,5 +1,4 @@
 namespace: dev-sdf-docs
-namePrefix: dev-
 resources:
 - ns.yaml
 - ingress.yaml

@@ -1,5 +1,4 @@
 namespace: prod-sdf-docs
-namePrefix: prod-
 resources:
 - ns.yaml
 - ingress.yaml
