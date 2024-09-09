@@ -1,6 +1,5 @@
 namespace: prod
 resources:
-- ns.yaml
 - ingress.yaml
 - service.yaml
 - deployment.yaml

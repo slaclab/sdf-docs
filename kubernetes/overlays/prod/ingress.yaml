@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: sdf-docs-unauth
+  name: sdf-docs
 #  annotations:
 #    nginx.ingress.kubernetes.io/proxy-connect-timeout: "30s"
 #    nginx.ingress.kubernetes.io/proxy-read-timeout: "20s"
@@ -16,6 +16,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: sdf-docs-svc
+            name: sdf-docs
             port:
               number: 80
