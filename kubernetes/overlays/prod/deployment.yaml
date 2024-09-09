@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sdf-docs-deployment
+  name: sdf-docs
   labels:
     app: nginx-sdf-docs
     facility: scs
@@ -41,11 +41,25 @@ spec:
           emptyDir: {}
         - name: run
           emptyDir: {}
+      initContainers:
+        # --- We use both an initContainer *and* a sidecar to ensure initial content exists before initially bringing site up
+        # --- Note: see git-sync demo at https://github.com/kubernetes/git-sync/blob/master/demo/deployment.yaml#L18
+        - name: git-sync-init
+          image: registry.k8s.io/git-sync/git-sync:v4.2.3
+          args:
+            - --one-time
+            - --repo=https://github.com/slaclab/sdf-docs
+            - --ref=s3df-dev
+            - --root=/git
+            - --period=60s
+            - --link=head
+            - --max-failures=1000000000
+            - -v=2
+          volumeMounts:
+            - name: content
+              mountPath: /git
       containers:
         # --- Note: see git-sync demo at https://github.com/kubernetes/git-sync/blob/master/demo/deployment.yaml#L18
-        # This container pulls a git repo into the "content" volume.  If this
-        # were a "real" app it would probably have livenessProbe and resources,
-        # and maybe a secret to get credentials for your git server.
         - name: git-sync
           image: registry.k8s.io/git-sync/git-sync:v4.2.3
           args:
