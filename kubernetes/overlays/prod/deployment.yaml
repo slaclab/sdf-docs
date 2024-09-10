@@ -1,0 +1,90 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdf-docs
+  labels:
+    app: nginx-sdf-docs
+    facility: scs
+    space: sdf
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-sdf-docs
+      facility: scs
+      space: sdf
+  template:
+    metadata:
+      labels:
+        app: nginx-sdf-docs
+        facility: scs
+        space: sdf
+    spec:
+      securityContext:
+        runAsUser: 65534
+        runAsGroup: 65534
+        fsGroup: 65534
+      volumes:
+        - name: content
+          emptyDir: {}
+        - name: nginx-configmap-volume
+          configMap:
+            name: nginx-configmap
+            items:
+            - key: default.conf
+              path: default.conf
+            - key: mime.types
+              path: mime.types
+            - key: nginx.conf
+              path: nginx.conf
+        - name: cache
+          emptyDir: {}
+        - name: run
+          emptyDir: {}
+      initContainers:
+        # --- We use both an initContainer *and* a sidecar to ensure initial content exists before initially bringing site up
+        # --- Note: see git-sync demo at https://github.com/kubernetes/git-sync/blob/master/demo/deployment.yaml#L18
+        - name: git-sync-init
+          image: registry.k8s.io/git-sync/git-sync:v4.2.3
+          args:
+            - --one-time
+            - --repo=https://github.com/slaclab/sdf-docs
+            - --ref=s3df-dev
+            - --root=/git
+            - --period=60s
+            - --link=head
+            - --max-failures=1000000000
+            - -v=2
+          volumeMounts:
+            - name: content
+              mountPath: /git
+      containers:
+        # --- Note: see git-sync demo at https://github.com/kubernetes/git-sync/blob/master/demo/deployment.yaml#L18
+        - name: git-sync
+          image: registry.k8s.io/git-sync/git-sync:v4.2.3
+          args:
+            - --repo=https://github.com/slaclab/sdf-docs
+            - --ref=s3df
+            - --root=/git
+            - --period=60s
+            - --link=head
+            - --max-failures=1000000000
+            - -v=2
+          volumeMounts:
+            - name: content
+              mountPath: /git
+        - name: nginx
+          image: nginx:1.14.2
+          ports:
+          - containerPort: 8080
+          volumeMounts:
+            - name: content
+              mountPath: /git
+              readOnly: true
+            - name: nginx-configmap-volume
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
+            - name: cache
+              mountPath: /var/cache/nginx/
+            - name: run
+              mountPath: /var/run/
