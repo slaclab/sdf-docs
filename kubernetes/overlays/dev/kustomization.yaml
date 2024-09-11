@@ -1,5 +1,6 @@
 namespace: dev
 resources:
+- ns.yaml
 - ingress.yaml
 - service.yaml
 - deployment.yaml
