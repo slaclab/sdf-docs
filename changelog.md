@@ -4,24 +4,15 @@
 
 ### Current
 
+***OUTAGE 10/3/24 @ 3:25PM PDT : we appear to be having some issues with our home filesystem. this impacts access to your home directory as well as ssh logins. we are investigating and will report as soon as we find anything.***
+
 ### Upcoming
-
-Start:  2024-07-10 06:00 PDT  (2024-07-10 13:00 UTC)
-
-End:    2024-07-12 20:00 PDT  (2024-07-13 03:00 UTC)
-
-Urgent electrical maintenance is required in SRCF, the datacenter hosting S3DF.
-
-All S3DF services, including login nodes, batch systems, Kubernetes nodes,
-storage, and networking, will be unavailable during the maintenance window.
-
-**DDN Lustre storage will also be unavailable for up to 24hrs (2024-07-10 09:00AM PDT to 2024-07-11 09:00AM PDT)**
-  This means logins to the sdf-login.slac.stanford.edu login cluster will be unavailable during that time.
 
 ### Past
 
 |When	|Duration | What	|
 | --- | --- | --- |
+|Jul 10 2024	|4 days (planned)| Urgent electrical maintenance is required in SRCF datacenter
 |Jun 26 2023	|5 days (planned)| Everything down due to power outage|
 |Jan 15 2023 | 2 days (unplanned) | Fix: one weka server rebooted. Underlying issue under investigation. Symptom: sdfdata hanging on several nodes.|
 
