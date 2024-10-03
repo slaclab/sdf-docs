@@ -4,7 +4,7 @@
 
 ### Current
 
-***OUTAGE 10/3/24 @ 3:25PM PDT : we appear to be having some issues with our home filesystem. this impacts access to your home directory as well as ssh logins. we are investigating and will report as soon as we find anything.***
+***OUTAGE UPDATE 10/3/24 @ 4:28PM PDT : We have recovered from a storage issue that impacted access to home directories and ssh logins. Please report any suspected lingering issues to s3df-help@slac.stanford.edu. Thanks.***
 
 ### Upcoming
 
