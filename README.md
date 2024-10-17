@@ -6,7 +6,6 @@ and the Rubin observatory. The S3DF infrastructure is optimized for
 data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
-***OUTAGE UPDATE 10/3/24 @ 4:28PM PDT : We have recovered from a storage issue that impacted access to home directories and ssh logins. Please report any suspected lingering issues to s3df-help@slac.stanford.edu. Thanks.***
 
 ## Quick Reference
 
