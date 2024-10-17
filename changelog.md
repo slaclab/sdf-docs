@@ -4,14 +4,13 @@
 
 ### Current
 
-***OUTAGE UPDATE 10/3/24 @ 4:28PM PDT : We have recovered from a storage issue that impacted access to home directories and ssh logins. Please report any suspected lingering issues to s3df-help@slac.stanford.edu. Thanks.***
-
 ### Upcoming
 
 ### Past
 
 |When	|Duration | What	|
 | --- | --- | --- |
+|Oct 3 2024	|1.5 hrs (unplanned)| Storage issue impacted home directory access and SSH logins
 |Jul 10 2024	|4 days (planned)| Urgent electrical maintenance is required in SRCF datacenter
 |Jun 26 2023	|5 days (planned)| Everything down due to power outage|
 |Jan 15 2023 | 2 days (unplanned) | Fix: one weka server rebooted. Underlying issue under investigation. Symptom: sdfdata hanging on several nodes.|
