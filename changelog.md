@@ -5,7 +5,9 @@
 ### Current
 
 ### Upcoming
-
+|When	|Duration | What	|
+| --- | --- | --- |
+|Oct 21 2024	|10 hrs (planned)| Upgrade to all S3DF Weka clusters. We do NOT anticipate service interruptions.
 ### Past
 
 |When	|Duration | What	|
