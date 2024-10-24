@@ -61,27 +61,27 @@ their contents:
 | `/sdf/data/<groupname>/public_html` | https://s3df.slac.stanford.edu/data/&lt;groupname&gt; |
 
 
-?> Publicly accessible content hosted in S3DF is subject to the [SLAC
-Acceptable Use of Information Technology Resources
-Policy](https://slac.sharepoint.com/sites/SLACPolicies/Shared%20Documents/SLAC-only%20Policies/IT-057-Acceptable%20Use%20of%20Information%20Technology%20Resources.pdf).
+***S3DF Public HMTL Terms and Conditions of Use***
 
-?> In the future, requests for static web content hosting will be
-managed via the S3DF [Coact](https://s3df.slac.stanford.edu/coact)
-portal.
-
-?> The `.htaccess` mechanism for `public_html` subdirectory configuration
-and access is not allowed. S3DF does support password-protected access
-using Basic Authentication but only for group space. Please have the
-facility/group PoC contact
-[s3df-help](mailto:s3df-help@slac.stanford.edu) to enable
-password-protected access for those subdirectories.
-
-?> Symlinks to locations not under `public_html` , either on the S3DF
+> [!IMPORTANT] 
+> * This service is only for active S3DF users that maintain an affiliation with an S3DF facility.
+> * All requests for S3DF public HTML sharing via home directories will be reviewed by SCS on a case-by-case basis.
+> * submit requests via email to s3df-help@slac.stanford.edu or through the S3DF [Coact](https://s3df.slac.stanford.edu/coact)
+portal
+> * The use of this service is subject to SLAC’s “Acceptable Use of IT Resources” policy: https://policies.slac.stanford.edu/categories/information-technology/acceptable-use-information-technology-resources
+> * Approval may be rescinded if the use is seen to violate SLAC Acceptable Use policies
+> * Executable files (e.g. java, PHP, Tomcat) are not permitted, only static content.  Client side inline Javascript and stylesheets (CSS) are permitted.
+> * Symlinks to locations not under `public_html` , either on the S3DF
 filesystem or other network filesystems (e.g., SLAC AFS, SLAC GPFS,
 SDF Lustre, etc.), are not allowed and such links will not resolve
 when accessed via HTTP.
+> * Purely for SLAC business purposes
+> * Not for personal non-professional purposes
+> * We do not implement any form of authentication for public HTML sharing via home directories
+> * Stanford also provides personal website hosting for SLAC staff with a Stanford (SUNet) account: https://uit.stanford.edu/guide/website/personal
 
 ## S3DF Cron Tasks
+
 A dedicated cron node is provided for managing scheduled cron tasks.
 
 ?> User cron jobs are enabled only for this cron node.
