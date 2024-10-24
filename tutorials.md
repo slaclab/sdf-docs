@@ -101,7 +101,7 @@ S3DF primary filesystems are mounted under ```/sdf``` on all S3DF interactive an
 
 **What is the future of AFS?**
 
-AFS will be retired along with other RHEL6 infrastructure and other legacy platforms. Our goal is for S3DF native storage to be securely exported to test stands, control rooms, lab workstations, etc via authenticated NFS v4 where required. We want to migrate all user and group files off AFS by September 30th 2024. If you cannot meet this migration target, please contact s3df-help@slac.stanford.edu so we can discuss your requirement and seek an extension. Before we shutdown AFS, we will create a final copy of the entire ```/afs/slac``` directory tree and make select portions of it available read-only for a limited period of time. This will allow groups to copy data they may have forgotten to migrate earlier.
+AFS will be retired along with other RHEL6 infrastructure and other legacy platforms. Our goal is for S3DF native storage to be securely exported to test stands, control rooms, lab workstations, etc via authenticated NFS v4 where required. We want to migrate all user and group files off AFS by September 30th 2024. If you cannot meet this migration target, please contact s3df-help@slac.stanford.edu so we can discuss your requirement and seek an extension. Before we shutdown AFS, we will create a final copy of the entire ```/afs/slac``` directory tree and make select portions of it available read-only for a limited period of time. This will allow groups to copy data they may have forgotten to migrate earlier. However, we will no longer be able to perform tape restore requests (for files that were previously deleted) once AFS is shutdown; those requests must be made before AFS retirement.
 
 **Q: Who pays for S3DF Storage?**
 
