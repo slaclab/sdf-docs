@@ -10,6 +10,7 @@
 
 |When	|Duration | What	|
 | --- | --- | --- |
+|Oct 21 2024	|10 hrs (planned)| Upgrade to all S3DF Weka clusters. We do NOT anticipate service interruptions.
 |Oct 3 2024	|1.5 hrs (unplanned)| Storage issue impacted home directory access and SSH logins
 |Jul 10 2024	|4 days (planned)| Urgent electrical maintenance is required in SRCF datacenter
 |Jun 26 2023	|5 days (planned)| Everything down due to power outage|
