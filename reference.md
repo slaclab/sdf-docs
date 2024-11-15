@@ -40,10 +40,7 @@ The SLAC-wide legacy file systems AFS, GPFS, and SDF Lustre will be
 mounted read-only, and only on the interactive pools, to enable the
 migration of legacy data to S3DF storage:
 
-- AFS: `/fs/afs` The current plan is to use the afsnfs translator
-  since AFS ACLs do not map to POSIX anyway.  Some experimentation is
-  underway to see what issues might exist in any potential transfer to
-  S3DF.
+- AFS: For now, AFS is available read-only at the standard /afs path. Once AFS is retired, the current plan is to make a portion of it available read-only at the /fs/afs path.
 
 - GPFS: `/fs/gpfs` The current plan is to use NFS as the access
   method.  Affected systems: ACD, ATLAS, CryoEM, DES + DarkSky, Fermi,
