@@ -1,5 +1,6 @@
 * [Welcome](/)
 * [Access](accounts-and-access.md)
+* [Coact](coact.md)
 * [Usage](getting-started.md)
 * [Interactive Compute](interactive-compute.md)
 * [Batch Compute](batch-compute.md)
