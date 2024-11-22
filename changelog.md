@@ -5,6 +5,9 @@
 ### Current
 
 ### Upcoming
+|When	|Duration | What	|
+| --- | --- | --- |
+| Dec 3 2024 | 1 hr (planned) | On 12/3/24 between between 13:00 and 14:00 PDT, we will perform a mandatory upgrade of the slurm controller, the database, and the client components on all batch nodes, kubernetes nodes, and interactive nodes. Impact on Users: All job submissions (sbatch/srun/squeue) and slurm database queries (sacct) ***during*** the upgrade window will fail. Any jobs that are running before the upgrade window will continue to run. Completed jobs during the window will be accounted for after the system is back up. We recommend planning your work accordingly to minimize disruption. |
 
 ### Past
 
