@@ -3,6 +3,9 @@
 ## Outages
 
 ### Current
+|When	|Duration | What	|
+| --- | --- | --- |
+| Nov 25 2024 | open |  We are experiencing a  partial outage of the /gpfs/slac/staas/fs1 file system as one disk array has gone offline.  Work is ongoing. 
 
 ### Upcoming
 |When	|Duration | What	|
