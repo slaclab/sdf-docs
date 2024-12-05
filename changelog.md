@@ -5,14 +5,12 @@
 ### Current
 
 ### Upcoming
-|When	|Duration | What	|
-| --- | --- | --- |
-| Dec 3 2024 | 1 hr (planned) | On 12/3/24 between between 13:00 and 14:00 PDT, we will perform a mandatory upgrade of the slurm controller, the database, and the client components on all batch nodes, kubernetes nodes, and interactive nodes. Impact on Users: All job submissions (sbatch/srun/squeue) and slurm database queries (sacct) ***during*** the upgrade window will fail. Any jobs that are running before the upgrade window will continue to run. Completed jobs during the window will be accounted for after the system is back up. We recommend planning your work accordingly to minimize disruption. |
 
 ### Past
 
 |When	|Duration | What	|
 | --- | --- | --- |
+| Dec 3 2024 | 1 hr (planned) | Mandatory upgrade of the slurm controller, the database, and the client components on all batch nodes, kubernetes nodes, and interactive nodes. 
 |Oct 21 2024	|10 hrs (planned)| Upgrade to all S3DF Weka clusters. We do NOT anticipate service interruptions.
 |Oct 3 2024	|1.5 hrs (unplanned)| Storage issue impacted home directory access and SSH logins
 |Jul 10 2024	|4 days (planned)| Urgent electrical maintenance is required in SRCF datacenter
