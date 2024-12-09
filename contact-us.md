@@ -21,21 +21,30 @@ S3DF and you don't see your facility in this table.
 
 |Facility | PoC | Primary POSIX group|
 |--- |--- |--- |
-|Rubin | Richard Dubois | rubin_users |
+|Rubin | James Chiang, Adam Bolton | rubin_users |
 |SuperCDMS | Concetta Cartaro | cdms |
 |LCLS | pcds-datamgt-l@slac.stanford.edu | ps-users |
-|MLI| Daniel Ratner | - |
-|Neutrino| Kazuhiro Terao | - |
-|AD | Greg White | - |
+|MLI| Daniel Ratner | mli |
+|Neutrino| Kazuhiro Terao | nu |
+|AD | Greg White | cd |
 |SUNCAT | Johannes Voss| suncat-norm |
-|Fermi | Richard Dubois| glast-pipeline |
+|Fermi | Seth Digel, Nicola Omodei| glast-pipeline |
 |EPPTheory | Tom Rizzo | theorygrp |
-|FACET | Nathan Majernik | - |
-|DESC | Tom Glanzman | desc |
-|KIPAC | Stuart Marshall | ki |
+|FACET | Nathan Majernik | facet |
+|DESC | Heather Kelly | desc |
+|KIPAC | Marcelo Alvarez | ki |
 |RFAR | David Bizzozero | rfar |
-|SIMES | Tom Devereaux | - |
-|CryoEM | Yee Ting Li | - |
-|SSRL | Riti Sarangi | - |
-|LDMX | Omar Moreno | - |
-|HPS | Omar Moreno | - |
+|SIMES | Tom Devereaux, Brian Moritz | simes |
+|CryoEM | Patrick Pascual | cryo-data |
+|SSRL | Riti Sarangi | ssrl |
+|LDMX | Omar Moreno | ldmx |
+|HPS | Mathew Graham | hps |
+|EXO | Brian Mong | exo |
+|ATLAS | Wei Yang, Michael Kagan | atlas |
+|CDS | Ernest Williams | cds |
+|SRS | Tony Johnson | srs |
+|FADERS | Ryan Herbst | faders |
+|TOPAS | Joseph Perl | topas |
+|RP | Thomas Frosio | esh-rp |
+|Projects | Yemi Adesanya, Ryan Herbst | - |
+|SCS | Omar Quijano, Yee Ting Li, Gregg Thayer | - |
