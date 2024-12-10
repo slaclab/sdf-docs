@@ -82,7 +82,7 @@ The documentation uses [docsify.js](https://docsify.js.org/) to render [markdown
 
 
 
-## Slurm FAQ :SlurmFAQ
+## Slurm FAQ :id=slurm-faq
 
 The official Slurm documentation can be found at the [SchedMD
 site](https://slurm.schedmd.com/documentation.html).

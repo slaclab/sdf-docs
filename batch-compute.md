@@ -8,7 +8,7 @@ that the compute resources available in S3DF are fairly and
 efficiently shared and distributed for all users. This page describes
 S3DF specific Slurm information. If you haven't used Slurm before, you
 can find general information on using this workflow manager in our
-[Slurm reference FAQ](reference.md#slurm-daq).
+[Slurm reference FAQ](reference.md#slurm-faq).
 
 ## Clusters & Repos
 
