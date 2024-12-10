@@ -1,14 +1,14 @@
 # Interactive Compute
 
-## Terminal
+## Using A Terminal
 
-### Interactive Pools
+### Interactive Pools :id=interactive-pools 
 
-Once you land on the login nodes, either via a terminal or via a NoMachine desktop, you will need to ssh to one of the interactive pools to access the data, build/debug your code, run simple analyses, or submit jobs to the [batch system](batch-compute.md). If your organization has acquired dedicated resources for the interactive pools, use them; otherwise, connect to the S3DF shared interactive pool.
+In order to access compute and storage resources in S3DF, you will need to log onto our interactive nodes. After, login to our bastion hosts either via a [ssh terminal session or via NoMachine](accounts-and-access.md#how-to-connect), you will then need to ssh to one of the interactive pools to access the data, build/debug your code, run simple analyses, or submit jobs to the [batch system](batch-compute.md). If your organization has acquired dedicated resources for the interactive pools, use them; otherwise, you can connect to the S3DF shared interactive pool.
 
-?> Note: After log in into our bastion hosts with `ssh s3dflogin.slac.stanford.edu`, you will need to then also log into our interactive nodes to access batch compute and data. You can do this via `ssh <pool name>` within your ssh session (same terminal) to get into the bastion hosts.
+?> Note: After log in into our bastion hosts with `ssh s3dflogin.slac.stanford.edu`, you will need to then need to log into our interactive nodes to access batch compute and data. You can do this via `ssh <pool name>` within your ssh session (same terminal) to get into the bastion hosts.
 
-The currently available pools are shown in the table below. (The facility can be any organization, program, project, or group that interfaces with S3DF to acquire resources.)
+The currently available pools are shown in the table below (The facility can be any organization, program, project, or group that interfaces with S3DF to acquire resources).
 
 |Pool name | Facility | Resources |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ The currently available pools are shown in the table below. (The facility can be
 |neutrino | Neutrino |  (points to iana) |
 |mli | MLI (ML Initiative) |  (points to iana) |
 
-### Interactive session using Slurm
+### Interactive Compute Session Using Slurm
 
 Under some circumstances, for example if you need more, or different, resources than available in the interactive pools, you may want to run an interactive session using resources from the batch system. This can be achieved through the Slurm command srun:
 
@@ -33,30 +33,34 @@ Under some circumstances, for example if you need more, or different, resources 
 srun --partition <partitionname> --account <accountname> -n 1 --time=01:00:00 --pty /bin/bash
 ```
 
-This will execute `/bin/bash` on a (scheduled) server in the Slurm partition `<partitionname>` (see [partition names](batch-compute.md#partitions-amp-accounts)), allocating a single CPU for one hour, charging the time to account `<accountname>` (you'll have to get this from whoever gave you access to S3DF), and launching a pseudo terminal (pty) where bash will run. See [batch banking](batch-compute.md#banking) to understand how your organization is charged (computing time, not money) when you use the batch system.
+This will execute `/bin/bash` on a (scheduled) server in the Slurm partition `<partitionname>` (see [partition names](batch-compute.md#partitions-amp-accounts)), allocating a single CPU for one hour, charging the time to account `<accountname>` (you'll have to get this information from whoever gave you access to S3DF), and launching a pseudo terminal (pty) where `/bin/bash` will run (hence giving you an interactive terminal). See [batch banking](batch-compute.md#banking) to understand how your organization is charged (computing time, not money) when you use the batch system.
 
 Note that when you 'exit' the interactive session, it will relinquish the resources for someone else to use. This also means that if your terminal is disconnected (you turn your laptop off, loose network etc), then the job will also terminate (similar to ssh).
 
-To support X11, add the "--x11" option:
+To support tunnelling X11 back to your computer, add the "--x11" option:
 
 ```
-srun --x11 --partition <partitionname> --account <accountname> -n 1 --time=01:00:00 --pty /bin/bash
+srun --x11 --partition <partitionname> --account <accountname> -n 1 --time=01:00:00 --pty /usr/bin/xterm
 ```
 
-## Browser
+## Using A Browser
 
-Users can also access S3DF through Open [OnDemand](https://s3df.slac.stanford.edu/ondemand) via any (modern) browser. This solution is recommended for users who want to run Jupyter notebooks, or don't want to learn SLURM, or don't want to download a terminal or the NoMachine remote desktop on their system. After login, you can select which Jupyter image to run and which hardware resources to use (partition name and number of hours/cpu-cores/memory/gpu-cores). The partition can be the name of an interactive pool or the name of a SLURM partition. You can choose an interactive pool as partition if you want a long-running session requiring sporadic resources; otherwise slect a SLURM partition. Note that no GPUs are currently available on the interactive pools.
+Users can also access S3DF through [Open OnDemand](https://s3df.slac.stanford.edu/ondemand) via any (modern) browser. This solution is recommended for users who want to run Jupyter notebooks, or don't want to learn SLURM, or don't want to download a terminal or the NoMachine remote desktop on their system. After login, you can select which Jupyter image to run and which hardware resources to use (partition name and number of hours/cpu-cores/memory/gpu-cores). The partition can be the name of an interactive pool or the name of a SLURM partition. You can choose an interactive pool as partition if you want a long-running session requiring sporadic resources; otherwise slect a SLURM partition. Note that no GPUs are currently available on the interactive pools.
 
-### Shell
+### Web Shell
 
-After login onto OnDemand, select the Clusters tab and then select the
-interactive pool from the pull down menu. This will allow you to
+After login onto [OnDemand]((https://s3df.slac.stanford.edu/ondemand), select the Clusters tab and then select the
+desired [interactive pool](#interactive-pools) from the pull down menu. This will allow you to
 obtain a shell on the interactive pools without using a terminal.
+
+You can also obtain direct access to the [Interactive Analysis Web Shell](https://s3df.slac.stanford.edu/pun/sys/shell/ssh/iana.sdf.slac.stanford.edu) without needing to go through a separate bastion.
+
 
 ### Jupyter :id=jupyter
 
 We provide automatic tunnels through our [ondemand](https://openondemand.org/) proxy of [Jupyter](https://jupyter.org/) instances. This means that in order to run Jupyter kernels on S3DF, you do not need to setup a chain of SSH tunnels in order to show the Jupyter web instance.
 
+You can [launch a new juptyer session](https://s3df.slac.stanford.edu/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new) via the provided web form. You can choose to run your jupyter instance on either Batch nodes or the Interactive nodes via the 'Run on cluster type' dropdown. Note that with the former, you will need to select the appropriate cpu and memory resources in advance to run your notebook. Hoewver, for the latter, you will most likely be contending your jupyter resources against others who are also logged on to the interactive node.
 
 ### 'bring-your-own-Jupyter'
 
@@ -102,5 +106,6 @@ Fill the rest of the form as you would for any provided Jupyter Instance and cli
 
 #### Debugging your interactive session :id=debugging
 
-If you get an error while using your Jupyter instance, go to the [My Interactive sessions page](https://s3df.slac.stanford.edu/pun/sys/dashboard/batch_connect/sessions), identify the session you want to debu and click on the **Session ID** link. You can then *View* the `output.log` file to troubleshoot.
+If you get an error while using your Jupyter instance, go to the [My Interactive sessions page](https://s3df.slac.stanford.edu/pun/sys/dashboard/batch_connect/sessions), identify the session you want to debug and click on the **Session ID** link. You can then *View* the `output.log` file to troubleshoot.
+
 
