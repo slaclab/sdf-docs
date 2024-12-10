@@ -43,7 +43,7 @@ To support tunnelling X11 back to your computer, add the "--x11" option:
 srun --x11 --partition <partitionname> --account <accountname> -n 1 --time=01:00:00 --pty /usr/bin/xterm
 ```
 
-## Using A Browser
+## Using A Browser and OnDemand :id=ondemand
 
 Users can also access S3DF through [Open OnDemand](https://s3df.slac.stanford.edu/ondemand) via any (modern) browser. This solution is recommended for users who want to run Jupyter notebooks, or don't want to learn SLURM, or don't want to download a terminal or the NoMachine remote desktop on their system. After login, you can select which Jupyter image to run and which hardware resources to use (partition name and number of hours/cpu-cores/memory/gpu-cores). The partition can be the name of an interactive pool or the name of a SLURM partition. You can choose an interactive pool as partition if you want a long-running session requiring sporadic resources; otherwise slect a SLURM partition. Note that no GPUs are currently available on the interactive pools.
 
@@ -60,7 +60,7 @@ You can also obtain direct access to the [Interactive Analysis Web Shell](https:
 
 We provide automatic tunnels through our [ondemand](https://openondemand.org/) proxy of [Jupyter](https://jupyter.org/) instances. This means that in order to run Jupyter kernels on S3DF, you do not need to setup a chain of SSH tunnels in order to show the Jupyter web instance.
 
-You can [launch a new juptyer session](https://s3df.slac.stanford.edu/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new) via the provided web form. You can choose to run your jupyter instance on either Batch nodes or the Interactive nodes via the 'Run on cluster type' dropdown. Note that with the former, you will need to select the appropriate cpu and memory resources in advance to run your notebook. Hoewver, for the latter, you will most likely be contending your jupyter resources against others who are also logged on to the interactive node.
+You can [launch a new juptyer session via the provided web form](https://s3df.slac.stanford.edu/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new). You may choose to run your jupyter instance on either Batch nodes or the Interactive nodes via the **Run on cluster type** dropdown. Note that with the former, you will need to select the appropriate cpu and memory resources in advance to run your notebook. Hoewver, for the latter, you will most likely be contending your jupyter resources against others who are also logged on to the interactive node.
 
 ### 'bring-your-own-Jupyter'
 
