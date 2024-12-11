@@ -72,6 +72,6 @@ use applications like Jupyter, you can also launch a web-based
 terminal using OnDemand:\
 [`https://s3df.slac.stanford.edu/ondemand`](https://s3df.slac.stanford.edu/ondemand).\
 You can find more information about using OnDemand in the [OnDemand
-reference](reference.md#ondemand).
+reference](interactive-compute.md#ondemand).
 
 ![S3DF users access](assets/S3DF_users_access.png)
