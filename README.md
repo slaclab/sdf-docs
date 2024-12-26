@@ -6,7 +6,7 @@ and the Rubin observatory. The S3DF infrastructure is optimized for
 data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
-**S3DF will remain operational over the Winter shutdown (Dec 21st 2024 to Jan 5th 2025). Staff will be taking time off as per SLAC guidelines. S3DF resources will continue to be managed remotely if there are interruptions to operations. Response times for issues will vary, depending on the criticality of the issue. [Full details are here](https://s3df.slac.stanford.edu/#/changelog).**
+**December 26th 8:00am PST: ALL S3DF services are currently DOWN/unavailable. We are investigating and will provide an update later today.**
 
 ## Quick Reference
 
