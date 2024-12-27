@@ -8,7 +8,7 @@ that the compute resources available in S3DF are fairly and
 efficiently shared and distributed for all users. This page describes
 S3DF specific Slurm information. If you haven't used Slurm before, you
 can find general information on using this workflow manager in our
-[Slurm reference FAQ](reference.md#slurm-daq).
+[Slurm reference FAQ](reference.md#slurm-faq).
 
 ## Clusters & Repos
 
@@ -84,7 +84,7 @@ cluster/partition.
 | milano | Milan 7713 | 120 | 480 GB | - | - | 300 GB | 136 |
 | ampere | Rome 7542 | 112 (hyperthreaded) | 952 GB | Tesla A100 (40GB) | 4 | 14 TB | 42 |
 | turing | Intel Xeon Gold 5118 | 40 (hyperthreaded) | 160 GB | NVIDIA GeForce 2080Ti | 10 | 300 GB | 27 |
-| ada | AMD EPYC 9454 | 72(hyperthreaded) | 702 GB | NVIDIA L40S | 10 | 21 TB | 6 |
+| ada | AMD EPYC 9454 | 72 (hyperthreaded) | 702 GB | NVIDIA L40S | 10 | 21 TB | 6 |
 
 ### Banking
 

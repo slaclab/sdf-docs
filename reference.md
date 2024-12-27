@@ -11,17 +11,6 @@ In order to access S3DF, host is set to s3dfnx.slac.stanford.edu, port to 22, an
 ![NX-connection](assets/nx-connection.png)
 ![NX-session](assets/nx-session.png)
 
-### OnDemand :ondemand
-
-[Open OnDemand](https://openondemand.org/) is a web-based terminal. As long as you keep your web browser open, or are not using your browsers private browsing feature, you should only need to authenticate again about once a day. 
-
-?> __TODO__ more about module avail etc.
-
-We also provide common compilation tools...
-
-?> __TODO__ describe compilation tools etc.
-
-
 
 ## FAQ :faq
 
@@ -40,10 +29,7 @@ The SLAC-wide legacy file systems AFS, GPFS, and SDF Lustre will be
 mounted read-only, and only on the interactive pools, to enable the
 migration of legacy data to S3DF storage:
 
-- AFS: `/fs/afs` The current plan is to use the afsnfs translator
-  since AFS ACLs do not map to POSIX anyway.  Some experimentation is
-  underway to see what issues might exist in any potential transfer to
-  S3DF.
+- AFS: For now, AFS is available read-only at the standard /afs path. Once AFS is retired, the current plan is to make a portion of it available read-only at the /fs/afs path.
 
 - GPFS: `/fs/gpfs` The current plan is to use NFS as the access
   method.  Affected systems: ACD, ATLAS, CryoEM, DES + DarkSky, Fermi,
@@ -96,7 +82,7 @@ The documentation uses [docsify.js](https://docsify.js.org/) to render [markdown
 
 
 
-## Slurm FAQ :SlurmFAQ
+## Slurm FAQ :id=slurm-faq
 
 The official Slurm documentation can be found at the [SchedMD
 site](https://slurm.schedmd.com/documentation.html).
