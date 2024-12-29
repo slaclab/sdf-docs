@@ -6,7 +6,7 @@ and the Rubin observatory. The S3DF infrastructure is optimized for
 data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
-**December 26th 8:00am PST: ALL S3DF services are currently DOWN/unavailable. We are investigating and will provide an update later today.**
+**December 29th 11:00am PST: S3DF and services are available. However, a few of the interactive nodes remain down as we still have to address some network issues related to them. Users will still be able to access interactive resources via the "iana" pool if facility-specific resources are unavailable. As always, please do continue to report issues via email to s3df-help@slac.stanford.edu**
 
 ## Quick Reference
 
