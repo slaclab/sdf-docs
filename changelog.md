@@ -43,7 +43,7 @@ If critical issues are not responded to within 2 hours of reporting the issue pl
 
 ### Current
 
-**January 2nd 6:00pm PST: ALL S3DF services remain DOWN (except for login bastions). The team is actively troubleshooting. We will provide another update at 10am PST tomorrow.**
+**January 3rd 9:35am PST: Today the team is working to address issues on the internal S3DF network. As a result, all S3DF services remain DOWN. Our next update will be at 3pm PST today.**
 
 ### Upcoming
 
