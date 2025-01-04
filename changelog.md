@@ -43,7 +43,7 @@ If critical issues are not responded to within 2 hours of reporting the issue pl
 
 ### Current
 
-**January 3rd 2:55pm PST: We have made some updates to the S3DF network. We continue to work on stabilizing storage. All S3DF services remain DOWN. Our next update will be at 8pm PST today.**
+**January 3rd 6:45pm PST: Our team will continue to work throughout the weekend to resolve S3DF storage issues. All S3DF services remain DOWN. Our next update will be at 9am PST on Monday.**
 
 ### Upcoming
 
