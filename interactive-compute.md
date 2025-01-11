@@ -119,7 +119,7 @@ export PROMPT_COMMAND='[ -f /singularity ] && PS1="(apptainer) ${PS1}"; unset PR
 ```
 This would make the terminals that you open in Jupyter Lab appear with your customary prompt, except for the additional `(apptainer) ` prefix.
 
-Fill the rest of the form as you would for any provided Jupyter Instance and click "Launch". If you run into any issues, please see [Debugging your interactive session](#debugging).
+Complete the rest of the form as you would for any provided Jupyter Instance and click "Launch". If you run into any issues, please see [Debugging your interactive session](#debugging).
 
 
 #### Debugging your interactive session :id=debugging
