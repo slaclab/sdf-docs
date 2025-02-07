@@ -6,7 +6,7 @@ and the Rubin observatory. The S3DF infrastructure is optimized for
 data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
-**We are continuing to recover S3DF - specifically we are having issues with the SDFdata Ceph tiering filesystem and are working to recover it. We will provide the next update at 10PM PST**
+**We are continuing to recover S3DF - specifically we are having issues with the SDFdata Ceph tiering filesystem and are working to recover it. We will provide the next update at Midnight 12:00AM PST**
 
 ## Quick Reference
 
