@@ -37,17 +37,26 @@ To promote long term consistency, the S3DF directory structure provides immutabl
 
 ## Backup and Archiving
 
-- Everything under `/sdf/{home, sw, group}` will be backed up. We currently use snapshots taken at regular intervals (e.g., a few times a day) that are accessible with no intervention from the system administrators. A subset of the snapshots will be copied to tape at a lower rate (e.g., once a day). Snapshots for\
+- Everything under `/sdf/{home, sw, group}` will be backed up. We currently use snapshots taken at regular intervals (e.g., a few times a day) that users can access with no intervention from system administrators. A subset of the snapshots will be copied to tape at a lower rate (e.g., once a day). Snapshots for\
 `/sdf/{home, sw, group}/<folder>`\
 can be found at\
-`/sdf/{home, sw, group}/.snapshots/<gmttime>/<folder>`
+`/sdf/{home, sw, group}/.snapshots/<GMT_time>/<folder>`
 
-- Files/objects under `/sdf/data` will be archived according to a data retention policy defined by the facility. Facilities will be responsible for covering the media costs and overhead required by their policy. Derived data (results) may be backed up, or archived, or somewhere in between - TBD.
+- Files/objects under `/sdf/data` will be backed up or archived according to a data retention policy defined by the facility. Facilities will be responsible for covering the media costs and overhead required by their policy. Similar to the /sdf/home area, you can also check in /sdf/data/\<facility\>/.snapshots to see if snapshots are enabled for self-service restores.
 
-- The scratch spaces under `/sdf/scratch` and directories named "nobackup" (located *anywhere* in an /sdf path) will not be backed up or archived. Please use as many "nobackup" subdirectory locations as required for any files that do not need backup.  That can save significant tape and processing resources.
+- The scratch spaces under `/sdf/scratch` and all directories named "nobackup" (located *anywhere* in an /sdf path) will not be backed up or archived. Please use as many "nobackup" subdirectory locations as required for any files that do not need backup.  That can save significant tape and processing resources.
 
-- A subset of users in each group will be able to access the command line interface to HPSS for the purpose of archiving/retrieving data to/from tape. Unlike backups, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (contact SCS for assistance).
-
+- A subset of users in some groups will be able to access the command line interface to HPSS for the purpose of archiving/retrieving data to/from tape. Unlike backups, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (contact SCS for assistance).
 
 ?> The current and target backup and archiving policies are summarized in this [reference section on data backup](reference.md#backup).
 
+## Change to AFS Tape Backup Retention Policy
+March 31, 2025
+
+Summary: due to the upcoming retirement of a legacy tape library, the tape backup retention policy for the legacy AFS file system will be reduced from one year to one month (31 days), effective May 14, 2025 (the deadline date). This policy change means any request to restore accidentally deleted files must be created within one month (rather than one year) of the deletion event. In addition, if a user deleted an AFS file more than one month prior to the deadline date and needs it restored, they have until the deadline date to create a restore request via email to s3df-help@slac.stanford.edu.
+
+Details: the AFS file system used for legacy Unix home directory and group file storage originally started with a one-year tape backup retention policy. This meant that the tape backup system used to store backup copies of files had the ability to go back approximately one year and restore files that were accidentally deleted.
+
+The legacy AFS file system will be retired before the end of 2025. Since a restore request for an AFS file requires the AFS file system itself to be online, the current retention policy would require the AFS file system to remain running for one year beyond its public retirement date just to satisfy restore requests. Since that will not be possible, the tape backup retention policy for legacy AFS files is being reduced from one year to one month (defined as 31 days) effective May 14, 2025 (the deadline date).
+
+This policy change means any request to restore accidentally deleted files must be created within one month (rather than one year) of the deletion event. In addition, if a user deleted an AFS file more than one month prior to the deadline date and needs it restored, they have until the deadline date to create a restore request via email to s3df-help@slac.stanford.edu. After the deadline date, the backup system will be able to restore an AFS file only if it was deleted within the last one month.
