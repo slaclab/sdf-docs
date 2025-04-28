@@ -44,32 +44,19 @@ migration of legacy data to S3DF storage:
 
 Current backup/archive situation
 
-| File system | Snapshot | Tape backup (TSM) | Tape archive (HPSS) | Done by | Paid by |
+| File system | Snapshots? | Tape backup (TSM) | Tape archive (HPSS) | Done by | Paid by |
 | --- | --- | --- | --- | --- | --- |
-| sdfhome | To flash | Yes | No | S3DF | SLAC |
-| sdfscratch | No | No | No | - | - |
+| /sdf/data | No | Yes | Available* | S3DF | Group |
+| /sdf/group | Yes | Yes | No | S3DF | SLAC |
+| /sdf/home | Yes | Yes | No | S3DF | SLAC |
+| /sdf/scratch | No | No | No | - | - |
+| /sdf/sw | Yes | Yes | No | S3DF | SLAC |
 | sdfk8s | To flash | No | No | S3DF | SLAC |
-| sdfdata | To tiering layer | On demand | Active, from files | S3DF | SLAC |
-| sdfdata:/u | To tiering layer | On demand | No | S3DF | Group |
-| S3 direct | No | No | No | No | No | 
+| S3 direct** | No | No | No | No | Group | 
 
+*In some cases, groups can appoint a Data Manager to copy their /sdf/data directory to an HPSS archive instead of using TSM backups. In either case, the group is responsible for tape media purchases.
 
-Target backup/archive strategy
-
-| File system | Snapshot | Tape backup (TSM-like) | Tape archive (HPSS-like) | Done by | Paid by |
-| --- | --- | --- | --- | --- | --- |
-| sdfhome | To S3 bucket | No | From S3 snapshots | S3DF | SLAC | 
-| sdfscratch | No | No | No | - | - |
-| sdfk8s | To S3 bucket | No | From S3 snapshots | S3DF | SLAC |
-| sdfdata | To S3 bucket | No | Active, from files | Group | Group |
-| sdfdata:/u | To S3 bucket | No | From S3 snapshots | S3DF | Group |
-| S3 direct | No | No | From S3 | Group | Group | 
-
-?> sdfdata:/u indicates folders that logically belong to sdfgroup but
-are too large to be paid for by SLAC.
-
-?> The target backup strategy is aspirational, we need to find the
-right tools to copy from S3 to tape.
+**We are still evaluating tools to copy from S3 to tape.
 
 
 ### May I Contribute to the S3DF Documentation? :id=docsify
