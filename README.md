@@ -6,10 +6,15 @@ and the Rubin observatory. The S3DF infrastructure is optimized for
 data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
-***S3DF Outage: Monday June 2nd 9:53am PDT***
+***S3DF Outage: Monday June 2nd 1:15pm PDT***
 
 
-**Power has been restored. Network is stable, we're working on making sure all systems are back on-line.**
+**S3DF compute and interactive login nodes are online.
+We are still recovering SDFData ("/sdf/data/") filesystems.
+Slurm batch jobs are running, but any workloads that attempt to access /sdf/data will most likely hang.
+k8s clusters are up but some applications are blocked on storage resources and we are actively troubleshooting them.
+We are currently replacing 2 failed PDUs (that have impacted recovery of Ceph and k8s).
+Next update will be at 4pm PDT.**
 
 
 ## Quick Reference
