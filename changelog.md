@@ -5,7 +5,9 @@
 ### Current
 
 ### Upcoming
-
+|When	|Duration | What	|
+| --- | --- | --- |
+| July 7th 2025 | 13 hrs (planned) | The Stanford Facilities team need to conduct an evaluation of the SRCF datacenter transformers. All S3DF services will be unavailable.
 ### Past
 
 |When	|Duration | What	|
