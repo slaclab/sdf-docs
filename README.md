@@ -6,20 +6,11 @@ and the Rubin observatory. The S3DF infrastructure is optimized for
 data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
-***S3DF Outage Update: Monday June 2nd 4:15pm PDT***
+***S3DF Outage scheduled for Monday July 7th 7am to 8pm PDT***
 
-**The team has been able to recover the following systems:**
 
-**SDFData (/sdf/data) filesystems**
-
-**Kubernetes services (still checking DB integrity)**
-
-**Ampere, ADA, and Milan compute clusters**
-
-**The old SDFDirect S3 cluster is still recovering, but it is expected to be operational within a few hours.
-The team is working on getting all computing nodes online.
-Please let us know if you encounter any issues or have any questions.**
-
+**The Stanford Facilities team need to conduct an evaluation of the SRCF datacenter transformers. This work will require a full outage of all S3DF services.**
+**More details will be posted on [our outage page](https://s3df.slac.stanford.edu/#/changelog?id=outages)**
 
 ## Quick Reference
 
