@@ -28,11 +28,11 @@ To promote long term consistency, the S3DF directory structure provides immutabl
 
 - Home directory permissions will be delegated to each user. By default, home folders will be readable by everyone, though you can change that by changing UNIX permissions on one or more of your folders. Everyone will be able to list `/sdf/home/<u>`.
 
-- General purpose software will go under sw. Group specific software will go under `/sdf/group` and will be maintained by each group.
+- General purpose software will go under /sdf/sw. Group specific software will go under `/sdf/group` and will be maintained by each group.
 
 - Some groups may decide to logically hold all their information under `/sdf/group/<groupname>`. Such a structure may be implemented by each group via symlinks. The actual mount points and relative backup and archive policies will be based on the structure shown above. 
 
-?> __TODO__ Desktop/endpoint access to S3DF file systems will likely be via authenticated NFS v4.  This is currently a topic of investigation as we wait for an updated WekaFS release.
+?> __TODO__ Desktop/endpoint access to S3DF file systems will likely be via authenticated NFS v4.  This is currently a topic of investigation for future implementation.
 
 
 ## Backup and Archiving
@@ -46,7 +46,7 @@ can be found at\
 
 - The scratch spaces under `/sdf/scratch` and all directories named "nobackup" (located *anywhere* in an /sdf path) will not be backed up or archived. Please use as many "nobackup" subdirectory locations as required for any files that do not need backup.  That can save significant tape and processing resources.
 
-- A subset of users in some groups will be able to access the command line interface to HPSS for the purpose of archiving/retrieving data to/from tape. Unlike backups, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (contact SCS for assistance).
+- Data administrators in some groups will be able to access the command line interface to HPSS for the purpose of archiving/retrieving data to/from tape. Unlike backups, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (contact SCS for assistance).
 
 ?> The current and target backup and archiving policies are summarized in this [reference section on data backup](reference.md#backup).
 
