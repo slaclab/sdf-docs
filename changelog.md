@@ -5,9 +5,52 @@
 ### Current
 
 ### Upcoming
+
+The Stanford Facilities team need to conduct an evaluation of the SRCF datacenter transformers which feed the compute portions of SDFData and the S3DF Kubernetes resources.
+This work will require a **full outage of all S3DF services on July 7th 2025 from 4AM to 8PM PDT.**
+We will also use this maintenance opportunity to implement:
+
+#### S3DF New Core Network
+
+1.6 Tbps aggregate to the SLAC backbone
+
+Up to 800 Gbps to each S3DF Top-Of-Rack switch
+
+#### Storage Upgrades
+
+NFS improvements in terms of performance and reliability
+
+New metrics for better observability
+
+Better memory allocation
+
+#### All S3DF storage, compute, interactive and hosted applications will be unavailable for the duration of the outage. This includes:
+
+Login Bastions
+
+OnDemand/Jupyter
+
+Interactive pools
+
+Kubernetes and VMware services and applications
+
+DTNs
+
+All filesystems and Object Storage: Home, Data, Scratch, k8s, S3
+
+#### All Compute CPU and GPU clusters will be unavailable. The slurm batch scheduler will prevent scheduling of jobs that conflict with the July 7th 4AM to 8PM outage window.
+
+Leading up to the outage, more details will shared on our website: https://s3df.slac.stanford.edu/#/changelog?id=outages. During the outage we will provide status updates on the progress on the Confluence page at: https://confluence.slac.stanford.edu/spaces/S3DFSTATUS/pages/479600957/S3DF-Status+Home and on the #comp-sdf Slack channel.
+We are prioritizing this outage because transformer failures may result in unscheduled power outages for critical S3DF infrastructure. 
+
+Thank you
+
+S3DF Team
+
+
 |When	|Duration | What	|
 | --- | --- | --- |
-| July 7th 2025 | 13 hrs (planned) | The Stanford Facilities team need to conduct an evaluation of the SRCF datacenter transformers. All S3DF services will be unavailable.
+| July 7th 2025 | 18 hrs (planned) | The Stanford Facilities team need to conduct an evaluation of the SRCF datacenter transformers. All S3DF services will be unavailable.
 ### Past
 
 |When	|Duration | What	|
