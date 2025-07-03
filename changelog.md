@@ -40,6 +40,11 @@ All filesystems and Object Storage: Home, Data, Scratch, k8s, S3
 
 #### All Compute CPU and GPU clusters will be unavailable. The slurm batch scheduler will prevent scheduling of jobs that conflict with the July 7th 4AM to 8PM outage window.
 
+#### For maintainers/developers of S3DF Kubernetes workloads:
+
+As with previous planned maintenance outages, we plan to pause Kubernetes vCluster workloads in S3DF prior to gracefully powering down the worker nodes. This should preserve state and once the Kubernetes worker nodes are back online, we will resume the workloads and services should come back online. Please verify that your workloads are operational once the outage window is complete.
+
+
 Leading up to the outage, more details will shared on our website: https://s3df.slac.stanford.edu/#/changelog?id=outages. During the outage we will provide status updates on the progress on the Confluence page at: https://confluence.slac.stanford.edu/spaces/S3DFSTATUS/pages/479600957/S3DF-Status+Home and on the #comp-sdf Slack channel.
 We are prioritizing this outage because transformer failures may result in unscheduled power outages for critical S3DF infrastructure. 
 
