@@ -49,7 +49,7 @@ Users can also access S3DF through [Open OnDemand](https://s3df.slac.stanford.ed
 
 ### Web Shell
 
-After login onto [OnDemand]((https://s3df.slac.stanford.edu/ondemand), select the Clusters tab and then select the
+After login onto [OnDemand](https://s3df.slac.stanford.edu/ondemand), select the Clusters tab and then select the
 desired [interactive pool](#interactive-pools) from the pull down menu. This will allow you to
 obtain a shell on the interactive pools without using a terminal.
 
