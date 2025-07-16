@@ -2,27 +2,38 @@
 
 ## Directory Structure
 
-To promote long term consistency, the S3DF directory structure provides immutable paths, independent from the underlying file system organization and technology:
+To promote long term consistency, the S3DF directory structure provides immutable paths, independent from the underlying file system organization and technology. This means the /sdf paths below will remain the same even as upgrades happen in the future.
 
 * `/sdf`: Root mount point.
 
-* `/sdf/home/<u>/<username>`: Home directories.  Space quotas imposed for all users.
+* `/sdf/home/<u>/<username>`: Home directories.  Quotas are enabled for all users.
 
 * `/sdf/sw/<package>/<version>`: For general purpose software not installed on each node, e.g., EPICS, Matlab, matplotlib, GEANT4, etc.  Not meant for software that is used by only one group.
 
-* `/sdf/group/<organization>/<groupname>` or `/sdf/group/<groupname>`: For group/project specific software (e.g., lcls/psdm, ad/hla, etc.)
+* `/sdf/group/<organization>/<groupname>` or `/sdf/group/<groupname>`: For group/project specific software (e.g., lcls/psdm, ad/hla, etc). Quotas are enabled for all groups.
 
-* `/sdf/data/<facility>/…`: For science data (as opposed to code, documents, etc), including raw, calibrated data, and results. Some examples:
+* `/sdf/data/<facility>/…`: For science data (as opposed to code, documents, etc), including raw, calibrated data, and results. Quotas are enabled for all data directories. Some examples:
   - LCLS experimental: `/sdf/data/lcls/<instrument>/<experiment>`
   - LCLS accelerator: `/sdf/data/lcls/accel/<bld|bsa|ca|...>`
   - FACET experimental: `/sdf/data/facet/<instrument>/<experiment>`
   - FACET accelerator: `/sdf/data/facet/accel/`
   - CryoEM: `/sdf/data/cryoem/<YYYYMM>/<experiment>`
 
-* `/sdf/scratch/<facility>/…`: 3 months retention on a best effort basis (actual retention can be shorter or longer depending on actual usage. NOTE: as of July 2024, the auto-purge policy is not in effect.)
+* `/sdf/scratch/<facility>/…`: 3 months retention on a best effort basis. Actual retention can be shorter or longer depending on space availability. Quotas are enabled for all scratch directories. NOTE: as of June 2025, the auto-purge policy is not in effect, but could be enabled at any time. Protect your data accordingly. 
 
 ?> Access to AFS, GPFS, and SDF Lustre from S3DF is described in this
 [reference section on legacy file systems](reference.md#legacyfs).
+
+## Quotas
+
+Most directories have some kind of quota assigned to them. Use the `df <directory>` command to check a directory quota. The current default quota limits are:
+
+* `/sdf/home`: 30 GB (provided to users by SLAC)
+* `/sdf/group`: 10 TB (provided to groups or facilities by SLAC)
+* `/sdf/sw`: varies (specific software repositories only, provided by SLAC)
+* `/sdf/data`: varies according to how much a group or facility purchased
+* `/sdf/scratch/users`: 100 GB (short term space, provided by SLAC)
+* `/sdf/scratch/<group>`: varies according to how much a group or facility purchased; short term space, up to 5 TB provided by SLAC
 
 ## Policies
 
