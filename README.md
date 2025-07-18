@@ -6,11 +6,6 @@ and the Rubin observatory. The S3DF infrastructure is optimized for
 data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
-***S3DF Outage scheduled for Monday July 7th from 4am to 8pm PDT***
-
-
-**The Stanford Facilities team need to conduct an evaluation of the SRCF datacenter transformers. This work will require a full outage of all S3DF services.**
-**More details will be posted on [our outage page](https://s3df.slac.stanford.edu/#/changelog?id=outages)**
 
 ## Quick Reference
 
