@@ -6,7 +6,7 @@ To promote long term consistency, the S3DF directory structure provides immutabl
 
 * `/sdf`: Root mount point.
 
-* `/sdf/home/<u>/<username>`: Home directories.  Space quotas imposed for all users.
+* `/sdf/home/<u>/<username>`: For home directories.  Space quotas imposed for all users.
 
 * `/sdf/sw/<package>/<version>`: For general purpose software not installed on each node, e.g., EPICS, Matlab, matplotlib, GEANT4, etc.  Not meant for software that is used by only one group.
 
@@ -19,7 +19,9 @@ To promote long term consistency, the S3DF directory structure provides immutabl
   - FACET accelerator: `/sdf/data/facet/accel/`
   - CryoEM: `/sdf/data/cryoem/<YYYYMM>/<experiment>`
 
-* `/sdf/scratch/<facility>/…`: 3 months retention on a best effort basis (actual retention can be shorter or longer depending on actual usage. NOTE: as of July 2024, the auto-purge policy is not in effect.)
+* `/sdf/scratch/<facility>/…`: For short-term, temporary group files. 3 months retention on a best effort basis (actual retention can be shorter or longer depending on actual usage. NOTE: as of July 2024, the auto-purge policy is not in effect.)
+
+* `/sdf/scratch/users/<u>/<username> or ${SCRATCH}`: For short-term, temporary user files. 1 month retention on a best effort basis (actual retention can be shorter or longer depending on actual usage. NOTE: as of July 2024, the auto-purge policy is not in effect.)
 
 ?> Access to AFS, GPFS, and SDF Lustre from S3DF is described in this
 [reference section on legacy file systems](reference.md#legacyfs).
@@ -30,21 +32,21 @@ To promote long term consistency, the S3DF directory structure provides immutabl
 
 - General purpose software will go under sw. Group specific software will go under `/sdf/group` and will be maintained by each group.
 
-- Some groups may decide to logically hold all their information under `/sdf/group/<groupname>`. Such a structure may be implemented by each group via symlinks. The actual mount points and relative backup and archive policies will be based on the structure shown above. 
+- Some groups may decide to logically hold all their information under `/sdf/group/<groupname>`. Such a structure may be implemented by each group via symlinks. The actual mount points and related backup and archive policies will be based on the directory structure section above. 
 
 ?> __TODO__ Desktop/endpoint access to S3DF file systems will likely be via authenticated NFS v4.  This is currently a topic of investigation as we wait for an updated WekaFS release.
 
 
 ## Backup and Archiving
 
-- Everything under `/sdf/{home, sw, group}` will be backed up. We currently use snapshots taken at regular intervals (e.g., a few times a day) that users can access with no intervention from system administrators. A subset of the snapshots will be copied to tape at a lower rate (e.g., once a day). Snapshots for\
+- Everything under `/sdf/{home, sw, group}` will be backed up. We currently use snapshots taken at regular intervals (e.g., a few times a day) that users can access with no intervention from system administrators. You must copy snapshot files back to their original locations if you're performing your own file restores. A subset of the snapshots will be copied to tape at a lower rate (e.g., once a day). Snapshots for\
 `/sdf/{home, sw, group}/<folder>`\
 can be found at\
 `/sdf/{home, sw, group}/.snapshots/<GMT_time>/<folder>`
 
-- Files/objects under `/sdf/data` will be backed up or archived according to a data retention policy defined by the facility. Facilities will be responsible for covering the media costs and overhead required by their policy. Similar to the /sdf/home area, you can also check in /sdf/data/\<facility\>/.snapshots to see if snapshots are enabled for self-service restores.
+- Files/objects under `/sdf/data` will be backed up or archived according to a data retention policy defined by the facility. Facilities will be responsible for covering the media costs and overhead required by their policy. Similar to the /sdf/home area, you can also check in /sdf/data/\<facility\>/.snapshots to see if snapshots are enabled for self-service file restores.
 
-- The scratch spaces under `/sdf/scratch` and all directories named "nobackup" (located *anywhere* in an /sdf path) will not be backed up or archived. Please use as many "nobackup" subdirectory locations as required for any files that do not need backup.  That can save significant tape and processing resources.
+- The scratch spaces under `/sdf/scratch` and all directories named "nobackup" (located *anywhere* in any /sdf path) will not be backed up or archived. Please use as many "nobackup" subdirectory locations as required for any files that do not need backup.  That can save significant tape and processing resources.
 
 - A subset of users in some groups will be able to access the command line interface to HPSS for the purpose of archiving/retrieving data to/from tape. Unlike backups, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (contact SCS for assistance).
 
