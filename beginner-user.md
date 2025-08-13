@@ -1,6 +1,6 @@
 # Table of Contents
 - [Quick Start Workflow](quickstart.md)
-- [Getting Started](beginner-user/index.md)
+- [Getting Started](beginner-users/index.md)
   - [Logging on to S3DF](getting-started/logging-on-to-s3df.md)
   - [Clusters & Repos](getting-started/clusters-and-repos.md)
   - [Running Jobs](getting-started/preparing-and-submitting-slurm-job-scripts.md)
