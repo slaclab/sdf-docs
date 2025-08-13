@@ -1,4 +1,4 @@
-# Welcome Home: A Beginner’s Guide to Using S3DF
+# A Beginner’s Guide to Using S3DF
 
 Welcome to the SLAC Shared Scientific Data Facility (S3DF)! This guide is designed for all users—especially those new to high-performance computing. Whether you're just getting started or need a quick refresher, this guide will walk you through the essentials:
 
