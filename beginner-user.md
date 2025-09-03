@@ -2,10 +2,10 @@
 
 Welcome to S3DF! This guide provides a clear, step-by-step workflow for all users, particularly those with limited computing experience. In this document, we will walk you through how to:
 
-Log in to the S3DF system
-Navigate directories and storage spaces
-Access supported applications
-Prepare and submit a job script
+- Log in to the S3DF system
+- Navigate directories and storage spaces
+- Access supported applications
+- Prepare and submit a job script
 Follow these instructions to efficiently connect to the S3DF environment and run your desired software. Let's get started!
   
 
