@@ -1,5 +1,5 @@
 # Table of Contents
-- [Quick Start Workflow](gettingstarted/quickstart.md)
+- [Quick Start Workflow](../gettingstarted/quickstart.md)
 - [Getting Started](gettingstarted/index.md)
   - [Logging on to S3DF](gettingstarted/logging-on-to-s3df.md)
   - [Clusters & Repos](gettingstarted/clusters-and-repos.md)
