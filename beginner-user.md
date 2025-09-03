@@ -1,4 +1,15 @@
- 
+# S3DF User Guide
+
+Welcome to the S3DF SLAC Shared Science Data Facility User Guide! This repository is designed to help new users access and utilize the S3DF platform effectively.
+
+## Table of Contents
+- [Getting Started](gettingstarted/index.md)
+- [Logging on to S3DF](gettingstarted/logging-on-to-s3df.md)
+- [Clusters & Repos](gettingstarted/clusters-and-repos.md)
+- [Preparing and Submitting Slurm Job Scripts](gettingstarted/preparing-and-submitting-slurm-job-scripts.md)
+- [Examples](gettingstarted/examples/)
+
+  
 # Quick Start Workflow
 
 This guide provides a clear step-by-step workflow for using the S3DF system. Follow these instructions to efficiently connect to the S3DF environment and run your desired software.
