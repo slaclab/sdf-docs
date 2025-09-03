@@ -1,14 +1,5 @@
-# Table of Contents
-- [Quick Start Workflow](../gettingstarted/quickstart.md)
-- [Getting Started](gettingstarted/index.md)
-  - [Logging on to S3DF](gettingstarted/logging-on-to-s3df.md)
-  - [Clusters & Repos](gettingstarted/clusters-and-repos.md)
-  - [Running Jobs](gettingstarted/preparing-and-submitting-slurm-job-scripts.md)
-- [Examples](gettingstarted/examples/)
-  - [terminal](gettingstarted/examples/terminal.md)
-  - [ondemand](gettingstarted/examples/ondemand.md)
  
-# S3DF General Workflow Guide
+# Quick Start Workflow
 
 This guide provides a clear step-by-step workflow for using the S3DF system. Follow these instructions to efficiently connect to the S3DF environment and run your desired software.
 
