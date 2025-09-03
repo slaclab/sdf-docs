@@ -1,4 +1,4 @@
-# S3DF User Guide
+# Getting Started at S3DF 
 
 Welcome to the S3DF SLAC Shared Science Data Facility User Guide! This repository is designed to help new users access and utilize the S3DF platform effectively.
 
