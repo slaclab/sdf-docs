@@ -46,11 +46,12 @@ There are three primary methods to access S3DF:
 
 1. **SSH** (Secure Shell):
 
- - You can connect using any SSH client, such as OpenSSH or PuTTY, via standard TCP port 22 to reach the S3DF load-balanced bastion pool at s3dflogin.slac.stanford.edu
+ - You can connect using any SSH client, such as [OpenSSH](www.openssh.com) or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/), via standard TCP port 22 to reach the S3DF load-balanced bastion pool at s3dflogin.slac.stanford.edu
    
         ssh username@login-node-address
    
- - Please note that these bastion hosts do not have storage access except for your home directory. After connecting, you must hop onto an Interactive Node to access S3DF batch compute resources and storage
+ - Please note that these bastion hosts do not have storage access except for your home directory. After connecting, you must hop onto an [Interactive
+Node](interactive-compute.md#interactive-pools)to access S3DF batch compute resources and storage.  
    
         ssh username@pool-node-address
    
@@ -70,36 +71,5 @@ There are three primary methods to access S3DF:
  - For further information on using OnDemand, please refer to the OnDemand reference documentation [OnDemand
 reference](interactive-compute.md#ondemand).
 
-There are three mechanisms to access S3DF:
-
-1. **SSH**: You can connect using any SSH client, such as
-[OpenSSH](www.openssh.com) or
-[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/), on the
-standard TCP port 22, to connect to the S3DF load balanced bastion pool
-`s3dflogin.slac.stanford.edu`. Note that these nodes do not have access to
-storage (except for your home directory). From these bastion hosts, you
-should hop onto an [Interactive
-Node](interactive-compute.md#interactive-pools) to access S3DF batch compute
-and storage.
-
-?> Windows users may see an error message about a "*Corrupted MAC on
-input*" or "*message authentication code incorrect.*"
-The workaround is to add "*-m hmac-sha2-512*" to the ssh command, i.e.
-`ssh -m hmac-sha2-512 <username>@s3dflogin.slac.stanford.edu`
-
-2. **NoMachine**: NoMachine provides a special remote desktop that is
-specifically designed to improve, compared to ssh, the performance of
-X11 graphics over slow connection speeds. Another important feature is
-that it preserves the state of your desktop across multiple
-sessions, including when your internet session unexpectedly gets dropped. The login pool for NoMachine is
-`s3dfnx.slac.stanford.edu`. You can find more information about this
-access mode in the [NoMachine reference](reference.md#nomachine).
-
-3. **OnDemand**: If you do not have a terminal handy or you want to
-use applications like Jupyter, you can also launch a web-based
-terminal using OnDemand:\
-[`https://s3df.slac.stanford.edu/ondemand`](https://s3df.slac.stanford.edu/ondemand).\
-You can find more information about using OnDemand in the [OnDemand
-reference](interactive-compute.md#ondemand).
 
 ![S3DF users access](assets/S3DF_users_access.png)
