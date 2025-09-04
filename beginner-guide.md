@@ -11,7 +11,7 @@ These items illustrate a typical workflow for many S3DF users, particularly thos
 
 Before we dive into the details, please remember that you can always reach out for [assistance](contact-us.md)
 
-## 1. Connect to S3DF: there are three primary methods to [access](accounts-and-access.md#connect) S3DF 
+##  Connect to S3DF: there are three primary methods to [access](accounts-and-access.md#connect) S3DF 
    - **SSH** (Secure Shell):
       - You can connect Login Node using any SSH client
 
@@ -24,29 +24,29 @@ Before we dive into the details, please remember that you can always reach out f
    - **OnDemand**: you can access a web-based terminal via OnDemand [`https://s3df.slac.stanford.edu/ondemand`](https://s3df.slac.stanford.edu/ondemand). For further information, please refer to [OnDemand
 reference](interactive-compute.md#ondemand).
 
-## 3. Run Desired Software
+##  Storage System
 
 - You can run your desired software interactively. For instance, if you need to use HFSS, launch it from the pool node.
 - Alternatively, if you're configuring input files for other software, such as ACE3P, proceed to the next step.
 
-## 4. Configure Input Files
+##  Compute Nodes
 
 - Prepare and configure the necessary input files for the software you intend to use. Ensure all files are correctly set up for your simulations.
 
-## 5. Submit Jobs to a Compute Node
+## Prepare and Submit Slurm Job Scripts
 
 - Use the sbatch command to submit your jobs to a compute node for execution.
 - Example command:
 
             sbatch your-job-script.sbatch
 
-## 6. Check Status of Running Jobs (Optional)
+## Accessing Supported Applications Check Status of Running Jobs (Optional)
 
 - To monitor the status of your submitted jobs, use the following command:
   
             squeue -u username
 
-## 7. View Data Output
+## Get Help
 
  - Once your jobs have completed, you can view the data output directly on the pool node to ensure results are as expected.
 
