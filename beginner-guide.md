@@ -1,4 +1,4 @@
-# Getting Started at S3DF 
+# A Beginner's Guide ti using S3DF 
 
 Welcome to S3DF! This guide provides a clear, step-by-step workflow for all users, particularly those with limited computing experience. In this document, we will walk you through how to:
 
