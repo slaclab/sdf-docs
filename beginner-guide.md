@@ -21,7 +21,7 @@ Before we dive into the details, please remember that you can always reach out f
 
               ssh username@pool-node-address
    - **NoMachine**: [NoMachine reference](reference.md#nomachine) offers a specialized remote desktop solution that enhances X11 graphics performance over slow connections compared to SSH.
-   - **OnDemand**: you can access a web-based terminal via OnDemand [`https://s3df.slac.stanford.edu/ondemand`](https://s3df.slac.stanford.edu/ondemand). For further information on using OnDemand, please refer to the OnDemand reference documentation [OnDemand
+   - **OnDemand**: you can access a web-based terminal via OnDemand [`https://s3df.slac.stanford.edu/ondemand`](https://s3df.slac.stanford.edu/ondemand). For further information, please refer to [OnDemand
 reference](interactive-compute.md#ondemand).
 
 ## 3. Run Desired Software
