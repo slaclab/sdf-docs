@@ -15,12 +15,11 @@ Before we dive into the details, please remember that you can always reach out f
    - **SSH** (Secure Shell):
       - You can connect Login Node using any SSH client
 
-           ssh username@login-node-address
+              ssh username@login-node-address
 
-      - After successfully connecting to the Login Node, establish a second connection to a Pool Node using SSH [Interactive
-Node](interactive-compute.md#interactive-pools)to access S3DF batch compute resources and storage.  
+      - After successfully connecting to the Login Node, establish a second connection to a [Pool Node](interactive-compute.md#interactive-pools) using SSH to access S3DF batch compute resources and storage.  
 
-           ssh username@pool-node-address
+              ssh username@pool-node-address
 
 ## 3. Run Desired Software
 
