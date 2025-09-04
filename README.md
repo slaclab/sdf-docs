@@ -22,4 +22,4 @@ concurrency storage systems.
 | S3DF Dashboard & Monitoring | https://grafana.slac.stanford.edu|
 
 
-![SRCF-II](assets/Resource.png)
+![Resource](assets/Resource.png)
