@@ -17,10 +17,10 @@ Before we dive into the details, please remember that you can always reach out f
 
               ssh username@login-node-address
 
-      - After successfully connecting to the Login Node, establish a second connection to a [Pool Node](interactive-compute.md#interactive-pools) using SSH to access S3DF batch compute resources and storage.  
+      - After successfully connecting to the Login Node, establish a second connection to a [Pool Node] (interactive-compute.md#interactive-pools) using SSH to access S3DF batch compute resources and storage.  
 
               ssh username@pool-node-address
-   - **NoMachine**: NoMachine offers a specialized remote desktop solution that enhances X11 graphics performance over slow connections compared to SSH[NoMachine reference](reference.md#nomachine)
+   - **NoMachine**: [NoMachine reference](reference.md#nomachine) offers a specialized remote desktop solution that enhances X11 graphics performance over slow connections compared to SSH.
    - **OnDemand**: you can access a web-based terminal via OnDemand [`https://s3df.slac.stanford.edu/ondemand`](https://s3df.slac.stanford.edu/ondemand). For further information on using OnDemand, please refer to the OnDemand reference documentation [OnDemand
 reference](interactive-compute.md#ondemand).
 
