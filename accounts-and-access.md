@@ -66,7 +66,7 @@ There are three primary methods to access S3DF:
 
 3. **OnDemand**:
 
- - If you prefer not to use a terminal or want to run applications such as Jupyter, you can access a web-based terminal via OnDemand at https://s3df.slac.stanford.edu/ondemand.
+ - If you prefer not to use a terminal or want to run applications such as Jupyter, you can access a web-based terminal via OnDemand [`https://s3df.slac.stanford.edu/ondemand`](https://s3df.slac.stanford.edu/ondemand).
  - For further information on using OnDemand, please refer to the OnDemand reference documentation [OnDemand
 reference](interactive-compute.md#ondemand).
 
