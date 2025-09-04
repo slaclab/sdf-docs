@@ -1,5 +1,6 @@
 * [Welcome](/)
 * [Getting Started](beginner-user.md)
+* [Beginner Guide](beginner-guide.md)
 * [Access](accounts-and-access.md)
 * [Usage](getting-started.md)
 * [Interactive Compute](interactive-compute.md)
