@@ -1,4 +1,4 @@
-# A Beginner's Guide ti using S3DF 
+# A Beginner's Guide to using S3DF 
 
 Welcome to S3DF! This guide provides a clear, step-by-step workflow for all users, particularly those with limited computing experience. In this document, we will walk you through how to:
 
@@ -6,25 +6,21 @@ Welcome to S3DF! This guide provides a clear, step-by-step workflow for all user
 - Navigate directories and storage spaces
 - Access supported applications
 - Prepare and submit a job script
-Follow these instructions to efficiently connect to the S3DF environment and run your desired software. Let's get started!
 
 These items illustrate a typical workflow for many S3DF users, particularly those utilizing our systems for extensive calculations. These calculations may encompass simulations of physical phenomena, data pre-processing or post-processing, and various forms of data generation or analysis.
 
 Before we dive into the details, please remember that you can always reach out for assistance [Conatct Us](contact-us.md)
 
-## 1. Connect to a Login Node
+## 1. Connect to S3DF: there are three primary methods to access S3DF [Access](accounts-and-access.md#connect)
+   - **SSH** (Secure Shell):
+      - You can connect Login Node using any SSH client
 
-- Use SSH or NoMachine to connect to a login node. This is your initial access point to the system.
-- Example command for SSH:
+        ssh username@login-node-address
 
-                ssh username@login-node-address
+      - After successfully connecting to the Login Node, establish a second connection to a Pool Node using SSH [Interactive
+Node](interactive-compute.md#interactive-pools)to access S3DF batch compute resources and storage.  
 
-## 2. Connect to a Pool Node
-
-- After successfully connecting to the login node, establish a second connection to a pool node using SSH.
-- Example command:
-
-              ssh username@pool-node-address
+        ssh username@pool-node-address
 
 ## 3. Run Desired Software
 
