@@ -11,7 +11,7 @@ These items illustrate a typical workflow for many S3DF users, particularly thos
 
 Before we dive into the details, please remember that you can always reach out for assistance [Conatct Us](contact-us.md)
 
-## 1. Connect to S3DF: there are three primary methods to access S3DF [Access](accounts-and-access.md#connect)
+## 1. Connect to S3DF: there are three primary methods to [access](accounts-and-access.md#connect) S3DF 
    - **SSH** (Secure Shell):
       - You can connect Login Node using any SSH client
 
