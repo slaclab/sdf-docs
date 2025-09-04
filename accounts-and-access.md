@@ -44,7 +44,7 @@ Make sure you comply with all SLAC training and cybersecurity requirements to av
 
 There are three primary methods to access S3DF:
 
-1. SSH (Secure Shell):
+1. **SSH** (Secure Shell):
 
  - You can connect using any SSH client, such as OpenSSH or PuTTY, via standard TCP port 22 to reach the S3DF load-balanced bastion pool at s3dflogin.slac.stanford.edu
    
@@ -58,16 +58,16 @@ There are three primary methods to access S3DF:
 
         ssh -m hmac-sha2-512 <username>@s3dflogin.slac.stanford.edu
 
-2. NoMachine:
+2. **NoMachine**:
 
  - NoMachine offers a specialized remote desktop solution that enhances X11 graphics performance over slow connections compared to SSH.
  - An added benefit is that it maintains your desktop state across sessions, even if your internet connection is dropped unexpectedly.
  - Use the login pool for NoMachine at s3dfnx.slac.stanford.edu. Additional details about this access method can be found in the NoMachine reference documentation [NoMachine reference](reference.md#nomachine)
 
-3. OnDemand:
+3. **OnDemand**:
 
-If you prefer not to use a terminal or want to run applications such as Jupyter, you can access a web-based terminal via OnDemand at https://s3df.slac.stanford.edu/ondemand.
-For further information on using OnDemand, please refer to the OnDemand reference documentation [OnDemand
+ - If you prefer not to use a terminal or want to run applications such as Jupyter, you can access a web-based terminal via OnDemand at https://s3df.slac.stanford.edu/ondemand.
+ - For further information on using OnDemand, please refer to the OnDemand reference documentation [OnDemand
 reference](interactive-compute.md#ondemand).
 
 There are three mechanisms to access S3DF:
