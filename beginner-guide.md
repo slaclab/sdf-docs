@@ -7,7 +7,10 @@ Welcome to S3DF! This guide provides a clear, step-by-step workflow for all user
 - Access supported applications
 - Prepare and submit a job script
 Follow these instructions to efficiently connect to the S3DF environment and run your desired software. Let's get started!
-  
+
+These items illustrate a typical workflow for many S3DF users, particularly those utilizing our systems for extensive calculations. These calculations may encompass simulations of physical phenomena, data pre-processing or post-processing, and various forms of data generation or analysis.
+
+Before we dive into the details, please remember that you can always reach out for assistance [Conatct Us](contact-us.md)
 
 ## 1. Connect to a Login Node
 
