@@ -1,5 +1,5 @@
 * [Welcome](/)
-* [Getting Started](beginner-user.md)
+* [Getting Started](GettingStarted.md)
 * [Beginner Guide](beginner-guide.md)
 * [Access](accounts-and-access.md)
 * [Usage](getting-started.md)
