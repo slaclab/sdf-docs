@@ -6,7 +6,7 @@
 SLAC employees, affiliated researchers, and experimental facility users are eligible for an S3DF account. 
 ?> Please note that S3DF authentication requires a SLAC UNIX account.
 
-### Steps to Acquire an S3DF Account
+### Steps to Acquire a S3DF Account
 
 #### Step 1: Obtain a SLAC UNIX Account
 If you do not already have a SLAC UNIX account, follow these steps to [get a SLAC UNIX account](slac-unix-account.md)
