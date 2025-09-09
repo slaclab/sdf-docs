@@ -11,6 +11,8 @@ To utilize the S3DF facilities, you must first [acquire a S3DF account](accounts
 The documentation will guide you to [access S3DF](accounts.md#connect)
 
 ## Computing Resources 
+S3DF offers a variety of high-performance computing resources that are accessible. 
+### [roma](systems.md#roma)
 
 ## Storage Resources
 
