@@ -1,7 +1,7 @@
 # Computing Resources
 
 
-## roma
+## roma :roma
 
  - CPU Model: Rome 7702
  - Usable Cores per Node: 120
@@ -14,7 +14,7 @@
 
    ![roma](assets/roma.png)
    
-## milano
+## milano :milano
 
  - CPU Model: Milan 7713
  - Usable Cores per Node: 120
@@ -27,7 +27,7 @@
 
    ![milano](assets/milano.png)
    
-## ampere
+## ampere :ampere
 
  - CPU Model: Rome 7542
  - Usable Cores per Node: 112 (hyperthreaded)
@@ -40,7 +40,7 @@ Overview: The Ampere cluster offers high memory and GPU capabilities with 4 Tesl
 
    ![ampere](assets/ampere.png)
    
-## turing
+## turing :turing
 
  - CPU Model: Intel Xeon Gold 5118
  - Usable Cores per Node: 40 (hyperthreaded)
@@ -53,7 +53,7 @@ Overview: The Turing cluster combines a moderate number of cores with multiple N
 
    ![turing](assets/turing.png)
    
-## ada
+## ada :ada
 CPU Model: AMD EPYC 9454
 Usable Cores per Node: 72 (hyperthreaded)
 Usable Memory per Node: 702 GB
