@@ -1,6 +1,6 @@
 # SLAC UNIX account
 
-## Get a SLAC UNIX ID:
+## Get a SLAC UNIX ID
   - Affiliated users/experimental facility users: Obtain a SLAC ID via the [Scientific Collaborative Researcher Registration process](https://it.slac.stanford.edu/identity/scientific-collaborative-researcher-registration) form
   - SLAC employees: You should already have a SLAC ID number.
   
@@ -22,7 +22,7 @@ In your request indicate your SLAC ID and your preferred account name (include a
 
  - ake sure you comply with all SLAC training and cybersecurity requirements to avoid having your account disabled. You will be notified of these requirements via email.
 
-# Register Your SLAC UNIX Account in S3DF:register
+# Register Your SLAC UNIX Account in S3DF :register
 
  -  Log into the [Coact S3DF User Portal](https://s3df.slac.stanford.edu/coact) using your SLAC UNIX account via the "Log in with S3DF (unix)" option.
  - Click on "Repos" in the menu bar.
