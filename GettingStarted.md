@@ -12,7 +12,12 @@ The documentation will guide you to [access S3DF](accounts.md#connect)
 
 ## Computing Resources 
 S3DF offers a variety of high-performance computing resources that are accessible. 
+
 ### [roma](systems.md#roma)
+### [milano](systems.md#milano)
+### [ampere](systems.md#ampere)
+### [turing](systems.md#turing)
+### [ada](systems.md#ada)
 
 ## Storage Resources
 
