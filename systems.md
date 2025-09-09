@@ -11,7 +11,7 @@
  - Local Scratch: 300 GB
  - Number of Nodes: 129
  Overview: The Roma cluster is equipped with 120 cores and 480 GB of memory per node, making it suitable for a variety of computational tasks requiring substantial processing power.
-
+   [roma](assets/roma.png)
 ## milano
 ## ampere
 ## turling
