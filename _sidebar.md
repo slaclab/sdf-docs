@@ -3,7 +3,7 @@
 * [Beginner Guide](beginner-guide.md)
 * [Accounts & Access](accounts.md)
 * [Systems](systems.md)
-* [Storage](data-and-storage.md)
+* [Storage](storage.md)
 * [Software](software.md)
 * [Run Jobs](run.md)
 * [Manage Data](managedata.md)
