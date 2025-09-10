@@ -94,19 +94,19 @@ Here is an example SLURM job script named run.sbatch:
         mpirun /sdf/group/rfar/ace3p/bin/omega3p pillbox.omega3p
 
 
-5. Submit Jobs to a Compute Node
+ - 5. Submit Jobs to a Compute Node
 Use the sbatch command to submit your job to a compute node for execution:
 
         sbatch run.sbatch
 
-6. Check the Status of Running Jobs (Optional)
+ - 6. Check the Status of Running Jobs (Optional)
 To monitor the status of your submitted jobs, run the following command:
 
         squeue -u username
 
-7. View Data Output
+- 7. View Data Output
 Once your jobs have completed, you can view the data output directly on the pool node to verify that the results are as expected.
 
-8. Transfer Data (If Necessary)
+- 8. Transfer Data (If Necessary)
 If you need to transfer data, connect to a data transfer node to facilitate the movement of your files. Use appropriate file transfer commands (e.g., scp, rsync) to move your data to the desired location.
 
