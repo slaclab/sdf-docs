@@ -1,6 +1,6 @@
 * [Welcome](/)
 * [Getting Started](GettingStarted.md)
-* [Beginner Guide](beginner-user.md)
+* [Beginner's Guide](beginner-user.md)
 * [Accounts & Access](accounts.md)
 * [Systems](systems.md)
 * [Storage](storage.md)
