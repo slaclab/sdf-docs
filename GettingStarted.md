@@ -31,13 +31,15 @@ To ensure long-term consistency, the S3DF directory structure features immutable
 
 - S3DF encourages experts outside of the SCS to leverage Lmod for providing, supporting, maintaining, and sharing the software tools they develop.  
 
-## Running Jobs
+## [Running Jobs](run.md)
+There are three different ways of run jobs on S3DF
+- Interactive
+- Batch
+- Service  
 
-## Interactive Computing
+## [Data Transfers](managedata.md)
+s3dfdtn.slac.stanford.edu is a load-balanced DNS name which points to a pool of dedicated data transfer nodes. It is open to everyone with an S3DF account. Common tools like scp/sftp/rsync are available for casual data transfers. For serious large volume data transfer, you may consider bbcp and globus.
 
-## Debugging and Profiling
-   
+## [Getting Help](help.md)
+There are many resources available to assist you in utilizing S3DF effectively. The S3DF support team is always here to help you with any questions or challenges you may encounter. 
 
-## Data Transfers
-
-## Getting Help
