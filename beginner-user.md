@@ -21,7 +21,7 @@ Follow these instructions to efficiently connect to the S3DF environment and run
 - After successfully connecting to the login node, establish a second connection to a pool node using SSH.
 - Example command:
 
-              ssh username@pool-node-address
+                  ssh username@pool-node-address
 
 ## 3. Run Desired Software
 
@@ -73,7 +73,7 @@ To start, connect to the login node using the following command:
 - 2. Connect to a Pool Node
 After successfully connecting to the login node, establish a second connection to a pool node using SSH. For example:
 
-        ssh iana
+                  ssh iana
      
 - 3. Set Up the Running Environment
 To set up the running environment, create a bash file containing all necessary commands, and then execute the bash file.
@@ -82,7 +82,7 @@ To set up the running environment, create a bash file containing all necessary c
 Here is an example SLURM job script named run.sbatch:
 
 
-        #!/bin/bash
+                   #!/bin/bash
         #SBATCH --partition=milano
         #SBATCH --account=rfar
         #SBATCH --job-name=test
@@ -97,12 +97,12 @@ Here is an example SLURM job script named run.sbatch:
  - 5. Submit Jobs to a Compute Node
 Use the sbatch command to submit your job to a compute node for execution:
 
-        sbatch run.sbatch
+                  sbatch run.sbatch
 
  - 6. Check the Status of Running Jobs (Optional)
 To monitor the status of your submitted jobs, run the following command:
 
-        squeue -u username
+                  squeue -u username
 
 - 7. View Data Output
 Once your jobs have completed, you can view the data output directly on the pool node to verify that the results are as expected.
