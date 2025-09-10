@@ -38,7 +38,7 @@ There are three different ways of [run jobs](run.md) on S3DF
 - [Service](service-compute.md): Long-lived jobs that run in the background waiting for data to analyze.
 
 ## Data Transfers
-s3dfdtn.slac.stanford.edu is a load-balanced DNS name which points to a pool of dedicated data transfer nodes. It is open to everyone with an S3DF account. Common tools like scp/sftp/rsync are available for casual data transfers. For serious large volume data transfer, you may consider bbcp and globus. You can refer to [this] (managedata.md) for detailed information on data transfers in S3DF
+s3dfdtn.slac.stanford.edu is a load-balanced DNS name which points to a pool of dedicated data transfer nodes. It is open to everyone with an S3DF account. Common tools like scp/sftp/rsync are available for casual data transfers. For serious large volume data transfer, you may consider bbcp and globus. You can refer to [this](managedata.md) for detailed information on data transfers in S3DF
 
 The following graph provides a comprehensive overview of the S3DF facilities.
 
