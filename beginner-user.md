@@ -83,15 +83,15 @@ Here is an example SLURM job script named run.sbatch:
 
 
                    #!/bin/bash
-        #SBATCH --partition=milano
-        #SBATCH --account=rfar
-        #SBATCH --job-name=test
-        #SBATCH --output=output-%j.txt
-        #SBATCH --error=error-%j.txt
-        #SBATCH --nodes=1
-        #SBATCH --ntasks-per-node=16
-        #SBATCH --time=0-00:10:00
-        mpirun /sdf/group/rfar/ace3p/bin/omega3p pillbox.omega3p
+                  #SBATCH --partition=milano
+                  #SBATCH --account=rfar
+                  #SBATCH --job-name=test
+                  #SBATCH --output=output-%j.txt
+                  #SBATCH --error=error-%j.txt
+                  #SBATCH --nodes=1
+                  #SBATCH --ntasks-per-node=16
+                  #SBATCH --time=0-00:10:00
+                  mpirun /sdf/group/rfar/ace3p/bin/omega3p pillbox.omega3p
 
 
  - 5. Submit Jobs to a Compute Node
