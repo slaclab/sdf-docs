@@ -68,7 +68,7 @@ This example provides a clear, step-by-step workflow for running software, ACE3P
 - 1. Connect to a Login Node
 To start, connect to the login node using the following command:
 
-        ssh username@s3dflogin.slac.stanford.edu
+                  ssh username@s3dflogin.slac.stanford.edu
 
 - 2. Connect to a Pool Node
 After successfully connecting to the login node, establish a second connection to a pool node using SSH. For example:
