@@ -23,14 +23,17 @@ Follow these instructions to efficiently connect to the S3DF environment and run
 
                   ssh username@pool-node-address
 
-## 3. Run Desired Software
+## 3. Setup Running Environment
 
-- You can run your desired software interactively. For instance, if you need to use HFSS, launch it from the pool node.
-- Alternatively, if you're configuring input files for other software, such as ACE3P, proceed to the next step.
+- S3DF uses the Lmod Module system to administrate common software packages
+- There are default modules that are loaded into your environment upon logging in
+- S3DF encourages experts from non-SCS to use Lmod to provide, support, maintain and share software tools they build.
+- 
+## 4. Slurm Job Script
 
-## 4. Configure Input Files
-
-- Prepare and configure the necessary input files for the software you intend to use. Ensure all files are correctly set up for your simulations.
+- [Slurm](refernece.md#slurm-faq) is a batch scheduler that enables users to submit compute jobs of varying scope to our compute clusters. 
+- It will queue up jobs such that the compute resources available in S3DF are fairly and efficiently shared and distributed for all users.
+- Prepare a slurm job script
 
 ## 5. Submit Jobs to a Compute Node
 
