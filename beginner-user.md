@@ -14,7 +14,7 @@ Follow these instructions to efficiently connect to the S3DF environment and run
 - Use SSH or NoMachine to connect to a login node. This is your initial access point to the system.
 - Example command for SSH:
 
-                ssh username@login-node-address
+                  ssh username@login-node-address
 
 ## 2. Connect to a Pool Node
 
