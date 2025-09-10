@@ -4,9 +4,9 @@ This document will guide you through the basics of using S3DF's clusters, storag
 
 ## Get a S3DF Account
 
-To utilize the S3DF facilities, you must first [acquire a S3DF account](accounts.md#account), and your user account should be associated with a S3DF Allocation to run jobs
+To utilize the S3DF facilities, you must first [acquire a S3DF account](accounts.md#account), and your user account should be associated with a S3DF allocation to run jobs
 
-## Connecting to S3DF
+## Connect to S3DF
 
 The documentation will guide you to [access S3DF](accounts.md#connect)
 
@@ -19,21 +19,24 @@ S3DF offers a variety of high-performance computing resources that are accessibl
 ### [turing](systems.md#turing)
 ### [ada](systems.md#ada)
 
-## Storage Resources
+## [Storage Resources](data-and-storage.md)
+To ensure long-term consistency, the S3DF directory structure features immutable paths that are independent of the underlying file system organization and technology.
 
 
+## [Software](software.md)
 
-## Software
+- The software available within S3DF plays a crucial role and encompasses a broad scope. Whenever feasible, S3DF prioritizes the use of pre-built, packaged software, such as RPMs from reputable repositories.
 
-## Computing Environment
+- In addition, S3DF utilizes Lmod to manage software packages installed through alternative methods. Through Lmod, S3DF provides support for a select number of software packages that are widely utilized by the SLAC communities.
 
-## Compiling/Building Software
+- S3DF encourages experts outside of the SCS to leverage Lmod for providing, supporting, maintaining, and sharing the software tools they develop.  
 
 ## Running Jobs
 
 ## Interactive Computing
 
 ## Debugging and Profiling
+   
 
 ## Data Transfers
 
