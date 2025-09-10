@@ -33,9 +33,9 @@ To ensure long-term consistency, the [S3DF directory structure](storage.md) feat
 
 ## Running Jobs
 There are three different ways of [run jobs](run.md) on S3DF
-- Interactive
-- Batch
-- Service  
+- [Interactive](interactive-compute.md): Commands that you issue are executed immediately.
+- [Batch](batch-compute.md): Jobs are submitted to a queue and are executed as soon as resources become available.
+- [Service](service-compute.md): Long-lived jobs that run in the background waiting for data to analyze.
 
 ## Data Transfers
 s3dfdtn.slac.stanford.edu is a load-balanced DNS name which points to a pool of dedicated data transfer nodes. It is open to everyone with an S3DF account. Common tools like scp/sftp/rsync are available for casual data transfers. For serious large volume data transfer, you may consider bbcp and globus. You can refer to [this] (managedata.md) for detailed information on data transfers in S3DF
