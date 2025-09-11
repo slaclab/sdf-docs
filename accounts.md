@@ -11,7 +11,8 @@ SLAC employees, affiliated researchers, and experimental facility users are elig
 #### Step 1: Obtain a SLAC UNIX Account
 If you do not already have a SLAC UNIX account, follow these steps to [get a SLAC UNIX account](slac-unix-account.md)
 
-#### Step 2: [Register Your SLAC UNIX Account in S3DF](slac-unix-account.md#register)
+#### Step 2: Get A S3DF Account 
+After you get a SLAC UNIX account, [register Your SLAC UNIX Account in S3DF](slac-unix-account.md#register)
 
 
 ## How to connect  :id=connect 
@@ -22,12 +23,12 @@ There are three primary methods to access S3DF:
 
  - You can connect using any SSH client, such as [OpenSSH](www.openssh.com) or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/), via standard TCP port 22 to reach the S3DF load-balanced bastion pool at s3dflogin.slac.stanford.edu
    
-        ssh username@login-node-address
+        ssh username@s3dflogin.slac.stanford.edu
    
  - Please note that these bastion hosts do not have storage access except for your home directory. After connecting, you must hop onto an [Interactive
 Node](interactive-compute.md#interactive-pools)to access S3DF batch compute resources and storage.  
    
-        ssh username@pool-node-address
+        ssh pool-node-address
    
  - For Windows Users: If you encounter an error message regarding a “Corrupted MAC on input” or “message authentication code incorrect,” you can resolve this by adding “-m hmac-sha2-512” to your SSH command. For example:
 
