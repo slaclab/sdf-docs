@@ -1,9 +1,10 @@
-Welcome to the SLAC Shared Scientific Data Facility (S3DF). The S3DF
-is a compute, storage and network architecture designed to support
+Welcome to the SLAC Shared Scientific Data Facility (S3DF). 
+
+- The S3DF is a compute, storage and network architecture designed to support
 massive scale analytics required by all SLAC experimental facilities
 and programs, including LCLS/LCLS-II, UED, cryo-EM, the accelerator,
-and the Rubin observatory. The S3DF infrastructure is optimized for
-data analytics and is characterized by large, massive throughput, high
+and the Rubin observatory.
+- The S3DF infrastructure is optimized for data analytics and is characterized by large, massive throughput, high
 concurrency storage systems.
 
 
