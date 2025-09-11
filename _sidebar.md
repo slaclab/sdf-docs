@@ -7,5 +7,5 @@
 * [Software](software.md)
 * [Run Jobs](run.md)
 * [Manage Data](managedata.md)
-* [Help](help.md)
+* [Get Help](help.md)
 
