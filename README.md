@@ -11,7 +11,7 @@ concurrency storage systems.
 
 
 ## Quick Reference
-- [[Get Started](GettingStarted.md) - Information for new and existing S3DF users
+- [Get Started](GettingStarted.md) - Information for new and existing S3DF users
 - [Beginner's Guide](beginner-user.md) - Step by step guide for new users
 - [Get Help](help.md) - How to get help
 - [OnDemand Document](interactive-compute.md#ondemand) - Access S3DF through Open OnDemand via any (modern) browser
