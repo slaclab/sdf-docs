@@ -12,12 +12,15 @@ There are three different ways to [access S3DF](accounts.md#connect)
 
 ## Computing Resources 
 S3DF offers a variety of high-performance computing resources that are accessible. 
+Refer to the table below to find the specifications for each cluster
 
-- [roma](systems.md#roma)
-- [milano](systems.md#milano)
-- [ampere](systems.md#ampere)
-- [turing](systems.md#turing)
-- [ada](systems.md#ada)
+| Partition name | CPU model | Useable cores per node | Useable memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [roma](systems.md#roma) | Rome 7702 | 120 | 480 GB | - | - | 300 GB | 129 |
+| [milano](systems.md#milano)| Milan 7713 | 120 | 480 GB | - | - | 6 TB | 193 |
+| [ampere](systems.md#ampere) | Rome 7542 | 112 (hyperthreaded) | 952 GB | Tesla A100 (40GB) | 4 | 14 TB | 42 |
+| [turing](systems.md#turing) | Intel Xeon Gold 5118 | 40 (hyperthreaded) | 160 GB | NVIDIA GeForce 2080Ti | 10 | 300 GB | 27 |
+| [ada](systems.md#ada) | AMD EPYC 9454 | 72 (hyperthreaded) | 702 GB | NVIDIA L40S | 10 | 21 TB | 6 |
 
 ## Storage Resources
 To ensure long-term consistency, the [S3DF directory structure](storage.md) features immutable paths that are independent of the underlying file system organization and technology.
