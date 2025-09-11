@@ -8,20 +8,19 @@ To utilize the S3DF facilities, you must first [acquire a S3DF account](accounts
 
 ## Connect to S3DF
 
-The documentation will guide you to [access S3DF](accounts.md#connect)
+There are three different ways to [access S3DF](accounts.md#connect)
 
 ## Computing Resources 
 S3DF offers a variety of high-performance computing resources that are accessible. 
 
-### [roma](systems.md#roma)
-### [milano](systems.md#milano)
-### [ampere](systems.md#ampere)
-### [turing](systems.md#turing)
-### [ada](systems.md#ada)
+- [roma](systems.md#roma)
+- [milano](systems.md#milano)
+- [ampere](systems.md#ampere)
+- [turing](systems.md#turing)
+- [ada](systems.md#ada)
 
 ## Storage Resources
 To ensure long-term consistency, the [S3DF directory structure](storage.md) features immutable paths that are independent of the underlying file system organization and technology.
-
 
 ## Software
 
