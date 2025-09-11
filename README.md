@@ -1,4 +1,4 @@
-## S3DF Documentation
+# S3DF Documentation
 
 Welcome to the SLAC Shared Scientific Data Facility (S3DF). 
 
