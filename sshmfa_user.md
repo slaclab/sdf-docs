@@ -4,7 +4,7 @@
 Multi-Factor Authentication (MFA) provides an additional layer of security for users and S3Df SSH logins. As a preliminary rollout, MFA has been configured on the `s3dflogin-mfa.slac.stanford.edu` bastion hosts.
 
 ## Passwords and MFA
->ℹ️ If you don't already have Duo configured, please see SLAC's documentation [here](https://it.slac.stanford.edu/support/KB0010216]
+>ℹ️ If you don't already have Duo configured, please see SLAC's documentation [here](https://it.slac.stanford.edu/support/KB0010216)
 
 1. When using password login, please use your SLAC Account (formerly "SLAC Windows account") credentials when connecting with SSH to `s3dflogin-mfa.slac.stanford.edu`.
 2. You will be prompted for your SLAC Account password
