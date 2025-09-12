@@ -31,7 +31,7 @@ There are two important concepts to keep in mind while managing your S3DF public
 Log in to the [SSH key management service](https://s3df-sshkeys.slac.stanford.edu) in a web browser. You will be required to log in using an MFA method.
 
 You will arrive at a welcome page with two options: to `Register Public Key` or `List Public Keys`.  
-![Welcome to the SLAC S3DF SSH Key Server](assets/sshmfa_welcome.ping)
+![Welcome to the SLAC S3DF SSH Key Server](assets/sshmfa_welcome.png)
 
 #### Registering a New SSH Key
 To add a public key, click the `Register Public Key` button. You will be taken to the SSH key registration page:  
