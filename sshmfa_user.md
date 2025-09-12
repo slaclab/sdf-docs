@@ -4,6 +4,8 @@
 Multi-Factor Authentication (MFA) provides an additional layer of security for users and S3Df SSH logins. As a preliminary rollout, MFA has been configured on the `s3dflogin-mfa.slac.stanford.edu` bastion hosts.
 
 ## Passwords and MFA
+>ℹ️ If you don't already have Duo configured, please see SLAC's documentation [here](https://it.slac.stanford.edu/support/KB0010216]
+
 1. When using password login, please use your SLAC Account (formerly "SLAC Windows account") credentials when connecting with SSH to `s3dflogin-mfa.slac.stanford.edu`.
 2. You will be prompted for your SLAC Account password
 3. After successfully entering your SLAC Account password, you will receive a Duo challenge. ![duo challenge prompt](assets/sshmfa_duo_challenge.png)
@@ -13,7 +15,7 @@ Multi-Factor Authentication (MFA) provides an additional layer of security for u
   * Activate your registered security key (such as a Yubikey)
 
 ## SSH Keys and MFA
-Due to constraints in the SSH service, to manage SSH key login, public keys must be registered with the S3DF key management system in order to be used with `s3dflogin-mfa.slac.stanford.edu` bastion hosts.
+To use SSH key login, public keys must be registered with the S3DF key management system in order to be used with `s3dflogin-mfa.slac.stanford.edu` bastion hosts.
 
 There are two important concepts to keep in mind while managing your S3DF public keys **"valid"** and **"unexpired"** keys.
 * An **unexpired** key can be used and refreshed any number of times for a maximum of **7 days**, at which point it expires.
