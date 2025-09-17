@@ -46,8 +46,8 @@ It does several things on your computer for you:
 * A configuration line is added to your `.ssh/config` file to associate the new SSH key with S3DF bastion hosts
 * The public key is printed on the terminal in SSH2 format
 
-Whether you used the copied code or created a key pair yourself, copy the text of the **SSH2-formatted public key**. At the bottom of the page is a box for you to paste the SSH2-formatted public key. Paste it there and press the "Submit button.  
-![SSH upload box](sshmfa_upload_box.png)
+Whether you used the copied code or created a key pair yourself, copy the text of the **SSH2-formatted public key**. At the bottom of the page is a box for you to paste the SSH2-formatted public key. Paste it there and press the "Submit button."  
+![SSH upload box](assets/sshmfa_upload_box.png)
 
 SSH2 format looks like this:
 ```
