@@ -7,7 +7,6 @@ This document will guide you through the basics of using S3DF's clusters, storag
 To utilize the S3DF facilities, you must first [acquire a S3DF account](accounts.md#account), and your user account should be associated with a S3DF allocation to run jobs
 
 ## Connect to S3DF
-
 There are three different ways to [access S3DF](accounts.md#connect)
 
 ## Computing Resources 
@@ -26,9 +25,6 @@ Refer to the table below to find the specifications for each cluster
 To ensure long-term consistency, the [S3DF directory structure](storage.md) features immutable paths that are independent of the underlying file system organization and technology.
 
 ## Software
-
-- The [software](software.md) available within S3DF plays a crucial role and encompasses a broad scope. Whenever feasible, S3DF prioritizes the use of pre-built, packaged software, such as RPMs from reputable repositories.
-
 - In addition, S3DF utilizes Lmod to manage software packages installed through alternative methods. Through Lmod, S3DF provides support for a select number of software packages that are widely utilized by the SLAC communities.
 
 - S3DF encourages experts outside of the SCS to leverage Lmod for providing, supporting, maintaining, and sharing the software tools they develop.  
