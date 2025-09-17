@@ -2,10 +2,11 @@
 * Access
   * [Accounts and Access](accounts-and-access.md)
   * [SSH MFA](sshmfa_user.md)
-* [Usage](getting-started.md)
-* [Interactive Compute](interactive-compute.md)
-* [Batch Compute](batch-compute.md)
-* [Service Compute](service-compute.md)
+* Compute Resources
+  * [Usage](getting-started.md)
+  * [Interactive Compute](interactive-compute.md)
+  * [Batch Compute](batch-compute.md)
+  * [Service Compute](service-compute.md)
 * [Software](software.md)
 * [Storage](data-and-storage.md)
 * [Transferring Data](data-transfer.md)
