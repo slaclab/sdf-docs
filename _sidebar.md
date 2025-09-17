@@ -1,6 +1,7 @@
 * [Welcome](/)
-* [Access](accounts-and-access.md)
-* [SSH MFA](sshmfa_user.md)
+* Access
+  * [Accounts and Access](accounts-and-access.md)
+  * [SSH MFA](sshmfa_user.md)
 * [Usage](getting-started.md)
 * [Interactive Compute](interactive-compute.md)
 * [Batch Compute](batch-compute.md)
