@@ -4,7 +4,7 @@
 Multi-Factor Authentication (MFA) provides an additional layer of security for users and S3Df SSH logins. As a preliminary rollout, MFA has been configured on the `s3dflogin-mfa.slac.stanford.edu` bastion hosts.
 
 ## Passwords and MFA
->ℹ️ If you don't already have Duo configured, please see SLAC's documentation [here](https://it.slac.stanford.edu/support/KB0010216)
+>? If you don't already have Duo configured, please see SLAC's documentation [here](https://it.slac.stanford.edu/support/KB0010216)
 
 1. When using password login, please use your SLAC Account (formerly "SLAC Windows account") credentials when connecting with SSH to `s3dflogin-mfa.slac.stanford.edu`.
 2. You will be prompted for your SLAC Account password
@@ -25,7 +25,7 @@ There are two important concepts to keep in mind while managing your S3DF public
   * Refreshing a valid key resets the validity period
   * Refreshing a valid key has *no effect* on the expiry period
 
->ℹ️ You may register as may keys as you like on as many computers as you like as long as each is registered with the S3DF SSH Key Service
+>? You may register as may keys as you like on as many computers as you like as long as each is registered with the S3DF SSH Key Service
 
 ### S3DF SSH Key Service
 Log in to the [SSH key management service](https://s3df-sshkeys.slac.stanford.edu) in a web browser. You will be required to log in using an MFA method.
@@ -58,7 +58,7 @@ AAAAC3NzaC1lZDI1NTE5AAAAIJEVMB7OgUzz6cfWJmgKfmsGG2/M82MEG7/r6r1SmjVY
 ```
 The SSH2 formatted key can be retrieve from the key file by running `ssh-keygen -e -f ~/.ssh/s3df/<name of key>`
 
->ℹ️ A newly uploaded key will expire after 7 days.
+>? A newly uploaded key will expire after 7 days.
 
 #### Managing and Refreshing Keys
 An unexpired key remains valid for 25 hours after which time it must be refreshed.
@@ -69,6 +69,6 @@ To refresh a key's 7-day validity period, click the "Refresh" button to the righ
 
 If you wish to make a key invalid before the validity period would otherwise end, click the "Inactivate" button next to that key.
 
->ℹ️ An expired key **cannot** be refreshed
+>? An expired key **cannot** be refreshed
 
 SSH keys are identified by their fingerprints. A key's fingerprint can be retrieved from the public key by running `ssh-keygen -l -f ~/.ssh/s3df/<name of key>`
