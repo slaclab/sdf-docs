@@ -74,7 +74,7 @@ If you need to transfer data, connect to a data transfer node to facilitate the 
  - For additional information about this access method, please refer to the [NoMachine](reference.md#nomachine) documentation.
 
 ## Access to S3DF Through OnDemand
- - Users can also access S3DF through [Open OnDemand](interactive-compute.md#ondemand) via any (modern) browser.
+ - Users can also access S3DF through [Open OnDemand](interactive-compute.md#using-a-browser-and-onDemand) via any (modern) browser.
  - This solution is recommended for users who want to run Jupyter notebooks, or don't want to learn SLURM, or don't want to download a terminal or the NoMachine remote desktop on their system.
  - After login, you can select which Jupyter image to run and which hardware resources to use (partition name and number of hours/cpu-cores/memory/gpu-cores).
  - The partition can be the name of an interactive pool or the name of a SLURM partition.
