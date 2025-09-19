@@ -34,4 +34,4 @@ For detailed information on performing data transfers within S3DF, please refer 
 ![Resource](assets/Resource.png)
 
 ## Getting Help
-There are many [resources](contact-us.md) available to assist you in utilizing S3DF effectively. The S3DF support team is always here to help you with any questions or challenges you may encounter. 
+There are many resources available to assist you in utilizing S3DF effectively. The S3DF support team is always here to [help](contact-us.md) you with any questions or challenges you may encounter. 
