@@ -48,7 +48,7 @@ Here is an example SLURM job script named run.sbatch:
 
 
  -  Submit Jobs to a Compute Node
- -  
+   
 Use the sbatch command to submit your job to a compute node for execution:
 
                   sbatch run.sbatch
