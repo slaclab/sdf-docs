@@ -31,7 +31,7 @@ If you have forgotten your password and need to reset it, [please contact the IT
 
 Make sure you comply with all SLAC training and cybersecurity requirements to avoid having your account disabled. You will be notified of these requirements via email.
 
-## How to connect
+## How to connect :id=connect
 
 There are three mechanisms to access S3DF:
 
