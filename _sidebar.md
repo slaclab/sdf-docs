@@ -1,4 +1,6 @@
 * [Welcome](/)
+* [Get Started](getstarted.md)
+* [Beginner's Guide](beginnerguide.md)
 * Access
   * [Accounts and Access](accounts-and-access.md)
   * [SSH MFA](sshmfa_user.md)

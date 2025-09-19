@@ -10,7 +10,7 @@ S3DF specific Slurm information. If you haven't used Slurm before, you
 can find general information on using this workflow manager in our
 [Slurm reference FAQ](reference.md#slurm-faq).
 
-## Clusters & Repos
+## Clusters and Repos
 
 A cluster is a homogeneous set of computing nodes with the same
 hardware specifications and the same access to the storage. A
@@ -76,7 +76,7 @@ running experiment.
 
 
 See the table below to determine the specifications for each
-cluster/partition.
+cluster/partition :id=cluster
 
 | Partition name | CPU model | Useable cores per node | Useable memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
