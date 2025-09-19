@@ -15,7 +15,7 @@ concurrency storage systems.
 - [OnDemand Document](interactive-compute.md#using-a-browser-and-ondemand) - Access S3DF through Open OnDemand via any (modern) browser
 - [Jupyter](interactive-compute.md#jupyter) - Interactive Jupyter Notebooks at S3DF
 - [Example Job Scripts](reference.md#create-a-batch-script) - example job scripts
-- [Systems](batch-compute.md#cluster) - Computing resources at S3DF
+- [Systems](batch-compute.md#clusters-&-repos) - Computing resources at S3DF
 
 
 | Access 	| Address | 
