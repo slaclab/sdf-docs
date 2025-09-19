@@ -148,7 +148,7 @@ In order to submit a batch job, you have to:
 2. [submit this batch script](#submit-batch-script)  to the cluster using the `sbatch` command
 3. [monitor the job](#monitor-job) using `scontrol show job`
 
-#### Create a Batch Script :id=create-batch-script
+#### Create a Batch Script
 
 Create a job submission script (text file) `script.sh` (or whatever filename you wish):
 
