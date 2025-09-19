@@ -27,7 +27,7 @@ S3DF offers three options for utilization
 ## Data Transfers
 - The URL s3dfdtn.slac.stanford.edu serves as a load-balanced DNS name that directs users to a pool of dedicated data transfer nodes. This service is accessible to anyone with an S3DF account.
 - For casual data transfers, common tools such as scp, sftp, and rsync are available. If you require serious transfer of large volumes of data, we recommend using bbcp or Globus.
-For detailed information on performing data transfers within S3DF, please refer to the data management guidelines. (data-transfer.md)
+For detailed information on performing data transfers within S3DF, please refer to the [data management guidelines](data-transfer.md).
 
 # Overview of the S3DF facilities
 
