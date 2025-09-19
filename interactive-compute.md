@@ -56,7 +56,7 @@ obtain a shell on the interactive pools without using a terminal.
 You can also obtain direct access to the [Interactive Analysis Web Shell](https://s3df.slac.stanford.edu/pun/sys/shell/ssh/iana.sdf.slac.stanford.edu) without needing to go through a separate bastion.
 
 
-### Jupyter :id=jupyter
+### Jupyter
 
 We provide automatic tunnels through our [ondemand](https://openondemand.org/) proxy of [Jupyter](https://jupyter.org/) instances. This means that in order to run Jupyter kernels on S3DF, you do not need to setup a chain of SSH tunnels in order to show the Jupyter web instance.
 
