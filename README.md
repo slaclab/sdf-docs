@@ -13,7 +13,7 @@ concurrency storage systems.
 - [Beginner's Guide](beginnerguide.md) - Step by step guide for new users
 - [Get Help](contact-us.md) - How to get help
 - [OnDemand Document](interactive-compute.md#ondemand) - Access S3DF through Open OnDemand via any (modern) browser
-- [Jupyter](interactive-compute.md###jupyter) - Interactive Jupyter Notebooks at S3DF
+- [Jupyter](interactive-compute.md#jupyter) - Interactive Jupyter Notebooks at S3DF
 - [Example Job Scripts](reference.md#create-batch-script) - example job scripts
 - [Systems](batch-compute.md#cluster) - Computing resources at S3DF
 
