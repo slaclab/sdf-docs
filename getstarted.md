@@ -7,10 +7,10 @@ This document will guide you through the basics of using S3DF's clusters, storag
 To utilize the S3DF facilities, you must first [acquire a S3DF account](accounts-and-access.md#access), and your user account should be associated with a S3DF allocation to run jobs
 
 ## Connect to S3DF
-There are three different ways to [access S3DF](accounts-and-access.md#connect)
+There are three different ways to [access S3DF](accounts-and-access.md#how-to-connect)
 
 ## Computing Resources 
-S3DF offers a variety of high-performance [computing resources](batch-compute.md#cluster) that are accessible
+S3DF offers a variety of high-performance [computing resources](batch-compute.md#clusters-and-repos) that are accessible
 
 ## Storage Resources
 To ensure long-term consistency, the [S3DF directory structure](data-and-storage.md#directory) features immutable paths that are independent of the underlying file system organization and technology.
