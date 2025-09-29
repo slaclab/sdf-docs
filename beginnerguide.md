@@ -1,37 +1,39 @@
 # Beginner's Guide
 
-Welcome to S3DF! This guide presents three different methods of accessing S3DF. We aim to provide a straightforward, 
-step-by-step workflow suitable for all users, especially those with limited computing experience. Within this document, you will find guidance on how to:
+This guide presents three different methods of accessing S3DF. This is an example of a general step-by-step workflow we hope is suitable for most users. Within this document, you will find guidance on how to:
 
 - Log in to the S3DF system
 - Navigate directories and storage spaces
 - Access supported applications
 - Prepare and submit a job script
-Follow these instructions to efficiently connect to the S3DF environment and run your desired software. Let's get started!
-  
+
+Follow these instructions to access and use S3DF.
+
+Let's get started!
+
 
 ## Access to S3DF Through SSH
 
-This example provides a clear, step-by-step workflow for running software, ACE3P (Advanced Computational Electromagnetics 3D Parallel), on S3DF throgh SSH. 
+This example provides a clear, step-by-step workflow for running software on S3DF through SSH.
 
-- Connect to a Login Node
-  
-To start, connect to the login node using the following command:
+### Connect to a Bastion Node
 
-                  ssh username@s3dflogin.slac.stanford.edu
+To start, connect to a bastion node using the following command:
 
-- Connect to a Pool Node
-  
-After successfully connecting to the login node, establish a second connection to a pool node using SSH. For example:
+    ssh username@s3dflogin-mfa.slac.stanford.edu
 
-                  ssh iana
-     
--  Set Up the Running Environment
-  
-To set up the running environment, create a bash file containing all necessary commands, and then execute the bash file.
+### Connect to an Interactive Node
 
--  Configure an [SLURM](batch-compute.md#) Job Script
-  
+After successfully connecting to a bastion node, log in to an interactive node using SSH. For example:
+
+    ssh iana
+
+### Set Up a Running Environment
+
+To set up your running environment, create a bash file containing all necessary commands, and then execute the bash file.
+
+### Configure an [SLURM](batch-compute.md#) Job Script
+
 Here is an example SLURM job script named run.sbatch:
 
 
@@ -48,23 +50,23 @@ Here is an example SLURM job script named run.sbatch:
 
 
  -  Submit Jobs to a Compute Node
-   
+
 Use the sbatch command to submit your job to a compute node for execution:
 
                   sbatch run.sbatch
 
  -  Check the Status of Running Jobs (Optional)
-   
+
 To monitor the status of your submitted jobs, run the following command:
 
                   squeue -u username
 
 -  View Data Output
-  
+
 Once your jobs have completed, you can view the data output directly on the pool node to verify that the results are as expected.
 
 -  Transfer Data (If Necessary)
-  
+
 If you need to transfer data, connect to a data transfer node to facilitate the movement of your files. Use appropriate file transfer commands (e.g., scp, rsync) to move your data to the desired location.
 
 ## Access to S3DF Through NoMachine

@@ -1,19 +1,21 @@
-* [Welcome](/)
-* [Get Started](getstarted.md)
-* [Beginner's Guide](beginnerguide.md)
-* Access
-  * [Accounts and Access](accounts-and-access.md)
+* [Introduction](/)
+* Accessing S3DF
+  * [Accounts](accounts-and-access.md)
+  * [Access](access.md)
   * [SSH MFA](sshmfa_user.md)
-* Compute Resources
+* How-To Guides
+  * [Get Started](getstarted.md)
+  * [Tutorials](tutorials.md)
+* Computing Architecture
   * [Usage](getting-started.md)
   * [Interactive Compute](interactive-compute.md)
   * [Batch Compute](batch-compute.md)
   * [Service Compute](service-compute.md)
-* [Software](software.md)
-* [Storage](data-and-storage.md)
-* [Transferring Data](data-transfer.md)
-* [Tutorials](tutorials.md)
-* [Business Model](business-model.md)
-* [Reference](reference.md)
-* [Status & Outages](changelog.md)
-* [Contact Us](contact-us.md)
+  * [Running Software](software.md)
+  * [Storage](data-and-storage.md)
+  * [Transferring Data](data-transfer.md)
+* Reference
+  * [Glossary and FAQ](reference.md)
+  * [Business Model](business-model.md)
+  * [Contact Us](contact-us.md)
+  * [Status & Outages](changelog.md)

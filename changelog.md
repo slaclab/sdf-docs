@@ -23,18 +23,9 @@
 |Jan 15 2023 | 2 days (unplanned) | Fix: one weka server rebooted. Underlying issue under investigation. Symptom: sdfdata hanging on several nodes.|
 
 
-## Monitoring
+## Monitoring Dashboards
 
 [Grafana](http://grafana.slac.stanford.edu)
-
-[Ganglia](http://ganglia.slac.stanford.edu)
-
-[Nagios](http://nagios.slac.stanford.edu)
-<!---
-[InfluxDb](http://influxdb.slac.stanford.edu)
-
-[Prometheus](http://prometheus.slac.stanford.edu)
--->
 
 ## Roadmap :id=roadmap
 
@@ -44,4 +35,3 @@ Please see our [Technology Migration Timeline](https://docs.google.com/spreadshe
 ## Slurm Dashboard
 
 [sdf-slurm-summary](https://grafana.slac.stanford.edu/d/YW8wlINMk/sdf-slurm-summary?orgId=1&refresh=60s&theme=light&kiosk ':include :type=iframe width=100% height=850px')
-
