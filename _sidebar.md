@@ -19,6 +19,7 @@
   * [Apptainer](apptainer.md)
   * [Conda](conda.md)
   * [Compilers](compilers.md)
+  * [MPI](mpi.md)
 * Reference
   * [Glossary and FAQ](reference.md)
   * [Business Model](business-model.md)
