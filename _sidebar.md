@@ -1,6 +1,6 @@
 * [Introduction](/)
 * Accessing S3DF
-  * [Accounts](accounts-and-access.md)
+  * [Accounts](accounts.md)
   * [Access](access.md)
   * [SSH MFA](sshmfa_user.md)
 * How-To Guides

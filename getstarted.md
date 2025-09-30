@@ -3,10 +3,10 @@
 This document will guide you through the basics of using S3DF's clusters, storage systems, and services.
 
 ## Get a S3DF Account
-To utilize the S3DF facilities, you must first [acquire a S3DF account](accounts-and-access.md#access), and your user account should be associated with a S3DF allocation to run jobs
+To utilize the S3DF facilities, you must first [acquire a S3DF account](accounts.md#account), and your user account should be associated with a S3DF allocation to run jobs
 
 ## Connect to S3DF
-There are three different ways to [access S3DF](accounts-and-access.md#how-to-connect)
+There are three different ways to [access S3DF](access.md)
 
 ## Computing Resources
 S3DF offers a variety of high-performance [computing resources](batch-compute.md#clusters-and-repos) that are accessible
