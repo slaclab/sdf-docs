@@ -52,7 +52,7 @@
     --sidebar-nav-pagelink-background--active: var(--poppy) no-repeat left var(--sidebar-nav-pagelink-background-image--active);
     --sidebar-nav-pagelink-background--collapse: var(--poppy) no-repeat left var(--sidebar-nav-pagelink-background-image--collapse);
     --sidebar-nav-pagelink-background--loaded: var(--digitalred) no-repeat left var(--sidebar-nav-pagelink-background-image--loaded);
-    --sidebar-toggle-background: var(--digitalred);
+    --sidebar-toggle-background: var(--stone);
     --sidebar-toggle-icon-color: var(--poppy);
     --search-result-heading-color: var(--poppy);
     --search-result-item-color: var(--white);
