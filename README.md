@@ -4,7 +4,6 @@ S3DF is a compute, storage, and network architecture designed to support
 massive scale analytics required by SLAC experimental facilities
 and programs, including LCLS/LCLS-II, Vera C. Rubin Observatory, UED, and the Stanford-SLAC cryoEM Center (S2C2). S3DF provides platforms for deploying scientific applications, high performance compute nodes for large scale compute tasks, and a concurrent network filesystem and tape library for storing large volumes of data. S3DF aims to meet the increasing computing infrastructure resources that SLAC users and groups require to conduct their science experiments and analysis.
 
-S3DF systems are primarily located in the second wing of the Stanford Research Computing Facility (SRCF) Datacenter on the SLAC National Accelerator Laboratory campus.
 ![SRCF-II Datacenter Render](assets/srcf-ii.png "SRCF-II Datacenter Render")
 
 ## Quick Reference
