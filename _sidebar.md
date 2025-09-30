@@ -3,9 +3,7 @@
   * [Accounts](accounts.md)
   * [Access](access.md)
   * [SSH MFA](sshmfa_user.md)
-* How-To Guides
   * [Get Started](getstarted.md)
-  * [Tutorials](tutorials.md)
 * Computing Architecture
   * [Usage](getting-started.md)
   * [Interactive Compute](interactive-compute.md)
@@ -14,6 +12,13 @@
   * [Running Software](software.md)
   * [Storage](data-and-storage.md)
   * [Transferring Data](data-transfer.md)
+* Guides
+  * [Tutorials](tutorials.md)
+  * [Slurm Guide](slurm.md)
+  * [Matlab](matlab.md)
+  * [Apptainer](apptainer.md)
+  * [Conda](conda.md)
+  * [Compilers](compilers.md)
 * Reference
   * [Glossary and FAQ](reference.md)
   * [Business Model](business-model.md)
