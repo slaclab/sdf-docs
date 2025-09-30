@@ -35,6 +35,7 @@
     --heading-h2-border-color: var(--cardinal);
     --sidebar-background: var(--digitalred);
     --sidebar-border-color: var(--cardinal);
+    --sidebar-toggle-background: var(--trueblack);
     --sidebar-nav-link-color: var(--white);
     --sidebar-nav-link-font-weight: bold;
     --sidebar-nav-link-background--active: var(--poppy);
@@ -154,6 +155,11 @@ label[data-class-target="label + .docsify-tabs"] {
 
 .sidebar>h1 img {
     max-width: 50%;
+}
+
+.sidebar-nav > ul {
+    color: white;
+    font-weight: var(--sidebar-nav-link-font-weight);
 }
 
 aside.toc-nav {
