@@ -63,3 +63,8 @@ We provide automatic tunnels through our [ondemand](https://openondemand.org/) p
 You can [launch a new juptyer session via the provided web form](https://s3df.slac.stanford.edu/pun/sys/dashboard/batch_connect/sys/slac-ood-jupyter/session_contexts/new). You may choose to run your jupyter instance on either Batch nodes or the Interactive nodes via the **Run on cluster type** dropdown. Note that with the former, you will need to select the appropriate cpu and memory resources in advance to run your notebook. Hoewver, for the latter, you will most likely be contending your jupyter resources against others who are also logged on to the interactive node.
 
 Users are welcome to submit a github pull-request to have their Jupyter environments added to the [SLAC Open Ondemand Jupyter App](https://github.com/slaclab/slac-ood-jupyter). Please see [guide for devloping your own Jupyter environments](jupyter.md) for further information.
+
+
+### Other Custom Ondemand Applications
+
+If you wish to deploy your own custom Open Ondemand applications/services to the SLAC Ondemand Service, please [contact us](contact-us.md).
