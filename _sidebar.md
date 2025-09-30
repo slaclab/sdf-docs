@@ -13,7 +13,6 @@
   * [Storage](data-and-storage.md)
   * [Transferring Data](data-transfer.md)
 * Guides
-  * [Tutorials](tutorials.md)
   * [Slurm Guide](slurm.md)
   * [Matlab](matlab.md)
   * [Apptainer](apptainer.md)
@@ -21,7 +20,8 @@
   * [Compilers](compilers.md)
   * [MPI](mpi.md)
 * Reference
-  * [Glossary and FAQ](reference.md)
+  * [FAQ](faq.md)
   * [Business Model](business-model.md)
-  * [Contact Us](contact-us.md)
+  * [Reference](reference.md)
   * [Status & Outages](changelog.md)
+  * [Contact Us](contact-us.md)
