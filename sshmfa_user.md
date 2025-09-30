@@ -1,20 +1,29 @@
 # S3DF SSH with Multi-Factor Authentication
 
 ## SSH and Multi-Factor
-Multi-Factor Authentication (MFA) provides an additional layer of security for users and S3Df SSH logins. As a preliminary rollout, MFA has been configured on the `s3dflogin-mfa.slac.stanford.edu` bastion hosts.
 
-## Passwords and MFA
-?> If you don't already have Duo configured, please see SLAC's documentation [here](https://it.slac.stanford.edu/support/KB0010216)
+Multi-Factor Authentication (MFA) provides an additional layer of security for users and S3DF SSH logins. As a preliminary rollout, MFA has been configured on the `s3dflogin-mfa.slac.stanford.edu` bastion hosts. There are two methods to access S3DF via SSH - using a password and MFA challenge, or via SSH Keys with an out-of-band (not part of the SSH command)
+
+?> The legacy SSH using SLAC Unix Computer accounts to `s3dflogin.slac.stanford.edu` will still be available as we introduce MFA enabled SSH. Once all S3DF users have been migrated, we will deprecate all SLAC Unix SSH logon services.
+
+## Passwords with MFA :id=passwords
+
+?> If you do not already have Duo configured, please see SLAC's documentation [here](https://it.slac.stanford.edu/support/KB0010216)
 
 1. When using password login, please use your SLAC Account (formerly "SLAC Windows account") credentials when connecting with SSH to `s3dflogin-mfa.slac.stanford.edu`.
+
 2. You will be prompted for your SLAC Account password
+
 3. After successfully entering your SLAC Account password, you will receive a Duo challenge. ![duo challenge prompt](assets/sshmfa_duo_challenge.png)
+
 4. To complete the challenge, do one of:
   * Enter option `1` to send a notification to your Duo app
   * Enter option `2` to send an SMS message to your phone
   * Activate your registered security key (such as a Yubikey)
 
-## SSH Keys and MFA
+
+## SSH Keys with MFA :id=sshkeys
+
 To use SSH key login, public keys must be registered with the S3DF key management system in order to be used with `s3dflogin-mfa.slac.stanford.edu` bastion hosts.
 
 There are two important concepts to keep in mind while managing your S3DF public keys **"valid"** and **"unexpired"** keys.
@@ -28,12 +37,14 @@ There are two important concepts to keep in mind while managing your S3DF public
 ?> You may register as may keys as you like on as many computers as you like as long as each is registered with the S3DF SSH Key Service
 
 ### S3DF SSH Key Service
+
 Log in to the [SSH key management service](https://s3df-sshkeys.slac.stanford.edu) in a web browser. You will be required to log in using an MFA method.
 
 You will arrive at a welcome page with two options: to `Register Public Key` or `List Public Keys`.  
 ![Welcome to the SLAC S3DF SSH Key Server](assets/sshmfa_welcome.png)
 
 #### Registering a New SSH Key
+
 To add a public key, click the `Register Public Key` button. You will be taken to the SSH key registration page:  
 ![SSH key registration page](assets/sshmfa_upload_page.png)
 
@@ -61,6 +72,7 @@ The SSH2 formatted key can be retrieve from the key file by running `ssh-keygen 
 ?> A newly uploaded key will expire after 7 days.
 
 #### Managing and Refreshing Keys
+
 An unexpired key remains valid for 25 hours after which time it must be refreshed.
 To refresh a key, visit the [SSH key management service](https://s3df-sshkeys.slac.stanford.edu) and click the "List Public Keys" button.
 
