@@ -6,22 +6,22 @@ and programs, including LCLS/LCLS-II, Vera C. Rubin Observatory, UED, and the St
 
 ![SRCF-II Datacenter Render](assets/srcf-ii.png "SRCF-II Datacenter Render")
 
-## Quick Reference
+## Quick Links
 
 - [Get Started](getstarted.md) - Information for new and existing S3DF users
 - [Get Help](contact-us.md) - How to contact S3DF support
 - [OnDemand](interactive-compute.md#using-a-browser-and-ondemand)- Access S3DF through Open OnDemand via any (modern) browser
 - [Jupyter](interactive-compute.md#jupyter) - Interactive Jupyter Notebooks at S3DF
-- [Example Job Scripts](reference.md#create-a-batch-script) - example job scripts
+- [Example Job Scripts](slurm.md) - example job scripts
 - [Systems](batch-compute.md#cluster-and-repos) - Computing resources at S3DF
 
-## Accessing S3DF Resources
-The table below lists various S3DF resources and where they can be found.
+## At a Glance
 
+The table below lists various S3DF resources and where they can be found.
 
 | Resource 	| Access Point |
 | :--- | :--- |
-| SSH 	|  s3dflogin.slac.stanford.edu |
+| SSH 	|  s3dflogin-mfa.slac.stanford.edu |
 | NoMachine |  s3dfnx.slac.stanford.edu |
 | OnDemand 	| [https://s3df.slac.stanford.edu/ondemand](/ondemand ':ignore') |
 | Globus Endpoint 	| slac#s3df_globus5 |
