@@ -4,6 +4,11 @@ There are three primary ways to access S3DF resources:
 
 ![S3DF users access](assets/S3DF_users_access.png)
 
+In order to access S3DF resources, you must first obtain a [SLAC Account](accounts-and-access.md) (formerly known as a SLAC Windows account).
+
+?> S3DF is currently in the process of deprecating the usage of SLAC UNIX accounts. Please obtain a SLAC Account prior to accessing S3DF.
+
+
 ## SSH
 
 You can connect using any SSH client, such as [OpenSSH](www.openssh.com) or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/),
@@ -15,6 +20,7 @@ Example:
 ```
 ssh <slac_account_username>@s3dflogin-mfa.slac.stanford.edu
 ```
+
 ?> Note that these nodes do not have access to storage (except for your home directory). From these bastion hosts, you should hop to an [Interactive Node](interactive-compute.md#interactive-pools) to access S3DF batch compute and storage.
 
 ?> Windows users may see an error message about a "*Corrupted MAC on input*" or "*message authentication code incorrect.*" The workaround is to add "*-m hmac-sha2-512*" to the ssh command, i.e. `ssh -m hmac-sha2-512 <username>@s3dflogin-mfa.slac.stanford.edu`
