@@ -10,7 +10,7 @@ S3DF specific Slurm information. If you haven't used Slurm before, you
 can find general information on using this workflow manager in our
 [Slurm reference FAQ](reference.md#slurm-faq).
 
-## Clusters & Repos
+## Clusters and Repos
 
 A cluster is a homogeneous set of computing nodes with the same
 hardware specifications and the same access to the storage. A
@@ -76,12 +76,12 @@ running experiment.
 
 
 See the table below to determine the specifications for each
-cluster/partition.
+cluster/partition :id=cluster
 
 | Partition name | CPU model | Useable cores per node | Useable memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | roma | Rome 7702 | 120 | 480 GB | - | - | 300 GB | 129 |
-| milano | Milan 7713 | 120 | 480 GB | - | - | 300 GB | 136 |
+| milano | Milan 7713 | 120 | 480 GB | - | - | 6 TB | 193 |
 | ampere | Rome 7542 | 112 (hyperthreaded) | 952 GB | Tesla A100 (40GB) | 4 | 14 TB | 42 |
 | turing | Intel Xeon Gold 5118 | 40 (hyperthreaded) | 160 GB | NVIDIA GeForce 2080Ti | 10 | 300 GB | 27 |
 | ada | AMD EPYC 9454 | 72 (hyperthreaded) | 702 GB | NVIDIA L40S | 10 | 21 TB | 6 |
@@ -97,3 +97,24 @@ of cores, or memory, a job may take), and allow higher priority jobs
 to preempt lower priority ones. Allocations will reset on a calendar
 year boundary, i.e., on December 31st
 
+
+### Slurm Features and Constraints
+
+Batch nodes at S3DF have specific features (or labels) assigned which define certain characteristics of the nodes. Users can specify which of those features are required by their jobs using the slurm `constraint` options in their job submission. Only nodes with that match these defined contained/features will run the job.
+
+Multiple constraints may be specified during job submission. Please refer to the [official documentation](https://slurm.schedmd.com/sbatch.html) for more information. 
+
+
+#### High-Memory Milano Nodes
+
+Batch nodes that belong in the same partition have homogeneous software and hardware. However, for the `partition=milano`, S3DF supports some subtle hardware differences. High-memory Milano nodes allow preemptable jobs by from any user by default, even if the user does not explicitly specify the constraint identifying those nodes during job submission. This policy maximizes CPU usage and prevents the creation of small silos in the S3DF cluster.
+
+To run jobs specifically on high-memory nodes, you must submit the jobs using the corresponding constraint of `MEM_SZE:1920GB`. Only facilities whom have procured such nodes may run `qos=normal` jobs on these nodes:
+
+```
+# sbatch --constraint="MEM_SZE:1920GB" ...
+```
+
+or include the same option in an `srun` script.
+
+?> If your facility does not own any high-memory nodes, then any attempt to submit `qos=normal` jobs to high-memory nodes will fail.
