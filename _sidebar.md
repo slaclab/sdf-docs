@@ -13,7 +13,7 @@
   * [Storage](data-and-storage.md)
   * [Transferring Data](data-transfer.md)
 * Guides
-  * [Slurm Guide](slurm.md)
+  * [Slurm](slurm.md)
   * [Jupyter](jupyter.md)
   * [Matlab](matlab.md)
   * [Apptainer](apptainer.md)

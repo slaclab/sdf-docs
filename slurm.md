@@ -1,4 +1,4 @@
-# Slurm Guide :id=slurm-guide
+# Slurm :id=slurm
 
 The official Slurm documentation can be found at the [SchedMD
 site](https://slurm.schedmd.com/documentation.html).
