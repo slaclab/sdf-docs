@@ -33,12 +33,12 @@
     --base-font-family: Lato, Merriweather, sans-serif;
     --base-background-color: var(--white);
     --heading-h2-border-color: var(--cardinal);
-    --sidebar-background: var(--digitalred);
+    --sidebar-background: var(--fog);
     --sidebar-border-color: var(--cardinal);
     --sidebar-toggle-background: var(--trueblack);
     --sidebar-nav-link-color: var(--white);
     --sidebar-nav-link-font-weight: bold;
-    --sidebar-nav-link-background--active: var(--poppy);
+    --sidebar-nav-link-background--active: var(--digitalred);
     --sidebar-nav-link-background--hover: var(--spirited);
     --sidebar-nav-link-color--active: var(--white);
     --sidebar-nav-link-border-color--active: var(--digitalred);
