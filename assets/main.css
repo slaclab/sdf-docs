@@ -36,9 +36,9 @@
     --sidebar-background: var(--fog);
     --sidebar-border-color: var(--cardinal);
     --sidebar-toggle-background: var(--trueblack);
-    --sidebar-nav-link-color: var(--white);
+    --sidebar-nav-link-color: var(--cardinal);
     --sidebar-nav-link-font-weight: bold;
-    --sidebar-nav-link-background--active: var(--digitalred);
+    --sidebar-nav-link-background--active: var(--clay);
     --sidebar-nav-link-background--hover: var(--spirited);
     --sidebar-nav-link-color--active: var(--white);
     --sidebar-nav-link-border-color--active: var(--digitalred);
