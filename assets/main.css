@@ -57,8 +57,8 @@
     --search-result-item-color: var(--white);
     --search-result-keyword-background: var(--poppy);
     --search-result-keyword-color: var(--trueblack);
-    --code-theme-background: var(--lagunita);
-    --code-inline-background: var(--lagunita);
+    --code-theme-background: var(--trueblack);
+    --code-inline-background: var(--black90);
     --code-theme-comment: var(--white);
     --code-theme-function: var(--digitalredlight);
     --code-theme-keyword: var(--lightsage);
