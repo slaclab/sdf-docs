@@ -6,13 +6,13 @@ S3DF uses SLAC Account credentials for authentication and authorization. This SL
 
 If you are a SLAC employee, affiliated researcher, or experimental facility user, you are eligible for an S3DF account.
 
-1. Obtain a SLAC System ID (SID number):
+1. Obtain a **SLAC System ID** (SID number):
 
   * SLAC employees should already have a SLAC System ID.
 
   * Affiliated users/experimental facility users should obtain a SLAC System ID via the Scientific Collaborative Researcher Registration [process form](https://it.slac.stanford.edu/identity/scientific-collaborative-researcher-registration).
 
-2. Take the appropriate SLAC cybersecurity training course(s) via the [SLAC training portal](https://slactraining.slac.stanford.edu/how-access-the-web-training-portal):
+2. Take the appropriate SLAC **cyber-security training course(s)** via the [SLAC training portal](https://slactraining.slac.stanford.edu/how-access-the-web-training-portal):
 
   * All SLAC/Stanford employees or term employees of SLAC or the University: "CS200: Cyber Security Training for Employees".
 
@@ -22,7 +22,7 @@ If you are a SLAC employee, affiliated researcher, or experimental facility user
 
 3. Ask your [SLAC Point of Contact](contact-us.md#facpoc) to submit a ticket to SLAC IT requesting a SLAC Account on your behalf.
 
-4. Once you have received a SLAC Account from SLAC IT, you must register with S3DF:
+4. Once you have received a SLAC Account from SLAC IT, you must **register with S3DF**:
 
   a) Log into the [Coact User Portal (https://coact.slac.stanford.edu)](https://coact.slac.stanford.edu) using your SLAC Account via the "SLAC Account" option.  
 
