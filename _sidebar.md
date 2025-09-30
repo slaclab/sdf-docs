@@ -14,6 +14,7 @@
   * [Transferring Data](data-transfer.md)
 * Guides
   * [Slurm Guide](slurm.md)
+  * [Jupyter](jupyter.md)
   * [Matlab](matlab.md)
   * [Apptainer](apptainer.md)
   * [Conda](conda.md)
