@@ -27,11 +27,11 @@ facility user, you are eligible for an S3DF account.
 
 4. Once you have received a SLAC Account from SLAC IT, you must register it with S3DF.
 
-    a) Log into the Coact S3DF User Portal (https://coact.slac.stanford.edu) using your SLAC Account via the "SLAC Account" option.
-    b) Click on "Repos" in the menu bar.
-    c) Click the "Request Access to Facility" button and select the appropriate facility from the dropdown.
-    d) Include your affiliation and other contextual information for your request in the "Notes" field, then click submit.
-    e) A computing czar for the S3DF facility you requested access to will review your request. **Once approved by a facility czar**, your SLAC account registration should be completed within 1 hour.
+    a) Log into the Coact S3DF User Portal (https://coact.slac.stanford.edu) using your SLAC Account via the "SLAC Account" option.  
+    b) Click on "Repos" in the menu bar.  
+    c) Click the "Request Access to Facility" button and select the appropriate facility from the dropdown.  
+    d) Include your affiliation and other contextual information for your request in the "Notes" field, then click submit.  
+    e) A computing czar for the S3DF facility you requested access to will review your request. **Once approved by a facility czar**, your SLAC account registration should be completed within 1 hour.  
 
 ?> Your S3DF facility computing czar may have already pre-registered your account in S3DF. Please log in to https://coact.slac.stanford.edu to activate your account.
 
