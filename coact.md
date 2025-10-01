@@ -1,4 +1,4 @@
-# Coact
+# Resource Management
 
 ## What is Coact?
 

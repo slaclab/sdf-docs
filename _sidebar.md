@@ -6,7 +6,7 @@
   * [Get Started](getstarted.md)
 * Computing Architecture
   * [Usage](getting-started.md)
-  * [Coact](coact.md)
+  * [Resource Management](coact.md)
   * [Interactive Compute](interactive-compute.md)
   * [Batch Compute](batch-compute.md)
   * [Service Compute](service-compute.md)
