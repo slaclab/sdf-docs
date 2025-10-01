@@ -94,3 +94,48 @@ To access the cron node:
 ?> Cron jobs configured in the legacy crontab systems on the interactive S3DF nodes have been migrated to `sdfcron001`. If a task is missing, please open a support ticket.
 
 Since interactive user connections are distributed between nodes in the S3DF environment and cron configurations are not shared between nodes, using the dedicated cron server simplifies the management of user cron jobs.
+
+## S3DF Kubernetes Cluster
+
+A collection of interconnected nodes that work together to run and manage containerized applications. It provides a unified and abstracted computing environment for deploying, scaling, and managing your services without direct interaction with individual servers.
+
+### Why use Kubernetes/Containerized Application
+
+* **Automation:**
+Kubernetes automates routine tasks like starting new apps, scaling up or down based on demand, and replacing failed containers, reducing manual effort and improving efficiency. 
+* **Scalability:**
+It automatically scales applications by adding or removing containers to handle fluctuating traffic, ensuring consistent performance and optimal resource usage. 
+* **High Availability & Resilience:**
+Kubernetes provides self-healing capabilities by monitoring applications and automatically restarting, rescheduling, or replacing failed containers and redistributing workloads if a node fails. 
+* **Portability:**
+By abstracting away the underlying infrastructure, Kubernetes allows containerized applications to run consistently across various environments, including on-premises data centers, public clouds, and hybrid configurations, reducing vendor lock-in. 
+* **Faster Deployment & Development:**
+It enables faster release cycles and improves developer agility by simplifying the deployment of containerized and microservices-based applications. 
+* **Efficient Resource Utilization:**
+By running multiple containers on the same cluster nodes, Kubernetes optimizes resource use and can automatically scale down resources during low-traffic periods to save costs. 
+* **Open Source Ecosystem:**
+Kubernetes benefits from a large and active open-source community, leading to a rich ecosystem of tools and extensions for enhanced security, monitoring, and management
+
+### How to request a Kubernetes Environment
+
+S3DF uses Loft's vClusters, which are a fully functional virtual Kubernetes clusters; Each vcluster runs inside a namespace of the underlying k8s cluster. Each vcluster runs its own dedicated API server and control plane, creating a strong isolation boundary, and Tenants can freely deploy CRDs, create namespaces, and manage cluster-scoped resources typically restricted in standard Kubernetes namespaces.
+
+* To request one file a ticket to s3df-help@slac.stanford.edu, specifying:
+  * **Purpose:** like application to run
+  * **Environment:** Production, interim, development.
+  * **Facility:** Facility to which it will belong i.e. AD, Rubin, LCLS.
+  * **vCluster Owners:** Users who should have access to the new vCluster.
+
+* To access the newly created vcluster, go to https://k8s.slac.stanford.edu/<vcluster_name>, authenticate and fetch a kubernetes token, it will look like:
+```bash
+kubectl config set-cluster "<vcluster_name>" --server=https://k8s.slac.stanford.edu:443/api/<vcluster_name>
+kubectl config set-credentials "<username>@slac.stanford.edu@<vcluster_name>"  \
+    --auth-provider=oidc  \
+    --auth-provider-arg='idp-issuer-url=https://dex.slac.stanford.edu'  \
+    --auth-provider-arg='client-id=vcluster--<vcluster_name>'  \
+    --auth-provider-arg='client-secret=REDACTED' \
+    --auth-provider-arg='refresh-token=' \
+    --auth-provider-arg='id-token=REDACTED-TOKEN'
+kubectl config set-context "<vcluster_name>" --cluster="<vcluster_name>" --user="<username>@slac.stanford.edu@<vcluster_name>"
+kubectl config use-context "<vcluster_name>"
+```
