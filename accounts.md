@@ -32,9 +32,9 @@ If you are a SLAC employee, affiliated researcher, or experimental facility user
 
   d) Include your affiliation and other contextual information for your request in the "Notes" field, then click submit.  
 
-  e) A computing czar for the S3DF facility you requested access to will review your request. **Once approved by a facility czar**, you shall receive an email of successful registration.
+  e) A computing Czar for the S3DF Facility you requested access to will review your request. **Once approved by a facility czar**, you shall receive an email of successful registration.
 
-?> Your S3DF facility computing czar may have already pre-registered your account in S3DF. Please log in to https://coact.slac.stanford.edu to activate your account.
+?> Your S3DF facility computing czar may have already pre-registered your account in S3DF so that the above step of Requesting access to a Facility in Coact is not necessary. In such cases, you will instead receive an email asking for you to log in to https://coact.slac.stanford.edu to activate your account.
 
 
 ## Managing your SLAC Account :id=managing-account
