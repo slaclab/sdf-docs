@@ -20,3 +20,13 @@ To pull an image from DockerHub, do:
 ```bash
 apptainer pull docker://<user or organization>/<repository>:<tag>
 ```
+
+## Miscellaneous
+
+By default apptainer overrides your terminal prompt with `Apptainer> ` in order to emphasize that you are opening a terminal within a container.
+If you prefer a less stark reminder you may instead include the following lines in `~/.bashrc` for a more familiar prompt with a subtler `(apptainer)` prefix indicating the environment is within a container.
+```bash
+# add a prefix if this shell is in a container
+export PROMPT_COMMAND='[ -f /singularity ] && PS1="(apptainer) ${PS1}"; unset PROMPT_COMMAND'
+```
+This would make the terminals that you open in Jupyter Lab appear with your customary prompt, except for the additional `(apptainer) ` prefix.
