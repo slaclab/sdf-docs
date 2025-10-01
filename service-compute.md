@@ -94,3 +94,59 @@ To access the cron node:
 ?> Cron jobs configured in the legacy crontab systems on the interactive S3DF nodes have been migrated to `sdfcron001`. If a task is missing, please open a support ticket.
 
 Since interactive user connections are distributed between nodes in the S3DF environment and cron configurations are not shared between nodes, using the dedicated cron server simplifies the management of user cron jobs.
+
+## vClusters 
+
+https://github.com/loft-sh/vcluster
+
+### Description
+Fully functional virtual Kubernetes clusters, Each vcluster runs inside a namespace of the underlying k8s cluster. Main advantages against creating a separate Ck8s cluster (k0s, k3s, k8s vanilla):
+* vClusters may communicate with each other within the parent cluster.
+* Doesn't require an additional dedicated nodes to run the apiServer, proxy, etcd, scheduler, and controller.
+* Uses the underlying k8s cluster resources, such us CNI, CSI, metallb, multus, kyverno, ingress-controller, etc.
+* Rollout upgrades: no downtime while upgrading the vcluster resources (syncers - which runs the vClusters apiServers- and etcd). Not affected by other vCluster upgrades.
+
+And still ge the best of both worlds:
+* **Granular Permissions**:
+vCluster users operate with minimized permissions in the host cluster, significantly reducing the risk of privileged access misuse. Within their vCluster, users have admin-level control, enabling them to manage CRDs, RBAC, and other security policies independently.
+
+* **Isolated Control Plane:**
+Each vCluster comes with its own dedicated API server and control plane, creating a strong isolation boundary.
+
+* **Customizable Security Policies:**
+Tenants can implement additional vCluster-specific governance, including OPA policies, network policies, resource quotas, limit ranges, and admission control, in addition to the existing policies and security measures in the underlying physical host cluster.
+
+* **Enhanced Data Protection:**
+With options for separate backing stores, including embedded SQLite, etcd, or external databases, virtual clusters allow for isolated data management, reducing the risk of data leakage between tenants.
+
+* **Full Admin Access per Tenant:**
+Tenants can freely deploy CRDs, create namespaces, taint, and label nodes, and manage cluster-scoped resources typically restricted in standard Kubernetes namespaces.
+
+* **Isolated yet Integrated Networking:**
+While ensuring automatic isolation (for example, pods in different virtual clusters cannot communicate by default), vCluster allows for configurable network policies and service sharing, supporting both separation and sharing as needed.
+
+* **Conflict-Free CRD Management:**
+Independent management of CRDs within each virtual cluster eliminates the potential for CRD conflicts and version discrepancies, ensuring smoother operations and easier scaling as the user base expands.
+
+### When to request a vCluster
+* **Environment isolation:** When you need a separate environment (e.g., dev, test, staging, prod).
+
+* **Team or project isolation:** When multiple teams/projects share the same physical cluster but need isolated namespaces, RBAC, and resources.
+
+* **Version testing:** When you need to test a different Kubernetes version, operator, or dependency.
+
+* **CI/CD pipelines:** When ephemeral clusters are required for integration tests or preview environments.
+
+* **Security boundaries:** When stronger separation of permissions, policies, or workloads is required than namespace isolation alone can provide.
+
+* **Multi-tenancy scenarios:** When multiple tenants (internal or external) must be isolated from one another.
+
+* **Custom control plane extensions:** When testing custom controllers, CRDs, or API extensions.
+
+* **Scaling management overhead:** When cluster quotas, network policies, or admission controls need to be fine-tuned for a specific workload.
+
+* **Sandboxing experiments:** When developers need a safe space to try out cluster-level changes (like installing operators) without risking the shared cluster.
+
+* **Migration/dry-run scenarios:** When validating cluster migrations, upgrades, or new tooling before rolling them out at scale.
+
+### How to request a new vCluster
