@@ -79,11 +79,11 @@ See the table below to determine the specifications for each cluster (slurm part
 
 | Partition name | CPU model | Useable cores per node | Useable memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| roma | Rome 7702 | 120 | 480 GB | - | - | 300 GB | 131 |
-| milano | Milan 7713 | 120 | 480 GB | - | - | 6 TB | 270 |
-| ampere | Rome 7542 | 112 (hyperthreaded) | 952 GB | Tesla A100 (40GB) | 4 | 14 TB | 42 |
+| roma | AMD Rome 7702 | 120 | 480 GB | - | - | 300 GB | 131 |
+| milano | AMD Milan 7713 | 120 | 480 GB | - | - | 6 TB | 270 |
+| ampere | AMD Rome 7542 | 112 (hyperthreaded) | 952 GB | Tesla A100 (40GB) | 4 | 14 TB | 42 |
 | turing | Intel Xeon Gold 5118 | 40 (hyperthreaded) | 160 GB | NVIDIA GeForce 2080Ti | 10 | 300 GB | 27 |
-| ada | AMD EPYC 9454 | 72 (hyperthreaded) | 702 GB | NVIDIA L40S | 10 | 21 TB | 19 |
+| ada | AMD Genoa 9454 | 72 (hyperthreaded) | 702 GB | NVIDIA L40S | 10 | 21 TB | 19 |
 
 ### Resource Restrictions
 
