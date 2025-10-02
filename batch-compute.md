@@ -75,8 +75,7 @@ running experiment.
 
 ### Batch Clusters
 
-See the table below to determine the specifications for each
-cluster/partition :id=cluster
+See the table below to determine the specifications for each cluster (slurm partition).
 
 | Partition name | CPU model | Useable cores per node | Useable memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
