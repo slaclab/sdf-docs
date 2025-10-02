@@ -13,7 +13,7 @@ and programs, including LCLS/LCLS-II, Vera C. Rubin Observatory, UED, and the St
 - [OnDemand](interactive-compute.md#using-a-browser-and-ondemand)- Access S3DF through Open OnDemand via any (modern) browser
 - [Jupyter](interactive-compute.md#jupyter) - Interactive Jupyter Notebooks at S3DF
 - [Example Job Scripts](slurm.md) - example job scripts
-- [Systems](batch-compute.md#cluster-and-repos) - Computing resources at S3DF
+- [Systems](batch-compute.md#batch-clusters) - Computing resources at S3DF
 
 ## At a Glance
 
@@ -28,5 +28,5 @@ The table below lists various S3DF resources and where they can be found.
 | Documentation | [S3DF Docs](README.md#ignore) |
 | Help (Slack channel) | [slac.slack.com#comp-sdf](https://app.slack.com/client/T1X4J8FJ8/C01965DTG91) |
 | Help (email) | s3df-help@slac.stanford.edu |
-| Compute Resources Portal | https://coact.slac.stanford.edu |
+| Resource Management | https://coact.slac.stanford.edu |
 | Monitoring and Dashboards | https://grafana.slac.stanford.edu |

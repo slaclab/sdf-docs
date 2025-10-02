@@ -73,7 +73,7 @@ running experiment.
 
 ![repostance](assets/s3df-slurm-repostance.png)
 
-
+### Batch Clusters
 
 See the table below to determine the specifications for each
 cluster/partition :id=cluster
