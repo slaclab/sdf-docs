@@ -26,7 +26,7 @@ ssh <slac_account_username>@s3dflogin-mfa.slac.stanford.edu
 ?> Windows users may see an error message about a "*Corrupted MAC on input*" or "*message authentication code incorrect.*" The workaround is to add "*-m hmac-sha2-512*" to the ssh command, i.e. `ssh -m hmac-sha2-512 <username>@s3dflogin-mfa.slac.stanford.edu`
 
 
-## NoMachine :nomachine
+## NoMachine
 
 S3DF NoMachine provides a special remote desktop that is specifically designed to improve, compared to ssh, the performance of X11 graphics over slow connection speeds. Another important feature is that it preserves the state of your desktop across multiple sessions, including when your internet session unexpectedly gets dropped. The login pool for NoMachine is `s3dfnx.slac.stanford.edu`, port `22` and protocol `SSH`. You can find more information about this access mode in the [NoMachine reference](reference.md#nomachine).
 
