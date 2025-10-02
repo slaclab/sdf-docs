@@ -3,7 +3,7 @@
   * [Accounts](accounts.md)
   * [Access](access.md)
   * [SSH MFA](sshmfa_user.md)
-  * [Get Started](getstarted.md)
+  * [Get Started](get-started.md)
 * Computing Architecture
   * [Usage](usage.md)
   * [Resource Management](coact.md)
