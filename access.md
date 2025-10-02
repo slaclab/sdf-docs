@@ -6,7 +6,7 @@ There are three primary ways to access S3DF resources:
 
 In order to access S3DF resources, you must first obtain a [SLAC Account](accounts.md) (formerly known as a SLAC Windows account).
 
-?> S3DF is currently in the process of deprecating the usage of SLAC UNIX accounts. Please obtain a SLAC Account prior to accessing S3DF.
+?> S3DF is currently in the process of deprecating the usage of SLAC UNIX accounts. Please obtain a [SLAC Account](accounts.md) prior to accessing S3DF.
 
 
 ## SSH
