@@ -5,7 +5,7 @@
   * [SSH MFA](sshmfa_user.md)
   * [Get Started](getstarted.md)
 * Computing Architecture
-  * [Usage](getting-started.md)
+  * [Usage](usage.md)
   * [Resource Management](coact.md)
   * [Interactive Compute](interactive-compute.md)
   * [Batch Compute](batch-compute.md)
