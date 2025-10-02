@@ -8,7 +8,7 @@ and programs, including LCLS/LCLS-II, Vera C. Rubin Observatory, UED, and the St
 
 ## Quick Links
 
-- [Get Started](getstarted.md) - Information for new and existing S3DF users
+- [Get Started](get-started.md) - Information for new and existing S3DF users
 - [Get Help](contact-us.md) - How to contact S3DF support
 - [OnDemand](interactive-compute.md#using-a-browser-and-ondemand)- Access S3DF through Open OnDemand via any (modern) browser
 - [Jupyter](interactive-compute.md#jupyter) - Interactive Jupyter Notebooks at S3DF
