@@ -2,7 +2,7 @@
 
 It is not recommended to store your conda environments in your $HOME due to 1) quota limits, and 2) an inability to share conda environments across groups. We generally recommend that you install software into your facility's group space (e.g., `/sdf/group/<facility>/sw` - please see [facility storage](getting-started.md#group)). The following instructions for deploying Miniconda assume that you have write permissions in those directories. If you require write access, please consult with your facility's computing czar. The czar(s) for an S3DF facility can be found [here](https://coact.slac.stanford.edu/facilities).
 
-## Install Miniconda
+## Option 1) Install Miniconda - *recommended for an entire facility*
 
 Download the latest version of Miniconda from the [conda](https://docs.conda.io/en/latest/miniconda.html) website and follow the [Instructions](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html#installing-on-linux). Change the installion `prefix` to point to an appropriate [facility directory](getting-started.md#group) replacing `<facility>` with the name of your facility as follows:
 
@@ -32,7 +32,7 @@ pkgs_dirs:
 auto_activate_base: false
 ```
 
-## Create a conda environment
+### Create a conda environment
 
 Conda environments are a nice way of switching between different software versions/packages without multiple conda installs.
 
@@ -52,3 +52,9 @@ Then run the following command: `conda env create -f mytest-environment.yaml`.
 If successful, you should see `mytest` when listing your environments: `conda env list`. 
 
 You can now activate your environment and use it: `conda activate test`. To double-check that you have the right packages, you can type `conda list` once in the environment and check that you see `numpy` and `pandas`.
+
+## Option 2) Create and/or pull a Conda container
+
+### Method 1 - Using Apptainer
+
+### Method 2 - Using Docker
