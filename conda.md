@@ -47,7 +47,7 @@ dependencies:
   - pandas
 ```
 
-Then run the following command: `conda env create -f mytest-environment.yaml`.
+Then run the following command: `conda env create -f mytest-env.yaml`.
 
 If successful, you should see `mytest` when listing your environments: `conda env list`. 
 
@@ -56,5 +56,44 @@ You can now activate your environment and use it: `conda activate test`. To doub
 ## Option 2) Create and/or pull a Conda container
 
 ### Method 1 - Using Apptainer
+
+Apptainer can be used directly on S3DF to build a specific Conda environment within a container and run it. In addition to providing a desired Conda enviroment as exampled above in `mytest-env.yaml`, an apptainer definition file specifies the image-building procedure for installing Conda and the desired environment packages. To start, create `mytest-app.def`:
+```apptainer
+Bootstrap: docker
+From: continuumio/miniconda3:latest
+
+%files
+    mytest-env.yaml /mytest-env.yaml
+
+%post
+    /opt/conda/bin/conda env create -f /mytest-env.yaml
+
+%environment
+    source /opt/conda/etc/profile.d/conda.sh
+    conda activate mytest
+
+%runscript
+    exec "$@"
+```
+
+To build the image (.sif file) run the command:
+
+`apptainer build --fakeroot mytest-env-image.sif mytest-env.def` 
+
+This should create a container image `mytest-env-image.sif` which contains the desired conda environment settings.
+
+To use this apptainer interactively, simply run:
+
+`apptainer shell mytest-env-image.sif`
+
+which opens a terminal prompt within the image with the conda environment activated. Then, from within the Apptainer shell, running `python` opens a python terminal in the installed conda environment.
+
+Alternatively, the apptainer can be used as an executable to run a desired python script (e.g. `my_script.py`) by using the command:
+
+`apptainer run mytest-env-image.sif python my_script.py`
+
+where the arguments following the .sif image are to be run as code within the container.
+
+Note: that container images are immutable and must be rebuilt any time changes are needed in the conda environment.
 
 ### Method 2 - Using Docker
