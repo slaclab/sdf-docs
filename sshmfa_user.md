@@ -4,7 +4,7 @@
 
 Multi-Factor Authentication (MFA) provides an additional layer of security for users and S3DF SSH logins. As a preliminary rollout, MFA has been configured on the `s3dflogin-mfa.slac.stanford.edu` bastion hosts. There are two methods to access S3DF via SSH - using a password and MFA challenge, or via SSH Keys with an out-of-band (not part of the SSH command)
 
-?> The legacy SSH using SLAC Unix Computer accounts to `s3dflogin.slac.stanford.edu` will still be available as we introduce MFA enabled SSH. Once all S3DF users have been migrated, we will deprecate all SLAC Unix SSH logon services.
+?> The legacy SSH using SLAC Unix Computer accounts to `s3dflogin.slac.stanford.edu` will still be available as we introduce MFA-enabled SSH. Once all S3DF users have been migrated, we will deprecate all SLAC Unix SSH logon services.
 
 ## Passwords with MFA :id=passwords
 
@@ -26,13 +26,10 @@ Multi-Factor Authentication (MFA) provides an additional layer of security for u
 
 To use SSH key login, public keys must be registered with the S3DF key management system in order to be used with `s3dflogin-mfa.slac.stanford.edu` bastion hosts.
 
-There are two important concepts to keep in mind while managing your S3DF public keys **"valid"** and **"unexpired"** keys.
-* An **unexpired** key can be used and refreshed any number of times for a maximum of **7 days**, at which point it expires.
-  * Expired keys *cannot* be reused, reuploaded, reregistered, or refreshed
-* A **valid** key is an unexpired key that has been refreshed in the last **25 hours**
-  * A valid key can be refreshed any number of times
+An SSH key can be used to log in as long as it is **valid**.
+* A **valid** key has been refreshed in the last **25 hours**
+  * A key can be refreshed any number of times
   * Refreshing a valid key resets the validity period
-  * Refreshing a valid key has *no effect* on the expiry period
 
 ?> You may register as may keys as you like on as many computers as you like as long as each is registered with the S3DF SSH Key Service
 
@@ -69,18 +66,14 @@ AAAAC3NzaC1lZDI1NTE5AAAAIJEVMB7OgUzz6cfWJmgKfmsGG2/M82MEG7/r6r1SmjVY
 ```
 The SSH2 formatted key can be retrieve from the key file by running `ssh-keygen -e -f ~/.ssh/s3df/<name of key>`
 
-?> A newly uploaded key will expire after 7 days.
-
 #### Managing and Refreshing Keys
 
-An unexpired key remains valid for 25 hours after which time it must be refreshed.
+A key remains valid for 25 hours after which time it must be refreshed.
 To refresh a key, visit the [SSH key management service](https://s3df-sshkeys.slac.stanford.edu) and click the "List Public Keys" button.
 
 You will be shown a list of your registered keys. If the list is empty, you may need to register a key as described [above](#registering-a-new-ssh-key).
-To refresh a key's 7-day validity period, click the "Refresh" button to the right of that key. Only unexpired keys can be refreshed.
+To refresh a key's 7-day validity period, click the "Refresh" button to the right of that key.
 
 If you wish to make a key invalid before the validity period would otherwise end, click the "Inactivate" button next to that key.
-
-?> An expired key **cannot** be refreshed
 
 SSH keys are identified by their fingerprints. A key's fingerprint can be retrieved from the public key by running `ssh-keygen -l -f ~/.ssh/s3df/<name of key>`
