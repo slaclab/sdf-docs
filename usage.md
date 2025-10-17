@@ -1,4 +1,4 @@
-# Getting Started
+# S3DF Usage
 
 ## Modes of Operation
 
@@ -8,7 +8,7 @@ There are three different ways of utilizing S3DF:
 
 2. [**Batch**](batch-compute.md): Jobs are submitted to a queue and are executed as soon as resources become available. This is the most common approach for running large jobs or for executing many jobs. Note that this is the most efficient mechanism form a facility perspective because it provides the best use of the available resources. Also, note that, by far, the largest fraction of S3DF computing cycles is in the batch system. S3DF uses SLURM as workload manager for batch jobs.
 
-3. [**Service**](service-compute.md): This approach is for running long-lived jobs that run in the background waiting for data to analyze. This method is for service activities and require specific resources. These resources may be dedicated hardware acquired by your organization or may be dynamically allocated from a larger pool. For the latter approach, S3DF uses Kubernetes, an open source framework for automating deployment, scaling, and management of containerized applications. 
+3. [**Service**](service-compute.md): This approach is for running long-lived jobs that run in the background waiting for data to analyze. This method is for service activities and require specific resources. These resources may be dedicated hardware acquired by your organization or may be dynamically allocated from a larger pool. For the latter approach, S3DF uses Kubernetes, an open source framework for automating deployment, scaling, and management of containerized applications.
 
 ![S3DF users view](assets/S3DF_users_view.png)
 
@@ -19,9 +19,9 @@ Users can use SSH, NoMachine or a browser to log into the system. The login node
 
 - Do [talk to us](contact-us.md) about your requirements.
 
-- Don't perform any compute tasks on the login nodes as those are meant to operate only as bastion hosts, not for doing analysis or accessing data. 
+- Don't perform any compute tasks on the login nodes as those are meant to operate only as bastion hosts, not for doing analysis or accessing data.
 
-- Don't perform compute intensive tasks on the interactive nodes, use the batch system instead. 
+- Don't perform compute intensive tasks on the interactive nodes, use the batch system instead.
 
 - Do be respectful of other users' jobs - you shall be sharing a limited set of nodes with many many other users. Please consider the type, size and quantity of jobs that you submit so that you do not starve others of compute resources. We do implement fair sharing to limit the impact upon others, however there are ways to game the system and your organization is charged time for the resources you utilize, see [batch banking](batch-compute.md#banking).
 
@@ -36,4 +36,3 @@ Users can use SSH, NoMachine or a browser to log into the system. The login node
 - Do test your jobs before launching many (potentially hundreds) of them for your actual analysis.
 
 - Do request only the resources that you need. If you ask for more time or more CPUs or GPUs than you can actually use in your job, then it will take longer for your job to start, you will be reducing your fairshare so that your later jobs may be de-prioritised, and it prevents others from using potentially idle resources.
-
