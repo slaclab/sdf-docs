@@ -42,13 +42,14 @@ S3DF uses Loft's vCluster, which are a fully functional virtual Kubernetes clust
 
 ## Kubernetes Application Metrics
 
-S3DF Kubernetes uses (Prometheus)[https://prometheus.io/] to collect and store time series application-level metrics. Application metrics data is stored with the timestamp of when the data point was recorded, alongside optional key-value pairs called labels. The types of metrics collected will differ from application to application. For a web server, it could be request times; for a database, it could be the number of active connections or active queries, etc. Metrics data can then be queried via the attached labels, allowing developers to filter the desired metrics for the application.
+S3DF Kubernetes uses [Prometheus](https://prometheus.io/) to collect and store time series application-level metrics. Application metrics data is stored with the timestamp of when the data point was recorded, alongside optional key-value pairs called labels. The types of metrics collected will differ from application to application. For a web server, it could be request times; for a database, it could be the number of active connections or active queries, etc. Metrics data can then be queried via the attached labels, allowing developers to filter the desired metrics for the application.
 
-Metrics play an important role in understanding the status and behavior of an application, and developers who deploy applications in S3DF Kubernetes are strongly encouraged to enable these metrics and build the appropriate dashboards in S3DF (Grafana)[https://grafana.slac.stanford.edu]. Useful metrics such as application status, performance, and downtime notifications can be monitored and alerted on in Grafana once an application's metrics are exported to Prometheus.
+Metrics play an important role in understanding the status and behavior of an application, and developers who deploy applications in S3DF Kubernetes are strongly encouraged to enable these metrics and build the appropriate dashboards in [S3DF Grafana](https://grafana.slac.stanford.edu). Useful metrics such as application status, performance, and downtime notifications can be monitored and alerted on in Grafana once an application's metrics are exported to Prometheus.
 
 ### Enabling Export of Application Metrics
-Kubernetes service and pod objects typically expose metrics in Prometheus format via a `/metrics` endpoint, e.g. `<SERVICE_IP>:<PORT>/metrics` or `<POD_IP>:<PORT>/metrics`. These `/metrics` endpoints can then be monitored by creating (ServiceMonitor)[https://prometheus-operator.dev/docs/developer/getting-started/#using-servicemonitors] or (PodMonitor)[https://prometheus-operator.dev/docs/developer/getting-started/#using-podmonitors] resources, respectively.
-  * ServiceMonitor: By default, applications running in Kubernetes pods are only accessible over the network by other pods in the same vCluster context. To access them from outside the vCluster, a Kubernetes Service object must be deployed (see: https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/). This Service object can be configured as a load balancer for the various endpoints provided by the application Pods, including `/metrics`, and offer each endpoint up to external clients at a defined IP address and port. Finally, a ServiceMonitor object can then be deployed that monitors the selected metrics endpoints, which can be scraped by the parent cluster's Prometheus instance. To allow scraping by the S3DF parent cluster's Prometheus server, use the `release: sdf-k8s01` label in the ServiceMonitor manifest as below:
+Kubernetes service and pod objects typically expose metrics in Prometheus format via a `/metrics` endpoint, e.g. `<SERVICE_IP>:<PORT>/metrics` or `<POD_IP>:<PORT>/metrics`. These `/metrics` endpoints can then be monitored by creating [ServiceMonitor](https://prometheus-operator.dev/docs/developer/getting-started/#using-servicemonitors) or [PodMonitor](https://prometheus-operator.dev/docs/developer/getting-started/#using-podmonitors) resources, respectively.
+  * ServiceMonitor: By default, applications running in Kubernetes pods are only accessible over the network by other pods in the same vCluster context. To access them from outside the vCluster, a Kubernetes Service object must be deployed (see: [https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/)). This Service object can be configured as a load balancer for the various endpoints provided by the application Pods, including `/metrics`, and offer each endpoint up to external clients at a defined IP address and port. Finally, a ServiceMonitor object can then be deployed that monitors the selected metrics endpoints, which can be scraped by the parent cluster's Prometheus instance. To allow scraping by the S3DF parent cluster's Prometheus server, use the `release: sdf-k8s01` label in the ServiceMonitor manifest as below:
+
 ```
 ---
 apiVersion: monitoring.coreos.com/v1
@@ -66,7 +67,9 @@ spec:
   - port: "metrics" # <-- Port of /metrics endpoint
     interval: 5s # <-- Interval to scrape endpoint
 ```
+
   * PodMonitor: A PodMonitor can expose metrics from Pods directly without going through a Service object. This is useful to expose metrics from applications that otherwise do not need external client access. A PodMonitor selects pods to monitor via defined pod labels. Like the ServiceMonitor, it requires the `release: sdf-k8s01` label to be defined in order to be scraped by the parent cluster's Prometheus instance:
+
 ```
 ---
 apiVersion: monitoring.coreos.com/v1
