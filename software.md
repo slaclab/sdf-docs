@@ -14,6 +14,8 @@ Please [contact us](contact-us.md) if you would like something installed system-
 
 S3DF encourages groups to use to Lmod to manage, support and maintain their software tools, for their own groups, or share with other groups. S3DF can help include those software tools in the Lmod tools. In most cases, SCS will have no knowledge of those software tools, and will not be able to support and maintain them.
 
+Non-general purpose software should be installed locally by you under $HOME or project directories. The latter is preferred as your home space is limited and the project space offers better visibility to a larger audience.
+
 ## Lmod
 ### Common Lmod commands
 The `module` command is used to work with Lmod modules. It has a number of subcommands. Below is a selection of the most essential subcommands. Use `module help` to get the full list.
