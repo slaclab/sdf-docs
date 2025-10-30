@@ -72,7 +72,7 @@ A key remains valid for 25 hours after which time it must be refreshed.
 To refresh a key, visit the [SSH key management service](https://s3df-sshkeys.slac.stanford.edu) and click the "List Public Keys" button.
 
 You will be shown a list of your registered keys. If the list is empty, you may need to register a key as described [above](#registering-a-new-ssh-key).
-To refresh a key's 7-day validity period, click the "Refresh" button to the right of that key.
+To refresh a key's validity period, click the "Refresh" button to the right of that key.
 
 If you wish to make a key invalid before the validity period would otherwise end, click the "Inactivate" button next to that key.
 
