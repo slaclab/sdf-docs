@@ -16,6 +16,7 @@ List of primary tasks for a facility czar:
 ## Management Systems in Coact
 
 Coact is the primary interface for facility czars to manage their tasks. The most common tasks involve managing repos and their facility's users. To begin, log into your [coact](https://coact.slac.stanford.edu) account. The tabs in the top left: Facilities, Repos, and Requests each provide different options.
+
 ![Coact Menu Tabs](assets/coact_menu_tabs.png)
 
 ### Coact -> Facilities
@@ -43,7 +44,8 @@ In this tab, czars can accept requests by users to join a facility and gain acce
 ## Other S3DF Czar Tasks
 
 In addition to managing users and repos through Coact, some additional common tasks include:
-<details><summary>How to add/remove users from legacy Posix groups</summary>
+
+### How to add/remove users from legacy Posix groups
 
 New S3DF users without legacy unix accounts should automatically gain membership into their respective facility group. However, it may be necessary to manually adjust the group settings if issues occur.
 
@@ -53,20 +55,17 @@ For example, to add a user to a posix group on Centos7, use the following comman
 `ypgroup adduser -group <groupname> -user <username>`
 Additional options can be viewed with `ypgroup --help`.
 
-</details>
-<details><summary>How/where to install software (e.g. Conda) for the facility</summary>
+### How/where to install software (e.g. Conda) for the facility
 
 Software to be used by several users in a facility should be installed in `/sdf/group` or a subdirectory. To install Conda specifically, see the [Conda guide](conda.md). For other software, see the [software guide](software.md).
 
 If software to be installed is universal enough to be used by a lot of S3DF users, across multiple facilities, please send an inquery to [S3DF help Slack channel](slac.slack.com#comp-sdf) or the dedicated [S3DF czars Slack channel](slac.slack.com#s3df-czars) (requires permission).
 
-</details>
-<details><summary>How to request/purchase additional resources (e.g. compute nodes)</summary>
+### How to request/purchase additional resources (e.g. compute nodes)
 
 If additional computing or storage resources are needed, please consult with the [S3DF czars Slack channel](slac.slack.com#s3df-czars) (requires permission) to check when the next bulk purchase order is to be made along with pricing options.
 
 > [!NOTE]
 > Computing and storage resources have finite support lifetimes (usually around 5 years). Be sure to check with the S3DF admin team for available options when nearing the end-of-life of existing resouces.
 
-</details>
 
