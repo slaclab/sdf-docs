@@ -5,6 +5,10 @@
 ### Current
 
 ### Upcoming
+|When	|Duration | What	|
+| --- | --- | --- |
+| Mar 24-27 2025 | 3 days (planned) | The HPSS tape archive system will be unavailable Monday March 24, 2025 at 6PM PDT until Thursday March 27, 2025 at 10PM PDT for a software upgrade from v8.3 to v10.3. Both writing data into HPSS or retrieval of data from HPSS will not be possible.
+| Mar 25th 2025 | 14 hrs (planned) | The TFinity tape library will undergo preventative maintenance Tuesday March 25, 2025 from 8AM PDT to 8PM PDT. Access to the regular TSM backup system will be unavailable. Requests to restore files from tape should be submitted by emailing s3df-help@slac.stanford.edu and will be addressed after the maintenance period.
 
 ### Past
 
