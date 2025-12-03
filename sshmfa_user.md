@@ -4,7 +4,7 @@
 
 Multi-Factor Authentication (MFA) provides an additional layer of security for users and S3DF SSH logins. As a preliminary rollout, MFA has been configured on the `s3dflogin-mfa.slac.stanford.edu` bastion hosts. There are two methods to access S3DF via SSH - using a password and MFA challenge, or via SSH Keys with an out-of-band (not part of the SSH command)
 
-?> The legacy SSH using SLAC Unix Computer accounts to `s3dflogin.slac.stanford.edu` will still be available as we introduce MFA-enabled SSH. Once all S3DF users have been migrated, we will deprecate all SLAC Unix SSH logon services.
+?> The legacy SSH using SLAC Unix Computer accounts via `s3dflogin.slac.stanford.edu` will still be available as we introduce MFA-enabled SSH. Once all S3DF users have been migrated, we will deprecate all SLAC Unix SSH logon services and MFA will be required for all SSH bastion logins. `s3dflogin-mfa.slac.stanford.edu` is the current bastion name for MFA-enabled SSH until we complete this transition.
 
 ## Passwords with MFA :id=passwords
 
