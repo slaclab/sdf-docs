@@ -14,7 +14,7 @@ Multi-Factor Authentication (MFA) provides an additional layer of security for u
 
 2. You will be prompted for your SLAC Account password
 
-3. After successfully entering your SLAC Account password, you will receive a Duo challenge. ![duo challenge prompt](assets/sshmfa_duo_challenge.png)
+3. After successfully entering your SLAC Account password, you will receive a Duo challenge. Choose from one of the available options to verify.
 
 4. To complete the challenge, do one of:
   * Enter option `1` to send a notification to your Duo app
