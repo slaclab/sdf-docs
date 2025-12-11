@@ -2,12 +2,12 @@
 
 S3DF uses SLAC Account credentials for authentication and authorization. This SLAC Account must also be registered with S3DF. Once registered, you can then [access S3DF resources](access.md).
 
-## Getting a SLAC Account (current S3DF users)
+## Current S3DF Users: Getting a SLAC Account:id=Current users 
 
 If you are currently using S3DF with a deprecated Unix account, please use this [self-service application to create your SLAC Account](https://ad-account.slac.stanford.edu).
 If the application reports you already have an existing SLAC Account, contact the [SLAC IT Service Desk](https://it.slac.stanford.edu/support) and request re-enablement or password reset.
 
-## Getting a SLAC Account (new S3DF users)
+## New S3DF Users: Getting a SLAC Account:id=New users
 
 If you are a SLAC employee, affiliated researcher, or experimental facility user, you are eligible for an S3DF account.
 
