@@ -1,9 +1,22 @@
 # Conda
 
-> [!IMPORTANT]
-> It is not recommended to store your conda environments in your $HOME due to 1) quota limits, and 2) an inability to share conda environments across groups. We generally recommend that you install software into your facility's group space (e.g., `/sdf/group/<facility>/sw` - please see [facility storage](getting-started.md#group)). The following instructions for deploying Miniconda assume that you have write permissions in those directories. If you require write access, please consult with your facility's computing czar. The czar(s) for an S3DF facility can be found [here](https://coact.slac.stanford.edu/facilities).
+[Conda](https://docs.conda.io/projects/conda/en/latest/index.html) and other Python package and dependency management tools such as [UV](https://docs.astral.sh/uv/) and [Poetry](https://python-poetry.org/) allow for easier installation and deployment of Python applications with complex dependencies. The following guide covers common usage patterns for Conda on S3DF.
 
-## Option 1) Install Miniconda
+## Conda environments
+
+[Conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) are similar to Python [virtual environments](https://docs.python.org/3/library/venv.html). Both allow for the isolation of dependencies for Python application(s) such that multiple environments can install different versions of the same package without conflicting with each other. Users can invoke the environment with the desired dependencies required for a specific Python application and run it within that environmental context, in isolation from other applications outside the loaded environment.
+
+Utilizing Conda environments requires the following:
+* Access to a `conda` binary executable
+* Filesystem permissions to write to the directory where the Conda environment(s) will be stored
+* Sufficient disk space in the env location to store the package artifacts
+
+> [!Note]
+> Conda environments should not be stored in the user $HOME directory due to quota limits (30GB per user) and the inability to share the environment with other users. It is recommended to install Conda and other software into the appropriate facility group space (e.g., `/sdf/group/<facility>/sw` - please see [facility storage](getting-started.md#group)). To obtain proper filesystem permissions, please consult with the appropriate facility computing czar. The list of czars for S3DF facilities can be found at: https://coact.slac.stanford.edu/facilities.
+
+## Deploying Conda
+
+### Option 1) Installing Miniconda to group space
 
 Download the latest version of Miniconda from the [conda](https://docs.conda.io/en/latest/miniconda.html) website and follow the [Instructions](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html#installing-on-linux). Change the installion `prefix` to point to an appropriate [facility directory](getting-started.md#group) replacing `<facility>` with the name of your facility as follows:
 
@@ -36,7 +49,7 @@ auto_activate_base: false
 > [!TIP]
 > This Miniconda installation should be used for an entire facility with conda environment(s) installed for the various facility users. Conda installations and packages can be quite large, so they are not recommended to be placed in $HOME.
 
-### Create a conda environment
+### Create a Conda environment
 
 Conda environments are a nice way of switching between different software versions/packages without multiple conda installs.
 
@@ -59,56 +72,11 @@ You can now activate your environment and use it: `conda activate mytest`. To do
 
 Additionally, existing conda environments can be exported into yaml-formatted files with `conda env export > my-existing-env.yaml`.
 
-## Option 2) Create and/or pull a Conda container
+## Option 2) Create and invoke a Conda container on S3DF using the Apptainer container runtime
 
-### Method 1 - Using Apptainer
+### Docker/OCI images
 
-Apptainer can be used directly on S3DF to build a specific Conda environment within a container and run it. In addition to providing a desired Conda enviroment as exampled above in `mytest-env.yaml`, an apptainer definition file specifies the image-building procedure for installing Conda and the desired environment packages. To start, create `mytest-app.def`:
-```apptainer
-Bootstrap: docker
-From: continuumio/miniconda3:latest
-
-%files
-    mytest-env.yaml /mytest-env.yaml
-
-%post
-    /opt/conda/bin/conda env create -f /mytest-env.yaml
-
-%environment
-    source /opt/conda/etc/profile.d/conda.sh
-    conda activate mytest
-
-%runscript
-    exec "$@"
-```
-
-To build the image (.sif file) run the command:
-
-`apptainer build --fakeroot mytest-env-image.sif mytest-env.def` 
-
-This should create the Singularity image file: `mytest-env-image.sif` which contains the desired conda environment settings.
-
-To use this apptainer interactively, simply run:
-
-`apptainer shell mytest-env-image.sif`
-
-which opens a terminal prompt within the image with the conda environment activated. Then, from within the Apptainer shell, running `python` opens a python terminal in the installed conda environment.
-
-Alternatively, the apptainer can be used as an executable to run a desired python script (e.g. `my_script.py`) by using the command:
-
-`apptainer run mytest-env-image.sif python my_script.py`
-
-where the arguments following the .sif image are to be run as code within the container.
-
-> [!TIP]
-> Only the Singularity image file (.sif) needs to be provided to other S3DF users as everything is self-contained!
-
-> [!NOTE]
-> Container images are immutable and must be rebuilt any time changes are needed in the conda environment.
-
-### Method 2 - Using Docker
-
-Since Docker is not installed on S3DF, this method relies on building a docker container image on a *different* machine (e.g. a laptop), uploading that image to a repository such as [Docker Hub](https://hub.dockerhub.com), and pulling the remotely hosted image onto S3DF with Apptainer. This method is more complex than building and running a container image locally with Apptainer, but can be useful for users that already have docker container images built elsewhere.
+Due to the fact that Docker's container build utility (e.g. `docker build...`) requires admin privileges on the host build system, users must create their Docker/OCI container images on a non-S3DF host where they have admin privileges (e.g. a work laptop with sudo access).upload the image to a repository such as [GitHub Container Registry (ghcr.io)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), then pull the remotely hosted container image onto S3DF with the Apptainer container runtime. Docker/OCI images are supported by most container runtimes, thus allowing portability to use the same container image at multiple compute facilities.
 
 To begin, install docker on your local machine (not S3DF) by visiting the [Docker homepage](https://www.docker.com/get-started). Additionally, sign up for a free Docker Hub account if an online repository is needed.
 
@@ -161,4 +129,49 @@ Lastly, run the container image with Apptainer with the command:
 
 `apptainer run <repo>_latest.sif`
 
-Based on the configuration of the Dockerfile above, the container will immediately open a python interface with the appropriate conda environment.
+Based on the configuration of the Dockerfile above, the container will immediately open a python interpreter with the specified conda environment.
+
+### Apptainer
+
+Apptainer can also create Apptainer format container images using Apptainer Definition Files (`.def`). To build a specific Conda environment within a container and run it. In addition to providing a desired Conda enviroment as exampled above in `mytest-env.yaml`, an apptainer definition file specifies the image-building procedure for installing Conda and the desired environment packages. To start, create `mytest-app.def`:
+```apptainer
+Bootstrap: docker
+From: continuumio/miniconda3:latest
+
+%files
+    mytest-env.yaml /mytest-env.yaml
+
+%post
+    /opt/conda/bin/conda env create -f /mytest-env.yaml
+
+%environment
+    source /opt/conda/etc/profile.d/conda.sh
+    conda activate mytest
+
+%runscript
+    exec "$@"
+```
+
+To build the image (.sif file) run the command:
+
+`apptainer build --fakeroot mytest-env-image.sif mytest-env.def` 
+
+This should create the Singularity image file: `mytest-env-image.sif` which contains the desired conda environment settings.
+
+To use this apptainer interactively, simply run:
+
+`apptainer shell mytest-env-image.sif`
+
+which opens a terminal prompt within the image with the conda environment activated. Then, from within the Apptainer shell, running `python` opens a python terminal in the installed conda environment.
+
+Alternatively, the apptainer can be used as an executable to run a desired python script (e.g. `my_script.py`) by using the command:
+
+`apptainer run mytest-env-image.sif python my_script.py`
+
+where the arguments following the .sif image are to be run as code within the container.
+
+> [!TIP]
+> Only the Singularity image file (.sif) needs to be provided to other S3DF users as everything is self-contained.
+
+> [!NOTE]
+> Container images are immutable and must be rebuilt any time changes are needed in the conda environment.
