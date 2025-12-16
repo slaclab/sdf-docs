@@ -22,6 +22,7 @@ The table below lists various S3DF resources and where they can be found.
 | Resource 	| Access Point |
 | :--- | :--- |
 | SSH 	|  s3dflogin-mfa.slac.stanford.edu |
+| SSH Key Service	|  https://s3df-sshkeys.slac.stanford.edu/ |
 | NoMachine |  s3dfnx.slac.stanford.edu |
 | OnDemand 	| [https://s3df.slac.stanford.edu/ondemand](/ondemand ':ignore') |
 | Globus Endpoint 	| slac#s3df_globus5 |
