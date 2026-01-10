@@ -45,8 +45,13 @@ If you are a SLAC employee, affiliated researcher, or experimental facility user
 ## Managing your SLAC Account :id=managing-account
 
 Please ensure that you comply with all SLAC training and cyber-security requirements to avoid having your account disabled. You will be notified of these requirements via email.
+SLAC Accounts are also automatically disabled after 60 days of inactivity (no logins). 
+
+If you need to renable your SLAC Account, please use this [Reactivation Service]( https://identity.slac.stanford.edu/reactivate).
 
 You can change your password via the SLAC Account self-service password update site: https://adfs.slac.stanford.edu/adfs/portal/updatepassword
 
 If you have forgotten your password and need to reset it, please contact the [SLAC IT Service Desk](https://it.slac.stanford.edu/support).
+
+ 
 
