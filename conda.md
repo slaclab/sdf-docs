@@ -117,105 +117,121 @@ $ conda env export > my-existing-env.yaml
 
 Conda environments are designed to isolate a Python application and its dependencies. However, scientific applications frequently have a large number of heavyweight dependencies (e.g., `numpy` and `pandas`) that can utilize a large amount of disk space, as well as needing to be built against specific platforms and architectures for compatibility and performance. Additionally, re-deploying a Python application and its accompanying dependencies within a Conda environment to other systems (e.g., deploying the same application to SLAC and NERSC) can be time-consuming and lead to future maintenance issues as different deployments fall out of sync. Containerization (see: https://aws.amazon.com/what-is/containerization/) allows for the creation of an image that contains a full application stack all the way down to the operating system, which can be run on systems using a compatible container runtime such as `Docker`, `Podman`, `Apptainer`, etc. A Python application, with its accompanying Conda environment, Python packages, and the Conda installation itself, can be built into a container image. This can offer much more portability, especially when running applications in multiple high performance compute environments such as S3DF.
 
-### Creating Container Images
+### Creating, Publishing, and Running Conda Container Images in S3DF
 
-Container images can be built with a variety of tools in different container image formats, e.g. `Dockerfile` or Apptainer Definition files (`.def`), it is recommended to use a format that conforms to the [Open Container Initiative (OCI)](https://opencontainers.org/) standard for both portability and compatibility with the available userspace container runtime on S3DF ([Apptainer](https://apptainer.org/)). Docker images are supported by most container runtimes including Apptainer, thus allowing the container images to be used at multiple compute facilities.
+Container images can be built with a variety of tools in different container image formats, e.g. `Dockerfile`; it is recommended to use a format that conforms to the [Open Container Initiative (OCI)](https://opencontainers.org/) standard for portability and compatibility with the available userspace container runtime on S3DF ([Apptainer](https://apptainer.org/)). Docker images are supported by most container runtimes including Apptainer, thus allowing the container images to be used at multiple compute facilities.
 
-Due to the fact that Docker's container build utility (e.g. `docker build...`) requires admin privileges on the host build system, users must create their Docker container images on a non-S3DF host where they have admin privileges (e.g. a work laptop with `sudo` privileges). Once built, the container image can be uploaded to an online container repository such as [GitHub Container Registry (ghcr.io)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), and pulled onto S3DF using the Apptainer container runtime. The following diagram shows the development lifecycle for an application container used on S3DF:
-
+Due to the fact that Docker's container build utility (e.g. `docker build...`) requires admin privileges on the host build system, users must create their Docker container images on a non-S3DF host where they have admin privileges (e.g. a work laptop with `sudo` privileges). Once built, the container image can be uploaded to an online container repository such as [GitHub Container Registry (ghcr.io)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [GitLab Container Registry](https://docs.gitlab.com/user/packages/container_registry/), then pulled onto S3DF interactive or batch nodes using the `apptainer` container runtime. The following diagram shows the development lifecycle for an application container used on S3DF:
+![S3DF container lifecycle](assets/S3DF_container_lifecycle.png)
 
 > [!NOTE]
-> The host system platform and architecture where a container image is built may differ from the platform and architecture where the container is run. For example, container images can be built on a MacOS or Windows host system, while S3DF batch nodes are on RHEL8/Rocky Linux 8 (and will be migrated to Rocky Linux 9). Docker and other container build tools can be configured to target different platforms and architectures, so ensure that the built container image is compatible with the platform and architecture on S3DF nodes. For more information, see: https://docs.docker.com/build/building/multi-platform/.
+> The host system platform and architecture where a container image is built may differ from the platform and architecture where the container is run. For example, container images can be built on a MacOS or Windows host system, while S3DF batch nodes are currently running RHEL8/Rocky Linux 8 (and will eventually be migrated to Rocky Linux 9/10 and beyond). Docker and other container build tools can be configured to target different platforms and architectures, so ensure that the built container image is compatible with the target platform and architecture on S3DF nodes. For more information, see: https://docs.docker.com/build/building/multi-platform/.
 
-> [!WARNING]
-> DockerHub repositories are *PUBLIC* by default, so your container images will be visible by anyone on the internet. Be sure to make a private repo if needed, but doing so will require authentication when pushing/pulling images to/from DockerHub.
+The following example shows the workflow for creating a Conda environment in a Docker container image: Dockerfile to create a container image using a Miniconda base image and create a Conda environment in the image.
 
-Once an appropriate repo has been created (e.g. `docker.io/<username>/<repo>`), a Docker image can be built with a Dockerfile:
+1. Create an example Conda environment using a YAML manifest:
 ```
-$ cat Dockerfile
+name: test-env
+channels:
+  - default
+  - conda-forge
+dependencies:
+  - python=3.9
+  - bokeh=2.4.2
+  - conda-forge::numpy=1.21.*
+  - nodejs=16.13.*
+  - flask
+  - pip
+  - pip:
+    - Flask-Testing
+```
+
+2. Create an entrypoint script that will be run whenever the image is invoked by a container runtime:
+```
+#!/bin/bash --login
+
+# The --login ensures the bash configuration is loaded,
+
+# enabling Conda.
+
+# Enable strict mode.
+set -euo pipefail
+
+# ... Run whatever commands ...
+echo "bash ${MINIFORGE3_DIR}/etc/profile.d/conda.sh" >> ${HOME}/.bashrc
+echo "conda init bash" >> ${HOME}/.bashrc
+
+# Temporarily disable strict mode and activate conda:
+set +euo pipefail
+conda activate test-env
+
+# Re-enable strict mode:
+set -euo pipefail
+```
+
+3. Create a Dockerfile to copy the Conda environment manifest, create the Conda environment, and copy the entrypoint script into the container image
+```
 FROM continuumio/miniconda3:latest
 
 WORKDIR /app
 
-COPY mytest-env.yaml .
+COPY test-env.yaml .
 
-RUN conda env create -f /app/mytest-env.yaml && conda clean -afy
+RUN conda env create -f /app/test-env.yaml && conda clean -afy
 
 ENV PATH=/opt/conda/envs/test-env/bin:$PATH
 
-CMD ["python"]
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-To build the container image, run the command:
-
+4. On a build host with appropriate privileges, use the Docker runtime to build the image (replace `<username>` and `<repo>` placeholders as appropriate). For further details, see [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/):
 ```
+# '.' to build and tag an image using a Dockerfile in the current working directory
 $ docker build -t <username>/<repo> .
 ```
 
-This will build the image within the Dockerfile directory and tag it to the name given by `<username>/<repo>` with the Docker Hub username and repo name created earlier. Custom version tags can be appended as well for version control (e.g. `<username>/<repo>:<tag>`), and if not specified, the default tag is `latest`.
-
-> [!TIP]
-> Once the docker container is built, it can be tested/debugged locally with `docker run -it <username>/<repo>` which runs it in interactive mode.
-
-Next, *push* (upload) the docker image to an online repository with the command:
-
-`docker push <username>/<repo>`
-
-This will upload the container image to Docker Hub (or other specified online repository).
-
-Now on S3DF, *pull* (download) the docker container image with Apptainer by using the command:
-
-`apptainer pull docker://<username>/<repo>`
-
-This will create a Singularity image file (.sif) with the automatically generated name based on the repo and tag name: `<repo>_latest.sif`.
-
-Lastly, run the container image with Apptainer with the command:
-
-`apptainer run <repo>_latest.sif`
-
-Based on the configuration of the Dockerfile above, the container will immediately open a python interpreter with the specified conda environment.
-
-### Apptainer
-
-Apptainer can also create Apptainer format container images using Apptainer Definition Files (`.def`). To build a specific Conda environment within a container and run it. In addition to providing a desired Conda enviroment as exampled above in `mytest-env.yaml`, an apptainer definition file specifies the image-building procedure for installing Conda and the desired environment packages. To start, create `mytest-app.def`:
-```apptainer
-Bootstrap: docker
-From: continuumio/miniconda3:latest
-
-%files
-    mytest-env.yaml /mytest-env.yaml
-
-%post
-    /opt/conda/bin/conda env create -f /mytest-env.yaml
-
-%environment
-    source /opt/conda/etc/profile.d/conda.sh
-    conda activate mytest
-
-%runscript
-    exec "$@"
+5. Publish the image (may require authentication for private container repos. See: [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images):
+```
+$ docker push <username>/<repo>
 ```
 
-To build the image (.sif file) run the command:
+6. Pull the published image onto an S3DF [interactive](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-pools) or [batch](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm) node in a specified path with the Apptainer container runtime (see the [S3DF Apptainer Usage documentation](https://s3df.slac.stanford.edu/#/apptainer?id=apptainer)):
 
-`apptainer build --fakeroot mytest-env-image.sif mytest-env.def` 
+```
+# On an S3DF interactive or batch node
+$ apptainer pull </path/to>/test_img.sif docker://<username>/<repo> 
+```
 
-This should create the Singularity image file: `mytest-env-image.sif` which contains the desired conda environment settings.
+The Apptainer container image (`.sif`) can now be launched within an S3DF batch job or interactive batch session:
+* Submit an S3DF batch job and load the Conda environment (see: [https://s3df.slac.stanford.edu/#/slurm?id=create-a-batch-script](https://s3df.slac.stanford.edu/#/slurm?id=create-a-batch-script)):
+```
+#!/bin/bash
 
-To use this apptainer interactively, simply run:
+#SBATCH --partition=ampere
+#
+#SBATCH --job-name=test
+#SBATCH --output=output-%j.txt
+#SBATCH --error=output-%j.txt
+#
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=12
+#SBATCH --mem-per-cpu=1g
+#
+#SBATCH --time=0-00:10:00
+#
+#SBATCH --gpus 1
 
-`apptainer shell mytest-env-image.sif`
+# invoke conda environment from container image
+apptainer shell /path/to/test_img.sif
 
-which opens a terminal prompt within the image with the conda environment activated. Then, from within the Apptainer shell, running `python` opens a python terminal in the installed conda environment.
+```
+* Create an S3DF interactive batch session an invoke the Conda environment using  (see: [https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm)):
 
-Alternatively, the apptainer can be used as an executable to run a desired python script (e.g. `my_script.py`) by using the command:
+```
+$ srun --partition <ada|ampere|milan|turing|torino> --account <facility>:<repo> -n 1 --time=01:00:00 --pty /bin/bash
 
-`apptainer run mytest-env-image.sif python my_script.py`
-
-where the arguments following the .sif image are to be run as code within the container.
-
-> [!TIP]
-> Only the Singularity image file (.sif) needs to be provided to other S3DF users as everything is self-contained.
-
-> [!NOTE]
-> Container images are immutable and must be rebuilt any time changes are needed in the Conda environment.
+# once the interactive session has been scheduled, invoke a shell into the container image to load the Conda environment
+$ apptainer shell /path/to/test_img.sif
+```
