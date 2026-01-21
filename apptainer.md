@@ -7,7 +7,7 @@ For a detailed explanation of how to use Apptainer on SDF, you can go through Ye
 As pulling and building a new image can use quite a lot of disk space, we recommend that you set the appropriate cache paths for apptainer to not use your $HOME directory. Therefore, before pulling or building an image, define the following environment variables:
 
 ```bash
-export DIR=${SCRATCH}/.apptainer
+export DIR=${LSCRATCH}/.apptainer
 mkdir -p $DIR
 export APPTAINER_LOCALCACHEDIR=$DIR
 export APPTAINER_CACHEDIR=$DIR
