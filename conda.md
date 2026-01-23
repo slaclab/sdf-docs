@@ -63,7 +63,7 @@ The following YAML manifest generates a Conda environment called `mytest` with t
 * `numpy`
 * `pandas`
   
-```bash
+```yaml
 $ cat << EOF > mytest-env.yaml
 name: mytest
 dependencies:
@@ -134,7 +134,7 @@ Due to the fact that Docker's container build utility (e.g. `docker build...`) r
 The following example shows the workflow for creating a Conda environment in a Docker container image:
 
 1. Create an example Conda environment using a YAML manifest:
-```bash
+```yaml
 $ cat << EOF > test-env.yaml
 name: test-env
 channels:
@@ -149,10 +149,8 @@ dependencies:
   - pip
   - pip:
     - Flask-Testing
-
 EOF
 ```
-
 2. Create an entrypoint script that will be run whenever the image is invoked by a container runtime:
 ```bash
 $ cat << EOF > entrypoint.sh
@@ -176,7 +174,6 @@ set -euo pipefail
 
 EOF
 ```
-
 3. Create a Dockerfile to copy the Conda environment manifest, create the Conda environment, and copy the entrypoint script into the container image
 ```bash
 $ cat << EOF > Dockerfile
@@ -193,21 +190,17 @@ ENV PATH=/opt/conda/envs/test-env/bin:$PATH
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-
 EOF
 ```
-
 4. On a build host with appropriate privileges, use the Docker runtime to build the image (replace `<username>` and `<repo>` placeholders as appropriate). For further details, see [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/):
 ```bash
 # '.' to build and tag an image using a Dockerfile in the current working directory
 $ docker build -t <username>/<repo> .
 ```
-
 5. Publish the image (may require authentication for private container repos. See: [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images):
 ```
 $ docker push <username>/<repo>
 ```
-
 6. Pull the published image onto an S3DF [interactive](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-pools) or [batch](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm) node in a specified path with the Apptainer container runtime (see the [S3DF Apptainer Usage documentation](https://s3df.slac.stanford.edu/#/apptainer?id=apptainer)):
 ```bash
 $ apptainer pull </path/to>/test_img.sif docker://<username>/<repo> 
@@ -231,7 +224,7 @@ $ cat << EOF > submit_job.bash
 
 # invoke conda environment from container image
 apptainer shell /path/to/test_img.sif
-
+EOF
 ```
 * Create an S3DF interactive batch session an invoke the Conda environment using  (see: [https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm)):
 
