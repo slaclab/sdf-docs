@@ -64,13 +64,12 @@ The following YAML manifest generates a Conda environment called `mytest` with t
 * `pandas`
   
 ```yaml
-$ cat << EOF > mytest-env.yaml
+---
 name: mytest
 dependencies:
-    - python=3.12
-    - numpy
-    - pandas
-EOF
+  - python=3.12
+  - numpy
+  - pandas
 ```
 
 Create the Conda environment:
@@ -133,38 +132,34 @@ Due to the fact that Docker's container build utility (e.g. `docker build...`) r
 The following example shows the workflow for creating a Conda environment in a Docker container image.
 1. Create an example Conda environment using a YAML manifest:
 ```yaml
+---
 name: test-env
 channels:
-    - default
-    - conda-forge
+  - default
+  - conda-forge
 dependencies:
-    - python=3.9
-    - bokeh=2.4.2
-    - conda-forge::numpy=1.21.*
-    - nodejs=16.13.*
-    - flask
-    - pip
-    - pip:
-        - Flask-Testing
+  - python=3.9
+  - bokeh=2.4.2
+  - conda-forge::numpy=1.21.*
+  - nodejs=16.13.*
+  - flask
+  - pip
+  - pip:
+    - Flask-Testing
 ```
 2. Create an entrypoint script that will be run whenever the image is invoked by a container runtime:
 ```bash
 $ cat << EOF > entrypoint.sh
 #!/bin/bash --login
-
 # The --login ensures the bash configuration is loaded, enabling Conda.
 # Enable strict mode.
-
 set -euo pipefail
-
 # ... Run whatever commands ...
 echo "bash ${MINIFORGE3_DIR}/etc/profile.d/conda.sh" >> ${HOME}/.bashrc
 echo "conda init bash" >> ${HOME}/.bashrc
-
 # Temporarily disable strict mode and activate conda:
 set +euo pipefail
 conda activate test-env
-
 # Re-enable strict mode:
 set -euo pipefail
 EOF
