@@ -191,7 +191,9 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 4. On a build host with appropriate privileges, use the Docker runtime to build the image (replace `<username>` and `<repo>` placeholders as appropriate). For further details, see [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/):
 ```
+
 # '.' to build and tag an image using a Dockerfile in the current working directory
+
 $ docker build -t <username>/<repo> .
 ```
 
@@ -201,15 +203,17 @@ $ docker push <username>/<repo>
 ```
 
 6. Pull the published image onto an S3DF [interactive](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-pools) or [batch](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm) node in a specified path with the Apptainer container runtime (see the [S3DF Apptainer Usage documentation](https://s3df.slac.stanford.edu/#/apptainer?id=apptainer)):
-
 ```
+
 # On an S3DF interactive or batch node
+
 $ apptainer pull </path/to>/test_img.sif docker://<username>/<repo> 
 ```
 
 The Apptainer container image (`.sif`) can now be launched within an S3DF batch job or interactive batch session:
 * Submit an S3DF batch job and load the Conda environment (see: [https://s3df.slac.stanford.edu/#/slurm?id=create-a-batch-script](https://s3df.slac.stanford.edu/#/slurm?id=create-a-batch-script)):
 ```
+
 #!/bin/bash
 
 #SBATCH --partition=ampere
