@@ -203,7 +203,7 @@ $ docker build -t <username>/<repo> .
 
 5. Publish the image (may require authentication for private container repos. See: [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images):
 
-```
+```bash
 $ docker push <username>/<repo>
 ```
 
