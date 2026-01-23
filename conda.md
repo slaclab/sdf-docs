@@ -109,7 +109,7 @@ pandas                    2.2.2                    pypi_0      pypi
 python                    3.12.5          h2ad013b_0_cpython   conda-forge
 [...]
 ```
-Note that the package list will show not only the pre-defined packages from the environment's YAML manifest, but any dependencies installed along with them.
+?> Note that the package list will show not only the pre-defined packages from the environment's YAML manifest, but any dependencies installed along with them.
 
 Existing Conda environments can be exported into YAML manifests by running the following (change the name of the environment YAML file as desired):
 
@@ -117,8 +117,7 @@ Existing Conda environments can be exported into YAML manifests by running the f
 $ conda env export > my-existing-env.yaml
 ```
 
-> [!Note]
-> Conda environments should not be stored in the user $HOME directory due to quota limits (30GB per user) and the inability to share the environment with other users. It is recommended to install Conda and other software into the appropriate facility group space (e.g., `/sdf/group/<facility>/sw` - please see [facility storage](getting-started.md#group)). To obtain proper filesystem permissions, please consult with the appropriate facility computing czar. The list of czars for S3DF facilities can be found at: https://coact.slac.stanford.edu/facilities.
+?> Conda environments should not be stored in the user $HOME directory due to quota limits (30GB per user) and the inability to share the environment with other users. It is recommended to install Conda and other software into the appropriate facility group space (e.g., `/sdf/group/<facility>/sw` - please see [facility storage](getting-started.md#group)). To obtain proper filesystem permissions, please consult with the appropriate facility computing czar. The list of czars for S3DF facilities can be found at: https://coact.slac.stanford.edu/facilities.
 
 ## Containerizing Conda environments
 
@@ -131,8 +130,7 @@ Container images can be built with a variety of tools in different container ima
 Due to the fact that Docker's container build utility (e.g. `docker build...`) requires admin privileges on the host build system, users must create their Docker container images on a non-S3DF host where they have admin privileges (e.g. a work laptop with `sudo` privileges). Once built, the container image can be uploaded to an online container repository such as [GitHub Container Registry (ghcr.io)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or [GitLab Container Registry](https://docs.gitlab.com/user/packages/container_registry/), then pulled onto S3DF interactive or batch nodes using the `apptainer` container runtime. The following diagram shows the development lifecycle for an application container used on S3DF:
 ![S3DF container lifecycle](assets/S3DF_container_lifecycle.png)
 
-> [!NOTE]
-> The host system platform and architecture where a container image is built may differ from the platform and architecture where the container is run. For example, container images can be built on a MacOS or Windows host system, while S3DF batch nodes are currently running RHEL8/Rocky Linux 8 (and will eventually be migrated to Rocky Linux 9/10 and beyond). Docker and other container build tools can be configured to target different platforms and architectures, so ensure that the built container image is compatible with the target platform and architecture on S3DF nodes. For more information, see: https://docs.docker.com/build/building/multi-platform/.
+?> The host system platform and architecture where a container image is built may differ from the platform and architecture where the container is run. For example, container images can be built on a MacOS or Windows host system, while S3DF batch nodes are currently running RHEL8/Rocky Linux 8 (and will eventually be migrated to Rocky Linux 9/10 and beyond). Docker and other container build tools can be configured to target different platforms and architectures, so ensure that the built container image is compatible with the target platform and architecture on S3DF nodes. For more information, see: https://docs.docker.com/build/building/multi-platform/.
 
 The following example shows the workflow for creating a Conda environment in a Docker container image.
 
@@ -174,7 +172,7 @@ set -euo pipefail
 EOF
 ```
 
-3. Create a Dockerfile to copy the Conda environment manifest, create the Conda environment, and copy the entrypoint script into the container image
+3. Create a Dockerfile to copy the Conda environment manifest, create the Conda environment, and copy the entrypoint script into the container image:
 
 ```bash
 $ cat << EOF > Dockerfile
@@ -194,14 +192,14 @@ ENTRYPOINT ["/entrypoint.sh"]
 EOF
 ```
 
-4. On a build host with appropriate privileges, use the Docker runtime to build the image (replace `<username>` and `<repo>` placeholders as appropriate). For further details, see [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/):
+4. On a build host with appropriate privileges, use the Docker runtime to build the image (replace `<username>` and `<repo>` placeholders as appropriate). For further details, see: [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/):
 
 ```bash
 # '.' to build and tag an image using a Dockerfile in the current working directory
 $ docker build -t <username>/<repo> .
 ```
 
-5. Publish the image (may require authentication for private container repos. See: [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images):
+5. Publish the image (may require authentication for private container repos. See: [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images)):
 
 ```bash
 $ docker push <username>/<repo>
@@ -215,7 +213,7 @@ $ apptainer pull </path/to>/test_img.sif docker://<username>/<repo>
 
 The Apptainer container image (`.sif`) can now be launched within an S3DF batch job or interactive batch session:
 
-* Submit an S3DF batch job and load the Conda environment (see: [https://s3df.slac.stanford.edu/#/slurm?id=create-a-batch-script](https://s3df.slac.stanford.edu/#/slurm?id=create-a-batch-script)):
+* Create and submit an S3DF batch job script that loads the Conda environment using Apptainer (see: [https://s3df.slac.stanford.edu/#/slurm?id=create-a-batch-script](https://s3df.slac.stanford.edu/#/slurm?id=create-a-batch-script)):
 
 ```bash
 $ cat << EOF > submit_job.bash
@@ -234,11 +232,17 @@ $ cat << EOF > submit_job.bash
 # invoke conda environment from container image
 apptainer shell /path/to/test_img.sif
 EOF
+```
 
+Submit the job from an S3DF interactive node with:
+
+```
 $ sbatch submit_job.bash
 ```
 
-* Create an S3DF interactive batch session an invoke the Conda environment using  (see: [https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm)):
+Your batch session will be scheduled and the Conda environment from the container will be invoked.
+
+* Create an S3DF interactive batch session and invoke the Conda environment using Apptainer (see: [https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm)):
 
 ```bash
 $ srun --partition <ada|ampere|milan|turing|torino> --account <facility>:<repo> -n 1 --time=01:00:00 --pty /bin/bash
