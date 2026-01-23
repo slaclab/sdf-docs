@@ -73,11 +73,13 @@ dependencies:
 ```
 
 Create the Conda environment:
+
 ```bash
 $ conda env create -f mytest-env.yaml
 ```
 
 Once created, the `mytest` env should appear when listing Conda environments (`<facility>` is a placeholder): 
+
 ```bash
 $ conda env list
 # conda environments:
@@ -87,11 +89,13 @@ mytest        /sdf/group/<facility>/sw/conda/envs/mytest
 ``` 
 
 The Conda environment may be activated by running: 
+
 ```bash
 $ conda activate mytest
 ```
 
 Once the environment has been activated, the installed package list can be seen by running: 
+
 ```bash
 (mytest) $ conda list
 # packages in environment at /sdf/group/<facility>/sw/conda/envs/mytest:
@@ -108,6 +112,7 @@ python                    3.12.5          h2ad013b_0_cpython   conda-forge
 Note that the package list will show not only the pre-defined packages from the environment's YAML manifest, but any dependencies installed along with them.
 
 Existing Conda environments can be exported into YAML manifests by running the following (change the name of the environment YAML file as desired):
+
 ```bash
 $ conda env export > my-existing-env.yaml
 ```
@@ -130,7 +135,9 @@ Due to the fact that Docker's container build utility (e.g. `docker build...`) r
 > The host system platform and architecture where a container image is built may differ from the platform and architecture where the container is run. For example, container images can be built on a MacOS or Windows host system, while S3DF batch nodes are currently running RHEL8/Rocky Linux 8 (and will eventually be migrated to Rocky Linux 9/10 and beyond). Docker and other container build tools can be configured to target different platforms and architectures, so ensure that the built container image is compatible with the target platform and architecture on S3DF nodes. For more information, see: https://docs.docker.com/build/building/multi-platform/.
 
 The following example shows the workflow for creating a Conda environment in a Docker container image.
+
 1. Create an example Conda environment using a YAML manifest:
+
 ```yaml
 ---
 name: test-env
@@ -147,7 +154,9 @@ dependencies:
   - pip:
     - Flask-Testing
 ```
+
 2. Create an entrypoint script that will be run whenever the image is invoked by a container runtime:
+
 ```bash
 $ cat << EOF > entrypoint.sh
 #!/bin/bash --login
@@ -164,7 +173,9 @@ conda activate test-env
 set -euo pipefail
 EOF
 ```
+
 3. Create a Dockerfile to copy the Conda environment manifest, create the Conda environment, and copy the entrypoint script into the container image
+
 ```bash
 $ cat << EOF > Dockerfile
 FROM continuumio/miniconda3:latest
@@ -182,22 +193,30 @@ COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 EOF
 ```
+
 4. On a build host with appropriate privileges, use the Docker runtime to build the image (replace `<username>` and `<repo>` placeholders as appropriate). For further details, see [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/):
+
 ```bash
 # '.' to build and tag an image using a Dockerfile in the current working directory
 $ docker build -t <username>/<repo> .
 ```
+
 5. Publish the image (may require authentication for private container repos. See: [https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/#publishing-images):
+
 ```
 $ docker push <username>/<repo>
 ```
+
 6. Pull the published image onto an S3DF [interactive](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-pools) or [batch](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm) node in a specified path with the Apptainer container runtime (see the [S3DF Apptainer Usage documentation](https://s3df.slac.stanford.edu/#/apptainer?id=apptainer)):
+
 ```bash
 $ apptainer pull </path/to>/test_img.sif docker://<username>/<repo> 
 ```
 
 The Apptainer container image (`.sif`) can now be launched within an S3DF batch job or interactive batch session:
+
 * Submit an S3DF batch job and load the Conda environment (see: [https://s3df.slac.stanford.edu/#/slurm?id=create-a-batch-script](https://s3df.slac.stanford.edu/#/slurm?id=create-a-batch-script)):
+
 ```bash
 $ cat << EOF > submit_job.bash
 #!/bin/bash
@@ -216,6 +235,7 @@ $ cat << EOF > submit_job.bash
 apptainer shell /path/to/test_img.sif
 EOF
 ```
+
 * Create an S3DF interactive batch session an invoke the Conda environment using  (see: [https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm](https://s3df.slac.stanford.edu/#/interactive-compute?id=interactive-compute-session-using-slurm)):
 
 ```bash
