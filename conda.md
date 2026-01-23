@@ -67,9 +67,9 @@ The following YAML manifest generates a Conda environment called `mytest` with t
 $ cat << EOF > mytest-env.yaml
 name: mytest
 dependencies:
-  - python=3.12
-  - numpy
-  - pandas
+    - python=3.12
+    - numpy
+    - pandas
 EOF
 ```
 
@@ -135,17 +135,17 @@ The following example shows the workflow for creating a Conda environment in a D
 ```yaml
 name: test-env
 channels:
-  - default
-  - conda-forge
+    - default
+    - conda-forge
 dependencies:
-  - python=3.9
-  - bokeh=2.4.2
-  - conda-forge::numpy=1.21.*
-  - nodejs=16.13.*
-  - flask
-  - pip
-  - pip:
-    - Flask-Testing
+    - python=3.9
+    - bokeh=2.4.2
+    - conda-forge::numpy=1.21.*
+    - nodejs=16.13.*
+    - flask
+    - pip
+    - pip:
+        - Flask-Testing
 ```
 2. Create an entrypoint script that will be run whenever the image is invoked by a container runtime:
 ```bash
