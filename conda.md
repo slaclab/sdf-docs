@@ -70,7 +70,6 @@ dependencies:
   - python=3.12
   - numpy
   - pandas
-
 EOF
 ```
 
@@ -131,11 +130,9 @@ Due to the fact that Docker's container build utility (e.g. `docker build...`) r
 > [!NOTE]
 > The host system platform and architecture where a container image is built may differ from the platform and architecture where the container is run. For example, container images can be built on a MacOS or Windows host system, while S3DF batch nodes are currently running RHEL8/Rocky Linux 8 (and will eventually be migrated to Rocky Linux 9/10 and beyond). Docker and other container build tools can be configured to target different platforms and architectures, so ensure that the built container image is compatible with the target platform and architecture on S3DF nodes. For more information, see: https://docs.docker.com/build/building/multi-platform/.
 
-The following example shows the workflow for creating a Conda environment in a Docker container image:
-
+The following example shows the workflow for creating a Conda environment in a Docker container image.
 1. Create an example Conda environment using a YAML manifest:
 ```yaml
-$ cat << EOF > test-env.yaml
 name: test-env
 channels:
   - default
@@ -149,7 +146,6 @@ dependencies:
   - pip
   - pip:
     - Flask-Testing
-EOF
 ```
 2. Create an entrypoint script that will be run whenever the image is invoked by a container runtime:
 ```bash
@@ -171,7 +167,6 @@ conda activate test-env
 
 # Re-enable strict mode:
 set -euo pipefail
-
 EOF
 ```
 3. Create a Dockerfile to copy the Conda environment manifest, create the Conda environment, and copy the entrypoint script into the container image
