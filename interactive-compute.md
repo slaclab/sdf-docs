@@ -13,12 +13,12 @@ The currently available pools are shown in the table below (The facility can be 
 |Pool name | Facility | Resources |
 | --- | --- | --- |
 |iana | For all S3DF users | 4 servers, 40 HT cores and 384 GB per server |
-|rubin-devl | Rubin | 4 servers, 128 cores and 512 GB per server |
-|psana | LCLS | 4 servers, 40 HT cores and 384 GB per server |
-|fermi-devl | Fermi | 1 server, 64 HT cores and 512 GB per server |
+|rubin-devl | Rubin | 11 servers, 128 cores and 512 GB per server |
+|psana | LCLS | 7 servers, 40 HT cores and 384 GB per server |
+|fermi-devl | Fermi | 2 server, 64 HT cores and 512 GB per server |
 |faders | FADERS | 1 server, 128 HT cores and 512 GB per server |
 |ldmx | LDMX | 1 server, 128 HT cores and 512 GB per server |
-|ad | AD | 3 servers, 128 HT cores and 512 GB per server |
+|ad | AD | 2 servers, 128 HT cores and 512 GB per server |
 |epptheory | EPPTheory | 2 servers, 128 HT cores and 512 GB per server |
 |cdms | SuperCDMS | (points to iana) |
 |suncat | SUNCAT | (points to iana) |
