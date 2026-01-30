@@ -6,6 +6,10 @@
 
 ### Upcoming
 
+|When	|Duration | What	|
+| --- | --- | --- |
+| February 4th 2026 | 9:00-13:00 PST (planned) | Shutdown the Globus node  “sdfdtn004” for a network card upgrade.
+
 ### Past
 
 |When	|Duration | What	|
