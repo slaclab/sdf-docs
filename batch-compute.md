@@ -79,6 +79,8 @@ See the table below to determine the specifications for each cluster (slurm part
 
 | Partition name | CPU model | Useable cores per node | Useable memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| torino | AMD Turin 9555 | 120 | 720 GB | - | - | 6 TB | 52 |
+| hopper | AMD Turin 9575F | 224 (hyperthreaded) | 1344 GB | NVIDIA H200 | 4 | 21 TB | 3 |
 | roma | AMD Rome 7702 | 120 | 480 GB | - | - | 300 GB | 131 |
 | milano | AMD Milan 7713 | 120 | 480 GB | - | - | 6 TB | 270 |
 | ampere | AMD Rome 7542 | 112 (hyperthreaded) | 952 GB | Tesla A100 (40GB) | 4 | 14 TB | 42 |
