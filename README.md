@@ -1,4 +1,3 @@
-***Globus Data Transfer outage scheduled for February 4th 2026 09:00-13:00 PST. [More details here](changelog.md)***
 Welcome to the SLAC Shared Scientific Data Facility (S3DF) at SLAC National Accelerator Laboratory.
 
 S3DF is a compute, storage, and network architecture designed to support
