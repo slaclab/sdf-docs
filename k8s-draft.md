@@ -66,8 +66,6 @@ EXTERNAL ACCESS
 └─→ Ingress → Routes traffic to containers
 ```
 
-
-
 1. Ensure you have access to the vcluster you want to deploy your application on (see above).
 
 2. Create a dedicated deployment repo for your application. This repo should contain all the necessary Kubernetes manifests (yaml files) that describe the desired state of your application. 
@@ -78,17 +76,47 @@ The deployment repo should follow the structure:
 ```deployment-repo/
 ├── kubernetes/
 │   ├── overlays/
-│   │   ├── dev/
-│   │   │   (if more than one component, e.g. frontend/backend, can have subdirs here containing manifests specific to that component)
+│   │   ├── (dev or prod)/
+│   │   │   (if more than one component, e.g. frontend/backend, can have subdirs here containing manifests specific to that component)/
             - kustomization.yaml
             - deployment.yaml
             - endpoints.yaml 
             - Makefile
-│   │   ├── prod/
-
 ```
 
 
+How the deployment repo manifests map to the Kubernetes stack:
+
+```
+External User Request
+↓
+INGRESS ✓ (endpoints.yaml)
+- Handles incoming traffic
+- Routes to service based on URL path
+- Handle authentication (if needed)
+↓
+SERVICE ✓ (endpoints.yaml)
+- Type: ClusterIP
+- Exposes port 8000 internally
+- Selects pods with app=iri-mock-s3df
+↓
+PODS ✓ (deployment.yaml)
+- Runs your application container
+- Configure replicas, resource limits, environment variables, etc.
+```
+
+- deployment.yaml handles pod creation/management
+- The Makefile:
+    - Validates you're on the right cluster before doing anything
+    - Generates credentials on-the-fly from stored secrets
+    - Deploys via kustomize
+    - Cleans up credentials immediately after
+    - All in one command: `make apply`
 
 
+### Why is it structured this way?
+
+The separation of concerns between the application code and the deployment manifests allows for smoother development and deployment workflows.
+
+The deployment repo is structured to follow best practices for Kubernetes deployments, such as using Kustomize for managing application components and resources, and using a Makefile to automate common deployment tasks. This declarative approach allows for easier management of the application lifecycle, including updates and rollbacks, while also providing a clear separation between the application code and the deployment configuration.
 
