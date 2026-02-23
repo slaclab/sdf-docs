@@ -329,14 +329,14 @@ PODS ✓ (deployment.yaml)
     - Cleans up credentials immediately after
     - All in one command: `make apply`
 
-Using GNU Make is a way of "normalizing" the various sources for provisioning K8s resources. For instance, secrets can be sources from several components: 
+Using GNU Make is a way of "normalizing" the various sources for provisioning K8s resources. For example, a Kubernetes workload could have the following components provisioned from different sources:
 
 - **[HashiCorp Vault](https://www.vaultproject.io/):** A secrets management tool used to securely store and dynamically generate credentials (e.g., database passwords, API keys). The Makefile can retrieve these secrets at deploy time without embedding them in the repo.
 - **CRDs for [CNPG](https://cloudnative-pg.io/) (CloudNativePG) from GitHub:** Custom Resource Definitions for the CloudNativePG Postgres operator, fetched directly from its GitHub releases. These extend the Kubernetes API to manage PostgreSQL clusters as native Kubernetes objects.
 - **CRs from [Helm](https://helm.sh/) charts:** Custom Resources instantiated via Helm chart deployments. Helm acts as a package manager, rendering and applying Kubernetes manifests (including CRs) from versioned, reusable chart templates.
 
 
-By running `make apply`, the user can trigger the entire deployment process without needing to worry about the underlying details of credential management and kustomize application. This approach also helps to ensure that best practices for security and deployment are consistently followed across all applications deployed in S3DF Kubernetes. 
+A Makefile target can be structured to provision and apply the above resources in a Kubernetes deployment with a single command (e.g., `make apply`). This approach also helps to ensure that best practices for security and deployment are consistently followed across all applications deployed in S3DF Kubernetes. 
 
 
 #### Why is it structured this way?
