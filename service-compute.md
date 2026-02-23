@@ -101,10 +101,6 @@ programs, and experiments:
 | Cryo-EM E-Logbook | https://cryoem-logbook.slac.stanford.edu|
 
 
-```
-Question: Does `Site/Application` map to a facility referenced in relation to the DNS naming convention `<facilityname>.sdf.slac.stanford.edu/<webapp>`?
-```
-
 Dynamic content refers to a website or web application that is
 typically generated on a per-client basis with information on how to
 render the site fetched from a database or other server-side
