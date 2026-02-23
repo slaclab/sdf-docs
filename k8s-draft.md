@@ -9,17 +9,20 @@ In S3DF, it is the primary means of getting your application or service running 
 S3DF hosts a set of 90 vclusters across 9 facilities; access to these vclusters is available through Gangway and your SLAC account.
 
 1. Request access to a vcluster? 
-Each vcluster has a Gangway login page following the convention: `https://k8s.slac.stanford.edu/<vcluster_name>`. You can find the list of available vclusters and their corresponding Gangway login pages in the [Kubernetes reference](reference.md#kubernetes-vclusters).
+Each vcluster has a Gangway login page following the convention: `https://k8s.slac.stanford.edu/<vcluster_name>`. To gain access, or setup, a vcluster  submit a ticket to `s3df-help@slac.stanford.edu` (see `[LinkTo:`How to request a Kubernetes Environment`]` on specific info to include in the ticket). 
+
 
 Gangway is an IdP proxy that allows you to authenticate using your SLAC account via a web portal. 
 
 2. Once you have authenitcated on Gangway, you can connect using the Gangway's generated kubectl configurations and token. 
 
-`Keep in mind that the token is only valid of 10 hours`. 
+`Keep in mind that the token is only valid for 10 hours`. 
 - To update the token after expiry: logout and login again to get a new token.
 
 3. Once you are connected to the vcluster, you can use `kubectl` to interact with the Kubernetes API and deploy your applications. 
 
+
+##### Overview of the process:
 ```
 ┌─────────────┐
 │    You      │
@@ -104,7 +107,7 @@ PODS ✓ (deployment.yaml)
 - Runs your application container
 - Configure replicas, resource limits, environment variables, etc.
 ```
-
+- endpoints.yaml handles ingress and service definitions
 - deployment.yaml handles pod creation/management
 - The Makefile:
     - Validates you're on the right cluster before doing anything
