@@ -201,7 +201,7 @@ Kubernetes benefits from a large and active open-source community, leading to a 
 
 ### How to request a Kubernetes Environment
 
-S3DF uses Loft's vClusters, which are a fully functional virtual Kubernetes clusters; Each vcluster runs inside a namespace of the underlying k8s cluster. Each vcluster runs its own dedicated API server and control plane, creating a strong isolation boundary, and Tenants can freely deploy CRDs, create namespaces, and manage cluster-scoped resources typically restricted in standard Kubernetes namespaces. 
+S3DF uses Loft vCluster to provide fully-functional virtual Kubernetes clusters, each with its own dedicated API server and control plane. Within each vCluster, tenants can freely deploy Custom Resource Definitions (CRDs), create namespaces, and manage other cluster-scoped resources that are typically restricted in standard Kubernetes namespaces. 
 
 * To request one file a ticket to s3df-help@slac.stanford.edu, specifying:
   * **Purpose:** like application to run
@@ -225,12 +225,13 @@ kubectl config use-context "<vcluster_name>"
 
 ### Accessing the Kubernetes Environment (vclusters)
 
-1. Once you have either created a vcluster or have been added as a user to an existing vcluster, you can access the Kubernetes API server of the vcluster via Gangway.
+1. Once a vcluster has been vetted and created by an admin for you, or you have been added as a user to an existing vcluster, login and configuration details to access the vcluster will be provided.
 
-2. Each vcluster has a Gangway login page following the convention: `https://k8s.slac.stanford.edu/<vcluster_name>`. Gangway is an IdP proxy that allows you to authenticate using your SLAC account via a web portal. 
-  - Once you have authenticated on Gangway, you can connect using the Gangway's generated kubectl configurations and token. 
-  `Keep in mind that the token is only valid for 10 hours`
-  - To update the token after expiry: logout and login again to get a new token.
+2. The Kubernetes vcluster API will be accessed via kubectl commands, where authentication to the API is handled via a generated token to configure your local kubectl.
+  
+  [!IMPORTANT] 
+  > Due to SLAC cyber policy, new credentials are required every 12 hours and thus they must relog back in (to the authentication portal provided once vcluster access is granted) to fetch a new token and update their local kubectl configuration.
+ 
 
 3. Once you are connected to the vcluster, you can use `kubectl` to interact with the Kubernetes API and deploy your applications. 
 
@@ -328,6 +329,14 @@ PODS ✓ (deployment.yaml)
     - Cleans up credentials immediately after
     - All in one command: `make apply`
 
+Using GNU Make is a way of "normalizing" the various sources for provisioning K8s resources. For instance, secrets can be sources from several components: 
+
+- **[HashiCorp Vault](https://www.vaultproject.io/):** A secrets management tool used to securely store and dynamically generate credentials (e.g., database passwords, API keys). The Makefile can retrieve these secrets at deploy time without embedding them in the repo.
+- **CRDs for [CNPG](https://cloudnative-pg.io/) (CloudNativePG) from GitHub:** Custom Resource Definitions for the CloudNativePG Postgres operator, fetched directly from its GitHub releases. These extend the Kubernetes API to manage PostgreSQL clusters as native Kubernetes objects.
+- **CRs from [Helm](https://helm.sh/) charts:** Custom Resources instantiated via Helm chart deployments. Helm acts as a package manager, rendering and applying Kubernetes manifests (including CRs) from versioned, reusable chart templates.
+
+
+By running `make apply`, the user can trigger the entire deployment process without needing to worry about the underlying details of credential management and kustomize application. This approach also helps to ensure that best practices for security and deployment are consistently followed across all applications deployed in S3DF Kubernetes. 
 
 
 #### Why is it structured this way?
@@ -336,3 +345,4 @@ The separation of concerns between the application code and the deployment manif
 
 The deployment repo is structured to follow best practices for Kubernetes deployments, such as using Kustomize for managing application components and resources, and using a Makefile to automate common deployment tasks. This declarative approach allows for easier management of the application lifecycle, including updates and rollbacks, while also providing a clear separation between the application code and the deployment configuration.
 
+Similar to `Kubernetes` role as runtime platform for containerized applications, `Helm` serves as a package management and templating layer on top of Kubernetes deployments. Its purpose would be to reduce manifests duplication and enforce consistent policy defaults (security context, read-only mounts, ingress annotations) across your applications deployed in S3DF Kubernetes. Helm allows you to templatize your Kubernetes manifests and manage them as reusable charts, which can be easily shared and versioned. This can help streamline the deployment process and ensure that best practices are consistently applied across all your deployments.
