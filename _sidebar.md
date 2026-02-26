@@ -21,6 +21,7 @@
   * [Conda](conda.md)
   * [Compilers](compilers.md)
   * [MPI](mpi.md)
+  * [Kubernetes](kubernetes.md)
 * Reference
   * [FAQ](faq.md)
   * [Business Model](business-model.md)
