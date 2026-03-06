@@ -53,5 +53,18 @@ You can change your password via the SLAC Account self-service password update s
 
 If you have forgotten your password and need to reset it, please contact the [SLAC IT Service Desk](https://it.slac.stanford.edu/support).
 
+## Support for urgent account-related issues
+
+Staff and users needing assistance outside of business hours should call the main IT Service Desk line at (650) 926-4357. They will be presented with a new menu for after-hours support:
+
+Option 1: For Account Lockouts and Password Resets
+
+Option 2: For all other issues
+
+When a user selects Option 1, the system is designed to maximize the chance of reaching an on-call technician promptly. The user can choose to wait on hold or go directly to voicemail. If they wait, the system will cycle between the primary and secondary on-call staff members in 15-second intervals to avoid rolling to personal voicemail. If the caller is unable to reach the scheduled agents, they will be asked to leave a detailed voicemail. Total hold time will be two minutes if all scheduled agents are unable to answer the call.
+
+The service level objective for these urgent off-hours account issues is to provide a response within 30 minutes during non-business hours (from 5 PM to midnight during weekdays and 8 AM - midnight on the weekends).
+Between the hours of midnight and 8:00 AM, support will be provided on a best-effort basis.
+
  
 
