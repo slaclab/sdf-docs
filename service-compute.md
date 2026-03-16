@@ -100,6 +100,7 @@ programs, and experiments:
 | SuperCDMS | https://supercdms-dev.slac.stanford.edu|
 | Cryo-EM E-Logbook | https://cryoem-logbook.slac.stanford.edu|
 
+
 Dynamic content refers to a website or web application that is
 typically generated on a per-client basis with information on how to
 render the site fetched from a database or other server-side
@@ -200,7 +201,7 @@ Kubernetes benefits from a large and active open-source community, leading to a 
 
 ### How to request a Kubernetes Environment
 
-S3DF uses Loft's vClusters, which are a fully functional virtual Kubernetes clusters; Each vcluster runs inside a namespace of the underlying k8s cluster. Each vcluster runs its own dedicated API server and control plane, creating a strong isolation boundary, and Tenants can freely deploy CRDs, create namespaces, and manage cluster-scoped resources typically restricted in standard Kubernetes namespaces.
+S3DF uses Loft vCluster to provide fully-functional virtual Kubernetes clusters, each with its own dedicated API server and control plane. Within each vCluster, tenants can freely deploy Custom Resource Definitions (CRDs), create namespaces, and manage other cluster-scoped resources that are typically restricted in standard Kubernetes namespaces. 
 
 * To request one file a ticket to s3df-help@slac.stanford.edu, specifying:
   * **Purpose:** like application to run
@@ -221,3 +222,40 @@ kubectl config set-credentials "<username>@slac.stanford.edu@<vcluster_name>"  \
 kubectl config set-context "<vcluster_name>" --cluster="<vcluster_name>" --user="<username>@slac.stanford.edu@<vcluster_name>"
 kubectl config use-context "<vcluster_name>"
 ```
+
+### Accessing the Kubernetes Environment (vclusters)
+
+1. Once a vcluster has been vetted and created by an admin for you, or you have been added as a user to an existing vcluster, login and configuration details to access the vcluster will be provided.
+
+2. The Kubernetes vcluster API will be accessed via kubectl commands, where authentication to the API is handled via a generated token to configure your local kubectl.
+  
+  [!IMPORTANT] 
+  > Due to SLAC cyber policy, new credentials are required every 12 hours and thus they must relog back in (to the authentication portal provided once vcluster access is granted) to fetch a new token and update their local kubectl configuration.
+ 
+
+3. Once you are connected to the vcluster, you can use `kubectl` to interact with the Kubernetes API and deploy your applications. 
+
+##### Overview of the process:
+```
+┌─────────────┐
+│    You      │
+└──────┬──────┘
+       │
+       ├─→ Open login page
+       │   (https://k8s.slac.stanford.edu/<vcluster_name>)
+       │
+       ├─→ Authenticate with SLAC account
+       │
+       ├─→ Download kubeconfig + token
+       │   (Token expires in 12 hours)
+       │
+       ├─→ Run kubectl commands locally
+       │
+       └─→ Kubernetes API (vcluster)
+           │
+           └─→ Deploy Pods, Services, Deployments
+```
+
+### Why use vclusters?
+Vclusters are a lightweight, virtualized Kubernetes cluster that runs inside a namespace of a parent Kubernetes cluster. They provide a way to create isolated Kubernetes environments for different users or teams without the overhead of managing multiple physical clusters. This allows us to efficiently utilize our resources while providing flexibility and isolation for different workloads and users.
+
