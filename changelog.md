@@ -6,6 +6,10 @@
 
 ### Upcoming
 
+|When	|Duration | What	|
+| --- | --- | --- |
+| March 18th 2026 11:00-12:00 PDT | 1 hr (planned) | DNS maintenance for s3dflogin s3dflogin-mfa s3dfdtn
+
 ### Past
 
 |When	|Duration | What	|
