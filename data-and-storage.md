@@ -49,8 +49,6 @@ GMT_time indicates the time the snapshot directory was created. Choose a time th
 
 - A subset of users in some groups will be able to access archiving software (called HPSS) for the purpose of archiving/retrieving data to/from tape. Unlike backups, which will be automatically performed by the storage team within SCS, archiving will be the responsibility of each group (contact SCS for assistance).
 
-?> The current and target backup and archiving policies are summarized in this [reference section on data backup](reference.md#backup).
-
 ## Change to AFS Tape Backup Retention Policy
 March 31, 2025
 
