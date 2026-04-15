@@ -158,6 +158,8 @@ portal
 filesystem or other network filesystems (e.g., SLAC AFS, SLAC GPFS,
 SDF Lustre, etc.), are not allowed and such links will not resolve
 when accessed via HTTP.
+> * I understand that ALL content under my public_html directory tree will be publicly accessible.
+> * This service is purely for public content and it does NOT implement any legacy AFS directives *('slaconly')* for restricting access
 > * Purely for SLAC business purposes
 > * Not for personal non-professional purposes
 > * We do not implement any form of authentication for public HTML sharing via home directories
