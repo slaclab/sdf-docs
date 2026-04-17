@@ -8,12 +8,12 @@
 
 |When	|Duration | What	|
 | --- | --- | --- |
-| March 18th 2026 11:00-12:00 PDT | 1 hr (planned) | DNS maintenance for s3dflogin s3dflogin-mfa s3dfdtn
-
+| April 21st 2026 10:00-11:00 PDT | 1 hr (planned) | DTN nodes s3dfdtn.slac.stanford.edu, sdfdtn[001-006] will be rebooted during the maintenance window to apply security updates. This may interrupt currently-running transfers. Reboots will be done in batches to minimize disruption.
 ### Past
 
 |When	|Duration | What	|
 | --- | --- | --- |
+| March 18th 2026 11:00-12:00 PDT | 1 hr (planned) | DNS maintenance for s3dflogin s3dflogin-mfa s3dfdtn
 | February 4th 2026 | 9:00-13:00 PST (planned) | Shutdown the Globus node  “sdfdtn004” for a network card upgrade.
 | July 7th 2025 | 8 days (un)planned | The Stanford Facilities team need to conduct an evaluation of the SRCF datacenter transformers. All S3DF services will be unavailable.
 | Feb 6th 2025 | 17 hrs (planned) | An 800A breaker on the M2 Mechanical Substation had to be replaced. The entire substation was powered down resulting in a significant loss of datacenter cooling.
