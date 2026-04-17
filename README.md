@@ -1,5 +1,7 @@
 Welcome to the SLAC Shared Scientific Data Facility (S3DF) at SLAC National Accelerator Laboratory.
 
+**Upcoming Maintenance on S3DF DTN nodes: 2026-04-21 10:00AM to 11:00AM PT. [More details here](changelog.md)**
+
 S3DF is a compute, storage, and network architecture designed to support
 massive scale analytics required by SLAC experimental facilities
 and programs, including LCLS/LCLS-II, Vera C. Rubin Observatory, UED, and the Stanford-SLAC cryoEM Center (S2C2). S3DF provides platforms for deploying scientific applications, high performance compute nodes for large scale compute tasks, and a concurrent network filesystem and tape library for storing large volumes of data. S3DF aims to meet the increasing computing infrastructure resources that SLAC users and groups require to conduct their science experiments and analysis.
