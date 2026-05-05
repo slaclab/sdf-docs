@@ -16,11 +16,14 @@
 * Guides
   * [Slurm](slurm.md)
   * [Jupyter](jupyter.md)
+  * [Claude Code](claude-code.md)
+  * [OpenCode](opencode.md)
   * [Matlab](matlab.md)
   * [Apptainer](apptainer.md)
   * [Conda](conda.md)
   * [Compilers](compilers.md)
   * [MPI](mpi.md)
+  * [Kubernetes](kubernetes.md)
 * Reference
   * [FAQ](faq.md)
   * [Business Model](business-model.md)

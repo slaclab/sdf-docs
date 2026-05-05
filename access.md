@@ -28,18 +28,33 @@ ssh <slac_account_username>@s3dflogin-mfa.slac.stanford.edu
 
 ## NoMachine
 
-S3DF NoMachine provides a special remote desktop that is specifically designed to improve, compared to ssh, the performance of X11 graphics over slow connection speeds. Another important feature is that it preserves the state of your desktop across multiple sessions, including when your internet session unexpectedly gets dropped. The login pool for NoMachine is `s3dfnx.slac.stanford.edu`, port `22` and protocol `SSH`. You can find more information about this access mode in the [NoMachine reference](reference.md#nomachine).
+S3DF NoMachine provides a remote desktop that is designed to be more performant displaying X11 graphics over slower connection speeds. NoMachine also preserves desktop state across multiple sessions, e.g. it can resume a virtual desktop even if a user's internet connection is dropped.
 
 ?> SLAC IT NoMachine (accessed via nx*.slac.stanford.edu) and S3DF NoMachine (accessed via s3dfnx.slac.stanford.edu) are two different services, with access to different storage and network domains. Please ensure that you are connecting to the correct NoMachine service when attempting to access S3DF resources via NoMachine.
 
+The S3DF NoMachine cluster can be accessed via:
 
-NoMachine is supported on Windows, MAC and Linux computers. You can get the latest version of the enterprise client from [NoMachine download page](https://www.nomachine.com/download-enterprise#NoMachine-Enterprise-Client). Ubuntu/Mint users should download the Debian version (DEB) of the NoMachine client. MAC Clients must install XCode and XQuartz.
+* **NoMachine desktop client:**
 
-See the screenshots below for standard NoMachine settings for S3DF usage.
+  The NoMachine client downloads and installation instructions for supported operating systems are located here: [https://download.nomachine.com/everybody/](https://download.nomachine.com/everybody/).
+  
+  Once installed, connect to the S3DF NoMachine server pool by entering the following settings in the Add Connection form:
 
-![NX-connection](assets/nx-connection.png)
-![NX-session](assets/nx-session.png)
+    * Name: Enter a name for the NoMachine connection in string format (e.g., "S3DF NoMachine")
+    * Host: `s3dfnx.slac.stanford.edu`
+    * Port: `22`
+    * Protocol: `SSH`
+  
+  ![NX-connection](assets/nx-connection.png)
+  ![NX-session](assets/nx-session.png)
 
+* **S3DF NoMachine web client:**
+
+  The S3DF NoMachine cluster can also be accessed in a browser by going to the following link: [https://s3dfnx.slac.stanford.edu:4443/](https://s3dfnx.slac.stanford.edu:4443/)
+
+  Enter your SLAC UNIX credentials to access the S3DF NoMachine web client.
+
+  ?> The login method for S3DF NoMachine connections will be updated to use SLAC Account Single Sign-On (SSO) and Duo Multi-factor Authentication in the near future. For more information about SLAC SSO and MFA, see: [https://it.slac.stanford.edu/support/KB0010216](https://it.slac.stanford.edu/support/KB0010216)
 
 ## OnDemand
 

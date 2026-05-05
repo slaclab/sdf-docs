@@ -49,7 +49,7 @@ Users can also access S3DF through [Open OnDemand](https://s3df.slac.stanford.ed
 
 ### Web Shell
 
-After login onto [OnDemand]((https://s3df.slac.stanford.edu/ondemand), select the Clusters tab and then select the
+After login onto [OnDemand](https://s3df.slac.stanford.edu/ondemand), select the Clusters tab and then select the
 desired [interactive pool](#interactive-pools) from the pull down menu. This will allow you to
 obtain a shell on the interactive pools without using a terminal.
 
@@ -64,6 +64,17 @@ You can [launch a new juptyer session via the provided web form](https://s3df.sl
 
 Users are welcome to submit a github pull-request to have their Jupyter environments added to the [SLAC Open Ondemand Jupyter App](https://github.com/slaclab/slac-ood-jupyter). Please see [guide for devloping your own Jupyter environments](jupyter.md) for further information.
 
+
+### AI Coding Assistants
+
+We provide two browser-based AI coding assistant apps through OnDemand: [Claude Code](claude-code.md) (Anthropic's official tool) and [OpenCode](opencode.md) (an open-source alternative). Both launch a browser terminal pre-configured to route AI model calls through the SLAC AI API — no local install, no SSH key management, and no manual configuration.
+
+Both apps support two LLM provider options:
+
+- **Bedrock (personal API key)** — requires a personal key from SLAC IT; see [Before you start](claude-code.md#before-you-start) for how to request one.
+- **SDF-Sage (facility allocation)** — bills AI usage to your experiment's Coact repo; authentication is handled automatically at session start.
+
+?> AI model calls are routed through SLAC IT infrastructure (`ai-api.slac.stanford.edu`). A SLAC AI API key is required for the Bedrock option and must be requested through IT before launching. See the [Claude Code](claude-code.md) page for full details.
 
 ### Other Custom Ondemand Applications
 
