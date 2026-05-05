@@ -1,6 +1,10 @@
 # OpenCode
 
-[OpenCode](https://opencode.ai) is an open-source AI coding assistant with a terminal UI that supports multiple LLM providers. The S3DF OnDemand app lets you run OpenCode in a browser-based terminal with no local install or manual configuration.
+[OpenCode](https://opencode.ai) is an open-source AI coding assistant with a terminal UI that supports multiple LLM providers. The S3DF OnDemand app lets you run OpenCode in a browser-based terminal with no local install or manual configuration. We provide:
+
+- The OnDemand launch form, session management, and browser terminal
+- A pre-built container image with OpenCode and all its dependencies installed
+- Automatic version management — new releases appear in the version dropdown without any action from you
 
 OpenCode and [Claude Code](claude-code.md) serve similar purposes. The main differences:
 
@@ -9,24 +13,10 @@ OpenCode and [Claude Code](claude-code.md) serve similar purposes. The main diff
 | Origin | Anthropic (official product) | Open-source community project |
 | Provider support | Claude models only | Multiple LLM providers |
 | Config file | `~/.claude/settings.json` | `~/.config/opencode/opencode.json` |
-| Custom bind mounts | Yes (form field) | Standard mounts only |
 
-Both apps use the same two LLM provider options (Bedrock and SDF-Sage) and the same interactive node infrastructure.
+Both apps use the same two LLM provider options and the same interactive node infrastructure.
 
-## What S3DF provides
-
-- The OnDemand launch form, session management, and browser terminal
-- A pre-built container image with OpenCode and all its dependencies installed
-- Automatic version management — new releases appear in the version dropdown without any action from you
-- Integration with SDF-Sage for facility-based LLM cost allocation
-
-## What SLAC IT provides
-
-OpenCode on S3DF routes all AI model calls through the same SLAC IT-managed infrastructure as Claude Code. See [Claude Code — What SLAC IT provides](claude-code.md#what-slac-it-provides) for details and IT dependency notes.
-
-## Before you start
-
-Prerequisites are the same as for Claude Code — see [Claude Code — Before you start](claude-code.md#before-you-start).
+OpenCode on S3DF routes all AI model calls through the same SLAC IT-managed infrastructure as Claude Code. See [Claude Code — What SLAC IT provides](claude-code.md#what-slac-it-provides) for details and IT dependency notes. S3DF does not operate these services. You will need to [request a SLAC AI API Bedrock Key](https://slacprod.servicenowservices.com/it_services?id=sc_cat_item&sys_id=515f28711b607110c5d320eae54bcb64&sysparm_category=d65827c46fd921009c4235af1e3ee434) before using this service. Allow a few business days if the key is not provisioned immediately. This is an IT ticketing process outside S3DF's control.
 
 ## Launching OpenCode
 
@@ -40,15 +30,7 @@ Prerequisites are the same as for Claude Code — see [Claude Code — Before yo
 
 ### LLM Provider
 
-Selects which backend handles AI model calls. See [Claude Code — LLM providers](claude-code.md#llm-providers) for the full description.
-
-### SLAC AI API Key _(Bedrock only)_
-
 Your personal SLAC AI API key. On launch, the key is written into `~/.config/opencode/opencode.json`. Unlike Claude Code, there is no **Clear settings.json** checkbox — to reset OpenCode's configuration, delete `~/.config/opencode/opencode.json` from a terminal before relaunching.
-
-### Coact Repo _(SDF-Sage only)_
-
-Your facility allocation in `facility:repo` format (e.g. `rubin:default`). If you enter only the facility name, `:default` is added automatically.
 
 ### OpenCode Version
 
@@ -74,8 +56,6 @@ How long to keep the session alive. Maximum is 168 hours (7 days).
 | `/fs` | Legacy file systems (AFS and similar) |
 | `/lscratch` | Local node scratch — fast, not shared, cleared when the session ends |
 
-OpenCode does not have a custom bind mounts field. If you need access to paths outside `/sdf`, `/fs`, or `/lscratch`, use [Claude Code](claude-code.md) instead, which supports additional bind mounts.
-
 ## Reconnecting to a running session
 
 See [Claude Code — Reconnecting to a running session](claude-code.md#reconnecting-to-a-running-session). The process is identical.
@@ -85,3 +65,4 @@ See [Claude Code — Reconnecting to a running session](claude-code.md#reconnect
 Troubleshooting steps are the same as for Claude Code — see [Claude Code — Troubleshooting](claude-code.md#troubleshooting).
 
 OpenCode's configuration file is `~/.config/opencode/opencode.json`. If the configuration is invalid or the wrong provider is written, delete the file and relaunch.
+

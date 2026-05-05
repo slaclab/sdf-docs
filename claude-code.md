@@ -1,52 +1,16 @@
 # Claude Code
 
-[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's AI coding assistant. The S3DF OnDemand app lets you run Claude Code in a browser-based terminal — no local install, no SSH key management, no manual configuration required.
-
-## What S3DF provides
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's AI coding assistant. The S3DF OnDemand app lets you run Claude Code in a browser-based terminal — no local install, no SSH key management, no manual configuration required. We provide:
 
 - The OnDemand launch form, session management, and browser terminal
 - A pre-built container image with Claude Code and all its dependencies installed
 - Automatic version management — new releases appear in the version dropdown without any action from you
-- Integration with SDF-Sage for facility-based LLM cost allocation (see [LLM providers](#llm-providers) below)
 
-## What SLAC IT provides
 
-Claude Code on S3DF routes all AI model calls through **SLAC IT-managed infrastructure**. S3DF does not operate these services:
+Claude Code on S3DF routes all AI model calls through **SLAC IT-managed infrastructure**. S3DF does not operate these services. You will need to [request a SLAC AI API Bedrock Key](https://slacprod.servicenowservices.com/it_services?id=sc_cat_item&sys_id=515f28711b607110c5d320eae54bcb64&sysparm_category=d65827c46fd921009c4235af1e3ee434) before using this service. Allow a few business days if the key is not provisioned immediately. This is an IT ticketing process outside S3DF's control.
 
-| Service | What it does |
-| --- | --- |
-| `ai-api.slac.stanford.edu` | LiteLLM proxy that routes Bedrock API calls to AWS Claude models |
-| `llm.sdf.slac.stanford.edu` | SDF-Sage facility allocation endpoint |
-| AWS Bedrock (Claude models) | The underlying AI models, procured by SLAC IT via AWS |
 
 ?> If `ai-api.slac.stanford.edu` is unavailable, Claude Code sessions using the Bedrock provider will fail with API errors. This is an IT-managed service — check the [S3DF status page](changelog.md) or [contact us](contact-us.md) if you believe there is an outage.
-
-## LLM providers
-
-Two provider options are available at launch:
-
-| Option | How it works | Who pays |
-| --- | --- | --- |
-| **Bedrock (personal API key)** | Routes calls through `ai-api.slac.stanford.edu` using your personal key | Your individual allocation |
-| **SDF-Sage (facility allocation)** | Routes calls through `llm.sdf.slac.stanford.edu` using your experiment's Coact repo | Your facility/experiment |
-
-?> **SDF-Sage is currently in limited availability.** Contact [us](contact-us.md) if you are unsure whether your facility has access.
-
-## Before you start
-
-### Bedrock: request a SLAC AI API key
-
-You need a personal **SLAC AI API Key** before you can use the Bedrock provider. Request one via the SLAC IT ServiceNow portal:
-
-[Request a SLAC AI API Bedrock Key](https://slacprod.servicenowservices.com/it_services?id=sc_cat_item&sys_id=515f28711b607110c5d320eae54bcb64&sysparm_category=d65827c46fd921009c4235af1e3ee434)
-
-Allow a few business days if the key is not provisioned immediately. This is an IT ticketing process outside S3DF's control.
-
-### SDF-Sage: know your facility and repo
-
-SDF-Sage bills AI usage to your experiment's compute allocation. You do not need a personal API key — authentication happens automatically when the session starts via a browser device flow.
-
-You will need to know your **facility** and **repo** names (e.g. `rubin:default`). Contact your experiment's computing coordinator if you are unsure.
 
 ## Launching Claude Code
 
@@ -61,15 +25,7 @@ You will need to know your **facility** and **repo** names (e.g. `rubin:default`
 
 ### LLM Provider
 
-Selects which backend handles AI model calls for this session. See [LLM providers](#llm-providers) above.
-
-### SLAC AI API Key _(Bedrock only)_
-
-Your personal key from the IT ServiceNow portal. On launch, the key is written to `~/.claude/settings.json` and retained for future sessions. If you change your key, tick **Clear settings.json** before relaunching.
-
-### Coact Repo _(SDF-Sage only)_
-
-Your facility allocation in `facility:repo` format, for example `rubin:default`. If you enter only the facility name (e.g. `rubin`), `:default` is added automatically.
+Selects which backend handles AI model calls for this session. Currently the only supported provider is SLAC IT AI's Bedrock service. Your personal key from the IT ServiceNow portal. On launch, the key is written to `~/.claude/settings.json` and retained for future sessions.
 
 ### Claude Code Version
 
@@ -82,34 +38,6 @@ The interactive pool where the session runs. Claude Code has a light resource fo
 ### Working Directory
 
 The directory where Claude Code starts. Leave blank to use your home directory. The path must exist and you must have read/write access to it.
-
-### Additional Bind Mounts
-
-Extra directories to make available inside the container, in addition to the default mounts.
-
-**Default mounts — always available in every session:**
-
-| Path | What it contains |
-| --- | --- |
-| `/sdf` | All S3DF persistent storage: home (`/sdf/home`), science data (`/sdf/data`), scratch (`/sdf/scratch`), software (`/sdf/sw`), group storage (`/sdf/group`) |
-| `/fs` | Legacy file systems (AFS and similar) |
-| `/lscratch` | Local node scratch — fast, not shared, contents are cleared when the session ends |
-
-**Adding extra mounts** — enter a comma-separated list of paths:
-
-```
-/sdf/data/rubin:ro,/sdf/scratch/rubin
-```
-
-Each entry may include a mode suffix:
-
-| Suffix | Meaning | When to use |
-| --- | --- | --- |
-| `:ro` | Read-only | Data directories where you only need to read — prevents accidental writes |
-| `:rw` | Read-write | Directories you need to create or modify files in |
-| _(none)_ | Read-write | Same as `:rw` |
-
-?> Most users do not need extra mounts. `/sdf` already covers home, data, scratch, and group directories. Use this field when you need a path that is not under `/sdf` or `/fs`, or when you want to explicitly restrict a data directory to read-only access.
 
 ### Session Duration (hours)
 
@@ -145,10 +73,7 @@ Your API key may be invalid or revoked. Relaunch with **Clear settings.json** ch
 
 Click the **Session ID** link on [My Interactive Sessions](https://s3df.slac.stanford.edu/pun/sys/dashboard/batch_connect/sessions) and open `output.log` to see the error. Common causes: SIF image not found, invalid working directory, blank API key.
 
-### SDF-Sage: authentication times out
-
-The browser device flow gives you 5 minutes to authenticate. If it times out, delete the session and relaunch. Make sure you can reach the SLAC identity provider in your browser.
-
 ### A directory is not visible inside Claude Code
 
-The path must be under `/sdf`, `/fs`, or `/lscratch`, or added as an [additional bind mount](#additional-bind-mounts). Note that `/lscratch` contents are local to the node — they differ between sessions on different nodes.
+All S3DF storage under `/sdf` and legacy filesystems under `/fs` are automatically available. `/lscratch` is local node scratch — its contents differ between nodes and are cleared when the session ends.
+
