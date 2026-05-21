@@ -43,7 +43,7 @@ can be found at\
 `/sdf/{home, sw, group}/.snapshots/<GMT_time>/<dir>`
 GMT_time indicates the time the snapshot directory was created. Choose a time that corresponds to the file versions you want and simply copy back the files.
 
-- Files/objects under `/sdf/data` will be backed up or archived according to a data retention policy defined by the facility. Facilities will be responsible for covering the media costs and overhead required by their policy. Similar to the /sdf/home area, you can also check in /sdf/data/\<facility\>/.snapshots to see if snapshots are enabled for self-service restores.
+- Files/objects under `/sdf/data` will be backed up or archived according to a data retention policy defined by the facility. Facilities will be responsible for covering the media costs and overhead required by their policy. Similar to the /sdf/home area (but with a slightly different path structure), you can also check in /sdf/data/\<facility\>/.snapshots to see if snapshots are enabled for self-service restores.
 
 - The scratch spaces under `/sdf/scratch` and all directories named "nobackup" (located *anywhere* in any /sdf path) will not be backed up or archived. Please use as many "nobackup" subdirectory locations as required for any files that do not need backup.  That can save significant tape and processing resources.
 

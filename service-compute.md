@@ -237,7 +237,6 @@ kubectl config use-context "<vcluster_name>"
 
 3. Once you are connected to the vcluster, you can use `kubectl` to interact with the Kubernetes API and deploy your applications. 
 
-##### Overview of the process:
 ```
 ┌─────────────┐
 │    You      │
@@ -259,5 +258,5 @@ kubectl config use-context "<vcluster_name>"
 ```
 
 ### Why use vclusters?
-Vclusters are a lightweight, virtualized Kubernetes cluster that runs inside a namespace of a parent Kubernetes cluster. They provide a way to create isolated Kubernetes environments for different users or teams without the overhead of managing multiple physical clusters. This allows us to efficiently utilize our resources while providing flexibility and isolation for different workloads and users.
 
+Vclusters are a lightweight, virtualized Kubernetes cluster that runs inside a namespace of a parent Kubernetes cluster. They provide a way to create isolated Kubernetes environments for different users or teams without the overhead of managing multiple physical clusters. This allows us to efficiently utilize our resources while providing flexibility and isolation for different workloads and users.
