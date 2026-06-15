@@ -8,11 +8,23 @@
 
 |When	|Duration | What	|
 | --- | --- | --- |
+| June 30th 2026 | 10:00-12:00 PDT (planned) | Disabling legacy Unix authentication for public-facing S3DF bastion services. Once complete, **SLAC Account with MFA will be required for s3dflogin.slac.stanford.edu, s3dfdtn.slac.stanford.edu and NoMachine s3dfnx.slac.stanford.edu.** 
+
+If you are unsure of your SLAC Account status, use the following link to check:
+https://ad-account.slac.stanford.edu
+The app will give you the option of provisioning your SLAC Account OR report “You already have SSO (windows) account”.
+
+You can test our SSH MFA workflow via the s3dflogin-mfa.slac.stanford.edu pool. We also provide an MFA-enabled SSH key management service. Full details can be found on this page: https://s3df.slac.stanford.edu/#/sshmfa_user
+S3DF web services with central authentication already use MFA - this includes https://s3df.slac.stanford.edu/ondemand and https://coact.slac.stanford.edu .
+
+If you are unable to authenticate with MFA it’s possible your SLAC account may require reactivation or a password reset.
+Please send email to s3df-help@slac.stanford.edu for assistance. 
 
 ### Past
 
 |When	|Duration | What	|
 | --- | --- | --- |
+| June 13th 2026 08:40-10:00 PDT | 1hr 20mins  (unplanned) | Weka filesystem for k8s entered a degraded state and stopped serving I/Os. Support team succesfully recovered the cluster.
 | April 21st 2026 10:00-11:00 PDT | 1 hr (planned) | DTN nodes s3dfdtn.slac.stanford.edu, sdfdtn[001-006] will be rebooted during the maintenance window to apply security updates. This may interrupt currently-running transfers. Reboots will be done in batches to minimize disruption.
 | February 4th 2026 | 9:00-13:00 PST (planned) | Shutdown the Globus node  “sdfdtn004” for a network card upgrade.
 | March 18th 2026 11:00-12:00 PDT | 1 hr (planned) | DNS maintenance for s3dflogin s3dflogin-mfa s3dfdtn
