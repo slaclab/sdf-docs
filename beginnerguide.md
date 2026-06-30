@@ -20,7 +20,7 @@ This example provides a clear, step-by-step workflow for running software on S3D
 
 To start, connect to a bastion node using the following command:
 
-    ssh username@s3dflogin-mfa.slac.stanford.edu
+    ssh username@s3dflogin.slac.stanford.edu
 
 ### Connect to an Interactive Node
 

@@ -12,18 +12,18 @@ In order to access S3DF, you must first obtain a [SLAC Account](accounts.md). Yo
 ## SSH
 
 You can connect using any SSH client, such as [OpenSSH](www.openssh.com) or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/),
-to connect to the S3DF load-balanced bastion pool `s3dflogin-mfa.slac.stanford.edu`.
+to connect to the S3DF load-balanced bastion pool `s3dflogin.slac.stanford.edu`.
 These hosts require multi-factor authentication; for more information on working with MFA systems,
 please see [SSH and MFA](sshmfa_user.md).
 
 Example:
 ```
-ssh <slac_account_username>@s3dflogin-mfa.slac.stanford.edu
+ssh <slac_account_username>@s3dflogin.slac.stanford.edu
 ```
 
 ?> Note that these nodes do not have access to storage (except for your home directory). From these bastion hosts, you should hop to an [Interactive Node](interactive-compute.md#interactive-pools) to access S3DF batch compute and storage.
 
-?> Windows users may see an error message about a "*Corrupted MAC on input*" or "*message authentication code incorrect.*" The workaround is to add "*-m hmac-sha2-512*" to the ssh command, i.e. `ssh -m hmac-sha2-512 <username>@s3dflogin-mfa.slac.stanford.edu`
+?> Windows users may see an error message about a "*Corrupted MAC on input*" or "*message authentication code incorrect.*" The workaround is to add "*-m hmac-sha2-512*" to the ssh command, i.e. `ssh -m hmac-sha2-512 <username>@s3dflogin.slac.stanford.edu`
 
 
 ## NoMachine
