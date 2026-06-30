@@ -2,15 +2,13 @@
 
 ## SSH and Multi-Factor
 
-Multi-Factor Authentication (MFA) provides an additional layer of security for users. As a preliminary rollout, MFA has been configured on the `s3dflogin-mfa.slac.stanford.edu` bastion hosts. **A SLAC Account is required**. There are two methods to SSH into S3DF using a SLAC Account - using a password and MFA challenge, or via centrally managed SSH Keys.
-
-?> The legacy SSH using SLAC Unix Computer accounts via `s3dflogin.slac.stanford.edu` will still be available as we introduce SSH with SLAC Accounts. **Once all S3DF users have been migrated to SLAC Accounts, we will deprecate all SLAC Unix SSH logon services and SLAC Accounts will be required for all SSH bastion logins.** `s3dflogin-mfa.slac.stanford.edu` is the current bastion name for SSH with SLAC Accounts until we complete this transition.
+Multi-Factor Authentication (MFA) provides an additional layer of security for users. **A SLAC Account is required**. There are two methods to SSH into S3DF using a SLAC Account - using a password and MFA challenge, or via centrally managed SSH Keys.
 
 ## Passwords with MFA :id=passwords
 
 ?> If you do not already have Duo configured, please see SLAC's documentation [here](https://it.slac.stanford.edu/support/KB0010216)
 
-1. When using password login, please use your SLAC Account (formerly "SLAC Windows account") credentials when connecting with SSH to `s3dflogin-mfa.slac.stanford.edu`.
+1. When using password login, please use your SLAC Account (formerly "SLAC Windows account") credentials when connecting with SSH to `s3dflogin.slac.stanford.edu`.
 
 2. You will be prompted for your SLAC Account password
 
@@ -24,7 +22,7 @@ Multi-Factor Authentication (MFA) provides an additional layer of security for u
 
 ## SSH Keys with MFA :id=sshkeys
 
-To use SSH key login, public keys must be registered with the S3DF key management system in order to be used with `s3dflogin-mfa.slac.stanford.edu` bastion hosts.
+To use SSH key login, public keys must be registered with the S3DF key management system in order to be used with `s3dflogin.slac.stanford.edu` bastion hosts.
 
 An SSH key can be used to log in as long as it is **valid**.
 * A **valid** key has been refreshed in the last **25 hours**
