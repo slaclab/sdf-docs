@@ -19,7 +19,17 @@ Multi-Factor Authentication (MFA) provides an additional layer of security for u
   * Enter option `2` to send an SMS message to your phone
   * Activate your registered security key (such as a Yubikey)
 
+### NoMachine Passwords with MFA
+Using the Mult-Factor Authentication flow with NoMachien (such as connecting to `sdfnx.slac.stanford.edu`) is largely the same as using SSH (as above).
+After entering your username and password, you will be presented with this prompt:
 
+![NoMachine MFA prompt](assets/nx_mfa.png)
+
+Your options are:
+* Active your registered security key (such as a Yubikey) so its generated passcode is entired in the text field and push OK.
+* Enter `1` in the text box and press OK to push a notification to your Duo app
+* Enter `2` in the text box and press OK to send an SMS message to your phone
+  
 ## SSH Keys with MFA :id=sshkeys
 
 To use SSH key login, public keys must be registered with the S3DF key management system in order to be used with `s3dflogin.slac.stanford.edu` bastion hosts.
