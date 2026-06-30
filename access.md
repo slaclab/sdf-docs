@@ -13,8 +13,7 @@ In order to access S3DF, you must first obtain a [SLAC Account](accounts.md). Yo
 
 You can connect using any SSH client, such as [OpenSSH](www.openssh.com) or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/),
 to connect to the S3DF load-balanced bastion pool `s3dflogin.slac.stanford.edu`.
-These hosts require multi-factor authentication; for more information on working with MFA systems,
-please see [SSH and MFA](sshmfa_user.md).
+These hosts require multi-factor authentication; for more information on working with MFA systems, please see [SSH and MFA](sshmfa_user.md).
 
 Example:
 ```
@@ -25,6 +24,33 @@ ssh <slac_account_username>@s3dflogin.slac.stanford.edu
 
 ?> Windows users may see an error message about a "*Corrupted MAC on input*" or "*message authentication code incorrect.*" The workaround is to add "*-m hmac-sha2-512*" to the ssh command, i.e. `ssh -m hmac-sha2-512 <username>@s3dflogin.slac.stanford.edu`
 
+### Connecting Directly to an Interactive Node
+If you'd like to connect directly to an interactice node in one step, you can use the login node as a "jump proxy."
+
+#### On the Command Line
+On the command line, it would look like this:
+```bash
+ssh -J s3dflogin.slac.stanford.edu iana
+```
+* The `-J` sets `s3dflogin.slac.stanford.edu` as the jump proxy host.
+* `iana` is the target node relative to the jump proxy.
+On execution, this command opens a connection to `s3dflogin.slac.stanford.edu` as normal, using MFA as normal. Then, instead of showing a terminal on the login node, a connection is immediately opened to the target node, `iana`.
+
+#### In your SSH Config
+To configure a jump host in your SSH config (typically `~/.ssh/config`), you can define hosts like this:
+
+```ini
+Host s3dflogin
+    Hostname s3dflogin.slac.stanford.edu
+```
+
+You can then define additional hosts and reference the jump proxy to "jump through to."
+```ini
+Host iana
+    Hostname iana
+    ProxyJump s3dflogin
+```
+With these two entries in place, running `ssh iana` on your local machine will establish the proxy connection to `s3dflogin.slac.stanford.edu` and then connect to `iana` from there. Credentials will be prompted for as usual.
 
 ## NoMachine
 
