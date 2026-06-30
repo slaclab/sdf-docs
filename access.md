@@ -29,7 +29,7 @@ If you'd like to connect directly to an interactice node in one step, you can us
 
 #### On the Command Line
 On the command line, it would look like this:
-```bash
+```
 ssh -J s3dflogin.slac.stanford.edu iana
 ```
 * The `-J` sets `s3dflogin.slac.stanford.edu` as the jump proxy host.
