@@ -52,7 +52,7 @@ The S3DF NoMachine cluster can be accessed via:
 
   The S3DF NoMachine cluster can also be accessed in a browser by going to the following link: [https://s3dfnx.slac.stanford.edu:4443/](https://s3dfnx.slac.stanford.edu:4443/)
 
-  Enter your SLAC UNIX credentials to access the S3DF NoMachine web client.
+  Enter your SLAC account credentials to access the S3DF NoMachine web client.
 
   ?> The login method for S3DF NoMachine connections will be updated to use SLAC Account Single Sign-On (SSO) and Duo Multi-factor Authentication in the near future. For more information about SLAC SSO and MFA, see: [https://it.slac.stanford.edu/support/KB0010216](https://it.slac.stanford.edu/support/KB0010216)
 
