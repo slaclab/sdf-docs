@@ -1,9 +1,9 @@
-***Globus Data Transfer outage scheduled for February 4th 2026 09:00-13:00 PST. [More details here](changelog.md)***
 
 
 Welcome to the SLAC Shared Scientific Data Facility (S3DF) at SLAC National Accelerator Laboratory.
 
-**Upcoming Maintenance on S3DF DTN nodes: 2026-04-21 10:00AM to 11:00AM PT. [More details here](changelog.md)**
+**Starting on June 30th 2026, Multi-Factor Authentication with SLAC Account will be required for login bastion, DTN bastion and NoMachine services. [More details here](changelog.md)**
+
 
 S3DF is a compute, storage, and network architecture designed to support
 massive scale analytics required by SLAC experimental facilities
@@ -26,7 +26,7 @@ The table below lists various S3DF resources and where they can be found.
 
 | Resource 	| Access Point |
 | :--- | :--- |
-| SSH 	|  s3dflogin-mfa.slac.stanford.edu |
+| SSH 	|  s3dflogin.slac.stanford.edu |
 | SSH Key Service	|  https://s3df-sshkeys.slac.stanford.edu/ |
 | NoMachine |  s3dfnx.slac.stanford.edu |
 | OnDemand 	| [https://s3df.slac.stanford.edu/ondemand](/ondemand ':ignore') |
