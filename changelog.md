@@ -25,6 +25,7 @@ Please send email to s3df-help@slac.stanford.edu for assistance.
 |When	|Duration | What	|
 | --- | --- | --- |
 | June 13th 2026 08:40-10:00 PDT | 1hr 20mins  (unplanned) | Weka filesystem for k8s entered a degraded state and stopped serving I/Os. Support team succesfully recovered the cluster.
+| Jun 4 2026 | 45min (unplanned) | `/sdf/home`, `/sdf/group`, `/sdf/sw` outage during routine firmware upgrades for one model of server - An issue with the vendor's firmware upgrade tooling briefly stopped cooling fans in each server during each upgrade. A small percentage of servers overheated during this time, impacting `sdfhome` storage. |
 | April 21st 2026 10:00-11:00 PDT | 1 hr (planned) | DTN nodes s3dfdtn.slac.stanford.edu, sdfdtn[001-006] will be rebooted during the maintenance window to apply security updates. This may interrupt currently-running transfers. Reboots will be done in batches to minimize disruption.
 | February 4th 2026 | 9:00-13:00 PST (planned) | Shutdown the Globus node  “sdfdtn004” for a network card upgrade.
 | March 18th 2026 11:00-12:00 PDT | 1 hr (planned) | DNS maintenance for s3dflogin s3dflogin-mfa s3dfdtn
