@@ -4,6 +4,8 @@
 
 ### Current
 
+|Oct 2nd 2026| 12:15 - Current PDT| S3DF is degraded due to filesystem issues with the SDFData filesystem. Batch job starts are disabled and other access to /sdf/data paths will hang.|
+
 ### Upcoming
 
 |When	|Duration | What	|
