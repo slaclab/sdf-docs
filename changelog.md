@@ -4,8 +4,6 @@
 
 ### Current
 
-|Oct 2nd 2026| 12:15 - Current PDT| S3DF is degraded due to filesystem issues with the SDFData filesystem. Batch job starts are disabled and other access to /sdf/data paths will hang.|
-
 ### Upcoming
 
 |When	|Duration | What	|
@@ -15,6 +13,7 @@
 
 |When	|Duration | What	|
 | --- | --- | --- |
+|Oct 2nd 2026 | 12:15-Oct 3rd 2026 01:00 | SDFData was unavailable due to filesystem issues. Batch and interactive nodes were degraded or unavailable|
 |June 30th 2026 | 10:00-12:00 PDT (Rolling change)	| Disabling legacy Unix authentication for public-facing S3DF bastion services. Once complete, SLAC Account with MFA will be required for s3dflogin.slac.stanford.edu, s3dfdtn.slac.stanford.edu and NoMachine s3dfnx.slac.stanford.edu.|
 | June 13th 2026 08:40-10:00 PDT | 1hr 20mins  (unplanned) | Weka filesystem for k8s entered a degraded state and stopped serving I/Os. Support team succesfully recovered the cluster.
 | Jun 4 2026 | 45min (unplanned) | `/sdf/home`, `/sdf/group`, `/sdf/sw` outage during routine firmware upgrades for one model of server - An issue with the vendor's firmware upgrade tooling briefly stopped cooling fans in each server during each upgrade. A small percentage of servers overheated during this time, impacting `sdfhome` storage. |
