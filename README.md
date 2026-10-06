@@ -1,3 +1,5 @@
+
+
 Welcome to the SLAC Shared Scientific Data Facility (S3DF) at SLAC National Accelerator Laboratory.
 
 S3DF is a compute, storage, and network architecture designed to support
@@ -21,7 +23,7 @@ The table below lists various S3DF resources and where they can be found.
 
 | Resource 	| Access Point |
 | :--- | :--- |
-| SSH 	|  s3dflogin-mfa.slac.stanford.edu |
+| SSH 	|  s3dflogin.slac.stanford.edu |
 | SSH Key Service	|  https://s3df-sshkeys.slac.stanford.edu/ |
 | NoMachine |  s3dfnx.slac.stanford.edu |
 | OnDemand 	| [https://s3df.slac.stanford.edu/ondemand](/ondemand ':ignore') |

@@ -6,19 +6,19 @@
 
 In order to access compute and storage resources in S3DF, you will need to log onto our interactive nodes. After, login to our bastion hosts either via a [ssh terminal session or via NoMachine](access.md), you will then need to ssh to one of the interactive pools to access the data, build/debug your code, run simple analyses, or submit jobs to the [batch system](batch-compute.md). If your organization has acquired dedicated resources for the interactive pools, use them; otherwise, you can connect to the S3DF shared interactive pool.
 
-?> Note: After log in into our bastion hosts with `ssh s3dflogin-mfa.slac.stanford.edu`, you will need to then need to log into our interactive nodes to access batch compute and data. You can do this via `ssh <pool name>` within your ssh session (same terminal) to get into the bastion hosts.
+?> Note: After log in into our bastion hosts with `ssh s3dflogin.slac.stanford.edu`, you will need to then need to log into our interactive nodes to access batch compute and data. You can do this via `ssh <pool name>` within your ssh session (same terminal) to get into the bastion hosts.
 
 The currently available pools are shown in the table below (The facility can be any organization, program, project, or group that interfaces with S3DF to acquire resources).
 
 |Pool name | Facility | Resources |
 | --- | --- | --- |
 |iana | For all S3DF users | 4 servers, 40 HT cores and 384 GB per server |
-|rubin-devl | Rubin | 4 servers, 128 cores and 512 GB per server |
-|psana | LCLS | 4 servers, 40 HT cores and 384 GB per server |
-|fermi-devl | Fermi | 1 server, 64 HT cores and 512 GB per server |
+|rubin-devl | Rubin | 11 servers, 128 cores and 512 GB per server |
+|psana | LCLS | 7 servers, 40 HT cores and 384 GB per server |
+|fermi-devl | Fermi | 2 server, 64 HT cores and 512 GB per server |
 |faders | FADERS | 1 server, 128 HT cores and 512 GB per server |
 |ldmx | LDMX | 1 server, 128 HT cores and 512 GB per server |
-|ad | AD | 3 servers, 128 HT cores and 512 GB per server |
+|ad | AD | 2 servers, 128 HT cores and 512 GB per server |
 |epptheory | EPPTheory | 2 servers, 128 HT cores and 512 GB per server |
 |cdms | SuperCDMS | (points to iana) |
 |suncat | SUNCAT | (points to iana) |
@@ -64,6 +64,17 @@ You can [launch a new juptyer session via the provided web form](https://s3df.sl
 
 Users are welcome to submit a github pull-request to have their Jupyter environments added to the [SLAC Open Ondemand Jupyter App](https://github.com/slaclab/slac-ood-jupyter). Please see [guide for devloping your own Jupyter environments](jupyter.md) for further information.
 
+
+### AI Coding Assistants
+
+We provide two browser-based AI coding assistant apps through OnDemand: [Claude Code](claude-code.md) (Anthropic's official tool) and [OpenCode](opencode.md) (an open-source alternative). Both launch a browser terminal pre-configured to route AI model calls through the SLAC AI API — no local install, no SSH key management, and no manual configuration.
+
+Both apps support two LLM provider options:
+
+- **Bedrock (personal API key)** — requires a personal key from SLAC IT; see [Before you start](claude-code.md#before-you-start) for how to request one.
+- **SDF-Sage (facility allocation)** — bills AI usage to your experiment's Coact repo; authentication is handled automatically at session start.
+
+?> AI model calls are routed through SLAC IT infrastructure (`ai-api.slac.stanford.edu`). A SLAC AI API key is required for the Bedrock option and must be requested through IT before launching. See the [Claude Code](claude-code.md) page for full details.
 
 ### Other Custom Ondemand Applications
 

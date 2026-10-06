@@ -12,34 +12,75 @@ In order to access S3DF, you must first obtain a [SLAC Account](accounts.md). Yo
 ## SSH
 
 You can connect using any SSH client, such as [OpenSSH](www.openssh.com) or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/),
-to connect to the S3DF load-balanced bastion pool `s3dflogin-mfa.slac.stanford.edu`.
-These hosts require multi-factor authentication; for more information on working with MFA systems,
-please see [SSH and MFA](sshmfa_user.md).
+to connect to the S3DF load-balanced bastion pool `s3dflogin.slac.stanford.edu`.
+These hosts require multi-factor authentication; for more information on working with MFA systems, please see [SSH and MFA](sshmfa_user.md).
 
 Example:
 ```
-ssh <slac_account_username>@s3dflogin-mfa.slac.stanford.edu
+ssh <slac_account_username>@s3dflogin.slac.stanford.edu
 ```
 
 ?> Note that these nodes do not have access to storage (except for your home directory). From these bastion hosts, you should hop to an [Interactive Node](interactive-compute.md#interactive-pools) to access S3DF batch compute and storage.
 
-?> Windows users may see an error message about a "*Corrupted MAC on input*" or "*message authentication code incorrect.*" The workaround is to add "*-m hmac-sha2-512*" to the ssh command, i.e. `ssh -m hmac-sha2-512 <username>@s3dflogin-mfa.slac.stanford.edu`
+?> Windows users may see an error message about a "*Corrupted MAC on input*" or "*message authentication code incorrect.*" The workaround is to add "*-m hmac-sha2-512*" to the ssh command, i.e. `ssh -m hmac-sha2-512 <username>@s3dflogin.slac.stanford.edu`
 
+### Connecting Directly to an Interactive Node
+If you'd like to connect directly to an interactice node in one step, you can use the login node as a "jump proxy."
+
+#### On the Command Line
+On the command line, it would look like this:
+```
+ssh -J s3dflogin.slac.stanford.edu iana
+```
+* The `-J` sets `s3dflogin.slac.stanford.edu` as the jump proxy host.
+* `iana` is the target node relative to the jump proxy.
+On execution, this command opens a connection to `s3dflogin.slac.stanford.edu` as normal, using MFA as normal. Then, instead of showing a terminal on the login node, a connection is immediately opened to the target node, `iana`.
+
+#### In your SSH Config
+To configure a jump host in your SSH config (typically `~/.ssh/config`), you can define hosts like this:
+
+```ini
+Host s3dflogin
+    Hostname s3dflogin.slac.stanford.edu
+```
+
+You can then define additional hosts and reference the jump proxy to "jump through to."
+```ini
+Host iana
+    Hostname iana
+    ProxyJump s3dflogin
+```
+With these two entries in place, running `ssh iana` on your local machine will establish the proxy connection to `s3dflogin.slac.stanford.edu` and then connect to `iana` from there. Credentials will be prompted for as usual.
 
 ## NoMachine
 
-S3DF NoMachine provides a special remote desktop that is specifically designed to improve, compared to ssh, the performance of X11 graphics over slow connection speeds. Another important feature is that it preserves the state of your desktop across multiple sessions, including when your internet session unexpectedly gets dropped. The login pool for NoMachine is `s3dfnx.slac.stanford.edu`, port `22` and protocol `SSH`. You can find more information about this access mode in the [NoMachine reference](reference.md#nomachine).
+S3DF NoMachine provides a remote desktop that is designed to be more performant displaying X11 graphics over slower connection speeds. NoMachine also preserves desktop state across multiple sessions, e.g. it can resume a virtual desktop even if a user's internet connection is dropped.
 
 ?> SLAC IT NoMachine (accessed via nx*.slac.stanford.edu) and S3DF NoMachine (accessed via s3dfnx.slac.stanford.edu) are two different services, with access to different storage and network domains. Please ensure that you are connecting to the correct NoMachine service when attempting to access S3DF resources via NoMachine.
 
+The S3DF NoMachine cluster can be accessed via:
 
-NoMachine is supported on Windows, MAC and Linux computers. You can get the latest version of the enterprise client from [NoMachine download page](https://www.nomachine.com/download-enterprise#NoMachine-Enterprise-Client). Ubuntu/Mint users should download the Debian version (DEB) of the NoMachine client. MAC Clients must install XCode and XQuartz.
+* **NoMachine desktop client:**
 
-See the screenshots below for standard NoMachine settings for S3DF usage.
+  The NoMachine client downloads and installation instructions for supported operating systems are located here: [https://download.nomachine.com/everybody/](https://download.nomachine.com/everybody/).
+  
+  Once installed, connect to the S3DF NoMachine server pool by entering the following settings in the Add Connection form:
 
-![NX-connection](assets/nx-connection.png)
-![NX-session](assets/nx-session.png)
+    * Name: Enter a name for the NoMachine connection in string format (e.g., "S3DF NoMachine")
+    * Host: `s3dfnx.slac.stanford.edu`
+    * Port: `22`
+    * Protocol: `SSH`
+  
+  ![NX-connection](assets/nx-connection.png)
+  ![NX-session](assets/nx-session.png)
 
+* **S3DF NoMachine web client:**
+
+  The S3DF NoMachine cluster can also be accessed in a browser by going to the following link: [https://s3dfnx.slac.stanford.edu:4443/](https://s3dfnx.slac.stanford.edu:4443/)
+
+  Enter your SLAC account credentials to access the S3DF NoMachine web client.
+
+  ?> The login method for S3DF NoMachine connections has been updated to use SLAC Account Single Sign-On (SSO) and Duo Multi-factor Authentication. For more information about SLAC SSO and MFA, see: [https://it.slac.stanford.edu/support/KB0010216](https://it.slac.stanford.edu/support/KB0010216)
 
 ## OnDemand
 
