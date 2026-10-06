@@ -9,6 +9,7 @@
 |When	|Duration | What	|
 | --- | --- | --- |
 | June 30th 2026 | 10:00-12:00 PDT (planned) | Disabling legacy Unix authentication for public-facing S3DF bastion services. Once complete, **SLAC Account with MFA will be required for s3dflogin.slac.stanford.edu, s3dfdtn.slac.stanford.edu and NoMachine s3dfnx.slac.stanford.edu.** 
+| October 15th 2026 | 10:00-16:00 PDT (planned) | Replace sdfk8s01 kubernetes cluster control-plane/master nodes. No outage expected** 
 
 If you are unsure of your SLAC Account status, use the following link to check:
 https://ad-account.slac.stanford.edu
