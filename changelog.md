@@ -8,6 +8,8 @@
 
 |When	|Duration | What	|
 | --- | --- | --- |
+| October 13th 2026 09:00-13:00 PDT | 4 hrs (planned) | The SCS-SSD team will be performing maintenance on the SDFHOME Weka cluster. The Weka software on the cluster will be upgraded to take advantage of new features and bug fixes. There may some some transient NFS slowness during the maintenance. Weka Posix clients should not be affected. |
+| October 14th 2026 09:00-13:00 PDT | 4hrs (planned) | The SCS-SSD team will be performing maintenance on the SDFK8S Weka cluster. The Weka software on the cluster will be upgraded to take advantage of new features and bug fixes. No user impact is expected. Weka Posix clients should not be affected. |
 
 ### Past
 
