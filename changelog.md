@@ -13,6 +13,7 @@
 
 |When	|Duration | What	|
 | --- | --- | --- |
+|Oct 15th 2026 | 4-6 hrs | sdfk8s01 Kubernetes control-planes/master nodes hardware replacement. No expected outage|
 |Oct 2nd 2026 | 12:15-Oct 3rd 2026 01:00 | SDFData was unavailable due to filesystem issues. Batch and interactive nodes were degraded or unavailable|
 |June 30th 2026 | 10:00-12:00 PDT (Rolling change)	| Disabling legacy Unix authentication for public-facing S3DF bastion services. Once complete, SLAC Account with MFA will be required for s3dflogin.slac.stanford.edu, s3dfdtn.slac.stanford.edu and NoMachine s3dfnx.slac.stanford.edu.|
 | June 13th 2026 08:40-10:00 PDT | 1hr 20mins  (unplanned) | Weka filesystem for k8s entered a degraded state and stopped serving I/Os. Support team succesfully recovered the cluster.
