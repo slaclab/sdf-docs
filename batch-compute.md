@@ -60,7 +60,7 @@ cluster:
   `--partition <partition> --account <facility>:<repo> --qos preemptable`.
   Preemptable jobs do not count against your Facility's node limit, so
   they can use any idle resources on the cluster; the trade-off is that
-  they may be stopped to make room for other jobs.
+  they may be terminated to make room for other jobs.
 
 | | `--qos normal` | `--qos preemptable` |
 | --- | --- | --- |
