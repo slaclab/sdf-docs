@@ -15,7 +15,7 @@ can find general information on using this workflow manager in our
 A [Cluster](coact.md#cluster) is a homogeneous set of computing nodes with the same
 hardware specifications and the same access to the storage. A
 [Facility](coact.md#coact) is an entity (organization, project,
-group, program, etc) whom owns resources within S3DF. A [Repo](coact.md#repos) is a set
+group, program, etc) that owns resources within S3DF. A [Repo](coact.md#repos) is a set
 of resources associated with a group of people within a facility -
 e.g., an LCLS experiment, a cryo-EM experiment, an effort within the
 accelerator directorate, etc.
@@ -26,14 +26,11 @@ us](contact-us.md) if you don't have funds to buy hardware but you
 would like to use dedicated resources within the S3DF.
 
 ### Partitions & Accounts
-
-For submitting jobs, you need to specify a two-ple: the cluster
+For submitting jobs, you need to specify a pair: the cluster
 (`partition` in Slurm terminology) and the Repo (`account` in
 Slurm). These two parameters indicate, respectively, which hardware to
 use and which Repo to charge for that particular job. You can use [Coact](https://coact.slac.stanford.edu) to determine
 what S3DF resources you have access to and how much has been used.
-
-![clusters](assets/s3df-slurm-clusters.png)
 
 Each Repo can have one of three stances in relation to a specific
 cluster:
@@ -43,26 +40,43 @@ cluster:
   from each facility will be allowed to create reservations. Users
   will submit jobs for this stance using the repo name and reservation
   name. For example:
-  `--partition milano --account lcls:xpp1234 --reservation lcls:xpp1234-230101-230105`
+  `--partition <partition> --account <facility>:<repo> --reservation <facility>:<repo>-<starttime>-<endtime>`
 
 2. Allocation: for repos within their allocation quota (for
   that cluster). This is the default stance and users will submit jobs
   for this stance using the repo name. For example:
-  `--partition milano --account lcls:xpp1234`
+  `--partition <partition> --account <facility>:<repo>`.
+  These jobs are limited by two things: the Repo's own allocation, and
+  a node limit on that cluster that is shared by every Repo in the
+  Facility. This means a job may wait in the queue even though your
+  Repo is under its allocation, if the rest of your Facility is
+  already using its share of the cluster.
 
-3. Preemptable: for repos above their quota or with no quota (for
-  that cluster). Jobs in this category may be preempted by higher
+3. Preemptable: for repos above their quota or with a 0% allocation
+  (for that cluster). Jobs in this category may be preempted by higher
   priority jobs. This is the opportunistic cycles stance, aka
   scavenger cycles, and jobs are submitted under the repo name
   and quality of service preemptable. For example:
-  `--partition milano --account lcls:xpp1234 --qos preemptable`
+  `--partition <partition> --account <facility>:<repo> --qos preemptable`.
+  Preemptable jobs do not count against your Facility's node limit, so
+  they can use any idle resources on the cluster; the trade-off is that
+  they may be terminated to make room for other jobs.
+
+| | `--qos normal` | `--qos preemptable` |
+| --- | --- | --- |
+| Limited by | your Repo's allocation, and your Facility's shared node limit on the cluster | only what is free on the cluster |
+| Can be preempted | No | Yes |
+| Allocation needed on the cluster | above 0% | 0% or more |
+| Default when `--qos` is not given | for allocations above 0% | for 0% allocations |
+| Account shown in `squeue`/`sacct` | `<facility>:<repo>@<partition>` | `<facility>:<repo>@<partition>^preemptable` |
+
+![Flowchart: if your Repo's allocation on the partition is above 0%, --qos normal or no --qos runs as normal and --qos preemptable runs as preemptable; if it is 0%, --qos preemptable or no --qos runs as preemptable and --qos normal is rejected; if your Repo has no allocation on the partition, the job is rejected and you should ask your Facility Czar for one](assets/diagrams/slurm-qos-flow.svg)
 
 As a matter of convention:
 
-- Default Slurm account = `<facility>`
+- Default Slurm account = `<facility>` (the Facility's `default` Repo; jobs in it always run as preemptable)
 - Repo Slurm account = `<facility>:<repo>`
 - Slurm reservation = `<facility>:<repo>-<starttime>-<endtime>`
-
 
 The mapping of repos to dedicated resource is dynamic. This is
 required, for example, to assign different nodes to a repo so that a
@@ -71,7 +85,28 @@ the amount of resources dedicated to real-time and fast-feedback
 activities within a cluster to match the actual requirements of a
 running experiment.
 
-![repostance](assets/s3df-slurm-repostance.png)
+![A partition's nodes: some reserved, some running one Facility's normal jobs up to its node limit while a new job from one of its Repos waits, some running another Facility's normal jobs, some running preemptable jobs, and some idle](assets/diagrams/slurm-partition-sharing.svg)
+
+#### Repos with a 0% allocation, or none
+
+A Repo needs a compute allocation on a cluster before it can run jobs
+there. With a 0% allocation it can only run preemptable jobs:
+submitting with `--qos normal` will be rejected, and if you do not
+specify `--qos` the job runs as preemptable, with a notice from Slurm.
+A Repo with no allocation at all on a cluster cannot run jobs there;
+ask your Facility Czar to add one.
+
+#### Account names in `squeue` and `sacct`
+
+Slurm records your job under a longer account name than the one you
+submit with:
+
+![Account name made of the facility and repo you type with --account, an @partition suffix added by Slurm from --partition, and a ^preemptable suffix added for --qos preemptable](assets/diagrams/slurm-account-names.svg)
+
+Use the full name when filtering, e.g.
+`sacct --account <facility>:<repo>@<partition>`. Jobs submitted with
+only `--account <facility>` use the Facility's default Repo, which only runs
+preemptable jobs.
 
 ### Batch Clusters
 
@@ -80,7 +115,7 @@ See the table below to determine the specifications for each cluster (slurm part
 | Partition name | CPU model | Useable cores per node | Useable memory per node | GPU model | GPUs per node | Local scratch | Number of nodes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | torino | AMD Turin 9555 | 120 | 720 GB | - | - | 6 TB | 52 |
-| hopper | AMD Turin 9575F | 224 (hyperthreaded) | 1344 GB | NVIDIA H200 | 4 | 21 TB | 3 |
+| hopper | AMD Turin 9575F | 224 (hyperthreaded) | 1344 GB | NVIDIA H200 | 4 or 8 ([see below](#hopper-gpu-nodes)) | 21 TB | 3 |
 | roma | AMD Rome 7702 | 120 | 480 GB | - | - | 300 GB | 131 |
 | milano | AMD Milan 7713 | 120 | 480 GB | - | - | 6 TB | 270 |
 | ampere | AMD Rome 7542 | 112 (hyperthreaded) | 952 GB | Tesla A100 (40GB) | 4 | 14 TB | 42 |
@@ -89,30 +124,37 @@ See the table below to determine the specifications for each cluster (slurm part
 
 ### Resource Restrictions
 
-Each slurm Account will have limitations set according to it's associated Coact Repo's [compute Allocation](coact.md#compute-allocation). Please contact your Facility Czar for information.
+Each slurm Account will have limitations set according to its associated Coact Repo's [compute Allocation](coact.md#compute-allocation). Please contact your Facility Czar for information.
 
-The [Coact](coact.md) system will keep track of the compute time spent by each Repo on
-each Cluster. Once a Repo reaches its computing quota on a cluster (as defined by its [Allocation](coact.md#compute-allocation)),
-further job submissions to that cluster will be paused.
-
+The [Coact](coact.md) system keeps track of the compute time spent by each Facility on
+each Cluster. If a Facility keeps using more than it has acquired on a cluster (see [Compute Allocation](coact.md#compute-allocation)),
+the normal jobs of all of its Repos on that cluster are held: they are still accepted, but stay pending
+until the Facility's usage drops. Preemptable jobs are not affected.
 
 ### Slurm Features and Constraints
 
-Batch nodes at S3DF have specific features (or labels) assigned which define certain characteristics of the nodes. Users can specify which of those features are required by their jobs using the slurm `constraint` options in their job submission. Only nodes with that match these defined contained/features will run the job.
+Batch nodes at S3DF have specific features (or labels) assigned which define certain characteristics of the nodes. Users can specify which of those features are required by their jobs using the slurm `constraint` options in their job submission. Only nodes that match the requested features will run the job.
 
-Multiple constraints may be specified during job submission. Please refer to the [official documentation](https://slurm.schedmd.com/sbatch.html) for more information. 
-
+Multiple constraints may be specified during job submission. Please refer to the [official documentation](https://slurm.schedmd.com/sbatch.html) for more information.
 
 #### High-Memory Milano Nodes
 
-Batch nodes that belong in the same partition have homogeneous software and hardware. However, for the `partition=milano`, S3DF supports some subtle hardware differences. High-memory Milano nodes allow preemptable jobs by from any user by default, even if the user does not explicitly specify the constraint identifying those nodes during job submission. This policy maximizes CPU usage and prevents the creation of small silos in the S3DF cluster.
+Batch nodes that belong in the same partition have homogeneous software and hardware. However, for the `partition=milano`, S3DF supports some subtle hardware differences. High-memory Milano nodes accept preemptable jobs from any user by default, even if the user does not explicitly specify the constraint identifying those nodes during job submission. This policy maximizes CPU usage and prevents the creation of small silos in the S3DF cluster.
 
-To run jobs specifically on high-memory nodes, you must submit the jobs using the corresponding constraint of `MEM_SZE:1920GB`. Only facilities whom have procured such nodes may run `qos=normal` jobs on these nodes:
+To run jobs specifically on high-memory nodes, you must submit the jobs using the corresponding constraint of `MEM_SZE:1920GB`. Only facilities that have procured such nodes may run `qos=normal` jobs on these nodes:
 
+```bash
+sbatch --constraint="MEM_SZE:1920GB" ...
 ```
-# sbatch --constraint="MEM_SZE:1920GB" ...
-```
 
-or include the same option in an `srun` script.
+or add `#SBATCH --constraint="MEM_SZE:1920GB"` to your batch script.
 
 ?> If your facility does not own any high-memory nodes, then any attempt to submit `qos=normal` jobs to high-memory nodes will fail.
+
+#### Default constraints on Milano
+
+Normal (non-preemptable) `milano` jobs that do not ask for a memory size with a `MEM_SZE:` constraint are sent to the standard-memory nodes automatically. Any other constraints you specify are kept and combined with it. See [High-Memory Milano Nodes](#high-memory-milano-nodes) above.
+
+#### Hopper GPU Nodes
+
+The `hopper` partition has nodes with either 4 or 8 H200 GPUs. The 8-GPU nodes are reserved for facilities that procured them; jobs from all other facilities are sent to the 4-GPU nodes automatically, and a request for `GPU_COUNT:8` will be rejected.
