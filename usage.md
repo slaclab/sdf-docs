@@ -23,7 +23,7 @@ Users can use SSH, NoMachine or a browser to log into the system. The login node
 
 - Don't perform compute intensive tasks on the interactive nodes, use the batch system instead.
 
-- Do be respectful of other users' jobs - you shall be sharing a limited set of nodes with many many other users. Please consider the type, size and quantity of jobs that you submit so that you do not starve others of compute resources. We do implement fair sharing to limit the impact upon others, however there are ways to game the system and your organization is charged time for the resources you utilize, see [batch banking](batch-compute.md#banking).
+- Do be respectful of other users' jobs - you shall be sharing a limited set of nodes with many many other users. Please consider the type, size and quantity of jobs that you submit so that you do not starve others of compute resources. We do implement fair sharing to limit the impact upon others, however there are ways to game the system and your organization is charged time for the resources you utilize, see [batch banking](batch-compute.md#resource-restrictions).
 
 - Don't run interactive sessions on the batch system for a long time. Opening an interactive session on SLURM (using `srun --pty bash`) and not actually running any heavy processes can be wasteful of resources and could potentially be preventing others from doing their work. Consider using the interactive pools or OnDemand for these activities.
 
