@@ -115,6 +115,10 @@
         {
           "type": "arrow",
           "id": "e12"
+        },
+        {
+          "type": "arrow",
+          "id": "e16"
         }
       ],
       "updated": 1,
@@ -124,9 +128,9 @@
     {
       "id": "e4",
       "type": "text",
-      "x": 411.08,
+      "x": 406.4,
       "y": 201.25,
-      "width": 177.84,
+      "width": 187.20000000000002,
       "height": 67.5,
       "angle": 0,
       "strokeColor": "#1e1e1e",
@@ -147,8 +151,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "Does your Repo have\nan allocation on\nthis partition?",
-      "originalText": "Does your Repo have\nan allocation on\nthis partition?",
+      "text": "What is your\nRepo's allocation on\nthis partition?",
+      "originalText": "What is your\nRepo's allocation on\nthis partition?",
       "fontSize": 18,
       "fontFamily": 2,
       "textAlign": "center",
@@ -241,11 +245,11 @@
         },
         {
           "type": "arrow",
-          "id": "e20"
+          "id": "e24"
         },
         {
           "type": "arrow",
-          "id": "e22"
+          "id": "e26"
         }
       ],
       "updated": 1,
@@ -321,11 +325,11 @@
         },
         {
           "type": "arrow",
-          "id": "e24"
+          "id": "e28"
         },
         {
           "type": "arrow",
-          "id": "e26"
+          "id": "e30"
         }
       ],
       "updated": 1,
@@ -427,9 +431,9 @@
     {
       "id": "e11",
       "type": "text",
-      "x": 235.96,
+      "x": 212.56,
       "y": 296.25,
-      "width": 28.080000000000002,
+      "width": 74.88,
       "height": 22.5,
       "angle": 0,
       "strokeColor": "#1e1e1e",
@@ -450,8 +454,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "Yes",
-      "originalText": "Yes",
+      "text": "Above 0%",
+      "originalText": "Above 0%",
       "fontSize": 18,
       "fontFamily": 2,
       "textAlign": "center",
@@ -542,8 +546,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "No",
-      "originalText": "No",
+      "text": "0%",
+      "originalText": "0%",
       "fontSize": 18,
       "fontFamily": 2,
       "textAlign": "center",
@@ -555,13 +559,13 @@
     {
       "id": "e14",
       "type": "rectangle",
-      "x": 0,
-      "y": 640,
-      "width": 290,
-      "height": 150,
+      "x": 870,
+      "y": 180,
+      "width": 260,
+      "height": 110,
       "angle": 0,
-      "strokeColor": "#1971c2",
-      "backgroundColor": "#a5d8ff",
+      "strokeColor": "#e03131",
+      "backgroundColor": "#ffc9c9",
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
@@ -583,7 +587,7 @@
         },
         {
           "type": "arrow",
-          "id": "e20"
+          "id": "e16"
         }
       ],
       "updated": 1,
@@ -593,10 +597,10 @@
     {
       "id": "e15",
       "type": "text",
-      "x": 7.719999999999999,
-      "y": 665.0,
-      "width": 274.56,
-      "height": 100.0,
+      "x": 904.3199999999999,
+      "y": 195.0,
+      "width": 191.36,
+      "height": 80.0,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -616,8 +620,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "Runs as normal\n\nLimited by your Repo's allocation\nand your Facility's node limit.\nNot preempted.",
-      "originalText": "Runs as normal\n\nLimited by your Repo's allocation\nand your Facility's node limit.\nNot preempted.",
+      "text": "Rejected\n\nNo allocation: ask your\nFacility Czar for one",
+      "originalText": "Rejected\n\nNo allocation: ask your\nFacility Czar for one",
       "fontSize": 16,
       "fontFamily": 2,
       "textAlign": "center",
@@ -628,14 +632,14 @@
     },
     {
       "id": "e16",
-      "type": "rectangle",
-      "x": 355,
-      "y": 640,
-      "width": 290,
-      "height": 150,
+      "type": "arrow",
+      "x": 690,
+      "y": 235,
+      "width": 180,
+      "height": 0,
       "angle": 0,
-      "strokeColor": "#e8590c",
-      "backgroundColor": "#ffd8a8",
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
@@ -643,9 +647,7 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": {
-        "type": 3
-      },
+      "roundness": null,
       "seed": 1631775358,
       "version": 1,
       "versionNonce": 415393688,
@@ -654,27 +656,43 @@
         {
           "type": "text",
           "id": "e17"
-        },
-        {
-          "type": "arrow",
-          "id": "e22"
-        },
-        {
-          "type": "arrow",
-          "id": "e24"
         }
       ],
       "updated": 1,
       "link": null,
-      "locked": false
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          180,
+          0
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": false,
+      "startBinding": {
+        "elementId": "e3",
+        "focus": 0,
+        "gap": 4
+      },
+      "endBinding": {
+        "elementId": "e14",
+        "focus": 0,
+        "gap": 4
+      }
     },
     {
       "id": "e17",
       "type": "text",
-      "x": 420.96,
-      "y": 675.0,
-      "width": 158.08,
-      "height": 80.0,
+      "x": 761.28,
+      "y": 223.75,
+      "width": 37.44,
+      "height": 22.5,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -694,9 +712,9 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "Runs as preemptable\n\nUses idle nodes.\nMay be preempted.",
-      "originalText": "Runs as preemptable\n\nUses idle nodes.\nMay be preempted.",
-      "fontSize": 16,
+      "text": "None",
+      "originalText": "None",
+      "fontSize": 18,
       "fontFamily": 2,
       "textAlign": "center",
       "verticalAlign": "middle",
@@ -707,13 +725,13 @@
     {
       "id": "e18",
       "type": "rectangle",
-      "x": 710,
+      "x": 0,
       "y": 640,
       "width": 290,
       "height": 150,
       "angle": 0,
-      "strokeColor": "#e03131",
-      "backgroundColor": "#ffc9c9",
+      "strokeColor": "#1971c2",
+      "backgroundColor": "#a5d8ff",
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
@@ -735,7 +753,7 @@
         },
         {
           "type": "arrow",
-          "id": "e26"
+          "id": "e24"
         }
       ],
       "updated": 1,
@@ -745,10 +763,10 @@
     {
       "id": "e19",
       "type": "text",
-      "x": 784.28,
-      "y": 675.0,
-      "width": 141.44,
-      "height": 80.0,
+      "x": 7.719999999999999,
+      "y": 665.0,
+      "width": 274.56,
+      "height": 100.0,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -768,8 +786,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "Rejected\n\nResubmit with\n--qos preemptable",
-      "originalText": "Rejected\n\nResubmit with\n--qos preemptable",
+      "text": "Runs as normal\n\nLimited by your Repo's allocation\nand your Facility's node limit.\nNot preempted.",
+      "originalText": "Runs as normal\n\nLimited by your Repo's allocation\nand your Facility's node limit.\nNot preempted.",
       "fontSize": 16,
       "fontFamily": 2,
       "textAlign": "center",
@@ -780,14 +798,14 @@
     },
     {
       "id": "e20",
-      "type": "arrow",
-      "x": 190,
-      "y": 520,
-      "width": 45,
-      "height": 120,
+      "type": "rectangle",
+      "x": 355,
+      "y": 640,
+      "width": 290,
+      "height": 150,
       "angle": 0,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "transparent",
+      "strokeColor": "#e8590c",
+      "backgroundColor": "#ffd8a8",
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
@@ -795,7 +813,9 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": null,
+      "roundness": {
+        "type": 3
+      },
       "seed": 1625792788,
       "version": 1,
       "versionNonce": 338444265,
@@ -804,43 +824,27 @@
         {
           "type": "text",
           "id": "e21"
+        },
+        {
+          "type": "arrow",
+          "id": "e26"
+        },
+        {
+          "type": "arrow",
+          "id": "e28"
         }
       ],
       "updated": 1,
       "link": null,
-      "locked": false,
-      "points": [
-        [
-          0,
-          0
-        ],
-        [
-          -45,
-          120
-        ]
-      ],
-      "lastCommittedPoint": null,
-      "startArrowhead": null,
-      "endArrowhead": "arrow",
-      "elbowed": false,
-      "startBinding": {
-        "elementId": "e6",
-        "focus": 0,
-        "gap": 4
-      },
-      "endBinding": {
-        "elementId": "e14",
-        "focus": 0,
-        "gap": 4
-      }
+      "locked": false
     },
     {
       "id": "e21",
       "type": "text",
-      "x": 117.58,
-      "y": 560.0,
-      "width": 99.84,
-      "height": 40.0,
+      "x": 420.96,
+      "y": 675.0,
+      "width": 158.08,
+      "height": 80.0,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -860,8 +864,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "normal,\nor not given",
-      "originalText": "normal,\nor not given",
+      "text": "Runs as preemptable\n\nUses idle nodes.\nMay be preempted.",
+      "originalText": "Runs as preemptable\n\nUses idle nodes.\nMay be preempted.",
       "fontSize": 16,
       "fontFamily": 2,
       "textAlign": "center",
@@ -872,14 +876,14 @@
     },
     {
       "id": "e22",
-      "type": "arrow",
-      "x": 340,
-      "y": 450,
-      "width": 110,
-      "height": 190,
+      "type": "rectangle",
+      "x": 710,
+      "y": 640,
+      "width": 290,
+      "height": 150,
       "angle": 0,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "transparent",
+      "strokeColor": "#e03131",
+      "backgroundColor": "#ffc9c9",
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
@@ -887,7 +891,9 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": null,
+      "roundness": {
+        "type": 3
+      },
       "seed": 825873197,
       "version": 1,
       "versionNonce": 298737107,
@@ -896,43 +902,23 @@
         {
           "type": "text",
           "id": "e23"
+        },
+        {
+          "type": "arrow",
+          "id": "e30"
         }
       ],
       "updated": 1,
       "link": null,
-      "locked": false,
-      "points": [
-        [
-          0,
-          0
-        ],
-        [
-          110,
-          190
-        ]
-      ],
-      "lastCommittedPoint": null,
-      "startArrowhead": null,
-      "endArrowhead": "arrow",
-      "elbowed": false,
-      "startBinding": {
-        "elementId": "e6",
-        "focus": 0,
-        "gap": 4
-      },
-      "endBinding": {
-        "elementId": "e16",
-        "focus": 0,
-        "gap": 4
-      }
+      "locked": false
     },
     {
       "id": "e23",
       "type": "text",
-      "x": 349.24,
-      "y": 535.0,
-      "width": 91.52000000000001,
-      "height": 20.0,
+      "x": 784.28,
+      "y": 675.0,
+      "width": 141.44,
+      "height": 80.0,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -952,8 +938,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "preemptable",
-      "originalText": "preemptable",
+      "text": "Rejected\n\nResubmit with\n--qos preemptable",
+      "originalText": "Rejected\n\nResubmit with\n--qos preemptable",
       "fontSize": 16,
       "fontFamily": 2,
       "textAlign": "center",
@@ -965,10 +951,10 @@
     {
       "id": "e24",
       "type": "arrow",
-      "x": 660,
-      "y": 450,
-      "width": 110,
-      "height": 190,
+      "x": 190,
+      "y": 520,
+      "width": 45,
+      "height": 120,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -999,8 +985,8 @@
           0
         ],
         [
-          -110,
-          190
+          -45,
+          120
         ]
       ],
       "lastCommittedPoint": null,
@@ -1008,12 +994,12 @@
       "endArrowhead": "arrow",
       "elbowed": false,
       "startBinding": {
-        "elementId": "e8",
+        "elementId": "e6",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "e16",
+        "elementId": "e18",
         "focus": 0,
         "gap": 4
       }
@@ -1021,8 +1007,8 @@
     {
       "id": "e25",
       "type": "text",
-      "x": 555.08,
-      "y": 525.0,
+      "x": 117.58,
+      "y": 560.0,
       "width": 99.84,
       "height": 40.0,
       "angle": 0,
@@ -1044,8 +1030,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "preemptable,\nor not given",
-      "originalText": "preemptable,\nor not given",
+      "text": "normal,\nor not given",
+      "originalText": "normal,\nor not given",
       "fontSize": 16,
       "fontFamily": 2,
       "textAlign": "center",
@@ -1057,10 +1043,10 @@
     {
       "id": "e26",
       "type": "arrow",
-      "x": 810,
-      "y": 520,
-      "width": 45,
-      "height": 120,
+      "x": 340,
+      "y": 450,
+      "width": 110,
+      "height": 190,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -1091,8 +1077,8 @@
           0
         ],
         [
-          45,
-          120
+          110,
+          190
         ]
       ],
       "lastCommittedPoint": null,
@@ -1100,12 +1086,12 @@
       "endArrowhead": "arrow",
       "elbowed": false,
       "startBinding": {
-        "elementId": "e8",
+        "elementId": "e6",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "e18",
+        "elementId": "e20",
         "focus": 0,
         "gap": 4
       }
@@ -1113,9 +1099,9 @@
     {
       "id": "e27",
       "type": "text",
-      "x": 807.54,
-      "y": 570.0,
-      "width": 49.92,
+      "x": 349.24,
+      "y": 535.0,
+      "width": 91.52000000000001,
       "height": 20.0,
       "angle": 0,
       "strokeColor": "#1e1e1e",
@@ -1136,8 +1122,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "normal",
-      "originalText": "normal",
+      "text": "preemptable",
+      "originalText": "preemptable",
       "fontSize": 16,
       "fontFamily": 2,
       "textAlign": "center",
@@ -1148,13 +1134,13 @@
     },
     {
       "id": "e28",
-      "type": "text",
-      "x": 0,
-      "y": 820,
-      "width": 748.8000000000001,
-      "height": 20.0,
+      "type": "arrow",
+      "x": 660,
+      "y": 450,
+      "width": 110,
+      "height": 190,
       "angle": 0,
-      "strokeColor": "#495057",
+      "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
       "strokeWidth": 2,
@@ -1168,12 +1154,196 @@
       "version": 1,
       "versionNonce": 1589915145,
       "isDeleted": false,
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "e29"
+        }
+      ],
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -110,
+          190
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": false,
+      "startBinding": {
+        "elementId": "e8",
+        "focus": 0,
+        "gap": 4
+      },
+      "endBinding": {
+        "elementId": "e20",
+        "focus": 0,
+        "gap": 4
+      }
+    },
+    {
+      "id": "e29",
+      "type": "text",
+      "x": 555.08,
+      "y": 525.0,
+      "width": 99.84,
+      "height": 40.0,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 1525876052,
+      "version": 1,
+      "versionNonce": 899825839,
+      "isDeleted": false,
       "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "--account <facility> on its own uses the Facility's default Repo, which has no allocation.",
-      "originalText": "--account <facility> on its own uses the Facility's default Repo, which has no allocation.",
+      "text": "preemptable,\nor not given",
+      "originalText": "preemptable,\nor not given",
+      "fontSize": 16,
+      "fontFamily": 2,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "e28",
+      "autoResize": true,
+      "lineHeight": 1.25
+    },
+    {
+      "id": "e30",
+      "type": "arrow",
+      "x": 810,
+      "y": 520,
+      "width": 45,
+      "height": 120,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 1146660998,
+      "version": 1,
+      "versionNonce": 306671448,
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "e31"
+        }
+      ],
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          45,
+          120
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": false,
+      "startBinding": {
+        "elementId": "e8",
+        "focus": 0,
+        "gap": 4
+      },
+      "endBinding": {
+        "elementId": "e22",
+        "focus": 0,
+        "gap": 4
+      }
+    },
+    {
+      "id": "e31",
+      "type": "text",
+      "x": 807.54,
+      "y": 570.0,
+      "width": 49.92,
+      "height": 20.0,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 735034882,
+      "version": 1,
+      "versionNonce": 1051454924,
+      "isDeleted": false,
+      "boundElements": [],
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "text": "normal",
+      "originalText": "normal",
+      "fontSize": 16,
+      "fontFamily": 2,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "e30",
+      "autoResize": true,
+      "lineHeight": 1.25
+    },
+    {
+      "id": "e32",
+      "type": "text",
+      "x": 0,
+      "y": 820,
+      "width": 823.6800000000001,
+      "height": 20.0,
+      "angle": 0,
+      "strokeColor": "#495057",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 701808368,
+      "version": 1,
+      "versionNonce": 1985392499,
+      "isDeleted": false,
+      "boundElements": [],
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "text": "--account <facility> on its own uses the Facility's default Repo, which only runs preemptable jobs.",
+      "originalText": "--account <facility> on its own uses the Facility's default Repo, which only runs preemptable jobs.",
       "fontSize": 16,
       "fontFamily": 2,
       "textAlign": "left",

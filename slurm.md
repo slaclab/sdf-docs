@@ -64,6 +64,8 @@ In order to submit a batch job, you have to:
 2. [submit this batch script](#submit-the-job) to the cluster using the `sbatch` command
 3. [monitor the job](#monitor-job-progress) using `squeue --me`
 
+?> New to S3DF? The flowchart in [Running your first batch job](get-started.md#running-your-first-batch-job) walks you from getting an account to choosing your `#SBATCH` options.
+
 ![Job lifecycle: a batch script is submitted with sbatch and becomes PENDING, then RUNNING, and ends as COMPLETED, FAILED or OUT_OF_MEMORY, TIMEOUT, PREEMPTED or CANCELLED, with the commands used to check each stage](assets/diagrams/slurm-job-lifecycle.svg)
 
 ### Create a Batch Script

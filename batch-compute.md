@@ -52,8 +52,8 @@ cluster:
   Repo is under its allocation, if the rest of your Facility is
   already using its share of the cluster.
 
-3. Preemptable: for repos above their quota or with no quota (for
-  that cluster). Jobs in this category may be preempted by higher
+3. Preemptable: for repos above their quota or with a 0% allocation
+  (for that cluster). Jobs in this category may be preempted by higher
   priority jobs. This is the opportunistic cycles stance, aka
   scavenger cycles, and jobs are submitted under the repo name
   and quality of service preemptable. For example:
@@ -62,14 +62,15 @@ cluster:
   they can use any idle resources on the cluster; the trade-off is that
   they may be stopped to make room for other jobs.
 
-| | `--qos normal` (default) | `--qos preemptable` |
+| | `--qos normal` | `--qos preemptable` |
 | --- | --- | --- |
 | Limited by | your Repo's allocation, and your Facility's shared node limit on the cluster | only what is free on the cluster |
 | Can be preempted | No | Yes |
-| Needs an allocation on the cluster | Yes | No |
+| Allocation needed on the cluster | above 0% | 0% or more |
+| Default when `--qos` is not given | for allocations above 0% | for 0% allocations |
 | Account shown in `squeue`/`sacct` | `<facility>:<repo>@<partition>` | `<facility>:<repo>@<partition>^preemptable` |
 
-![Flowchart: if your Repo has an allocation on the partition, --qos normal or no --qos runs as normal and --qos preemptable runs as preemptable; if it has no allocation, --qos preemptable or no --qos runs as preemptable and --qos normal is rejected](assets/diagrams/slurm-qos-flow.svg)
+![Flowchart: if your Repo's allocation on the partition is above 0%, --qos normal or no --qos runs as normal and --qos preemptable runs as preemptable; if it is 0%, --qos preemptable or no --qos runs as preemptable and --qos normal is rejected; if your Repo has no allocation on the partition, the job is rejected and you should ask your Facility Czar for one](assets/diagrams/slurm-qos-flow.svg)
 
 As a matter of convention:
 
@@ -86,16 +87,14 @@ running experiment.
 
 ![A partition's nodes: some reserved, some running one Facility's normal jobs up to its node limit while a new job from one of its Repos waits, some running another Facility's normal jobs, some running preemptable jobs, and some idle](assets/diagrams/slurm-partition-sharing.svg)
 
-#### Repos without an allocation on a cluster
+#### Repos with a 0% allocation, or none
 
-If your Repo has no allocation on the cluster you submit to, it can
-only run preemptable jobs there. Submitting with `--qos normal` will be
-rejected.
-
-As with any job, if you do not specify `--qos`, Slurm uses your
-account's default QoS. For a Repo without an allocation on the
-cluster, that default is `preemptable`, and Slurm prints a notice
-saying the job is running as preemptable.
+A Repo needs a compute allocation on a cluster before it can run jobs
+there. With a 0% allocation it can only run preemptable jobs:
+submitting with `--qos normal` will be rejected, and if you do not
+specify `--qos` the job runs as preemptable, with a notice from Slurm.
+A Repo with no allocation at all on a cluster cannot run jobs there;
+ask your Facility Czar to add one.
 
 #### Account names in `squeue` and `sacct`
 
@@ -106,8 +105,8 @@ submit with:
 
 Use the full name when filtering, e.g.
 `sacct --account <facility>:<repo>@<partition>`. Jobs submitted with
-only `--account <facility>` use the Facility's default Repo, which has
-no allocation, so they always run as preemptable.
+only `--account <facility>` use the Facility's default Repo, which only runs
+preemptable jobs.
 
 ### Batch Clusters
 
