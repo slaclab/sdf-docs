@@ -72,6 +72,7 @@ Create a job submission script (text file) `script.sh` (or whatever filename you
 #!/bin/bash
  
 #SBATCH --partition=milano
+#SBATCH --account=<facility>:<repo>
 #
 #SBATCH --job-name=test
 #SBATCH --output=output-%j.txt
@@ -93,7 +94,7 @@ In the above example, we write a batch script for a job named 'test' (using the 
 
 ?> __TIP:__ only lines starting with `#SBATCH ` will be processed by the slurm interpretor. As the script itself is just a bash script, any line beginning with `#` will be ignored. As such you may also comment out slurm directives by using somethign like `##SBATCH`
 
-We can define [where the job will run](#partition) using the `--partition` option. 
+We can define [where the job will run](#partition) using the `--partition` option, and which Repo the job is charged to using the `--account` option. See [Partitions & Accounts](batch-compute.md#partitions-amp-accounts) for how accounts, allocations and the `normal`/`preemptable` QoS work at S3DF.
 
 ?> You can think of the batch script as a shell script but with some extra directives that only slurm understand. As such, you can also just run the same script in hte command line to ensure that your job will work; ie `sh script.sh` will run the same set of commands but on the local host. This therefore also means that if you already have a shell script that runs your code, you can 'slurmify' it by adding slurm directives with `#SBATCH`. Please note, however, that if you are using GPUs in your code etc. the login node may not have any GPUs and hence your local run will fail.
 
@@ -198,5 +199,7 @@ ampere       23    23/0/0/23      2:64:2  1029344 0          10-00:00:00 gpu:a10
 
 This is often due to limited resources. The simplest way is to request less CPU (`--cpus`) or less memory (`--mem`for your Job. However, this will also likely increase the amount of time that you need for the Job to complete. Note that perfect scaling is often very difficult (ie using 16 CPUs will not run twice as fast as 8 CPUs, as will using 4 nodes via MPI will not run twice as fast as 2 nodes), so it may be beneficial to submit many smaller Jobs if your code allows it. You can also set the `--time` option to specify that your job will only run upto that amount of time so that the scheduler can better fit your job in.
 
-You can also make use of the Scavenger QoS such that your job may run on any available resources available at SLAC. This, however, has the disadvantage that should higher priority jobs run on the same resources, your jobs may be terminated (preempted) - possibly before it has completed.
+If your Repo still has allocation to spare but your jobs stay pending, your Facility may already be using its full share of the cluster: all Repos in a Facility share a single node limit for normal jobs. `squeue` will show a pending reason starting with `AssocGrp` in this case.
+
+You can also submit with `--qos preemptable` so that your job may run on any idle resources at SLAC, without counting against your Facility's limit. This, however, has the disadvantage that should higher priority jobs need the same resources, your jobs may be terminated (preempted) - possibly before they have completed. See [Partitions & Accounts](batch-compute.md#partitions-amp-accounts) for details.
 

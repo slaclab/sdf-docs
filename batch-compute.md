@@ -25,7 +25,7 @@ within S3DF, but resources can also be assigned by SLAC. [Talk with
 us](contact-us.md) if you don't have funds to buy hardware but you
 would like to use dedicated resources within the S3DF.
 
-### Partitions & Accounts
+### Partitions & Accounts :id=partitions-amp-accounts
 
 For submitting jobs, you need to specify a two-ple: the cluster
 (`partition` in Slurm terminology) and the Repo (`account` in
@@ -48,21 +48,35 @@ cluster:
 2. Allocation: for repos within their allocation quota (for
   that cluster). This is the default stance and users will submit jobs
   for this stance using the repo name. For example:
-  `--partition milano --account lcls:xpp1234`
+  `--partition milano --account lcls:xpp1234`.
+  These jobs are limited by two things: the Repo's own allocation, and
+  a node limit on that cluster that is shared by every Repo in the
+  Facility. This means a job may wait in the queue even though your
+  Repo is under its allocation, if the rest of your Facility is
+  already using its share of the cluster.
 
 3. Preemptable: for repos above their quota or with no quota (for
   that cluster). Jobs in this category may be preempted by higher
   priority jobs. This is the opportunistic cycles stance, aka
   scavenger cycles, and jobs are submitted under the repo name
   and quality of service preemptable. For example:
-  `--partition milano --account lcls:xpp1234 --qos preemptable`
+  `--partition milano --account lcls:xpp1234 --qos preemptable`.
+  Preemptable jobs do not count against your Facility's node limit, so
+  they can use any idle resources on the cluster; the trade-off is that
+  they may be stopped to make room for other jobs.
+
+| | `--qos normal` (default) | `--qos preemptable` |
+| --- | --- | --- |
+| Limited by | your Repo's allocation, and your Facility's shared node limit on the cluster | only what is free on the cluster |
+| Can be preempted | No | Yes |
+| Needs an allocation on the cluster | Yes | No |
+| Account shown in `squeue`/`sacct` | `<facility>:<repo>@<partition>` | `<facility>:<repo>@<partition>^preemptable` |
 
 As a matter of convention:
 
 - Default Slurm account = `<facility>`
 - Repo Slurm account = `<facility>:<repo>`
 - Slurm reservation = `<facility>:<repo>-<starttime>-<endtime>`
-
 
 The mapping of repos to dedicated resource is dynamic. This is
 required, for example, to assign different nodes to a repo so that a
@@ -72,6 +86,34 @@ activities within a cluster to match the actual requirements of a
 running experiment.
 
 ![repostance](assets/s3df-slurm-repostance.png)
+
+#### Repos without an allocation on a cluster
+
+If your Repo has no allocation on the cluster you submit to, it can
+only run preemptable jobs there. Submitting with `--qos normal` will be
+rejected with a message like:
+
+```
+account rubin:myrepo@milano has no allocation on this partition, so qos=normal is not allowed; submit with --qos=preemptable
+```
+
+As with any job, if you do not specify `--qos`, Slurm uses your
+account's default QoS. For a Repo without an allocation on the
+cluster, that default is `preemptable`, and Slurm prints a notice
+saying the job is running as preemptable.
+
+#### Account names in `squeue` and `sacct`
+
+You always submit with `--account <facility>:<repo>`, but Slurm
+records the job under a more specific name that includes the cluster,
+and for preemptable jobs a `^preemptable` suffix. For example, a job
+submitted with `--partition milano --account rubin:myrepo` shows up as
+`rubin:myrepo@milano`, or `rubin:myrepo@milano^preemptable` if it is
+preemptable. Use the full name when filtering, e.g.
+`sacct --account rubin:myrepo@milano`. Submitting with only
+`--account <facility>` still uses the Facility's default Repo,
+`<facility>:default`.
+
 
 ### Batch Clusters
 
@@ -91,9 +133,10 @@ See the table below to determine the specifications for each cluster (slurm part
 
 Each slurm Account will have limitations set according to it's associated Coact Repo's [compute Allocation](coact.md#compute-allocation). Please contact your Facility Czar for information.
 
-The [Coact](coact.md) system will keep track of the compute time spent by each Repo on
-each Cluster. Once a Repo reaches its computing quota on a cluster (as defined by its [Allocation](coact.md#compute-allocation)),
-further job submissions to that cluster will be paused.
+The [Coact](coact.md) system keeps track of the compute time spent by each Facility on
+each Cluster. If a Facility keeps using more than it has acquired on a cluster (see [Compute Allocation](coact.md#compute-allocation)),
+the normal jobs of all of its Repos on that cluster are held: they are still accepted, but stay pending
+until the Facility's usage drops. Preemptable jobs are not affected.
 
 
 ### Slurm Features and Constraints
