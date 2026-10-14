@@ -32,8 +32,6 @@ Slurm). These two parameters indicate, respectively, which hardware to
 use and which Repo to charge for that particular job. You can use [Coact](https://coact.slac.stanford.edu) to determine
 what S3DF resources you have access to and how much has been used.
 
-![clusters](assets/s3df-slurm-clusters.png)
-
 Each Repo can have one of three stances in relation to a specific
 cluster:
 
@@ -42,12 +40,12 @@ cluster:
   from each facility will be allowed to create reservations. Users
   will submit jobs for this stance using the repo name and reservation
   name. For example:
-  `--partition milano --account lcls:xpp1234 --reservation lcls:xpp1234-230101-230105`
+  `--partition <partition> --account <facility>:<repo> --reservation <facility>:<repo>-<starttime>-<endtime>`
 
 2. Allocation: for repos within their allocation quota (for
   that cluster). This is the default stance and users will submit jobs
   for this stance using the repo name. For example:
-  `--partition milano --account lcls:xpp1234`.
+  `--partition <partition> --account <facility>:<repo>`.
   These jobs are limited by two things: the Repo's own allocation, and
   a node limit on that cluster that is shared by every Repo in the
   Facility. This means a job may wait in the queue even though your
@@ -59,7 +57,7 @@ cluster:
   priority jobs. This is the opportunistic cycles stance, aka
   scavenger cycles, and jobs are submitted under the repo name
   and quality of service preemptable. For example:
-  `--partition milano --account lcls:xpp1234 --qos preemptable`.
+  `--partition <partition> --account <facility>:<repo> --qos preemptable`.
   Preemptable jobs do not count against your Facility's node limit, so
   they can use any idle resources on the cluster; the trade-off is that
   they may be stopped to make room for other jobs.
@@ -70,6 +68,8 @@ cluster:
 | Can be preempted | No | Yes |
 | Needs an allocation on the cluster | Yes | No |
 | Account shown in `squeue`/`sacct` | `<facility>:<repo>@<partition>` | `<facility>:<repo>@<partition>^preemptable` |
+
+![Flowchart: if your Repo has an allocation on the partition, --qos normal or no --qos runs as normal and --qos preemptable runs as preemptable; if it has no allocation, --qos preemptable or no --qos runs as preemptable and --qos normal is rejected](assets/diagrams/slurm-qos-flow.svg)
 
 As a matter of convention:
 
@@ -84,7 +84,7 @@ the amount of resources dedicated to real-time and fast-feedback
 activities within a cluster to match the actual requirements of a
 running experiment.
 
-![repostance](assets/s3df-slurm-repostance.png)
+![A partition's nodes: some reserved, some running one Facility's normal jobs up to its node limit while a new job from one of its Repos waits, some running another Facility's normal jobs, some running preemptable jobs, and some idle](assets/diagrams/slurm-partition-sharing.svg)
 
 #### Repos without an allocation on a cluster
 
@@ -99,18 +99,15 @@ saying the job is running as preemptable.
 
 #### Account names in `squeue` and `sacct`
 
-You always submit with `--account <facility>:<repo>`, but Slurm
-records the job under a more specific name that includes the cluster,
-and for preemptable jobs a `^preemptable` suffix. For example, a job
-submitted with `--partition milano --account rubin:myrepo` shows up as
-`rubin:myrepo@milano`, or `rubin:myrepo@milano^preemptable` if it is
-preemptable. Use the full name when filtering, e.g.
-`sacct --account rubin:myrepo@milano`.
+Slurm records your job under a longer account name than the one you
+submit with:
 
-Submitting with only `--account <facility>` uses the Facility's
-default Repo, which shows up as `<facility>:default@<partition>`
-(without a `^preemptable` suffix). The default Repo has no allocation,
-so its jobs always run as preemptable and `--qos normal` is rejected.
+![Account name made of the facility and repo you type with --account, an @partition suffix added by Slurm from --partition, and a ^preemptable suffix added for --qos preemptable](assets/diagrams/slurm-account-names.svg)
+
+Use the full name when filtering, e.g.
+`sacct --account <facility>:<repo>@<partition>`. Jobs submitted with
+only `--account <facility>` use the Facility's default Repo, which has
+no allocation, so they always run as preemptable.
 
 ### Batch Clusters
 
@@ -157,8 +154,8 @@ or add `#SBATCH --constraint="MEM_SZE:1920GB"` to your batch script.
 
 #### Default constraints on Milano
 
-Normal (non-preemptable) `milano` jobs that do not ask for a memory size with a `MEM_SZE:` constraint are sent to the standard-memory nodes automatically (`MEM_SZE:480GB`). Any other constraints you specify are kept and combined with it. See [High-Memory Milano Nodes](#high-memory-milano-nodes) above.
+Normal (non-preemptable) `milano` jobs that do not ask for a memory size with a `MEM_SZE:` constraint are sent to the standard-memory nodes automatically. Any other constraints you specify are kept and combined with it. See [High-Memory Milano Nodes](#high-memory-milano-nodes) above.
 
 #### Hopper GPU Nodes
 
-The `hopper` partition has nodes with either 4 or 8 H200 GPUs. The 8-GPU nodes are reserved for the facility that procured them; jobs from all other facilities are sent to the 4-GPU nodes automatically, and a request for `GPU_COUNT:8` will be rejected.
+The `hopper` partition has nodes with either 4 or 8 H200 GPUs. The 8-GPU nodes are reserved for facilities that procured them; jobs from all other facilities are sent to the 4-GPU nodes automatically, and a request for `GPU_COUNT:8` will be rejected.

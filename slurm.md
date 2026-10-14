@@ -64,6 +64,8 @@ In order to submit a batch job, you have to:
 2. [submit this batch script](#submit-the-job) to the cluster using the `sbatch` command
 3. [monitor the job](#monitor-job-progress) using `squeue --me`
 
+![Job lifecycle: a batch script is submitted with sbatch and becomes PENDING, then RUNNING, and ends as COMPLETED, FAILED or OUT_OF_MEMORY, TIMEOUT, PREEMPTED or CANCELLED, with the commands used to check each stage](assets/diagrams/slurm-job-lifecycle.svg)
+
 ### Create a Batch Script
 
 Create a job submission script (text file) `script.sh` (or whatever filename you wish):
@@ -178,7 +180,7 @@ srun -A <facility>:<repo> -p ampere -n 1 --gpus 1 --pty /bin/bash
 sinfo -o "%12P %5D %14F %7z %7m %10d %11l %42G %38N %f"
 ```
 
-This prints one line per partition. The `GRES` column shows the type and number of GPUs per node (e.g. `gpu:a100:4`), and `NODES(A/I/O/T)` shows how many nodes are allocated, idle, other (e.g. down) and in total. See [Batch Clusters](batch-compute.md#batch-clusters) for a summary of the GPU partitions.
+This prints one line per partition. The `GRES` column shows the type and number of GPUs per node (as `gpu:<type>:<count>`), and `NODES(A/I/O/T)` shows how many nodes are allocated, idle, other (e.g. down) and in total. See [Batch Clusters](batch-compute.md#batch-clusters) for a summary of the GPU partitions.
 
 
 ## Why is My Job taking a long time to start?
