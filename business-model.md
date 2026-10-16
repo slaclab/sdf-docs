@@ -1,6 +1,6 @@
 # S3DF Business Model
 
-## Rules of Engagement
+## General Policies
 
 ### Storage
 
