@@ -157,4 +157,8 @@ Normal (non-preemptable) `milano` jobs that do not ask for a memory size with a 
 
 #### Hopper GPU Nodes
 
-The `hopper` partition has nodes with either 4 or 8 H200 GPUs. The 8-GPU nodes are reserved for facilities that procured them; jobs from all other facilities are sent to the 4-GPU nodes automatically, and a request for `GPU_COUNT:8` will be rejected.
+The `hopper` partition has nodes with either 4 or 8 H200 GPUs. As with the high-memory Milano nodes, preemptable jobs from any user may run on any `hopper` node, including the 8-GPU nodes.
+
+Only facilities that have procured the 8-GPU nodes may run `qos=normal` jobs on them, and their normal jobs are sent to those nodes automatically. Normal jobs from all other facilities are sent to the 4-GPU nodes automatically.
+
+?> If your facility does not own any 8-GPU nodes, then any attempt to submit `qos=normal` jobs with `--constraint="GPU_COUNT:8"` will fail.
