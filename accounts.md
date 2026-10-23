@@ -1,10 +1,18 @@
 # Accounts
 
-S3DF uses SLAC Account credentials for authentication and authorization. This SLAC Account must also be registered with S3DF. Once registered, you can then [access S3DF resources](access.md).
+S3DF uses SLAC Account credentials for authentication and authorization. To use S3DF you need:
+
+1. A **SLAC Account** (the Windows/Active Directory account issued by SLAC IT).
+2. A **UNIX account**, requested separately. A SLAC Account no longer comes with a UNIX account.
+3. **S3DF access**, granted when you register your account with S3DF.
+
+Once registered, you can then [access S3DF resources](access.md).
+
+!> If you have only a SLAC Account, you will not be able to get S3DF access. You must also have a UNIX account. See [Requesting a UNIX account](#unix-account).
 
 ## Getting a SLAC Account (existing S3DF users)
 
-If you are currently using S3DF with a deprecated Unix account, please use this [self-service application to create your SLAC Account](https://ad-account.slac.stanford.edu).
+If you are currently using S3DF with only a Unix account, please use this [self-service application to create your SLAC Account](https://ad-account.slac.stanford.edu).
 If the application reports you already have an existing SLAC Account, contact the [SLAC IT Service Desk](https://it.slac.stanford.edu/support) and request re-enablement or password reset.
 
 ## Getting a SLAC Account (new S3DF users)
@@ -27,7 +35,9 @@ If you are a SLAC employee, affiliated researcher, or experimental facility user
 
 3. Ask your [SLAC Point of Contact](contact-us.md#facpoc) to submit a ticket to SLAC IT requesting a SLAC Account on your behalf.
 
-4. Once you have received a SLAC Account from SLAC IT, you must **register with S3DF**:
+4. Once you have received a SLAC Account, **request a UNIX account**. See [Requesting a UNIX account](#unix-account) below.
+
+5. Once you have both a SLAC Account and a UNIX account, you must **register with S3DF**:
 
   a) Log into the [Coact User Portal (https://coact.slac.stanford.edu)](https://coact.slac.stanford.edu) using your SLAC Account via the "SLAC Account" option.  
 
@@ -41,6 +51,16 @@ If you are a SLAC employee, affiliated researcher, or experimental facility user
 
 ?> Your S3DF facility computing czar may have already pre-registered your account in S3DF so that the above step of Requesting access to a Facility in Coact is not necessary. In such cases, you will instead receive an email asking for you to log in to https://coact.slac.stanford.edu to activate your account.
 
+## Requesting a UNIX account :id=unix-account
+
+A SLAC Account does not include a UNIX account. You need both before you can be enabled for S3DF.
+
+To request a UNIX account, you or your supervisor should submit a request using the [SLAC Computer Account Request form](https://slacprod.servicenowservices.com/it_services?id=sc_cat_item&sys_id=17176b676ff12100aae0c6012e3ee4f7&sysparm_category=d65827c46fd921009c4235af1e3ee434&catalog_id=e0d08b13c3330100c8b837659bba8fb4):
+
+* **Request Type**: "New Individual account"
+* **Account Type**: "Heimdal (UNIX)"
+
+Once your UNIX account has been created, continue with [registering with S3DF](#getting-a-slac-account-new-s3df-users).
 
 ## Managing your SLAC Account :id=managing-account
 
