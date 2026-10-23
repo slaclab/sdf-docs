@@ -89,4 +89,4 @@ Open Ondemand is a web-based portal for accessing S3DF resources. You may:
 2. Utilize GUI-based scientific applications such as Jupyter notebooks and CryoSPARC.
 3. Monitor and manage your batch jobs running in S3DF.
 
-Log in to S3DF Ondemand at [https://s3df.slac.stanford.edu/ondemand](https://s3df.slac.stanford.edu/ondemand). You can find more information about using OnDemand in the [OnDemand reference](interactive-compute.md#ondemand).
+Log in to S3DF Ondemand at [https://s3df.slac.stanford.edu/ondemand](https://s3df.slac.stanford.edu/ondemand). You can find more information about using OnDemand in the [OnDemand reference](interactive-compute.md#using-a-browser-and-ondemand).
