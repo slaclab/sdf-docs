@@ -1,0 +1,19 @@
+# Gateway API replacement for ingress.yaml. Both stay applied until the DNS cutover of
+# s3df.slac.stanford.edu to lb01-sdf-k8s01-gw; then remove ingress.yaml from kustomization.yaml and
+# kubectl delete the Ingress (apply -k doesn't prune). Public site: no auth annotation.
+# parentRefs are injected by Kyverno (generate-k-mirror-vcluster-httproute-and-middleware-k-all).
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: sdf-docs
+spec:
+  hostnames:
+    - s3df.slac.stanford.edu
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: sdf-docs
+          port: 80

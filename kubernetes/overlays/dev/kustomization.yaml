@@ -2,6 +2,7 @@ namespace: dev
 resources:
 - ns.yaml
 - ingress.yaml
+- httproute.yaml
 - service.yaml
 - deployment.yaml
 
